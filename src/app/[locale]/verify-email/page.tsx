@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
+import axiosInstance from "@/app/utils/axiosInstance";
 import Error from "next/error";
 
 const VerifyEmailPage = () => {
@@ -28,29 +29,27 @@ const VerifyEmailPage = () => {
 
   const sendVerificationEmail = async (token: string) => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/verify-email?token=${token}`,
+      const response = await axiosInstance.get(
+        `/auth/verify-email?token=${token}`,
         {
-          method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      if (response.ok) {
+      if (response.status === 200) {
         router.push("/");
-      } else {
-        const errorData = await response.json();
-        console.log("Error:", errorData.error);
-        if (errorData.error === "token_expired") {
-          router.push("/");
-        } else if (errorData.error === "invalid_token") {
-          router.push("/");
-        } else {
-          throw new Error(errorData.message);
-        }
       }
+      //   console.log("Error:", errorData.error);
+      //   if (errorData.error === "token_expired") {
+      //     router.push("/");
+      //   } else if (errorData.error === "invalid_token") {
+      //     router.push("/");
+      //   } else {
+      //     throw new Error(errorData.message);
+      //   }
+      // }
     } catch (error) {
       let err = error as any;
       console.error("Error:", err?.error);
@@ -60,12 +59,6 @@ const VerifyEmailPage = () => {
   if (error) {
     return <Error statusCode={400} title={error} />;
   }
-
-  return (
-    <div>
-      <p>Verificando el correo electrónico...</p>
-    </div>
-  );
 };
 
 export default VerifyEmailPage;

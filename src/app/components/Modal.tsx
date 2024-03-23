@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
           <animated.div
             ref={modalRef}
             style={modalSpringProps}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 max-w-md rounded-lg shadow-md pointer-events-auto"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4  md:max-w-md rounded-lg shadow-md pointer-events-auto"
           >
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-semibold"> {t("Title")}</h2>
@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 onClick={onClose}
               />
             </div>
-            <div className="flex justify-center space-x-4 text-base">
+            <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 text-base">
               <button
                 className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-100 transition duration-200 ${
                   locale === "en" ? "border border-sky-900" : ""

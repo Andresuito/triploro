@@ -11,21 +11,21 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const response = await axiosInstance.post("/auth/login", {
-          username: credentials?.email.split("@")[0],
-          email: credentials?.email,
-          password: credentials?.password,
-        });
+        try {
+          const response = await axiosInstance.post("/auth/login", {
+            username: credentials?.email.split("@")[0],
+            email: credentials?.email,
+            password: credentials?.password,
+          });
 
-        const user = response.data;
-
-        if (Array.isArray(user.error)) {
-          const errorMessage = user.error.map((err: any) => err.msg).join(", ");
-          throw new Error(errorMessage);
-        } else if (user.error) {
-          throw new Error(user.error);
-        } else {
+          const user = response.data;
           return user;
+        } catch (error) {
+          let errorMessage = (error as any)?.response?.data?.error;
+          if (Array.isArray(errorMessage) && errorMessage[0]?.msg) {
+            errorMessage = errorMessage[0].msg;
+          }
+          throw new Error(errorMessage);
         }
       },
     }),

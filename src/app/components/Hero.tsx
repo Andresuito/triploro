@@ -12,9 +12,9 @@ export default function Hero() {
         <Image src={bg_hero} alt="Background" className="object-cover" fill />
       </div>
       <div className="absolute inset-0 bg-sky-900 opacity-70"></div>
-      <div className="text-white text-center z-10">
-        <h1 className="text-4xl font-bold mb-4">{t("Title")}</h1>
-        <p className="text-lg mb-8">{t("Subtitle")}</p>
+      <div className="text-white p-2 md:p-0 text-center z-10">
+        <h1 className="text-2xl md:text-4xl font-bold mb-4">{t("Title")}</h1>
+        <p className="text-base md:text-lg mb-8">{t("Subtitle")}</p>
         <div className="max-w-md mx-auto">
           <input
             id="search"

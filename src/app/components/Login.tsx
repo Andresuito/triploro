@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useSpring, animated } from "react-spring";
 import { useLocale, useTranslations } from "next-intl";
 import { signIn } from "next-auth/react";
+import Input from "../components/Global/Input";
 
 interface ModalProps {
   open: boolean;
@@ -95,46 +96,22 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
               <IoMdClose className="w-6 h-6 cursor-pointer" onClick={onClose} />
             </div>
             <form onSubmit={handleLogin} className="p-6 bg-white">
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  {t("Email")}
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={`mt-1 p-2 w-full border rounded-md focus:ring-0 ${
-                    highlightEmptyFields && !email
-                      ? "border-red-500"
-                      : "border-gray-300"
-                  }`}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  {t("Password")}
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className={`mt-1 p-2 w-full border rounded-md focus:ring-0 ${
-                    highlightEmptyFields && !password
-                      ? "border-red-500"
-                      : "border-gray-300"
-                  }`}
-                />
-              </div>
+              <Input
+                label={t("Email")}
+                type="text"
+                value={email}
+                onChange={setEmail}
+                highlightEmpty={highlightEmptyFields}
+                placeholder={t("EmailPlaceholder")}
+              />
+              <Input
+                label={t("Password")}
+                type="password"
+                value={password}
+                onChange={setPassword}
+                highlightEmpty={highlightEmptyFields}
+                placeholder={t("PasswordPlaceholder")}
+              />
               {error && <p className="text-red-500 text-sm mb-4">{t(error)}</p>}
               <button
                 type="submit"

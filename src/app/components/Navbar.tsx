@@ -80,12 +80,21 @@ function Navbar() {
                   className="cursor-pointer w-5 h-5 text-gray-500 hover:text-sky-900 transition duration-300"
                   onClick={openModal}
                 />
-                <FaUserCircle
-                  className={`cursor-pointer w-7 h-7 ml-2 hover:text-sky-900 transition duration-300 ${
-                    session ? "text-sky-900" : "text-gray-500"
-                  }`}
-                  onClick={toggleDropdown}
-                />
+                {session ? (
+                  <div
+                    className={`flex items-center justify-center w-[28px] h-[28px] cursor-pointer ml-2 transition duration-300 bg-sky-900 rounded-full text-white`}
+                    onClick={toggleDropdown}
+                  >
+                    {session.user.user.username[0].toUpperCase()}
+                  </div>
+                ) : (
+                  <FaUserCircle
+                    className={`cursor-pointer w-7 h-7 ml-2 hover:text-sky-900 transition duration-300 ${
+                      session ? "text-sky-900" : "text-gray-500"
+                    }`}
+                    onClick={toggleDropdown}
+                  />
+                )}
               </div>
               <Dropdown isOpen={dropdownOpen} />
             </div>

@@ -172,23 +172,23 @@ const InfoSection = ({
 
   const handleSaveUsername = async () => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/username`,
+      const response = await axiosInstance.patch(
+        "/profile/username",
         {
-          method: "PUT",
-          credentials: "include",
+          username: username,
+        },
+        {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${session?.user?.token}`,
           },
         }
       );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      if (response.status === 200) {
+        setIsEditingUsername(false);
       }
-      const data = await response.json();
+      const data = response.data;
       console.log(data);
-      setIsEditingUsername(false);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -200,23 +200,23 @@ const InfoSection = ({
 
   const handleSaveEmail = async () => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/email`,
+      const response = await axiosInstance.patch(
+        "/profile/email",
         {
-          method: "PUT",
-          credentials: "include",
+          email: email,
+        },
+        {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${session?.user?.token}`,
           },
         }
       );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      if (response.status === 200) {
+        setIsEditingEmail(false);
       }
-      const data = await response.json();
+      const data = response.data;
       console.log(data);
-      setIsEditingEmail(false);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -235,13 +235,19 @@ const InfoSection = ({
                 <input
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  className="border border-gray-200 p-2 rounded-lg"
                 />
               ) : (
                 <p className="text-gray-700 text-base">{username}</p>
               )}
             </div>
             {isEditingUsername ? (
-              <button onClick={handleSaveUsername}>Guardar</button>
+              <button
+                className="bg-green-600 p-2 text-white rounded-xl"
+                onClick={handleSaveUsername}
+              >
+                Guardar
+              </button>
             ) : (
               <a
                 onClick={handleEditUsername}
@@ -260,13 +266,19 @@ const InfoSection = ({
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="border border-gray-200 p-2 rounded-lg"
                 />
               ) : (
                 <p className="text-gray-700 text-base">{email}</p>
               )}
             </div>
             {isEditingEmail ? (
-              <button onClick={handleSaveEmail}>Guardar</button>
+              <button
+                onClick={handleSaveEmail}
+                className="bg-green-600 p-2 text-white rounded-xl"
+              >
+                Guardar
+              </button>
             ) : (
               <a
                 onClick={handleEditEmail}
@@ -315,24 +327,16 @@ const SeguridadSection = ({
     }
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/delete-account`,
-        {
-          method: "DELETE",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${session?.user?.token}`,
-          },
-        }
-      );
+      const response = await axiosInstance.delete("/profile/delete-account", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.user?.token}`,
+        },
+      });
 
-      if (!response.ok) {
-        throw new Error("Error al intentar eliminar la cuenta");
+      if (response.status === 200) {
+        await signOut();
       }
-
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      await signOut();
     } catch (error) {
       console.error(error);
     }
@@ -344,11 +348,11 @@ const SeguridadSection = ({
       <span>{description}</span>
       <div className="pb-4 mb-4">
         <div className="flex flex-col space-y-2 mt-4 border-t border-gray-200">
-          <div className="flex items-center border-b border-gray-200 p-2">
+          <div className="flex items-center justify-between border-b border-gray-200 p-2">
             <p>¿Desea borrar su cuenta?</p>
             <button
               onClick={handleDeleteAccount}
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             >
               Borrar cuenta
             </button>

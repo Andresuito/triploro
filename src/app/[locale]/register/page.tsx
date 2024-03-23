@@ -15,27 +15,6 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
-  // const [accountCreated, setAccountCreated] = useState(false);
-
-  const sendVerificationEmail = async (email: any, verificationToken: any) => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-verification-email`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, verificationToken }),
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Error al enviar el correo de verificación");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
 
   const handleRegister = async () => {
     if (!email || !password) {
@@ -62,45 +41,44 @@ const Register = () => {
       });
 
       if (response.status === 201) {
-        await sendVerificationEmail(email, response.data.verificationToken);
-      } else {
-        setError(t(response.data.error));
+        router.push("/login");
       }
     } catch (error) {
-      console.error("Error:", error);
-      setError("Error, try later.");
+      setError(t((error as any)?.response?.data.error[0].msg));
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-md">
-      <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
-      <div className="space-y-4">
-        <Input
-          label={t("Email")}
-          type="email"
-          value={email}
-          onChange={setEmail}
-          highlightEmpty={highlightEmptyFields}
-          placeholder={t("EmailPlaceholder")}
-        />
-        <Input
-          label={t("Password")}
-          type="password"
-          value={password}
-          onChange={setPassword}
-          highlightEmpty={highlightEmptyFields}
-          placeholder={t("PasswordPlaceholder")}
-        />
+    <div className="min-h-screen">
+      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-md">
+        <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
+        <div className="space-y-4">
+          <Input
+            label={t("Email")}
+            type="email"
+            value={email}
+            onChange={setEmail}
+            highlightEmpty={highlightEmptyFields}
+            placeholder={t("EmailPlaceholder")}
+          />
+          <Input
+            label={t("Password")}
+            type="password"
+            value={password}
+            onChange={setPassword}
+            highlightEmpty={highlightEmptyFields}
+            placeholder={t("PasswordPlaceholder")}
+          />
+        </div>
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        <Button label={t("Button")} onClick={handleRegister} />
+        <p className="mt-4 text-sm text-center">
+          {t("Link")}{" "}
+          <a href="#" className="text-blue-500">
+            {t("Login_Link")}
+          </a>
+        </p>
       </div>
-      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-      <Button label={t("Button")} onClick={handleRegister} />
-      <p className="mt-4 text-sm text-center">
-        {t("Link")}{" "}
-        <a href="#" className="text-blue-500">
-          {t("Login_Link")}
-        </a>
-      </p>
     </div>
   );
 };

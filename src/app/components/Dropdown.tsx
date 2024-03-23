@@ -30,7 +30,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <>
       <animated.div
-        className="w-32 absolute top-16 2xl:left-5 z-10 shadow-lg ring-1 ring-black ring-opacity-5 rounded-md  bg-white  "
+        className="w-32 absolute top-16 right-5 2xl:left-1 z-10 shadow-lg ring-1 ring-black ring-opacity-5 rounded-md  bg-white  "
         style={dropdownAnimation}
       >
         <div className="py-1" role="menu" aria-orientation="vertical">
@@ -38,7 +38,10 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
             <>
               {session ? (
                 <>
-                  <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
+                  <Link
+                    href={`/profile?id=${session.user.user.id}`}
+                    legacyBehavior
+                  >
                     <a
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
@@ -46,7 +49,10 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                       {t("Profile")}
                     </a>
                   </Link>
-                  <Link href={`/settings?id=${session.user.id}`} legacyBehavior>
+                  <Link
+                    href={`/settings?id=${session.user.user.id}`}
+                    legacyBehavior
+                  >
                     <a
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
