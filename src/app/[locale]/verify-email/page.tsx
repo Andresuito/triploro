@@ -52,7 +52,8 @@ const VerifyEmailPage = () => {
         }
       }
     } catch (error) {
-      console.error("Error:", error?.error);
+      let err = error as any;
+      console.error("Error:", err?.error);
     }
   };
 

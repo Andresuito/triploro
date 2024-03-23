@@ -13,7 +13,7 @@ function Navbar() {
   const { data: session } = useSession();
   const t = useTranslations("Navbar");
 
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
