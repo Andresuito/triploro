@@ -1,0 +1,82 @@
+{
+  "Navbar":{
+     "Option1":"Destinos",
+     "Option2":"Experiências",
+     "Option3":"Itineraries",
+     "Dropdown":{
+        "Register":"Registrar-se",
+        "Login":"Iniciar Sessão",
+        "Profile":"Perfil",
+        "Configuration":"Definições",
+        "Logout":"Encerrar Sessão"
+     }
+  },
+  "Auth":{
+     "Register":{
+        "Title":"Registre-se",
+        "Email":"Email",
+        "EmailPlaceholder":"Digite seu email...",
+        "Password":"Senha",
+        "PasswordPlaceholder":"Digite sua senha...",
+        "Button":"Registrar",
+        "Link":"Já tem uma conta?",
+        "Login_Link":"Faça o login",
+        "missing_fields":"Por favor, preencha todos os campos.",
+        "email_already_exists":"O email já está em uso.",
+        "invalid_email_format":"O formato do email é inválido.",
+        "password_length":"A senha deve ter pelo menos 6 caracteres.",
+        "email_taken":"O email já está em uso."
+     },
+     "Login":{
+        "Title":"Iniciar sessão",
+        "Email":"Email",
+        "Password":"Senha",
+        "PasswordPlaceholder":"Digite sua senha...",
+        "EmailPlaceholder":"Digite seu email...",
+        "Button":"Iniciar sessão",
+        "Link":"Não tem uma conta?",
+        "Forgot_Link":"Esqueceu sua senha?",
+        "Register_Link":"Registre-se",
+        "missing_fields":"Por favor, preencha todos os campos.",
+        "email_not_found":"E-mail não encontrado.",
+        "invalid_email_format":"O formato do email é inválido.",
+        "password_must_be_at_least_6_characters":"A senha deve ter pelo menos 6 caracteres.",
+        "account_not_activated":"Sua conta ainda não foi ativada. Por favor, verifique seu email.",
+        "invalid_credentials":"Credenciais inválidas.",
+        "login_error":"Erro ao iniciar sessão. Por favor, tente novamente.",
+        "incorrect_password":"Senha incorreta."
+     }
+  },
+  "Hero":{
+     "Title":"Explore o mundo conosco!",
+     "Subtitle":"Encontre as melhores opções de viagem e actividades connosco.",
+     "Placeholder":"Pesquisar destino..."
+  },
+  "Destination":{
+     "Title":"Destinos mais populares",
+     "City1":"Barcelona",
+     "City2":"Madrid",
+     "City3":"Lisbon",
+     "City4":"Oporto",
+     "City5":"Sevilha",
+     "City6":"Valência",
+     "Country1":"Espanha",
+     "Country2":"Portugal"
+  },
+  "ModalLang":{
+     "Title":"Selecione seu idioma",
+     "Option1":"Inglês",
+     "Option2":"Espanhol",
+     "Option3":"Português"
+  },
+  "Errors":{
+     "missing_fields":"Por favor, preencha todos os campos.",
+     "password_length":"A senha deve ter no mínimo 6 caracteres.",
+     "invalid_email_format":"O formato do email não é válido.",
+     "username_taken":"O nome de usuário já está em uso.",
+     "email_taken":"O email já está em uso.",
+     "user_not_found":"Nome de usuário não encontrado.",
+     "incorrect_password":"Senha incorreta.",
+     "server_error":"Erro interno do servidor."
+  }
+}

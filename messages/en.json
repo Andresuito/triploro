@@ -1,0 +1,82 @@
+{
+  "Navbar":{
+     "Option1":"Destinations",
+     "Option2":"Experiences",
+     "Option3":"Itineraries",
+     "Dropdown":{
+        "Register":"Register",
+        "Login":"Login",
+        "Profile":"Profile",
+        "Configuration":"Settings",
+        "Logout":"Logout"
+     }
+  },
+  "Auth":{
+     "Register":{
+        "Title":"Register",
+        "Email":"Email",
+        "EmailPlaceholder":"Enter your email...",
+        "Password":"Password",
+        "PasswordPlaceholder":"Enter your password...",
+        "Button":"Register",
+        "Link":"Already have an account?",
+        "Login_Link":"Log in",
+        "missing_fields":"Please, fill in all the fields.",
+        "invalid_email_format":"The email format is not valid.",
+        "email_already_exists":"The email is already in use.",
+        "password_length":"The password must be at least 6 characters long.",
+        "email_taken":"The email is already in use."
+     },
+     "Login":{
+        "Title":"Log in",
+        "Email":"Email",
+        "Password":"Password",
+        "PasswordPlaceholder":"Enter your password...",
+        "EmailPlaceholder":"Enter your email...",
+        "Button":"Log in",
+        "Link":"Don't have an account?",
+        "Forgot_Link":"Forgot your password?",
+        "Register_Link":"Register",
+        "missing_fields":"Please, fill in all the fields.",
+        "email_not_found":"Email not found.",
+        "invalid_email_format":"The email format is not valid.",
+        "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
+        "account_not_activated":"Your account is not activated. Please, check your email for the activation link.",
+        "invalid_credentials":"Incorrect credentials.",
+        "login_error":"Error logging in. Please, try again.",
+        "incorrect_password":"Incorrect password."
+     }
+  },
+  "Hero":{
+     "Title":"Explore the world with us!",
+     "Subtitle":"Find the best travel options and activities with us.",
+     "Placeholder":"Search your destination..."
+  },
+  "Destination":{
+     "Title":"Popular Destinations",
+     "City1":"Barcelona",
+     "City2":"Madrid",
+     "City3":"Lisbon",
+     "City4":"Oporto",
+     "City5":"Seville",
+     "City6":"Valencia",
+     "Country1":"Spain",
+     "Country2":"Portugal"
+  },
+  "ModalLang":{
+     "Title":"Choose your language",
+     "Option1":"English",
+     "Option2":"Spanish",
+     "Option3":"Portuguese"
+  },
+  "Errors":{
+     "missing_fields":"Please, fill in all the fields.",
+     "password_length":"The password must be at least 6 characters long.",
+     "invalid_email_format":"The email format is not valid.",
+     "username_taken":"The username is already in use.",
+     "email_taken":"The email is already in use.",
+     "user_not_found":"Username not found.",
+     "incorrect_password":"Incorrect password.",
+     "server_error":"Internal server error."
+  }
+}
