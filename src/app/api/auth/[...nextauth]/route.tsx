@@ -18,8 +18,16 @@ const handler = NextAuth({
             password: credentials?.password,
           });
 
-          const user = response.data;
-          return user;
+          const { user, token, expiresIn, iat, exp, jti } = response.data;
+
+          return {
+            ...user,
+            token,
+            expiresIn,
+            iat,
+            exp,
+            jti,
+          };
         } catch (error) {
           let errorMessage = (error as any)?.response?.data?.error;
           if (Array.isArray(errorMessage) && errorMessage[0]?.msg) {
@@ -32,7 +40,11 @@ const handler = NextAuth({
   ],
 
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === "update") {
+        return { ...user, ...session.user };
+      }
+
       return { ...token, ...user };
     },
     async session({ session, token }) {

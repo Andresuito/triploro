@@ -38,10 +38,16 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
             <>
               {session ? (
                 <>
-                  <Link
-                    href={`/profile?id=${session.user.user.id}`}
-                    legacyBehavior
+                  <a
+                    className="block px-4 py-2 text-sm text-gray-700"
+                    role="menuitem"
                   >
+                    Hola,{" "}
+                    {session.user.username[0].toUpperCase() +
+                      session.user.username.slice(1)}
+                  </a>
+                  <hr />
+                  <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
                     <a
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
@@ -49,10 +55,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                       {t("Profile")}
                     </a>
                   </Link>
-                  <Link
-                    href={`/settings?id=${session.user.user.id}`}
-                    legacyBehavior
-                  >
+                  <Link href={`/settings?id=${session.user.id}`} legacyBehavior>
                     <a
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"

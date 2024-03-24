@@ -4,6 +4,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SessionAuthProvider from "../context/SessionAuthProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "TripBook - Organizas tus viajes de una manera sencilla y rápida.",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionAuthProvider>
             <Navbar />
+            <Toaster position="bottom-right" />
             {children}
             <Footer />
           </SessionAuthProvider>

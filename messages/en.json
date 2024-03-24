@@ -1,82 +1,120 @@
 {
-  "Navbar":{
-     "Option1":"Destinations",
-     "Option2":"Experiences",
-     "Option3":"Itineraries",
-     "Dropdown":{
-        "Register":"Register",
-        "Login":"Login",
-        "Profile":"Profile",
-        "Configuration":"Settings",
-        "Logout":"Logout"
-     }
-  },
-  "Auth":{
-     "Register":{
-        "Title":"Register",
-        "Email":"Email",
-        "EmailPlaceholder":"Email",
-        "Password":"Password",
-        "PasswordPlaceholder":"Password",
-        "Button":"Register",
-        "Link":"Already have an account?",
-        "Login_Link":"Log in",
-        "missing_fields":"Please, fill in all the fields.",
-        "invalid_email_format":"The email format is not valid.",
-        "email_already_exists":"The email is already in use.",
-        "password_length":"The password must be at least 6 characters long.",
-        "email_taken":"The email is already in use."
-     },
-     "Login":{
-        "Title":"Log in",
-        "Email":"Email",
-        "Password":"Password",
-        "PasswordPlaceholder":"Password",
-        "EmailPlaceholder":"Email",
-        "Button":"Log in",
-        "Link":"Don't have an account?",
-        "Forgot_Link":"Forgot your password?",
-        "Register_Link":"Register",
-        "missing_fields":"Please, fill in all the fields.",
-        "email_not_found":"Email not found.",
-        "invalid_email_format":"The email format is not valid.",
-        "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
-        "account_not_activated":"Your account is not activated. Please, check your email for the activation link.",
-        "invalid_credentials":"Incorrect credentials.",
-        "login_error":"Error logging in. Please, try again.",
-        "incorrect_password":"Incorrect password."
-     }
-  },
-  "Hero":{
-     "Title":"Explore the world with us!",
-     "Subtitle":"Find the best travel options and activities with us.",
-     "Placeholder":"Search your destination..."
-  },
-  "Destination":{
-     "Title":"Popular Destinations",
-     "City1":"Barcelona",
-     "City2":"Madrid",
-     "City3":"Lisbon",
-     "City4":"Oporto",
-     "City5":"Seville",
-     "City6":"Valencia",
-     "Country1":"Spain",
-     "Country2":"Portugal"
-  },
-  "ModalLang":{
-     "Title":"Choose your language",
-     "Option1":"English",
-     "Option2":"Spanish",
-     "Option3":"Portuguese"
-  },
-  "Errors":{
-     "missing_fields":"Please, fill in all the fields.",
-     "password_length":"The password must be at least 6 characters long.",
-     "invalid_email_format":"The email format is not valid.",
-     "username_taken":"The username is already in use.",
-     "email_taken":"The email is already in use.",
-     "user_not_found":"Username not found.",
-     "incorrect_password":"Incorrect password.",
-     "server_error":"Internal server error."
-  }
+   "Navbar":{
+      "Option1":"Destinations",
+      "Option2":"Experiences",
+      "Option3":"Itineraries",
+      "Dropdown":{
+         "Register":"Register",
+         "Login":"Login",
+         "Profile":"Profile",
+         "Configuration":"Settings",
+         "Logout":"Logout"
+      }
+   },
+   "Auth":{
+      "Register":{
+         "Title":"Register",
+         "Email":"Email",
+         "EmailPlaceholder":"Email",
+         "Password":"Password",
+         "PasswordPlaceholder":"Password",
+         "Button":"Register",
+         "Link":"Already have an account?",
+         "Login_Link":"Log in",
+         "missing_fields":"Please, fill in all the fields.",
+         "invalid_email_format":"The email format is not valid.",
+         "email_already_exists":"The email is already in use.",
+         "password_length":"The password must be at least 6 characters long.",
+         "email_taken":"The email is already in use."
+      },
+      "Login":{
+         "Title":"Log in",
+         "Email":"Email",
+         "Password":"Password",
+         "PasswordPlaceholder":"Password",
+         "EmailPlaceholder":"Email",
+         "Button":"Log in",
+         "Link":"Don't have an account?",
+         "Forgot_Link":"Forgot your password?",
+         "Register_Link":"Register",
+         "missing_fields":"Please, fill in all the fields.",
+         "email_not_found":"Email not found.",
+         "invalid_email_format":"The email format is not valid.",
+         "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
+         "account_not_activated":"Your account is not activated. Please, check your email for the activation link.",
+         "invalid_credentials":"Incorrect credentials.",
+         "login_error":"Error logging in. Please, try again.",
+         "incorrect_password":"Incorrect password."
+      }
+   },
+   "Hero":{
+      "Title":"Explore the world with us!",
+      "Subtitle":"Find the best travel options and activities with us.",
+      "Placeholder":"Search your destination..."
+   },
+   "Destination":{
+      "Title":"Popular Destinations",
+      "City1":"Barcelona",
+      "City2":"Madrid",
+      "City3":"Lisbon",
+      "City4":"Oporto",
+      "City5":"Seville",
+      "City6":"Valencia",
+      "Country1":"Spain",
+      "Country2":"Portugal"
+   },
+   "ModalLang":{
+      "Title":"Choose your language",
+      "Option1":"English",
+      "Option2":"Spanish",
+      "Option3":"Portuguese"
+   },
+   "Settings":{
+      "infoSection":{
+         "title":"Personal Data",
+         "subtitle":"Update your data and find out how it is used.",
+         "usuario":"User:",
+         "usuarioPlaceholder":"User",
+         "email":"Email:",
+         "emailPlaceholder":"Email",
+         "accountCreated":"Creation Date:",
+         "buttonEdit":"Edit",
+         "buttonSave":"Save",
+         "missing_fields":"Please, fill all the fields.",
+         "invalid_email_format":"The email format is not valid.",
+         "password_length":"The password must be at least 6 characters long.",
+         "email_taken":"The email is already in use."
+      },
+      "securitySection":{
+         "title":"Security",
+         "subtitle":"Modify the security settings, configure secure authentication or delete your account.",
+         "deleteAccount":"Delete Account",
+         "deleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone.",
+         "deleteAccountButton":"Delete Account",
+         "cancel":"Cancel"
+      },
+      "mateSection":{
+         "title":"Travel Companion",
+         "subtitle":"Manage or edit the companions of your trips.",
+         "mate":"Travel Companion",
+         "matePlaceholder":"Username",
+         "button":"Save Changes",
+         "missing_fields":"Please, fill all the fields.",
+         "user_not_found":"Username not found."
+      },
+      "notificationsSection":{
+         "title":"Notifications",
+         "subtitle":"Configure the notifications you want to receive.",
+         "notifications":"Notifications",
+         "notificationsPlaceholder":"Username",
+         "button":"Save Changes",
+         "missing_fields":"Please, fill all the fields.",
+         "user_not_found":"Username not found."
+      }
+   },
+   "Errors":{
+      "user_not_found":"Username not found.",
+      "incorrect_password":"Incorrect password.",
+      "server_error":"Internal server error."
+   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, use } from "react";
 import { TfiWorld } from "react-icons/tfi";
 import { FaUserCircle } from "react-icons/fa";
 import { useTranslations } from "next-intl";
@@ -85,7 +85,7 @@ function Navbar() {
                     className={`flex items-center justify-center w-[28px] h-[28px] cursor-pointer ml-2 transition duration-300 bg-sky-900 rounded-full text-white`}
                     onClick={toggleDropdown}
                   >
-                    {session.user.user.username[0].toUpperCase()}
+                    {session.user.username[0].toUpperCase()}
                   </div>
                 ) : (
                   <FaUserCircle
