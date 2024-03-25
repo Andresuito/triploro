@@ -45,7 +45,21 @@
          "invalid_credentials":"Credenciais inválidas.",
          "login_error":"Erro ao iniciar sessão. Por favor, tente novamente.",
          "incorrect_password":"Senha incorreta."
-      }
+      },
+      "Reset-Password":{
+               "Title": "Redefinir senha",
+               "labelNewPassword": "Nova senha",
+               "placeholderNewPassword": "Senha",
+               "labelConfirmPassword": "Confirmar senha",
+               "placeholderConfirmPassword": "Senha",
+               "button": "Redefinir",
+               "error": {
+                  "missing_fields": "Por favor, preencha todos os campos.",
+                  "password_length": "A senha deve ter pelo menos 6 caracteres.",
+                  "passwords_not_match": "As senhas não coincidem.",
+                  "password_format": "A senha deve ter pelo menos uma letra maiúscula."
+               }
+            }
    },
    "Hero":{
       "Title":"Explore o mundo conosco!",
@@ -80,41 +94,37 @@
          "accountCreated":"Data de criação:",
          "buttonEdit":"Editar",
          "buttonSave":"Salvar",
+         "buttonCancel":"Cancelar",
          "missing_fields":"Por favor, preencha todos os campos.",
          "invalid_email_format":"O formato do email não é válido.",
          "password_length":"A senha deve ter pelo menos 6 caracteres.",
-         "email_taken":"O email já está em uso."
+         "email_taken":"O email já está em uso.",
+         "error":{
+            "usernameLength":"O nome de usuário deve ter pelo menos 3 caracteres.",
+            "usernameRegex":"O nome de usuário só pode conter letras, números e traços.",
+            "usernameTaken":"O nome de usuário já está em uso.",
+            "emailFormat":"O formato do email não é válido.",
+            "emailTaken":"O email já está em uso."
+         }
       },
       "securitySection":{
          "title":"Segurança",
          "subtitle":"Modifique as configurações de segurança, configure a autenticação segura ou exclua sua conta.",
-         "deleteAccount":"Excluir conta",
+         "passwordMsg":"Deseja redefinir sua senha?",
+         "buttonPassword":"Redefinir",
+         "deleteMsg":"Deseja excluir sua conta?",
          "deleteAccountConfirmation":"Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.",
-         "deleteAccountButton":"Excluir conta",
-         "cancel":"Cancelar"
+         "buttonDeleteAccount":"Excluir conta"
       },
       "mateSection":{
          "title":"Companheiro de viagem",
-         "subtitle":"Gerencie ou edite os companheiros de suas viagens.",
-         "mate":"Companheiro de viagem",
-         "matePlaceholder":"Nome de usuário",
-         "button":"Salvar alterações",
-         "missing_fields":"Por favor, preencha todos os campos.",
-         "user_not_found":"Nome de usuário não encontrado."
+         "subtitle":"Gerencie ou edite os acompanhantes de suas viagens.",
+         "buttonAddMate":"Adicionar acompanhante"
       },
       "notificationsSection":{
          "title":"Notificações",
-         "subtitle":"Configure as notificações que você deseja receber.",
-         "notifications":"Notificações",
-         "notificationsPlaceholder":"Nome de usuário",
-         "button":"Salvar alterações",
-         "missing_fields":"Por favor, preencha todos os campos.",
-         "user_not_found":"Nome de usuário não encontrado."
+         "subtitle":"Configure as notificações que deseja receber.",
+         "notifications":"Notificações"
       }
-   },
-   "Errors":{
-      "user_not_found":"Nome de usuário não encontrado.",
-      "incorrect_password":"Senha incorreta.",
-      "server_error":"Erro interno do servidor."
    }
 }

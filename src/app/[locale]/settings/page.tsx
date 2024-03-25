@@ -82,6 +82,14 @@ export default function ProfilePage() {
             info={info}
           />
         );
+      case "notifications":
+        return (
+          <NotificationsSection
+            title={t("notificationsSection.title")}
+            description={t("notificationsSection.subtitle")}
+            info={info}
+          />
+        );
       case "security":
         return (
           <SeguridadSection
@@ -94,14 +102,6 @@ export default function ProfilePage() {
           <MateSection
             title={t("mateSection.title")}
             description={t("mateSection.subtitle")}
-            info={info}
-          />
-        );
-      case "notifications":
-        return (
-          <NotificationsSection
-            title={t("notificationsSection.title")}
-            description={t("notificationsSection.subtitle")}
             info={info}
           />
         );
@@ -118,25 +118,25 @@ export default function ProfilePage() {
             <div className="bg-white p-6 h-[290px] md:w-1/3 rounded-md border border-gray-200">
               <ProfileOptionButton
                 icon={<FaUserEdit className="mr-2" />}
-                text="Datos personales"
+                text={t("infoSection.title")}
                 active={activeOption === "personalInfo"}
                 onClick={() => handleOptionClick("personalInfo")}
               />
               <ProfileOptionButton
                 icon={<PiBellSimpleFill className="mr-2" />}
-                text="Notificaciones"
+                text={t("notificationsSection.title")}
                 active={activeOption === "notifications"}
                 onClick={() => handleOptionClick("notifications")}
               />
               <ProfileOptionButton
                 icon={<FaLock className="mr-2" />}
-                text="Seguridad"
+                text={t("securitySection.title")}
                 active={activeOption === "security"}
                 onClick={() => handleOptionClick("security")}
               />
               <ProfileOptionButton
                 icon={<FaUserFriends className="mr-2" />}
-                text="Acompañantes"
+                text={t("mateSection.title")}
                 active={activeOption === "companions"}
                 onClick={() => handleOptionClick("companions")}
               />
@@ -150,41 +150,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-const renderInfo = (activeOption: string, info: any) => {
-  switch (activeOption) {
-    case "personalInfo":
-      return (
-        <InfoSection
-          title="Datos personales"
-          description="Actualiza tus datos y descubre cómo se utilizan."
-          info={info}
-        />
-      );
-    case "security":
-      return (
-        <SeguridadSection
-          title="Seguridad"
-          description="Modifica los ajustes de seguridad, configura la autenticación segura o elimina tu cuenta."
-        />
-      );
-    case "companions":
-      return (
-        <MateSection
-          title="Acompañantes"
-          description="Gestiona o edita los acompañantes de tus viajes."
-          info={info}
-        />
-      );
-    case "notifications":
-      return (
-        <NotificationsSection
-          title="Notificaciones"
-          description="Configura las notificaciones que deseas recibir."
-          info={info}
-        />
-      );
-    default:
-      return null;
-  }
-};

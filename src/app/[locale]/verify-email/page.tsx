@@ -29,8 +29,11 @@ const VerifyEmailPage = () => {
 
   const sendVerificationEmail = async (token: string) => {
     try {
-      const response = await axiosInstance.get(
-        `/auth/verify-email?token=${token}`,
+      const response = await axiosInstance.post(
+        "/auth/verify-email",
+        {
+          token: token,
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -41,6 +44,7 @@ const VerifyEmailPage = () => {
       if (response.status === 200) {
         router.push("/");
       }
+    } catch (error) {
       //   console.log("Error:", errorData.error);
       //   if (errorData.error === "token_expired") {
       //     router.push("/");
@@ -50,7 +54,6 @@ const VerifyEmailPage = () => {
       //     throw new Error(errorData.message);
       //   }
       // }
-    } catch (error) {
       let err = error as any;
       console.error("Error:", err?.error);
     }

@@ -45,7 +45,21 @@
          "invalid_credentials":"Incorrect credentials.",
          "login_error":"Error logging in. Please, try again.",
          "incorrect_password":"Incorrect password."
-      }
+      },
+      "Reset-Password":{
+           "Title": "Reset password",
+           "labelNewPassword": "New password",
+           "placeholderNewPassword": "Password",
+           "labelConfirmPassword": "Confirm password",
+           "placeholderConfirmPassword": "Password",
+           "button": "Reset",
+           "error": {
+              "missing_fields": "Please fill in all fields.",
+              "password_length": "Password must be at least 6 characters.",
+              "passwords_not_match": "Passwords do not match.",
+              "password_format": "Password must contain at least one uppercase letter."
+           }
+        }
    },
    "Hero":{
       "Title":"Explore the world with us!",
@@ -71,8 +85,8 @@
    },
    "Settings":{
       "infoSection":{
-         "title":"Personal Data",
-         "subtitle":"Update your data and find out how it is used.",
+         "title":"Personal Information",
+         "subtitle":"Update your data and discover how they are used.",
          "usuario":"User:",
          "usuarioPlaceholder":"User",
          "email":"Email:",
@@ -80,41 +94,37 @@
          "accountCreated":"Creation Date:",
          "buttonEdit":"Edit",
          "buttonSave":"Save",
-         "missing_fields":"Please, fill all the fields.",
+         "buttonCancel":"Cancel",
+         "missing_fields":"Please, fill in all the fields.",
          "invalid_email_format":"The email format is not valid.",
          "password_length":"The password must be at least 6 characters long.",
-         "email_taken":"The email is already in use."
+         "email_taken":"The email is already in use.",
+         "error":{
+            "usernameLength":"The username must be at least 3 characters long.",
+            "usernameRegex":"The username can only contain letters, numbers, and hyphens.",
+            "usernameTaken":"The username is already in use.",
+            "emailFormat":"The email format is not valid.",
+            "emailTaken":"The email is already in use."
+         }
       },
       "securitySection":{
          "title":"Security",
-         "subtitle":"Modify the security settings, configure secure authentication or delete your account.",
-         "deleteAccount":"Delete Account",
+         "subtitle":"Modify the security settings, set up secure authentication or delete your account.",
+         "passwordMsg":"Do you want to reset your password?",
+         "buttonPassword":"Reset",
+         "deleteMsg":"Do you want to delete your account?",
          "deleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone.",
-         "deleteAccountButton":"Delete Account",
-         "cancel":"Cancel"
+         "buttonDeleteAccount":"Delete Account"
       },
       "mateSection":{
          "title":"Travel Companion",
-         "subtitle":"Manage or edit the companions of your trips.",
-         "mate":"Travel Companion",
-         "matePlaceholder":"Username",
-         "button":"Save Changes",
-         "missing_fields":"Please, fill all the fields.",
-         "user_not_found":"Username not found."
+         "subtitle":"Manage or edit your travel companions.",
+         "buttonAddMate":"Add Companion"
       },
       "notificationsSection":{
          "title":"Notifications",
          "subtitle":"Configure the notifications you want to receive.",
-         "notifications":"Notifications",
-         "notificationsPlaceholder":"Username",
-         "button":"Save Changes",
-         "missing_fields":"Please, fill all the fields.",
-         "user_not_found":"Username not found."
+         "notifications":"Notifications"
       }
-   },
-   "Errors":{
-      "user_not_found":"Username not found.",
-      "incorrect_password":"Incorrect password.",
-      "server_error":"Internal server error."
    }
 }

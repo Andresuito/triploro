@@ -77,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
             </div>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 text-base">
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-100 transition duration-200 ${
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
                   locale === "en" ? "border border-sky-900" : ""
                 }`}
                 onClick={() => handleLanguageChange("en")}
@@ -86,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 {t("Option1")}
               </button>
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-100 transition duration-200 ${
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
                   locale === "es" ? "border border-sky-900" : ""
                 }`}
                 onClick={() => handleLanguageChange("es")}
@@ -95,7 +95,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 {t("Option2")}
               </button>
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-100 transition duration-200 ${
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
                   locale === "pt" ? "border border-sky-900" : ""
                 }`}
                 onClick={() => handleLanguageChange("pt")}
