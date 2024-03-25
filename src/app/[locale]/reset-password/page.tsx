@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import toast from "react-hot-toast";
 
 import Input from "../../components/Global/Input";
 import Button from "../../components/Global/Button";
@@ -59,9 +60,10 @@ export default function ResetPasswordPage() {
 
       if (response.status === 200) {
         signOut();
-        router.push("/");
       }
     } catch (error) {
+      setError(t((error as any)?.response?.data.error));
+
       if ((error as any)?.response?.data.error === "missing_token") {
         setError("No hay token");
       }
@@ -70,7 +72,7 @@ export default function ResetPasswordPage() {
 
   return (
     <div className="h-[100vh]">
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-md">
+      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
         <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
 
         <div className="space-y-4">

@@ -29,11 +29,7 @@ const handler = NextAuth({
             jti,
           };
         } catch (error) {
-          let errorMessage = (error as any)?.response?.data?.error;
-          if (Array.isArray(errorMessage) && errorMessage[0]?.msg) {
-            errorMessage = errorMessage[0].msg;
-          }
-          throw new Error(errorMessage);
+          throw new Error((error as any)?.response?.data?.error);
         }
       },
     }),

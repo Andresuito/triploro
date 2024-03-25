@@ -7,7 +7,13 @@ import Link from "next/link";
 import Login from "./Login";
 import { useTranslations } from "next-intl";
 
-const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
+const Dropdown = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}) => {
   const t = useTranslations("Navbar.Dropdown");
   const { data: session } = useSession();
   const dropdownAnimation = useSpring({
@@ -23,8 +29,13 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
   const openLogin = () => {
     setLoginOpen(true);
   };
+
   const closeLogin = () => {
     setLoginOpen(false);
+  };
+
+  const handleMenuClick = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -39,6 +50,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
               {session ? (
                 <>
                   <a
+                    onClick={handleMenuClick}
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                   >
@@ -49,6 +61,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                   <hr />
                   <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
                     <a
+                      onClick={handleMenuClick}
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                     >
@@ -57,6 +70,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                   </Link>
                   <Link href={`/settings?id=${session.user.id}`} legacyBehavior>
                     <a
+                      onClick={handleMenuClick}
                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                     >
@@ -66,6 +80,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                   <a
                     onClick={() => {
                       signOut();
+                      handleMenuClick();
                     }}
                     className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
                     role="menuitem"
@@ -76,7 +91,10 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
               ) : (
                 <>
                   <a
-                    onClick={openLogin}
+                    onClick={() => {
+                      openLogin();
+                      handleMenuClick();
+                    }}
                     className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >
@@ -84,6 +102,7 @@ const Dropdown = ({ isOpen }: { isOpen: boolean }) => {
                   </a>
                   <Link href="/register" legacyBehavior>
                     <a
+                      onClick={handleMenuClick}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                     >

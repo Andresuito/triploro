@@ -54,11 +54,6 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!email || !password) {
-      setHighlightEmptyFields(true);
-      setError("missing_fields");
-      return;
-    }
 
     try {
       const responseNextAuth = await signIn("credentials", {

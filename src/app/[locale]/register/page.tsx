@@ -17,22 +17,6 @@ const Register = () => {
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
 
   const handleRegister = async () => {
-    if (!email || !password) {
-      setHighlightEmptyFields(true);
-      setError(t("missing_fields"));
-      return;
-    }
-
-    if (password.length < 8) {
-      setError(t("password_length"));
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError(t("invalid_email_format"));
-      return;
-    }
-
     try {
       const response = await axiosInstance.post("/auth/register", {
         username: email.split("@")[0],
@@ -44,7 +28,12 @@ const Register = () => {
         router.push("/login");
       }
     } catch (error) {
-      setError(t((error as any)?.response?.data.error[0].msg));
+      setError(t((error as any)?.response?.data.error));
+
+      if ((error as any)?.response?.data.error === "email_already_exists") {
+        setError(t("email_already_exists"));
+        return;
+      }
     }
   };
 
@@ -70,7 +59,7 @@ const Register = () => {
             placeholder={t("PasswordPlaceholder")}
           />
         </div>
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-500 mt-2 text-sm mb-4">{error}</p>}
         <Button label={t("Button")} onClick={handleRegister} />
         <p className="mt-4 text-sm text-center">
           {t("Link")}{" "}

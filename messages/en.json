@@ -111,6 +111,7 @@
          "title":"Security",
          "subtitle":"Modify the security settings, set up secure authentication or delete your account.",
          "passwordMsg":"Do you want to reset your password?",
+         "msgUser": "An email has been sent to reset the password to ",
          "buttonPassword":"Reset",
          "deleteMsg":"Do you want to delete your account?",
          "deleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone.",

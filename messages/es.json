@@ -111,6 +111,7 @@
          "title":"Seguridad",
          "subtitle":"Modifica los ajustes de seguridad, configura la autenticación segura o elimina tu cuenta.",
          "passwordMsg":"¿Desea restablecer su contraseña?",
+         "msgUser": "Se le ha enviado un correo electrónico para restablecer la contraseña a ",
          "buttonPassword":"Restablecer",
          "deleteMsg":"¿Desea borrar su cuenta?",
          "deleteAccountConfirmation":"¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.",

@@ -104,7 +104,7 @@ export const InfoSection = ({
         ));
       }
     } catch (error) {
-      if ((error as any)?.response?.data.error === "username_already_exists") {
+      if ((error as any)?.response?.status === 400) {
         setUsernameError(t("infoSection.error.usernameTaken"));
       }
     }
@@ -160,7 +160,7 @@ export const InfoSection = ({
         });
       }
     } catch (error) {
-      if ((error as any)?.response?.data.error === "email_already_exists") {
+      if ((error as any)?.response?.status === 400) {
         setEmailError(t("infoSection.error.emailTaken"));
       }
     }
@@ -331,7 +331,9 @@ export const SeguridadSection = ({
 
       if (response.status === 200) {
         setResetPasswordMessage(
-          `Se le ha enviado un correo electrónico para restablecer la contraseña a <strong>${session?.user?.email}</strong>`
+          `${t("securitySection.msgUser")} <strong>${
+            session?.user?.email
+          }</strong>`
         );
       }
     } catch (error) {

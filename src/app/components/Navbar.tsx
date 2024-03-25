@@ -14,12 +14,12 @@ function Navbar() {
   const t = useTranslations("Navbar");
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClickOutside = (event: any) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
+      setIsOpen(false);
     }
   };
 
@@ -39,7 +39,7 @@ function Navbar() {
   };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -96,7 +96,7 @@ function Navbar() {
                   />
                 )}
               </div>
-              <Dropdown isOpen={dropdownOpen} />
+              <Dropdown isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
           </div>
         </div>

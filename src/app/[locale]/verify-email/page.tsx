@@ -27,8 +27,10 @@ const VerifyEmailPage = () => {
     checkSession();
   }, [token]);
 
+  console.log("Token:", token);
   const sendVerificationEmail = async (token: string) => {
     try {
+      console.log("Token:", token);
       const response = await axiosInstance.post(
         "/auth/verify-email",
         {
@@ -45,17 +47,12 @@ const VerifyEmailPage = () => {
         router.push("/");
       }
     } catch (error) {
-      //   console.log("Error:", errorData.error);
-      //   if (errorData.error === "token_expired") {
-      //     router.push("/");
-      //   } else if (errorData.error === "invalid_token") {
-      //     router.push("/");
-      //   } else {
-      //     throw new Error(errorData.message);
-      //   }
-      // }
-      let err = error as any;
-      console.error("Error:", err?.error);
+      console.log("Error:", error);
+      if (error === "token_expired") {
+        router.push("/");
+      } else if (error === "invalid_token") {
+        router.push("/");
+      }
     }
   };
 

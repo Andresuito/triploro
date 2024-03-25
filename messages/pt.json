@@ -111,6 +111,7 @@
          "title":"Segurança",
          "subtitle":"Modifique as configurações de segurança, configure a autenticação segura ou exclua sua conta.",
          "passwordMsg":"Deseja redefinir sua senha?",
+         "msgUser": "Foi enviado um email para redefinir a senha para ",
          "buttonPassword":"Redefinir",
          "deleteMsg":"Deseja excluir sua conta?",
          "deleteAccountConfirmation":"Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.",
