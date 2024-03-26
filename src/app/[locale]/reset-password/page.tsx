@@ -82,6 +82,7 @@ export default function ResetPasswordPage() {
             value={newPassword}
             onChange={setPassword}
             highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
             placeholder={t("placeholderNewPassword")}
           />
           <Input
@@ -89,6 +90,7 @@ export default function ResetPasswordPage() {
             type="password"
             value={confirmNewPassword}
             highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
             onChange={setConfirmPassword}
             placeholder={t("placeholderConfirmPassword")}
           />
