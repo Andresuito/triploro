@@ -17,6 +17,22 @@ const Register = () => {
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
 
   const handleRegister = async () => {
+    if (!email || !password) {
+      setHighlightEmptyFields(true);
+      setError(t("missing_fields"));
+      return;
+    }
+
+    if (password.length < 8) {
+      setError(t("password_length"));
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(t("invalid_email_format"));
+      return;
+    }
+
     try {
       const response = await axiosInstance.post("/auth/register", {
         username: email.split("@")[0],
@@ -39,7 +55,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-md">
+      <div className="max-w-md mx-auto mt-10 p-6 bg-white border-2 shadow-md rounded-md">
         <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
         <div className="space-y-4">
           <Input
@@ -48,6 +64,7 @@ const Register = () => {
             value={email}
             onChange={setEmail}
             highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
             placeholder={t("EmailPlaceholder")}
           />
           <Input
@@ -56,10 +73,15 @@ const Register = () => {
             value={password}
             onChange={setPassword}
             highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
             placeholder={t("PasswordPlaceholder")}
           />
         </div>
-        {error && <p className="text-red-500 mt-2 text-sm mb-4">{error}</p>}
+        {error && (
+          <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+            {error}
+          </p>
+        )}
         <Button label={t("Button")} onClick={handleRegister} />
         <p className="mt-4 text-sm text-center">
           {t("Link")}{" "}

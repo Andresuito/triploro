@@ -7,9 +7,9 @@ import SessionAuthProvider from "../context/SessionAuthProvider";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "TripBook - Organizas tus viajes de una manera sencilla y rápida.",
+  title: "Triploro - Organizas tus viajes de una manera sencilla y rápida.",
   description:
-    "TripBook es una plataforma que te permite organizar tus viajes de una manera sencilla y rápida.",
+    "Triploro es una plataforma que te permite organizar tus viajes de una manera sencilla y rápida.",
 };
 
 export default function RootLayout({

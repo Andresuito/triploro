@@ -44,7 +44,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-white p-4 shadow-md text-gray-800">
+      <nav className="bg-white p-4 text-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0">
@@ -54,24 +54,22 @@ function Navbar() {
             </div>
             <div className="hidden md:flex flex-grow justify-center items-center">
               <div className="flex items-baseline space-x-4">
-                <a
-                  href="#"
-                  className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200"
-                >
-                  {t("Option1")}
-                </a>
+                <Link legacyBehavior href="/destinations">
+                  <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
+                    {t("Option1")}
+                  </a>
+                </Link>
                 <a
                   href="#"
                   className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200"
                 >
                   {t("Option2")}
                 </a>
-                <a
-                  href="#"
-                  className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200"
-                >
-                  {t("Option3")}
-                </a>
+                <Link legacyBehavior href="/itineraries">
+                  <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
+                    {t("Option3")}
+                  </a>
+                </Link>
               </div>
             </div>
             <div className="relative" ref={dropdownRef}>

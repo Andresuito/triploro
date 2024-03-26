@@ -6,6 +6,7 @@ import { useSpring, animated } from "react-spring";
 import { useLocale, useTranslations } from "next-intl";
 import { signIn } from "next-auth/react";
 import Input from "../components/Global/Input";
+import Button from "../components/Global/Button";
 
 interface ModalProps {
   open: boolean;
@@ -52,8 +53,12 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
     config: { tension: 400, friction: 30 },
   });
 
-  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setHighlightEmptyFields(true);
+      setError("missing_fields");
+      return;
+    }
 
     try {
       const responseNextAuth = await signIn("credentials", {
@@ -90,13 +95,14 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
               <h2 className="text-lg font-semibold">{t("Title")}</h2>
               <IoMdClose className="w-6 h-6 cursor-pointer" onClick={onClose} />
             </div>
-            <form onSubmit={handleLogin} className="p-6 bg-white">
+            <div className="p-6 bg-white">
               <Input
                 label={t("Email")}
                 type="text"
                 value={email}
                 onChange={setEmail}
                 highlightEmpty={highlightEmptyFields}
+                hasError={!!error}
                 placeholder={t("EmailPlaceholder")}
               />
               <Input
@@ -105,29 +111,31 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 value={password}
                 onChange={setPassword}
                 highlightEmpty={highlightEmptyFields}
+                hasError={!!error}
                 placeholder={t("PasswordPlaceholder")}
               />
-              {error && <p className="text-red-500 text-sm mb-4">{t(error)}</p>}
-              <button
-                type="submit"
-                className="bg-gray-500 text-white w-full py-2 rounded-md hover:bg-sky-900 focus:outline-none transition duration-200"
-              >
-                {t("Button")}
-              </button>
-            </form>
-            <div className="flex justify-center items-center bg-white py-4">
-              <p
-                className="text-sm text-gray-700 hover:text-gray-900 cursor-pointer"
-                onClick={onClose}
-              >
-                {t("Forgot_Link")}
-              </p>
+              {error && (
+                <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+                  {t(error)}
+                </p>
+              )}{" "}
+              <Button label={t("Button")} onClick={handleLogin} />
+              <div className="flex justify-center items-center bg-white py-4">
+                <p
+                  className="text-sm text-gray-700 hover:text-gray-900 cursor-pointer"
+                  onClick={onClose}
+                >
+                  {t("Forgot_Link")}
+                </p>
+              </div>
             </div>
             <div className="flex justify-center items-center bg-sky-900 py-4">
               <p className="text-sm text-white">
                 {t("Link")}{" "}
                 <Link href={`/${locale}/register`} passHref legacyBehavior>
-                  <a onClick={onClose}>{t("Register_Link")}</a>
+                  <a className="font-semibold" onClick={onClose}>
+                    {t("Register_Link")}
+                  </a>
                 </Link>
               </p>
             </div>

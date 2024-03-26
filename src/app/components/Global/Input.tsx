@@ -7,6 +7,7 @@ interface InputProps {
   placeholder: string;
   onChange: (value: string) => void;
   highlightEmpty: boolean;
+  hasError: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -16,6 +17,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   onChange,
   highlightEmpty,
+  hasError,
 }) => {
   return (
     <div className="mb-4">
@@ -33,7 +35,9 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         className={`mt-1 p-2.5 w-full border rounded-md focus:ring-0 ${
-          highlightEmpty && !value ? "border-red-500" : "border-gray-300"
+          (highlightEmpty && !value) || hasError
+            ? "border-red-500"
+            : "border-gray-300"
         } text-sm`}
       />
     </div>

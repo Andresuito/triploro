@@ -8,6 +8,7 @@ const publicPages = [
   "/register",
   "/help",
   "/itineraries",
+  "/destinations",
   "/verify-email",
   "/reset-password",
 ];

@@ -8,8 +8,17 @@
          "Login":"Iniciar Sesion",
          "Profile":"Perfil",
          "Configuration":"Configuración",
-         "Logout":"Cerrar Sesión"
+         "Logout":"Cerrar Sesión",
+         "FAQ":"Ayuda"
       }
+   },
+   "Help":{
+      "Title":"Guías para cómo usar",
+      "Articles": "Ver todos los artículos",
+      "Help1":"Cómo organizar mi primer viaje",
+      "Help2":"Itinerarios disponibles en Triploro",
+      "Help3":"Comparte tus experiencias",
+      "Help4":"Cómo viajar en grupo"
    },
    "Auth":{
       "Register":{
@@ -78,7 +87,7 @@
       "Country2":"Portugal"
    },
    "ModalLang":{
-      "Title":"Selecciona tu idioma",
+      "Title":"Idioma",
       "Option1":"Ingles",
       "Option2":"Español",
       "Option3":"Portugues"

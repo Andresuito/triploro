@@ -8,8 +8,18 @@
          "Login":"Login",
          "Profile":"Profile",
          "Configuration":"Settings",
-         "Logout":"Logout"
+         "Logout":"Logout",
+         "FAQ":"Help"
+
       }
+   },
+   "Help":{
+      "Title":"Guidelines for how to use",
+      "Articles": "See all articles",
+      "Help1":"How to organize my first trip",
+      "Help2":"Itineraries available in Triploro",
+      "Help3":"Share your experiences",
+      "Help4":"How to travel in a group"
    },
    "Auth":{
       "Register":{
@@ -78,7 +88,7 @@
       "Country2":"Portugal"
    },
    "ModalLang":{
-      "Title":"Choose your language",
+      "Title":"Language",
       "Option1":"English",
       "Option2":"Spanish",
       "Option3":"Portuguese"

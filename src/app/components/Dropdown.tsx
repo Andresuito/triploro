@@ -49,16 +49,6 @@ const Dropdown = ({
             <>
               {session ? (
                 <>
-                  <a
-                    onClick={handleMenuClick}
-                    className="block px-4 py-2 text-sm text-gray-700"
-                    role="menuitem"
-                  >
-                    Hola,{" "}
-                    {session.user.username[0].toUpperCase() +
-                      session.user.username.slice(1)}
-                  </a>
-                  <hr />
                   <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
@@ -111,6 +101,16 @@ const Dropdown = ({
                   </Link>
                 </>
               )}
+              <hr />
+              <Link href="/help" legacyBehavior>
+                <a
+                  onClick={handleMenuClick}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                >
+                  {t("FAQ")}
+                </a>
+              </Link>
             </>
           )}
         </div>
