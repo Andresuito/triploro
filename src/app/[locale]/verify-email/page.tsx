@@ -27,10 +27,8 @@ const VerifyEmailPage = () => {
     checkSession();
   }, [token]);
 
-  console.log("Token:", token);
   const sendVerificationEmail = async (token: string) => {
     try {
-      console.log("Token:", token);
       const response = await axiosInstance.post(
         "/auth/verify-email",
         {

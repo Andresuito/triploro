@@ -40,7 +40,7 @@ const HelpPage = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mt-8 md:mt-16">
           <div>
-            <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">
+            <h2 className="text-lg lg:text-2xl font-semibold text-gray-900">
               {t("Title")}{" "}
               <span className="bg-sky-900 px-1 text-white rounded-md">
                 Triploro
@@ -59,7 +59,7 @@ const HelpPage = () => {
             </Link>
           </div>
         </div>
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {helpItems.map((item, index) => (
             <div key={index}>
               <Image

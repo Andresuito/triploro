@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { useSession, signOut } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
+import toast from "react-hot-toast";
+
 import Link from "next/link";
 import Login from "./Login";
 import { useTranslations } from "next-intl";
@@ -16,6 +19,7 @@ const Dropdown = ({
 }) => {
   const t = useTranslations("Navbar.Dropdown");
   const { data: session } = useSession();
+  const searchParams = useSearchParams();
   const dropdownAnimation = useSpring({
     opacity: isOpen ? 1 : 0,
     transform: isOpen ? "translateY(0%)" : "translateY(-100%)",
@@ -38,6 +42,15 @@ const Dropdown = ({
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    if (searchParams.get("modaLogin") === "open") {
+      setLoginOpen(true);
+      toast.success(
+        "Tu cuenta ha sido creada exitosamente, verifica tu correo para activarla."
+      );
+    }
+  }, [searchParams]);
+
   return (
     <>
       <animated.div
@@ -52,7 +65,7 @@ const Dropdown = ({
                   <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Profile")}
@@ -61,18 +74,28 @@ const Dropdown = ({
                   <Link href={`/settings?id=${session.user.id}`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Configuration")}
                     </a>
                   </Link>
+                  <Link href="/help" legacyBehavior>
+                    <a
+                      onClick={handleMenuClick}
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                      role="menuitem"
+                    >
+                      {t("FAQ")}
+                    </a>
+                  </Link>
+                  <hr />
                   <a
                     onClick={() => {
                       signOut();
                       handleMenuClick();
                     }}
-                    className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm cursor-pointer text-slate-700 hover:bg-slate-100"
                     role="menuitem"
                   >
                     {t("Logout")}
@@ -85,7 +108,7 @@ const Dropdown = ({
                       openLogin();
                       handleMenuClick();
                     }}
-                    className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm cursor-pointer text-slate-700 hover:bg-slate-100"
                     role="menuitem"
                   >
                     {t("Login")}
@@ -93,24 +116,23 @@ const Dropdown = ({
                   <Link href="/register" legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Register")}
                     </a>
                   </Link>
+                  <Link href="/help" legacyBehavior>
+                    <a
+                      onClick={handleMenuClick}
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                      role="menuitem"
+                    >
+                      {t("FAQ")}
+                    </a>
+                  </Link>
                 </>
               )}
-              <hr />
-              <Link href="/help" legacyBehavior>
-                <a
-                  onClick={handleMenuClick}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  role="menuitem"
-                >
-                  {t("FAQ")}
-                </a>
-              </Link>
             </>
           )}
         </div>

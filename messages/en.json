@@ -35,7 +35,8 @@
          "invalid_email_format":"The email format is not valid.",
          "email_already_exists":"The email is already in use.",
          "password_length":"The password must be at least 6 characters long.",
-         "email_taken":"The email is already in use."
+         "email_taken":"The email is already in use.",
+         "success": "Successful registration! Please, check your email to activate your account."
       },
       "Login":{
          "Title":"Log in",
@@ -72,7 +73,7 @@
         }
    },
    "Hero":{
-      "Title":"Explore the world with us!",
+      "Title":"Organize your trip with us!",
       "Subtitle":"Find the best travel options and activities with us.",
       "Placeholder":"Search your destination..."
    },
@@ -92,6 +93,12 @@
       "Option1":"English",
       "Option2":"Spanish",
       "Option3":"Portuguese"
+   },
+   "Profile": {
+      "Hello": "Hello",
+      "YourTrips": "Your trips",
+      "Trips": "Favorite destinations",
+      "Itinearies": "Favorite itineraries"
    },
    "Settings":{
       "infoSection":{

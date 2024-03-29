@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { FaLock, FaUserFriends, FaUserEdit } from "react-icons/fa";
 import { PiBellSimpleFill } from "react-icons/pi";
 import { useTranslations } from "next-intl";
-import axiosInstance from "../../utils/axiosInstance";
 import {
   InfoSection,
   SeguridadSection,
@@ -14,35 +13,9 @@ import {
 } from "../../components/Settings/ProfileSections";
 
 export default function ProfilePage() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const t = useTranslations("Settings");
-  const [info, setInfo] = useState(null);
   const [activeOption, setActiveOption] = useState("personalInfo");
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      getInfo();
-    }
-  }, [status]);
-
-  const getInfo = async () => {
-    if (!session) {
-      console.error("El usuario no está autenticado");
-      return;
-    }
-
-    try {
-      const response = await axiosInstance.get("/profile/profile", {
-        headers: {
-          Authorization: `Bearer ${session?.user?.token}`,
-        },
-      });
-
-      setInfo(response.data);
-    } catch (error) {
-      console.error("Error al obtener la información protegida:", error);
-    }
-  };
 
   const ProfileOptionButton = ({
     icon,
@@ -113,7 +86,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen max-w-7xl mx-auto ">
       <div className="p-8 md:flex md:justify-between">
-        {info && (
+        {session && (
           <>
             <div className="bg-white p-6 h-[290px] md:w-1/3 rounded-md border border-gray-200">
               <ProfileOptionButton
@@ -141,8 +114,8 @@ export default function ProfilePage() {
                 onClick={() => handleOptionClick("companions")}
               />
             </div>
-            <div className="p-4 ml-5 md:w-2/3">
-              {renderInfo(activeOption, info)}
+            <div className="py-4 md:p-4 ml-5 md:w-2/3">
+              {renderInfo(activeOption, session.user)}
             </div>
           </>
         )}

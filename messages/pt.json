@@ -34,7 +34,8 @@
          "email_already_exists":"O email já está em uso.",
          "invalid_email_format":"O formato do email é inválido.",
          "password_length":"A senha deve ter pelo menos 6 caracteres.",
-         "email_taken":"O email já está em uso."
+         "email_taken":"O email já está em uso.",
+         "success": "Registro bem-sucedido! Por favor, verifique seu e-mail para ativar sua conta."
       },
       "Login":{
          "Title":"Iniciar sessão",
@@ -71,7 +72,7 @@
             }
    },
    "Hero":{
-      "Title":"Explore o mundo conosco!",
+      "Title":"Organize sua viagem conosco!",
       "Subtitle":"Encontre as melhores opções de viagem e actividades connosco.",
       "Placeholder":"Pesquisar destino..."
    },
@@ -91,6 +92,12 @@
       "Option1":"Inglês",
       "Option2":"Espanhol",
       "Option3":"Português"
+   },
+   "Profile": {
+      "Hello": "Olá",
+      "YourTrips": "Suas viagens",
+      "Trips": "Destinos favoritos",
+      "Itinearies": "Itinerários favoritos"
    },
    "Settings":{
       "infoSection":{

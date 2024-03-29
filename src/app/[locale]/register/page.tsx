@@ -14,6 +14,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [succes, setSucces] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
 
   const handleRegister = async () => {
@@ -41,7 +42,11 @@ const Register = () => {
       });
 
       if (response.status === 201) {
-        router.push("/login");
+        setError("");
+        setSucces(t("success"));
+        setTimeout(() => {
+          router.push("/");
+        }, 5000);
       }
     } catch (error) {
       setError(t((error as any)?.response?.data.error));
@@ -82,6 +87,12 @@ const Register = () => {
             {error}
           </p>
         )}
+        {succes && (
+          <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+            {t("success")}
+          </p>
+        )}
+
         <Button label={t("Button")} onClick={handleRegister} />
         <p className="mt-4 text-sm text-center">
           {t("Link")}{" "}
