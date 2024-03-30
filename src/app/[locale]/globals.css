@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Switch Botton */
+input:checked ~ .dot {
+  transform: translateX(100%);
+}
+
+input:checked ~ .block {
+  background-color: #075985;
+}
+
+.dot {
+  transition: all 0.2s ease-in-out;
+}

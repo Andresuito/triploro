@@ -174,7 +174,7 @@ export const InfoSection = ({
         <div className="flex justify-between items-center border-b border-gray-200 p-2">
           <div className="flex flex-col">
             <div className="flex items-center">
-              <p className="text-gray-700 font-semibold mr-2 p-2">
+              <p className="text-gray-700 font-semibold mr-2 p-2 ">
                 {t("infoSection.usuario")}
               </p>
               {isEditingUsername ? (
@@ -270,9 +270,6 @@ export const InfoSection = ({
               year: "numeric",
               month: "long",
               day: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
               hour12: false,
             })}
           </p>
@@ -414,19 +411,53 @@ export const NotificationsSection = ({
   description: string;
   info: any;
 }) => {
-  const t = useTranslations("Settings");
+  const [option0, setOption0] = useState(true);
+  const [option1, setOption1] = useState(true);
+
+  const handleOptionChange = (setOption: any) => {
+    setOption((prev: any) => !prev);
+  };
+
   return (
     <div>
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       <span>{description}</span>
       <div className=" pb-4 mb-4">
-        <div className="flex flex-col space-y-2 mt-4 border-t border-gray-200">
-          <div className="flex items-center border-b border-gray-200 p-2">
-            <p className="text-gray-700 font-semibold mr-2 p-2">
-              {t("notificationsSection.notifications")}
-            </p>
-            <p className="text-gray-700 text-base">{info["notifications"]}</p>
-          </div>
+        <div className="flex items-center justify-between border-b border-gray-200 p-2">
+          <p className="text-gray-700 font-semibold mr-2 p-2">
+            Nuevos destinos e itinerarios
+          </p>
+          <label htmlFor="option0" className="flex items-center cursor-pointer">
+            <div className="relative">
+              <input
+                id="option0"
+                type="checkbox"
+                className="sr-only"
+                checked={option0}
+                onChange={() => handleOptionChange(setOption0)}
+              />
+              <div className="block bg-gray-600 w-10 h-6 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
+            </div>
+          </label>
+        </div>
+        <div className="flex items-center justify-between border-b border-gray-200 p-2">
+          <p className="text-gray-700 font-semibold mr-2 p-2">
+            Recordatorios de viajes
+          </p>
+          <label htmlFor="option1" className="flex items-center cursor-pointer">
+            <div className="relative">
+              <input
+                id="option1"
+                type="checkbox"
+                className="sr-only"
+                checked={option1}
+                onChange={() => handleOptionChange(setOption1)}
+              />
+              <div className="block bg-gray-600 w-10 h-6 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
+            </div>
+          </label>
         </div>
       </div>
     </div>

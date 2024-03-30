@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { TfiWorld } from "react-icons/tfi";
 import { FiAlignJustify } from "react-icons/fi";
+import { TfiWorld } from "react-icons/tfi";
 import { FaUserCircle } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
+import { useSpring, animated } from "react-spring";
 import Link from "next/link";
 import Modal from "./Modal";
 import Dropdown from "./Dropdown";
@@ -15,12 +16,13 @@ function Navbar() {
   const t = useTranslations("Navbar");
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleClickOutside = (event: any) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
+      setIsDropdownOpen(false);
     }
   };
 
@@ -40,19 +42,36 @@ function Navbar() {
   };
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const slideIn = useSpring({
+    transform: isSidebarOpen ? "translateX(0%)" : "translateX(-100%)",
+    opacity: isSidebarOpen ? 1 : 0,
+    config: { tension: 500, friction: 50 },
+  });
 
   return (
     <>
       <nav className="bg-white p-4 text-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
+            <div className="md:hidden flex py-2 px-3 bg-slate-50 rounded-full  border-2 border-gray-200 hover:shadow-md items-center transition duration-300">
+              <FiAlignJustify
+                className="md:hidden cursor-pointer w-5 h-5 text-gray-500 hover:text-sky-900 transition duration-300"
+                onClick={toggleSidebar}
+              />
+            </div>
             <div className="flex-shrink-0">
               <Link href="/" legacyBehavior>
                 <a className=" font-bold text-3xl text-sky-900">Triploro</a>
               </Link>
             </div>
+
             <div className="hidden md:flex flex-grow justify-center items-center">
               <div className="flex items-baseline space-x-4">
                 <Link legacyBehavior href="/destinations">
@@ -74,10 +93,9 @@ function Navbar() {
               </div>
             </div>
             <div className="relative" ref={dropdownRef}>
-              <div className="flex py-2 px-3 bg-slate-50 rounded-full ml-4 border-2 border-gray-200 hover:shadow-md items-center transition duration-300">
-                <FiAlignJustify className="md:hidden cursor-pointer w-5 h-5 text-gray-500 hover:text-sky-900 transition duration-300" />
+              <div className="flex py-2 px-3 bg-slate-50 rounded-full border-2 border-gray-200 hover:shadow-md items-center transition duration-300">
                 <TfiWorld
-                  className="ml-2 md:ml-0 cursor-pointer w-5 h-5 text-gray-500 hover:text-sky-900 transition duration-300"
+                  className="cursor-pointer w-5 h-5 text-gray-500 hover:text-sky-900 transition duration-300"
                   onClick={openModal}
                 />
                 {session ? (
@@ -96,11 +114,44 @@ function Navbar() {
                   />
                 )}
               </div>
-              <Dropdown isOpen={isOpen} setIsOpen={setIsOpen} />
+              <Dropdown isOpen={isDropdownOpen} setIsOpen={setIsDropdownOpen} />
             </div>
           </div>
         </div>
       </nav>
+      {isSidebarOpen && (
+        <animated.div
+          style={slideIn}
+          className="md:hidden bg-slate-50 h-fit w-full absolute top-20 left-0 z-50"
+        >
+          <div className="flex flex-col divide-y divide-slate-150">
+            <Link
+              legacyBehavior
+              href="/destinations"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              <a className="px-3 py-2 font-medium">{t("Option1")}</a>
+            </Link>
+            <hr />
+            <Link
+              legacyBehavior
+              href="#"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              <a className="px-3 py-2 font-medium">{t("Option2")}</a>
+            </Link>
+            <hr />
+            <Link
+              legacyBehavior
+              href="/itineraries"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              <a className="px-3 py-2 font-medium">{t("Option3")}</a>
+            </Link>{" "}
+            <hr />
+          </div>
+        </animated.div>
+      )}
       <Modal open={modalOpen} onClose={closeModal} />
     </>
   );
