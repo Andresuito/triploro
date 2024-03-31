@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Input from "../../components/Global/Input";
 import Button from "../../components/Global/Button";
@@ -9,7 +8,6 @@ import axiosInstance from "../../utils/axiosInstance";
 
 const Register = () => {
   const t = useTranslations("Auth.Register");
-  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,9 +42,6 @@ const Register = () => {
       if (response.status === 201) {
         setError("");
         setSucces(t("success"));
-        setTimeout(() => {
-          router.push("/");
-        }, 5000);
       }
     } catch (error) {
       setError(t((error as any)?.response?.data.error));

@@ -409,52 +409,86 @@ export const NotificationsSection = ({
 }: {
   title: string;
   description: string;
-  info: any;
+  info: {
+    receiveNewsletter: boolean;
+    receiveNewDestination: boolean;
+  };
 }) => {
-  const [option0, setOption0] = useState(true);
-  const [option1, setOption1] = useState(true);
+  const [receiveNewsletter, setReceiveNewsletter] = useState(
+    info.receiveNewsletter
+  );
+  const [receiveNewDestination, setReceiveNewDestination] = useState(
+    info.receiveNewDestination
+  );
 
-  const handleOptionChange = (setOption: any) => {
-    setOption((prev: any) => !prev);
+  const handleOptionChange = (
+    setOption: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    setOption((prev) => !prev);
   };
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      <span>{description}</span>
-      <div className=" pb-4 mb-4">
-        <div className="flex items-center justify-between border-b border-gray-200 p-2">
-          <p className="text-gray-700 font-semibold mr-2 p-2">
-            Nuevos destinos e itinerarios
-          </p>
-          <label htmlFor="option0" className="flex items-center cursor-pointer">
+    <div className="p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-4xl font-bold mb-2">{title}</h1>
+      <span className="block mb-4">{description}</span>
+      <div className="space-y-2 sm:space-y-4">
+        <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
+          <div>
+            <p className="text-gray-700 font-semibold mb-1">
+              Boletin de Noticias
+            </p>
+            <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+              Recibiras un correo electronico con informacion sobre las mejoras
+              que estamos trabajando en nuestro sitio web, itinerarios y
+              destinos populares.
+            </span>
+          </div>
+          <label
+            htmlFor="option0"
+            className="flex items-center cursor-pointer mt-2 sm:mt-0"
+          >
             <div className="relative">
               <input
                 id="option0"
                 type="checkbox"
                 className="sr-only"
-                checked={option0}
-                onChange={() => handleOptionChange(setOption0)}
+                checked={receiveNewsletter}
+                onChange={() => handleOptionChange(setReceiveNewsletter)}
               />
-              <div className="block bg-gray-600 w-10 h-6 rounded-full"></div>
+              <div
+                className={`block w-10 h-6 rounded-full transition duration-150 ${
+                  receiveNewsletter ? "bg-blue-600" : "bg-gray-600"
+                }`}
+              ></div>
               <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
             </div>
           </label>
         </div>
-        <div className="flex items-center justify-between border-b border-gray-200 p-2">
-          <p className="text-gray-700 font-semibold mr-2 p-2">
-            Recordatorios de viajes
-          </p>
-          <label htmlFor="option1" className="flex items-center cursor-pointer">
+        <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
+          <div>
+            <p className="text-gray-700 font-semibold mb-1">Nuevos destinos</p>
+            <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+              Recibiras un correo electronico cuando agregremos nuevos destinos
+              a nuestro sitio web.
+            </span>
+          </div>
+          <label
+            htmlFor="option1"
+            className="flex items-center cursor-pointer mt-2 sm:mt-0"
+          >
             <div className="relative">
               <input
                 id="option1"
                 type="checkbox"
                 className="sr-only"
-                checked={option1}
-                onChange={() => handleOptionChange(setOption1)}
+                checked={receiveNewDestination}
+                onChange={() => handleOptionChange(setReceiveNewDestination)}
               />
-              <div className="block bg-gray-600 w-10 h-6 rounded-full"></div>
+              <div
+                className={`block w-10 h-6 rounded-full transition duration-150 ${
+                  receiveNewDestination ? "bg-blue-600" : "bg-gray-600"
+                }`}
+              ></div>
               <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
             </div>
           </label>

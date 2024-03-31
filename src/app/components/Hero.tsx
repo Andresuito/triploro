@@ -9,7 +9,13 @@ export default function Hero() {
   return (
     <div className="relative h-[500px] flex items-center justify-center">
       <div className="absolute inset-0">
-        <Image src={bg_hero} alt="Background" className="object-cover" fill />
+        <Image
+          src={bg_hero}
+          alt="Background"
+          className="object-cover"
+          fill
+          priority
+        />
       </div>
       <div className="absolute inset-0 bg-sky-900 opacity-70"></div>
       <div className="text-white p-2 md:p-0 text-center z-10">

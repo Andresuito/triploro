@@ -7,6 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useSpring, animated } from "react-spring";
+
 import Link from "next/link";
 import Modal from "./Modal";
 import Dropdown from "./Dropdown";
@@ -35,6 +36,8 @@ function Navbar() {
 
   const openModal = () => {
     setModalOpen(true);
+    setIsDropdownOpen(false);
+    setIsSidebarOpen(false);
   };
 
   const closeModal = () => {
@@ -43,15 +46,26 @@ function Navbar() {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    if (isSidebarOpen) {
+      setIsSidebarOpen(false);
+    }
+    if (modalOpen) {
+      setModalOpen(false);
+    }
   };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    if (isDropdownOpen) {
+      setIsDropdownOpen(false);
+    }
+    if (modalOpen) {
+      setModalOpen(false);
+    }
   };
 
   const slideIn = useSpring({
     transform: isSidebarOpen ? "translateX(0%)" : "translateX(-100%)",
-    opacity: isSidebarOpen ? 1 : 0,
     config: { tension: 500, friction: 50 },
   });
 
