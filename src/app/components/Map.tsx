@@ -12,10 +12,10 @@ const WorldMap = () => {
     <div className="relative aspect-w-16 aspect-h-9">
       <ComposableMap viewBox="0 30 800 600">
         <Geographies geography="https://unpkg.com/world-atlas@2.0.2/countries-110m.json">
-          {({ geographies }) =>
+          {({ geographies }: { geographies: any[] }) =>
             geographies
-              .filter((geo) => geo.properties.name !== "Antarctica")
-              .map((geo) => {
+              .filter((geo: any) => geo.properties.name !== "Antarctica")
+              .map((geo: any) => {
                 const countryName = geo.properties.name;
                 let color = colorOtherCountries;
 
