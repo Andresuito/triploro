@@ -10,12 +10,11 @@
          "Configuration":"Settings",
          "Logout":"Logout",
          "FAQ":"Help"
-
       }
    },
    "Help":{
       "Title":"Guidelines for how to use",
-      "Articles": "See all articles",
+      "Articles":"See all articles",
       "Help1":"How to organize my first trip",
       "Help2":"Itineraries available in Triploro",
       "Help3":"Share your experiences",
@@ -36,7 +35,7 @@
          "email_already_exists":"The email is already in use.",
          "password_length":"The password must be at least 6 characters long.",
          "email_taken":"The email is already in use.",
-         "success": "Successful registration! Please, check your email to activate your account."
+         "success":"Successful registration! Please, check your email to activate your account."
       },
       "Login":{
          "Title":"Log in",
@@ -58,19 +57,32 @@
          "incorrect_password":"Incorrect password."
       },
       "Reset-Password":{
-           "Title": "Reset password",
-           "labelNewPassword": "New password",
-           "placeholderNewPassword": "Password",
-           "labelConfirmPassword": "Confirm password",
-           "placeholderConfirmPassword": "Password",
-           "button": "Reset",
-           "error": {
-              "missing_fields": "Please fill in all fields.",
-              "password_length": "Password must be at least 6 characters.",
-              "passwords_not_match": "Passwords do not match.",
-              "password_format": "Password must contain at least one uppercase letter."
-           }
-        }
+         "Title":"Reset password",
+         "labelNewPassword":"New password",
+         "placeholderNewPassword":"Password",
+         "labelConfirmPassword":"Confirm password",
+         "placeholderConfirmPassword":"Password",
+         "button":"Reset",
+         "error":{
+            "missing_fields":"Please fill in all fields.",
+            "password_length":"Password must be at least 6 characters.",
+            "passwords_not_match":"Passwords do not match.",
+            "missing_token":"An error has occurred. Please try again later.",
+            "password_format":"Password must contain at least one uppercase letter."
+         }
+      },
+      "ForgotPassword":{
+         "Title":"Forgot your password?",
+         "Email":"Email",
+         "EmailPlaceholder":"Email",
+         "Button":"Send",
+         "recovery_email_sent":"Email sent! Please check your inbox.",
+         "error":{
+            "missing_fields":"Please fill in all fields.",
+            "invalid_email_format":"The email format is not valid.",
+            "user_not_found":"The entered email was not found."
+         }
+      }
    },
    "Hero":{
       "Title":"Organize your trip with us!",
@@ -94,11 +106,11 @@
       "Option2":"Spanish",
       "Option3":"Portuguese"
    },
-   "Profile": {
-      "Hello": "Hello",
-      "YourTrips": "Your trips",
-      "Trips": "Favorite destinations",
-      "Itinearies": "Favorite itineraries"
+   "Profile":{
+      "Hello":"Hello",
+      "YourTrips":"Your trips",
+      "Trips":"Favorite destinations",
+      "Itinearies":"Favorite itineraries"
    },
    "Settings":{
       "infoSection":{
@@ -120,6 +132,7 @@
             "usernameLength":"The username must be at least 3 characters long.",
             "usernameRegex":"The username can only contain letters, numbers, and hyphens.",
             "usernameTaken":"The username is already in use.",
+            "invalid_name":"The user is not valid.",
             "emailFormat":"The email format is not valid.",
             "emailTaken":"The email is already in use."
          }
@@ -128,7 +141,7 @@
          "title":"Security",
          "subtitle":"Modify the security settings, set up secure authentication or delete your account.",
          "passwordMsg":"Do you want to reset your password?",
-         "msgUser": "An email has been sent to reset the password to ",
+         "msgUser":"An email has been sent to reset the password to ",
          "buttonPassword":"Reset",
          "deleteMsg":"Do you want to delete your account?",
          "deleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone.",

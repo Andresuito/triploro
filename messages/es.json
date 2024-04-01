@@ -14,7 +14,7 @@
    },
    "Help":{
       "Title":"Guías para cómo usar",
-      "Articles": "Ver todos los artículos",
+      "Articles":"Ver todos los artículos",
       "Help1":"Cómo organizar mi primer viaje",
       "Help2":"Itinerarios disponibles en Triploro",
       "Help3":"Comparte tus experiencias",
@@ -57,17 +57,30 @@
          "incorrect_password":"Contraseña incorrecta."
       },
       "Reset-Password":{
-         "Title": "Restablecer contraseña",
-         "labelNewPassword": "Nueva contraseña",
-         "placeholderNewPassword": "Contraseña",
-         "labelConfirmPassword": "Confirmar contraseña",
-         "placeholderConfirmPassword": "Contraseña",
-         "button": "Restablecer",
-         "error": {
-            "missing_fields": "Por favor, completa todos los campos.",
-            "password_length": "La contraseña debe tener al menos 6 caracteres.",
-            "passwords_not_match": "Las contraseñas no coinciden.",
-            "password_format": "La contraseña debe tener al menos una letra mayúscula."
+         "Title":"Restablecer contraseña",
+         "labelNewPassword":"Nueva contraseña",
+         "placeholderNewPassword":"Contraseña",
+         "labelConfirmPassword":"Confirmar contraseña",
+         "placeholderConfirmPassword":"Contraseña",
+         "button":"Restablecer",
+         "error":{
+            "missing_fields":"Por favor, completa todos los campos.",
+            "password_length":"La contraseña debe tener al menos 6 caracteres.",
+            "passwords_not_match":"Las contraseñas no coinciden.",
+            "missing_token":"Se ha producido un error. Por favor, inténtalo mas tarde.",
+            "password_format":"La contraseña debe tener al menos una letra mayúscula."
+         }
+      },
+      "ForgotPassword":{
+         "Title":"¿Olvidaste tu contraseña?",
+         "Email":"Correo Electrónico",
+         "EmailPlaceholder":"Email",
+         "Button":"Enviar",
+         "recovery_email_sent":"¡Correo electrónico enviado! Por favor, revisa tu bandeja de entrada.",
+         "error":{
+            "missing_fields":"Por favor, completa todos los campos.",
+            "invalid_email_format":"El formato del correo electrónico no es válido.",
+            "user_not_found":"No se ha encontrado el email introducido."
          }
       }
    },
@@ -93,11 +106,11 @@
       "Option2":"Español",
       "Option3":"Portugues"
    },
-   "Profile": {
-      "Hello": "Hola",
-      "YourTrips": "Tus viajes",
-      "Trips": "Destinos favoritos",
-      "Itinearies": "Itinerarios favoritos"
+   "Profile":{
+      "Hello":"Hola",
+      "YourTrips":"Tus viajes",
+      "Trips":"Destinos favoritos",
+      "Itinearies":"Itinerarios favoritos"
    },
    "Settings":{
       "infoSection":{
@@ -119,6 +132,7 @@
             "usernameLength":"El nombre de usuario debe tener al menos 3 caracteres.",
             "usernameRegex":"El nombre de usuario solo puede contener letras, números y guiones.",
             "usernameTaken":"El nombre de usuario ya está en uso.",
+            "invalid_name":"El usuario no es valido.",
             "emailFormat":"El formato del correo electrónico no es válido.",
             "emailTaken":"El correo electrónico ya está en uso."
          }
@@ -127,7 +141,7 @@
          "title":"Seguridad",
          "subtitle":"Modifica los ajustes de seguridad, configura la autenticación segura o elimina tu cuenta.",
          "passwordMsg":"¿Desea restablecer su contraseña?",
-         "msgUser": "Se le ha enviado un correo electrónico para restablecer la contraseña a ",
+         "msgUser":"Se le ha enviado un correo electrónico para restablecer la contraseña a ",
          "buttonPassword":"Restablecer",
          "deleteMsg":"¿Desea borrar su cuenta?",
          "deleteAccountConfirmation":"¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.",
