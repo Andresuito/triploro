@@ -121,12 +121,18 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
               )}{" "}
               <Button label={t("Button")} onClick={handleLogin} />
               <div className="flex justify-center items-center bg-white py-4">
-                <p
-                  className="text-sm text-gray-700 hover:text-gray-900 cursor-pointer"
-                  onClick={onClose}
+                <Link
+                  href={`/${locale}/forgot-password`}
+                  passHref
+                  legacyBehavior
                 >
-                  {t("Forgot_Link")}
-                </p>
+                  <a
+                    className="text-sm text-gray-700 hover:text-gray-900 cursor-pointer"
+                    onClick={onClose}
+                  >
+                    {t("Forgot_Link")}
+                  </a>
+                </Link>
               </div>
             </div>
             <div className="flex justify-center items-center bg-sky-900 py-4">

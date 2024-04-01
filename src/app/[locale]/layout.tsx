@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 export const metadata: Metadata = {
   title: {
     default: "Triploro - Organizas tus viajes de una manera sencilla y rápida",
-    template: "Triploro - %s",
+    template: "%s - Triploro",
   },
   description:
     "Triploro es una plataforma que te permite organizar tus viajes de una manera sencilla y rápida.",

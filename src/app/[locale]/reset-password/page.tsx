@@ -45,7 +45,7 @@ export default function ResetPasswordPage() {
 
     try {
       const response = await axiosInstance.patch(
-        "/profile/change-password",
+        "/auth/change-password",
         {
           newPassword: newPassword,
           confirmNewPassword: confirmNewPassword,
@@ -65,7 +65,7 @@ export default function ResetPasswordPage() {
       setError(t((error as any)?.response?.data.error));
 
       if ((error as any)?.response?.data.error === "missing_token") {
-        setError("No hay token");
+        setError(t("error.missing_token"));
       }
     }
   };

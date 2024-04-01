@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -8,6 +9,11 @@ import help1 from "../../assets/help-1.jpg";
 import help2 from "../../assets/help-2.jpg";
 import help3 from "../../assets/help-3.jpg";
 import help4 from "../../assets/help-4.jpg";
+
+export const metadata: Metadata = {
+  title: "Help",
+  description: "Help page",
+};
 
 const HelpPage = () => {
   const t = useTranslations("Help");

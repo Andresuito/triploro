@@ -104,7 +104,12 @@ export const InfoSection = ({
         ));
       }
     } catch (error) {
-      if ((error as any)?.response?.status === 400) {
+      console.log(error);
+      if ((error as any)?.response?.data?.error === "invalid_name") {
+        setUsernameError(t("infoSection.error.invalid_name"));
+      }
+
+      if ((error as any)?.response?.data?.error === "username_already_exists") {
         setUsernameError(t("infoSection.error.usernameTaken"));
       }
     }
