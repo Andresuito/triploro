@@ -15,7 +15,7 @@ export default function DestinationsPage() {
             </h2>
           </div>
         </div>
-        <div className="relative aspect-w-16 aspect-h-9">
+        <div className="relative">
           <Map />
         </div>
       </div>
