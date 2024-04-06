@@ -4,6 +4,14 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { capitalizeFirstLetter } from "@/app/utils/capitalizeFirstLetter";
 
+import spain from "@/app/assets/countries/spain.jpg";
+import portugal from "@/app/assets/countries/portugal.jpg";
+
+const countryImages = {
+  es: spain,
+  pt: portugal,
+};
+
 export const CountryBox = ({ country }: { country: any }) => {
   const t = useTranslations("Destination.Countries");
   const imageWidth = 450;
@@ -11,11 +19,14 @@ export const CountryBox = ({ country }: { country: any }) => {
 
   const countryNameCapitalized = capitalizeFirstLetter(country.name);
 
+  const countryImage =
+    countryImages[country.image as keyof typeof countryImages];
+
   return (
     <Link href={`/country/${country.name}`} legacyBehavior>
       <a className="relative cursor-pointer hover:shadow-lg transition duration-500">
         <Image
-          src={`/assets/countries/${country.image}`}
+          src={countryImage}
           alt={country.name}
           width={imageWidth}
           height={imageHeight}
