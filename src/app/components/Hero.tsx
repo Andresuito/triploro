@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import bg_hero from "../assets/banner-hero.jpg";
+import bg_hero from "@/app/assets/banner-hero.jpg";
 import { useTranslations } from "next-intl";
 
 export default function Hero() {

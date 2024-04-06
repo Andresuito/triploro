@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import Input from "../../components/Global/Input";
-import Button from "../../components/Global/Button";
-import axiosInstance from "../../utils/axiosInstance";
+import Input from "@/app/components/Global/Input";
+import Button from "@/app/components/Global/Button";
+import axiosInstance from "@/app/utils/axiosInstance";
 
 const ForgotPassword = () => {
   const t = useTranslations("Auth.ForgotPassword");

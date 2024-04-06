@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useSpring, animated } from "react-spring";
 import { useLocale, useTranslations } from "next-intl";
 import { signIn } from "next-auth/react";
-import Input from "../components/Global/Input";
-import Button from "../components/Global/Button";
+import Input from "@/app/components/Global/Input";
+import Button from "@/app/components/Global/Button";
 
 interface ModalProps {
   open: boolean;
@@ -56,7 +56,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const handleLogin = async () => {
     if (!email || !password) {
       setHighlightEmptyFields(true);
-      setError("missing_fields");
+      setError("error.missing_fields");
       return;
     }
 
@@ -69,7 +69,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
       });
 
       if (responseNextAuth?.error) {
-        setError(responseNextAuth.error);
+        setError("error." + responseNextAuth.error);
         return;
       }
 
@@ -77,7 +77,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
       onClose();
     } catch (error) {
       console.error("Login error:", error);
-      setError("login_error");
+      setError("error.login_error");
     }
   };
 
@@ -97,22 +97,22 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
             </div>
             <div className="p-6 bg-white">
               <Input
-                label={t("Email")}
+                label={t("Fields.Email")}
                 type="text"
                 value={email}
                 onChange={setEmail}
                 highlightEmpty={highlightEmptyFields}
                 hasError={!!error}
-                placeholder={t("EmailPlaceholder")}
+                placeholder={t("Placeholders.Email")}
               />
               <Input
-                label={t("Password")}
+                label={t("Fields.Password")}
                 type="password"
                 value={password}
                 onChange={setPassword}
                 highlightEmpty={highlightEmptyFields}
                 hasError={!!error}
-                placeholder={t("PasswordPlaceholder")}
+                placeholder={t("Placeholders.Password")}
               />
               {error && (
                 <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
@@ -130,17 +130,17 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                     className="text-sm text-gray-700 hover:text-gray-900 cursor-pointer"
                     onClick={onClose}
                   >
-                    {t("Forgot_Link")}
+                    {t("Links.ForgotPassword")}
                   </a>
                 </Link>
               </div>
             </div>
             <div className="flex justify-center items-center bg-sky-900 py-4">
               <p className="text-sm text-white">
-                {t("Link")}{" "}
+                {t("Links.NoAccount")}{" "}
                 <Link href={`/${locale}/register`} passHref legacyBehavior>
                   <a className="font-semibold" onClick={onClose}>
-                    {t("Register_Link")}
+                    {t("Links.Register")}
                   </a>
                 </Link>
               </p>

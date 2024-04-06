@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import Input from "../../components/Global/Input";
-import Button from "../../components/Global/Button";
-import axiosInstance from "../../utils/axiosInstance";
+import Input from "@/app/components/Global/Input";
+import Button from "@/app/components/Global/Button";
+import axiosInstance from "@/app/utils/axiosInstance";
 
 const Register = () => {
   const t = useTranslations("Auth.Register");
@@ -18,17 +18,17 @@ const Register = () => {
   const handleRegister = async () => {
     if (!email || !password) {
       setHighlightEmptyFields(true);
-      setError(t("missing_fields"));
+      setError(t("error.missing_fields"));
       return;
     }
 
     if (password.length < 8) {
-      setError(t("password_length"));
+      setError(t("error.password_length"));
       return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError(t("invalid_email_format"));
+      setError(t("error.invalid_email_format"));
       return;
     }
 
@@ -41,13 +41,15 @@ const Register = () => {
 
       if (response.status === 201) {
         setError("");
-        setSucces(t("success"));
+        setSucces(t("Success"));
       }
     } catch (error) {
+      if (setSucces) setSucces("");
+
       setError(t((error as any)?.response?.data.error));
 
       if ((error as any)?.response?.data.error === "email_already_exists") {
-        setError(t("email_already_exists"));
+        setError(t("error.email_already_exists"));
         return;
       }
     }
@@ -59,22 +61,22 @@ const Register = () => {
         <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
         <div className="space-y-4">
           <Input
-            label={t("Email")}
+            label={t("Fields.Email")}
             type="email"
             value={email}
             onChange={setEmail}
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
-            placeholder={t("EmailPlaceholder")}
+            placeholder={t("Placeholders.Email")}
           />
           <Input
-            label={t("Password")}
+            label={t("Fields.Password")}
             type="password"
             value={password}
             onChange={setPassword}
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
-            placeholder={t("PasswordPlaceholder")}
+            placeholder={t("Placeholders.Password")}
           />
         </div>
         {error && (
@@ -84,15 +86,15 @@ const Register = () => {
         )}
         {succes && (
           <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
-            {t("success")}
+            {t("Success")}
           </p>
         )}
 
         <Button label={t("Button")} onClick={handleRegister} />
         <p className="mt-4 text-sm text-center">
-          {t("Link")}{" "}
+          {t("Links.AlreadyHaveAccount")}{" "}
           <a href="#" className="text-blue-500">
-            {t("Login_Link")}
+            {t("Links.Login")}
           </a>
         </p>
       </div>

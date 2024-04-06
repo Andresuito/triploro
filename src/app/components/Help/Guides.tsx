@@ -3,10 +3,10 @@ import { useTranslations } from "next-intl";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
 
-import help1 from "../../assets/help-1.jpg";
-import help2 from "../../assets/help-2.jpg";
-import help3 from "../../assets/help-3.jpg";
-import help4 from "../../assets/help-4.jpg";
+import help1 from "@/app/assets/help-1.jpg";
+import help2 from "@/app/assets/help-2.jpg";
+import help3 from "@/app/assets/help-3.jpg";
+import help4 from "@/app/assets/help-4.jpg";
 
 const Guides = () => {
   const t = useTranslations("Help");
@@ -14,23 +14,23 @@ const Guides = () => {
   const helpItems = [
     {
       image: help1,
-      alt: t("Help1"),
-      title: t("Help1"),
+      alt: t("Topics.Help1"),
+      title: t("Topics.Help1"),
     },
     {
       image: help2,
-      alt: t("Help2"),
-      title: t("Help2"),
+      alt: t("Topics.Help2"),
+      title: t("Topics.Help2"),
     },
     {
       image: help3,
-      alt: t("Help3"),
-      title: t("Help3"),
+      alt: t("Topics.Help3"),
+      title: t("Topics.Help3"),
     },
     {
       image: help4,
-      alt: t("Help4"),
-      title: t("Help4"),
+      alt: t("Topics.Help4"),
+      title: t("Topics.Help4"),
     },
   ];
 

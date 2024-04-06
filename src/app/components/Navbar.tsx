@@ -90,18 +90,18 @@ function Navbar() {
               <div className="flex items-baseline space-x-4">
                 <Link legacyBehavior href="/destinations">
                   <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
-                    {t("Option1")}
+                    {t("Options.Option1")}
                   </a>
                 </Link>
                 <a
                   href="#"
                   className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200"
                 >
-                  {t("Option2")}
+                  {t("Options.Option2")}
                 </a>
                 <Link legacyBehavior href="/itineraries">
                   <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
-                    {t("Option3")}
+                    {t("Options.Option3")}
                   </a>
                 </Link>
               </div>

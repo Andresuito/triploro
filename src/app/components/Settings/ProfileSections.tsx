@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import axiosInstance from "../../utils/axiosInstance";
+import { formatDate } from "../../utils/formatDate";
 import toast from "react-hot-toast";
 
 export const InfoSection = ({
@@ -42,12 +43,12 @@ export const InfoSection = ({
     }
 
     if (username.length < 3) {
-      setUsernameError(t("infoSection.error.usernameLength"));
+      setUsernameError(t("InfoSection.error.username_length"));
       return;
     }
 
     if (!/^[a-zA-Z0-9_]*$/.test(username)) {
-      setUsernameError(t("infoSection.error.usernameRegex"));
+      setUsernameError(t("InfoSection.error.username_regex"));
       return;
     }
 
@@ -106,11 +107,11 @@ export const InfoSection = ({
     } catch (error) {
       console.log(error);
       if ((error as any)?.response?.data?.error === "invalid_name") {
-        setUsernameError(t("infoSection.error.invalid_name"));
+        setUsernameError(t("InfoSection.error.invalid_name"));
       }
 
       if ((error as any)?.response?.data?.error === "username_already_exists") {
-        setUsernameError(t("infoSection.error.usernameTaken"));
+        setUsernameError(t("InfoSection.error.usernameTaken"));
       }
     }
   };
@@ -134,7 +135,7 @@ export const InfoSection = ({
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
-      setEmailError(t("infoSection.error.emailFormat"));
+      setEmailError(t("InfoSection.error.email_format"));
       return;
     }
 
@@ -166,7 +167,7 @@ export const InfoSection = ({
       }
     } catch (error) {
       if ((error as any)?.response?.status === 400) {
-        setEmailError(t("infoSection.error.emailTaken"));
+        setEmailError(t("InfoSection.error.email_taken"));
       }
     }
   };
@@ -180,7 +181,7 @@ export const InfoSection = ({
           <div className="flex flex-col">
             <div className="flex items-center">
               <p className="text-gray-700 font-semibold mr-2 p-2 ">
-                {t("infoSection.usuario")}
+                {t("InfoSection.Fields.Username")}
               </p>
               {isEditingUsername ? (
                 <input
@@ -204,13 +205,13 @@ export const InfoSection = ({
                 className="bg-sky-800 p-1 px-3 text-white rounded-md mr-2"
                 onClick={handleSaveUsername}
               >
-                {t("infoSection.buttonSave")}
+                {t("InfoSection.Buttons.Save")}
               </button>
               <button
                 className="p-1 px-3 text-sky-800 rounded-md hover:bg-gray-100"
                 onClick={handleCancelUsername}
               >
-                {t("infoSection.buttonCancel")}
+                {t("InfoSection.Buttons.Cancel")}
               </button>
             </div>
           ) : (
@@ -218,7 +219,7 @@ export const InfoSection = ({
               onClick={handleEditUsername}
               className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
             >
-              {t("infoSection.buttonEdit")}
+              {t("InfoSection.Buttons.Edit")}
             </a>
           )}
         </div>
@@ -226,7 +227,7 @@ export const InfoSection = ({
           <div className="flex flex-col">
             <div className="flex items-center">
               <p className="text-gray-700 font-semibold mr-2 p-2">
-                {t("infoSection.email")}
+                {t("InfoSection.Fields.Email")}
               </p>
               {isEditingEmail ? (
                 <input
@@ -248,13 +249,13 @@ export const InfoSection = ({
                 onClick={handleSaveEmail}
                 className="bg-sky-800 p-1 px-3 text-white rounded-md mr-2"
               >
-                {t("infoSection.buttonSave")}
+                {t("InfoSection.Buttons.Save")}
               </button>
               <button
                 onClick={handleCancelEmail}
                 className="p-1 px-3 text-sky-800 rounded-md hover:bg-gray-100"
               >
-                {t("infoSection.buttonCancel")}
+                {t("InfoSection.Buttons.Cancel")}
               </button>
             </div>
           ) : (
@@ -262,21 +263,16 @@ export const InfoSection = ({
               onClick={handleEditEmail}
               className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
             >
-              {t("infoSection.buttonEdit")}
+              {t("InfoSection.Buttons.Edit")}
             </a>
           )}
         </div>
         <div className="flex items-center p-2 border-b border-gray-200">
           <p className="text-gray-700 font-semibold mr-2 p-2">
-            {t("infoSection.accountCreated")}
+            {t("InfoSection.Dates.AccountCreated")}
           </p>
           <p className="text-gray-700  text-base">
-            {new Date(info["createdAt"]).toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              hour12: false,
-            })}
+            {formatDate(info["createdAt"])}
           </p>
         </div>
       </div>
@@ -333,7 +329,7 @@ export const SeguridadSection = ({
 
       if (response.status === 200) {
         setResetPasswordMessage(
-          `${t("securitySection.msgUser")} <strong>${
+          `${t("SecuritySection.Messages.PasswordResetEmailSent")} <strong>${
             session?.user?.email
           }</strong>`
         );
@@ -354,23 +350,23 @@ export const SeguridadSection = ({
               <p dangerouslySetInnerHTML={{ __html: resetPasswordMessage }}></p>
             ) : (
               <>
-                <p>{t("securitySection.passwordMsg")}</p>
+                <p>{t("SecuritySection.Messages.PasswordReset")}</p>
                 <button
                   onClick={handleChangePassword}
                   className="p-1 px-2 text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
                 >
-                  {t("securitySection.buttonPassword")}
+                  {t("SecuritySection.Buttons.ResetPassword")}
                 </button>
               </>
             )}
           </div>
           <div className="flex items-center justify-between border-b border-gray-200 p-2">
-            <p>{t("securitySection.deleteMsg")}</p>
+            <p>{t("SecuritySection.Messages.DeleteAccount")}</p>
             <button
               onClick={handleDeleteAccount}
               className="p-1 px-2 text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
             >
-              {t("securitySection.buttonDeleteAccount")}
+              {t("SecuritySection.Buttons.DeleteAccount")}
             </button>
           </div>
         </div>
@@ -398,7 +394,7 @@ export const MateSection = ({
         <div className="flex flex-col space-y-2 mt-4">
           <div className="flex items-center">
             <button className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200">
-              {t("mateSection.buttonAddMate")}
+              {t("MateSection.Buttons.AddMate")}
             </button>
           </div>
         </div>

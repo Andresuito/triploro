@@ -83,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 onClick={() => handleLanguageChange("en")}
               >
                 <GB className="w-6 h-6 mr-2" />
-                {t("Option1")}
+                {t("Options.Option1")}
               </button>
               <button
                 className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
@@ -92,7 +92,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 onClick={() => handleLanguageChange("es")}
               >
                 <ES className="w-6 h-6 mr-2" />
-                {t("Option2")}
+                {t("Options.Option2")}
               </button>
               <button
                 className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 onClick={() => handleLanguageChange("pt")}
               >
                 <PT className="w-6 h-6 mr-2" />
-                {t("Option3")}
+                {t("Options.Option3")}
               </button>
             </div>
           </animated.div>
