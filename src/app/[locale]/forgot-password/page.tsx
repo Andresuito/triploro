@@ -1,10 +1,15 @@
 import { Metadata } from "next";
-import ForgotPasswordUse from "../../components/Forgot-password/ForgotPasswordUse";
+import { getTranslations } from "next-intl/server";
+import ForgotPasswordUse from "@/app/components/Forgot-password/ForgotPasswordUse";
 
-export const metadata: Metadata = {
-  title: "Recovery password",
-  description: "Forgot password page",
-};
+export async function generateMetadata() {
+  const t = await getTranslations({ namespace: "Metadata" });
+
+  return {
+    title: t("ResetPassword.Title"),
+    description: t("ResetPassword.Description"),
+  };
+}
 
 const Profile = () => {
   return <ForgotPasswordUse />;

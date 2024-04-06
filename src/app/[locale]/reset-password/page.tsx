@@ -6,9 +6,9 @@ import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import toast from "react-hot-toast";
 
-import Input from "../../components/Global/Input";
-import Button from "../../components/Global/Button";
-import axiosInstance from "../../utils/axiosInstance";
+import Input from "@/app/components/Global/Input";
+import Button from "@/app/components/Global/Button";
+import axiosInstance from "@/app/utils/axiosInstance";
 
 export default function ResetPasswordPage() {
   const t = useTranslations("Auth.Reset-Password");

@@ -1,11 +1,15 @@
 import React from "react";
-import { Metadata } from "next";
-import Guides from "../../components/Help/Guides";
+import { getTranslations } from "next-intl/server";
+import Guides from "@/app/components/Help/Guides";
 
-export const metadata: Metadata = {
-  title: "Help",
-  description: "Help page",
-};
+export async function generateMetadata() {
+  const t = await getTranslations({ namespace: "Metadata" });
+
+  return {
+    title: t("Help.Title"),
+    description: t("Help.Description"),
+  };
+}
 
 const HelpPage = () => {
   return (

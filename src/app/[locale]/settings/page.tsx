@@ -5,13 +5,13 @@ import { useSession } from "next-auth/react";
 import { FaLock, FaUserFriends, FaUserEdit } from "react-icons/fa";
 import { PiBellSimpleFill } from "react-icons/pi";
 import { useTranslations } from "next-intl";
-import axiosInstance from "../../utils/axiosInstance";
+import axiosInstance from "@/app/utils/axiosInstance";
 import {
   InfoSection,
   SeguridadSection,
   MateSection,
   NotificationsSection,
-} from "../../components/Settings/ProfileSections";
+} from "@/app/components/Settings/ProfileSections";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
@@ -20,29 +20,29 @@ export default function ProfilePage() {
   const [activeOption, setActiveOption] = useState("personalInfo");
 
   useEffect(() => {
+    const getInfo = async () => {
+      if (!session) {
+        console.error("El usuario no está autenticado");
+        return;
+      }
+
+      try {
+        const response = await axiosInstance.get("/profile/profile", {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        });
+
+        setInfo(response.data);
+      } catch (error) {
+        console.error("Error al obtener la información protegida:", error);
+      }
+    };
+
     if (status === "authenticated") {
       getInfo();
     }
-  }, [status]);
-
-  const getInfo = async () => {
-    if (!session) {
-      console.error("El usuario no está autenticado");
-      return;
-    }
-
-    try {
-      const response = await axiosInstance.get("/profile/profile", {
-        headers: {
-          Authorization: `Bearer ${session?.user?.token}`,
-        },
-      });
-
-      setInfo(response.data);
-    } catch (error) {
-      console.error("Error al obtener la información protegida:", error);
-    }
-  };
+  }, [status, session]);
 
   const ProfileOptionButton = ({
     icon,
@@ -77,31 +77,31 @@ export default function ProfilePage() {
       case "personalInfo":
         return (
           <InfoSection
-            title={t("infoSection.title")}
-            description={t("infoSection.subtitle")}
+            title={t("InfoSection.Title")}
+            description={t("InfoSection.Subtitle")}
             info={info}
           />
         );
       case "notifications":
         return (
           <NotificationsSection
-            title={t("notificationsSection.title")}
-            description={t("notificationsSection.subtitle")}
+            title={t("NotificationsSection.Title")}
+            description={t("NotificationsSection.Subtitle")}
             info={info}
           />
         );
       case "security":
         return (
           <SeguridadSection
-            title={t("securitySection.title")}
-            description={t("securitySection.subtitle")}
+            title={t("SecuritySection.Title")}
+            description={t("SecuritySection.Subtitle")}
           />
         );
       case "companions":
         return (
           <MateSection
-            title={t("mateSection.title")}
-            description={t("mateSection.subtitle")}
+            title={t("MateSection.Title")}
+            description={t("MateSection.Subtitle")}
             info={info}
           />
         );
@@ -118,25 +118,25 @@ export default function ProfilePage() {
             <div className="bg-white p-6 h-[290px] md:w-1/3 rounded-md border border-gray-200">
               <ProfileOptionButton
                 icon={<FaUserEdit className="mr-2" />}
-                text={t("infoSection.title")}
+                text={t("InfoSection.Title")}
                 active={activeOption === "personalInfo"}
                 onClick={() => handleOptionClick("personalInfo")}
               />
               <ProfileOptionButton
                 icon={<PiBellSimpleFill className="mr-2" />}
-                text={t("notificationsSection.title")}
+                text={t("NotificationsSection.Title")}
                 active={activeOption === "notifications"}
                 onClick={() => handleOptionClick("notifications")}
               />
               <ProfileOptionButton
                 icon={<FaLock className="mr-2" />}
-                text={t("securitySection.title")}
+                text={t("SecuritySection.Title")}
                 active={activeOption === "security"}
                 onClick={() => handleOptionClick("security")}
               />
               <ProfileOptionButton
                 icon={<FaUserFriends className="mr-2" />}
-                text={t("mateSection.title")}
+                text={t("MateSection.Title")}
                 active={activeOption === "companions"}
                 onClick={() => handleOptionClick("companions")}
               />
