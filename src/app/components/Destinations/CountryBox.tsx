@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { capitalizeFirstLetter } from "@/app/utils/capitalizeFirstLetter";
 
-import spain from "@/app/assets/countries/spain.jpg";
-import portugal from "@/app/assets/countries/portugal.jpg";
+import spain from "@/app/assets/countries/Spain.jpg";
+import portugal from "@/app/assets/countries/Portugal.jpg";
 
 const countryImages = {
   es: spain,
