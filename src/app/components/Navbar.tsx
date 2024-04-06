@@ -144,7 +144,7 @@ function Navbar() {
               href="/destinations"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <a className="px-3 py-2 font-medium">{t("Option1")}</a>
+              <a className="px-3 py-2 font-medium">{t("Options.Option1")}</a>
             </Link>
             <hr />
             <Link
@@ -152,7 +152,7 @@ function Navbar() {
               href="#"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <a className="px-3 py-2 font-medium">{t("Option2")}</a>
+              <a className="px-3 py-2 font-medium">{t("Options.Option2")}</a>
             </Link>
             <hr />
             <Link
@@ -160,7 +160,7 @@ function Navbar() {
               href="/itineraries"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <a className="px-3 py-2 font-medium">{t("Option3")}</a>
+              <a className="px-3 py-2 font-medium">{t("Options.Option3")}</a>
             </Link>{" "}
             <hr />
           </div>
