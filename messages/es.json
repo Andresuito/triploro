@@ -1,161 +1,257 @@
 {
-   "Navbar":{
-      "Option1":"Destinos",
-      "Option2":"Experiencias",
-      "Option3":"Itinerarios",
-      "Dropdown":{
-         "Register":"Registrarse",
-         "Login":"Iniciar Sesion",
-         "Profile":"Perfil",
-         "Configuration":"Configuración",
-         "Logout":"Cerrar Sesión",
-         "FAQ":"Ayuda"
-      }
+   "Metadata": {
+     "Title": "Triploro",
+     "Description": "Triploro es una plataforma de viajes que te ayuda a organizar tus viajes de la mejor manera posible. Encuentra los mejores destinos, itinerarios y experiencias para disfrutar de tus vacaciones.",
+     "Keywords": "viajes, destinos, itinerarios, experiencias, vacaciones, turismo, viajar, organizar viaje",
+     "Country": {
+       "description": "Como CEO de Triploro España, me dedico a proporcionar los mejores itinerarios y experiencias de viaje en España. Con Triploro, puedes planificar tus viajes de manera gratuita, descubriendo los destinos más fascinantes y las experiencias más auténticas que España tiene para ofrecer.",
+       "spain": "España",
+       "portugal": "Portugal"
+     },
+     "Destinations":{
+      "Title": "Destinos",
+      "Description": "Descubre los destinos más populares y las ciudades más importantes de España y Portugal. Encuentra información sobre la capital, el continente y las ciudades más destacadas de cada país."
+    },
+   "ResetPassword":{
+      "Title": "Restablecer contraseña",
+      "Description": "Restablece tu contraseña para acceder a tu cuenta de Triploro. Introduce tu nueva contraseña y confírmala para completar el proceso."
    },
    "Help":{
-      "Title":"Guías para cómo usar",
-      "Articles":"Ver todos los artículos",
-      "Help1":"Cómo organizar mi primer viaje",
-      "Help2":"Itinerarios disponibles en Triploro",
-      "Help3":"Comparte tus experiencias",
-      "Help4":"Cómo viajar en grupo"
-   },
-   "Auth":{
-      "Register":{
-         "Title":"Regístrate",
-         "Email":"Correo Electrónico",
-         "EmailPlaceholder":"Email",
-         "Password":"Contraseña",
-         "PasswordPlaceholder":"Contraseña",
-         "Button":"Registrarse",
-         "Link":"¿Ya tienes una cuenta?",
-         "Login_Link":"Inicia sesión",
-         "missing_fields":"Por favor, completa todos los campos.",
-         "invalid_email_format":"El formato del correo electrónico no es válido.",
-         "email_already_exists":"El correo electrónico ya está en uso.",
-         "password_length":"La contraseña debe tener al menos 6 caracteres.",
-         "email_taken":"El correo electrónico ya está en uso.",
-         "success":"¡Registro exitoso! Por favor, revisa tu correo electrónico para activar tu cuenta."
-      },
-      "Login":{
-         "Title":"Inicia sesión",
-         "Email":"Correo Electrónico",
-         "Password":"Contraseña",
-         "PasswordPlaceholder":"Contraseña",
-         "EmailPlaceholder":"Email",
-         "Button":"Iniciar Sesión",
-         "Link":"¿No tienes una cuenta?",
-         "Forgot_Link":"¿Olvidaste tu contraseña?",
-         "Register_Link":"Regístrate",
-         "missing_fields":"Por favor, completa todos los campos.",
-         "email_not_found":"Correo electrónico no encontrado.",
-         "invalid_email_format":"El formato del correo electrónico no es válido.",
-         "password_must_be_at_least_6_characters":"La contraseña debe tener al menos 6 caracteres.",
-         "account_not_activated":"La cuenta no está activada. Por favor, revisa tu correo electrónico para activarla.",
-         "invalid_credentials":"Credenciales incorectas.",
-         "login_error":"Error al iniciar sesión. Por favor, inténtalo de nuevo.",
-         "incorrect_password":"Contraseña incorrecta."
-      },
-      "Reset-Password":{
-         "Title":"Restablecer contraseña",
-         "labelNewPassword":"Nueva contraseña",
-         "placeholderNewPassword":"Contraseña",
-         "labelConfirmPassword":"Confirmar contraseña",
-         "placeholderConfirmPassword":"Contraseña",
-         "button":"Restablecer",
-         "error":{
-            "missing_fields":"Por favor, completa todos los campos.",
-            "password_length":"La contraseña debe tener al menos 6 caracteres.",
-            "passwords_not_match":"Las contraseñas no coinciden.",
-            "missing_token":"Se ha producido un error. Por favor, inténtalo mas tarde.",
-            "password_format":"La contraseña debe tener al menos una letra mayúscula."
-         }
-      },
-      "ForgotPassword":{
-         "Title":"¿Olvidaste tu contraseña?",
-         "Email":"Correo Electrónico",
-         "EmailPlaceholder":"Email",
-         "Button":"Enviar",
-         "recovery_email_sent":"¡Correo electrónico enviado! Por favor, revisa tu bandeja de entrada.",
-         "error":{
-            "missing_fields":"Por favor, completa todos los campos.",
-            "invalid_email_format":"El formato del correo electrónico no es válido.",
-            "user_not_found":"No se ha encontrado el email introducido."
-         }
-      }
-   },
-   "Hero":{
-      "Title":"¡Organiza tu viaje con nosotros!",
-      "Subtitle":"Encuentra las mejores opciones de viaje y activiades con nosotros.",
-      "Placeholder":"Buscar tu destino..."
-   },
-   "Destination":{
-      "Title":"Destinos populares",
-      "City1":"Barcelona",
-      "City2":"Madrid",
-      "City3":"Lisboa",
-      "City4":"Oporto",
-      "City5":"Sevilla",
-      "City6":"Valencia",
-      "Country1":"España",
-      "Country2":"Portugal"
-   },
-   "ModalLang":{
-      "Title":"Idioma",
-      "Option1":"Ingles",
-      "Option2":"Español",
-      "Option3":"Portugues"
-   },
-   "Profile":{
-      "Hello":"Hola",
-      "YourTrips":"Tus viajes",
-      "Trips":"Destinos favoritos",
-      "Itinearies":"Itinerarios favoritos"
-   },
-   "Settings":{
-      "infoSection":{
-         "title":"Datos personales",
-         "subtitle":"Actualiza tus datos y descubre cómo se utilizan.",
-         "usuario":"Usuario:",
-         "usuarioPlaceholder":"Usuario",
-         "email":"Email:",
-         "emailPlaceholder":"Email",
-         "accountCreated":"Fecha de creación:",
-         "buttonEdit":"Editar",
-         "buttonSave":"Guardar",
-         "buttonCancel":"Cancelar",
-         "missing_fields":"Por favor, completa todos los campos.",
-         "invalid_email_format":"El formato del email no es válido.",
-         "password_length":"La contraseña debe tener al menos 6 caracteres.",
-         "email_taken":"El email ya está en uso.",
-         "error":{
-            "usernameLength":"El nombre de usuario debe tener al menos 3 caracteres.",
-            "usernameRegex":"El nombre de usuario solo puede contener letras, números y guiones.",
-            "usernameTaken":"El nombre de usuario ya está en uso.",
-            "invalid_name":"El usuario no es valido.",
-            "emailFormat":"El formato del correo electrónico no es válido.",
-            "emailTaken":"El correo electrónico ya está en uso."
-         }
-      },
-      "securitySection":{
-         "title":"Seguridad",
-         "subtitle":"Modifica los ajustes de seguridad, configura la autenticación segura o elimina tu cuenta.",
-         "passwordMsg":"¿Desea restablecer su contraseña?",
-         "msgUser":"Se le ha enviado un correo electrónico para restablecer la contraseña a ",
-         "buttonPassword":"Restablecer",
-         "deleteMsg":"¿Desea borrar su cuenta?",
-         "deleteAccountConfirmation":"¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.",
-         "buttonDeleteAccount":"Eliminar cuenta"
-      },
-      "mateSection":{
-         "title":"Compañero de viaje",
-         "subtitle":"Gestiona o edita los acompañantes de tus viajes.",
-         "buttonAddMate":"Añadir acompañante"
-      },
-      "notificationsSection":{
-         "title":"Notificaciones",
-         "subtitle":"Configura las notificaciones que deseas recibir.",
-         "notifications":"Notificaciones"
-      }
+    "Title": "Ayuda",
+    "Description": "Encuentra guías y artículos sobre cómo organizar tu primer viaje, los itinerarios disponibles en Triploro, cómo compartir tus experiencias y cómo viajar en grupo."
+   }, 
+   "Register":{
+    "Title": "Registrarse",
+    "Description": "Regístrate en Triploro para organizar tus viajes de la mejor manera posible. Completa los campos con tu correo electrónico y contraseña para crear tu cuenta."
    }
-}
+   },
+   "Navbar": {
+     "Options": {
+       "Option1": "Destinos",
+       "Option2": "Experiencias",
+       "Option3": "Itinerarios"
+     },
+     "Dropdown": {
+       "Register": "Registrarse",
+       "Login": "Iniciar Sesión",
+       "Profile": "Perfil",
+       "Configuration": "Configuración",
+       "Logout": "Cerrar Sesión",
+       "FAQ": "Ayuda"
+     }
+   },
+   "Help": {
+     "Title": "Guías para cómo usar",
+     "Articles": "Ver todos los artículos",
+     "Topics": {
+       "Help1": "Cómo organizar mi primer viaje",
+       "Help2": "Itinerarios disponibles en Triploro",
+       "Help3": "Comparte tus experiencias",
+       "Help4": "Cómo viajar en grupo"
+     }
+   },
+   "Auth": {
+     "Register": {
+       "Title": "Regístrate",
+       "Fields": {
+         "Email": "Correo Electrónico",
+         "Password": "Contraseña"
+       },
+       "Placeholders": {
+         "Email": "Email",
+         "Password": "Contraseña"
+       },
+       "Button": "Registrarse",
+       "Links": {
+         "AlreadyHaveAccount": "¿Ya tienes una cuenta?",
+         "Login": "Inicia sesión"
+       },
+       "Success": "¡Registro exitoso! Por favor, revisa tu correo electrónico para activar tu cuenta.",
+       "error": {
+         "missing_fields": "Por favor, completa todos los campos.",
+         "invalid_email_format": "El formato del correo electrónico no es válido.",
+         "email_already_exists": "El correo electrónico ya está en uso.",
+         "password_length": "La contraseña debe tener al menos 6 caracteres."
+       }
+     },
+     "Login": {
+       "Title": "Inicia sesión",
+       "Fields": {
+         "Email": "Correo Electrónico",
+         "Password": "Contraseña"
+       },
+       "Placeholders": {
+         "Email": "Email",
+         "Password": "Contraseña"
+       },
+       "Button": "Iniciar Sesión",
+       "Links": {
+         "NoAccount": "¿No tienes una cuenta?",
+         "ForgotPassword": "¿Olvidaste tu contraseña?",
+         "Register": "Regístrate"
+       },
+       "error": {
+         "missing_fields": "Por favor, completa todos los campos.",
+         "email_not_found": "Correo electrónico no encontrado.",
+         "invalid_email_format": "El formato del correo electrónico no es válido.",
+         "password_must_be_at_least_6_characters": "La contraseña debe tener al menos 6 caracteres.",
+         "account_not_activated": "La cuenta no está activada. Por favor, revisa tu correo electrónico para activarla.",
+         "invalid_credentials": "Credenciales incorrectas.",
+         "login_error": "Error al iniciar sesión. Por favor, inténtalo de nuevo.",
+         "incorrect_password": "Contraseña incorrecta."
+       }
+     },
+     "ResetPassword": {
+       "Title": "Restablecer contraseña",
+       "Fields": {
+         "NewPassword": "Nueva contraseña",
+         "ConfirmPassword": "Confirmar contraseña"
+       },
+       "Placeholders": {
+         "NewPassword": "Contraseña",
+         "ConfirmPassword": "Contraseña"
+       },
+       "Button": "Restablecer",
+       "error": {
+         "missing_fields": "Por favor, completa todos los campos.",
+         "password_length": "La contraseña debe tener al menos 6 caracteres.",
+         "passwords_do_not_match": "Las contraseñas no coinciden.",
+         "missing_token": "Se ha producido un error. Por favor, inténtalo mas tarde.",
+         "password_format": "La contraseña debe tener al menos una letra mayúscula."
+       }
+     },
+     "ForgotPassword": {
+       "Title": "¿Olvidaste tu contraseña?",
+       "Fields": {
+         "Email": "Correo Electrónico"
+       },
+       "Placeholders": {
+         "Email": "Email"
+       },
+       "Button": "Enviar",
+       "Success": "¡Correo electrónico enviado! Por favor, revisa tu bandeja de entrada.",
+       "error": {
+         "missing_fields": "Por favor, completa todos los campos.",
+         "invalid_email_format": "El formato del correo electrónico no es válido.",
+         "user_not_found": "No se ha encontrado el email introducido."
+       }
+     }
+   },
+   "Hero": {
+     "Title": "¡Organiza tu viaje con nosotros!",
+     "Subtitle": "Encuentra las mejores opciones de viaje y actividades con nosotros.",
+     "Placeholder": "Buscar tu destino..."
+   },
+   "Destination": {
+     "Titles": {
+       "PopularDestinations": "Destinos populares",
+       "CurrentDestinations": "Nuestros actuales",
+       "ImportantDestinations": "Destinos importantes",
+       "Destination": "Destino"
+     },
+     "Cities": {
+       "Barcelona": "Barcelona",
+       "Madrid": "Madrid",
+       "Lisbon": "Lisboa",
+       "Porto": "Oporto",
+       "Seville": "Sevilla",
+       "Valencia": "Valencia"
+     },
+     "Countries": {
+       "Spain": "España",
+       "Portugal": "Portugal"
+     }
+   },
+   "ModalLang": {
+     "Title": "Idioma",
+     "Options": {
+       "Option1": "Inglés",
+       "Option2": "Español",
+       "Option3": "Portugués"
+     }
+   },
+   "Profile": {
+     "Greeting": "Hola",
+     "YourTrips": "Tus viajes",
+     "FavoriteDestinations": "Destinos favoritos",
+     "FavoriteItineraries": "Itinerarios favoritos"
+   },
+   "Settings": {
+     "InfoSection": {
+       "Title": "Datos personales",
+       "Subtitle": "Actualiza tus datos y descubre cómo se utilizan.",
+       "Fields": {
+         "Username": "Usuario",
+         "Email": "Email"
+       },
+       "Placeholders": {
+         "Username": "Usuario",
+         "Email": "Email"
+       },
+       "Dates": {
+         "AccountCreated": "Fecha de creación"
+       },
+       "Buttons": {
+         "Edit": "Editar",
+         "Save": "Guardar",
+         "Cancel": "Cancelar"
+       },
+       "error": {
+         "missing_fields": "Por favor, completa todos los campos.",
+         "email_format": "El formato del email no es válido.",
+         "username_length":"El nombre de usuario debe tener al menos 3 caracteres.",
+         "username_taken": "El nombre de usuario ya está en uso.",
+         "invalid_name": "El nombre de usuario no es valido.",
+         "username_regex":"El nombre de usuario no es valido.",
+         "invalid_email_format": "El formato del email no es válido.",
+         "password_length": "La contraseña debe tener al menos 6 caracteres.",
+         "email_taken": "El email ya está en uso."
+       }
+     },
+     "SecuritySection": {
+       "Title": "Seguridad",
+       "Subtitle": "Modifica los ajustes de seguridad, configura la autenticación segura o elimina tu cuenta.",
+       "Messages": {
+         "PasswordReset": "¿Desea restablecer su contraseña?",
+         "PasswordResetEmailSent": "Se le ha enviado un correo electrónico para restablecer la contraseña a ",
+         "DeleteAccount": "¿Desea borrar su cuenta?",
+         "DeleteAccountConfirmation": "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
+       },
+       "Buttons": {
+         "ResetPassword": "Restablecer",
+         "DeleteAccount": "Eliminar cuenta"
+       }
+     },
+     "MateSection": {
+       "Title": "Compañero de viaje",
+       "Subtitle": "Gestiona o edita los acompañantes de tus viajes.",
+       "Buttons": {
+         "AddMate": "Añadir acompañante"
+       }
+     },
+     "NotificationsSection": {
+       "Title": "Notificaciones",
+       "Subtitle": "Configura las notificaciones que deseas recibir.",
+       "Notifications": "Notificaciones"
+     }
+   },
+   "Country": {
+     "Description": {
+       "Spain": "España, país de la Península Ibérica, cuenta con 17 comunidades autónomas, cada una con su propia geografía y cultura. Madrid, la capital, alberga el Palacio Real y el Museo del Prado, con obras de maestros europeos. Segovia posee un castillo medieval.",
+       "Portugal": "Portugal, país situado en el suroeste de Europa, es conocido por su gastronomía, su música de fado, su arquitectura y sus playas. Lisboa, la capital, tiene sitios emblemáticos como la Torre de Belém y el barrio de Alfama. La ciudad de Oporto es famosa por sus bodegas de vino de Oporto y el puente de Luis I. La región del Algarve, en el sur, es conocida por sus playas y campos de golf."
+     },
+     "Information": {
+       "Capital": "Capital",
+       "Continent": "Continente",
+       "Europe": "Europa"
+     },
+     "Cities": {
+       "Madrid": "Madrid",
+       "Lisbon": "Lisboa"
+     },
+     "Countries": {
+       "Spain": "España",
+       "Portugal": "Portugal"
+     }
+   }
+ }

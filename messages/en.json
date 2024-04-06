@@ -1,161 +1,257 @@
 {
-   "Navbar":{
-      "Option1":"Destinations",
-      "Option2":"Experiences",
-      "Option3":"Itineraries",
-      "Dropdown":{
-         "Register":"Register",
-         "Login":"Login",
-         "Profile":"Profile",
-         "Configuration":"Settings",
-         "Logout":"Logout",
-         "FAQ":"Help"
+  "Metadata": {
+    "Title": "Triploro",
+    "Description": "Triploro is a travel platform that helps you organize your trips in the best possible way. Find the best destinations, itineraries, and experiences to enjoy your holidays.",
+    "Keywords": "trips, destinations, itineraries, experiences, holidays, tourism, travel, organize trip",
+    "Country": {
+      "description": "As CEO of Triploro Spain, I dedicate myself to providing the best itineraries and travel experiences in Spain. With Triploro, you can plan your trips for free, discovering the most fascinating destinations and the most authentic experiences that Spain has to offer.",
+      "spain": "Spain",
+      "portugal": "Portugal"
+    },
+    "Destinations":{
+     "Title": "Destinations",
+     "Description": "Discover the most popular destinations and the most important cities in Spain and Portugal. Find information about the capital, the continent, and the most outstanding cities of each country."
+   },
+  "ResetPassword":{
+     "Title": "Reset password",
+     "Description": "Reset your password to access your Triploro account. Enter your new password and confirm it to complete the process."
+  },
+  "Help":{
+   "Title": "Help",
+   "Description": "Find guides and articles on how to organize your first trip, the itineraries available on Triploro, how to share your experiences, and how to travel in a group."
+  }, 
+  "Register":{
+   "Title": "Register",
+   "Description": "Register on Triploro to organize your trips in the best possible way. Fill in the fields with your email and password to create your account."
+  }
+  },
+  "Navbar": {
+    "Options": {
+      "Option1": "Destinations",
+      "Option2": "Experiences",
+      "Option3": "Itineraries"
+    },
+    "Dropdown": {
+      "Register": "Register",
+      "Login": "Login",
+      "Profile": "Profile",
+      "Configuration": "Configuration",
+      "Logout": "Logout",
+      "FAQ": "Help"
+    }
+  },
+  "Help": {
+    "Title": "Guides on how to use",
+    "Articles": "See all articles",
+    "Topics": {
+      "Help1": "How to organize my first trip",
+      "Help2": "Itineraries available on Triploro",
+      "Help3": "Share your experiences",
+      "Help4": "How to travel in a group"
+    }
+  },
+  "Auth": {
+    "Register": {
+      "Title": "Register",
+      "Fields": {
+        "Email": "Email",
+        "Password": "Password"
+      },
+      "Placeholders": {
+        "Email": "Email",
+        "Password": "Password"
+      },
+      "Button": "Register",
+      "Links": {
+        "AlreadyHaveAccount": "Already have an account?",
+        "Login": "Login"
+      },
+      "Success": "Successful registration! Please check your email to activate your account.",
+      "error": {
+        "missing_fields": "Please complete all fields.",
+        "invalid_email_format": "The email format is not valid.",
+        "email_already_exists": "The email is already in use.",
+        "password_length": "The password must be at least 6 characters long."
       }
-   },
-   "Help":{
-      "Title":"Guidelines for how to use",
-      "Articles":"See all articles",
-      "Help1":"How to organize my first trip",
-      "Help2":"Itineraries available in Triploro",
-      "Help3":"Share your experiences",
-      "Help4":"How to travel in a group"
-   },
-   "Auth":{
-      "Register":{
-         "Title":"Register",
-         "Email":"Email",
-         "EmailPlaceholder":"Email",
-         "Password":"Password",
-         "PasswordPlaceholder":"Password",
-         "Button":"Register",
-         "Link":"Already have an account?",
-         "Login_Link":"Log in",
-         "missing_fields":"Please, fill in all the fields.",
-         "invalid_email_format":"The email format is not valid.",
-         "email_already_exists":"The email is already in use.",
-         "password_length":"The password must be at least 6 characters long.",
-         "email_taken":"The email is already in use.",
-         "success":"Successful registration! Please, check your email to activate your account."
+    },
+    "Login": {
+      "Title": "Login",
+      "Fields": {
+        "Email": "Email",
+        "Password": "Password"
       },
-      "Login":{
-         "Title":"Log in",
-         "Email":"Email",
-         "Password":"Password",
-         "PasswordPlaceholder":"Password",
-         "EmailPlaceholder":"Email",
-         "Button":"Log in",
-         "Link":"Don't have an account?",
-         "Forgot_Link":"Forgot your password?",
-         "Register_Link":"Register",
-         "missing_fields":"Please, fill in all the fields.",
-         "email_not_found":"Email not found.",
-         "invalid_email_format":"The email format is not valid.",
-         "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
-         "account_not_activated":"Your account is not activated. Please, check your email for the activation link.",
-         "invalid_credentials":"Incorrect credentials.",
-         "login_error":"Error logging in. Please, try again.",
-         "incorrect_password":"Incorrect password."
+      "Placeholders": {
+        "Email": "Email",
+        "Password": "Password"
       },
-      "Reset-Password":{
-         "Title":"Reset password",
-         "labelNewPassword":"New password",
-         "placeholderNewPassword":"Password",
-         "labelConfirmPassword":"Confirm password",
-         "placeholderConfirmPassword":"Password",
-         "button":"Reset",
-         "error":{
-            "missing_fields":"Please fill in all fields.",
-            "password_length":"Password must be at least 6 characters.",
-            "passwords_not_match":"Passwords do not match.",
-            "missing_token":"An error has occurred. Please try again later.",
-            "password_format":"Password must contain at least one uppercase letter."
-         }
+      "Button": "Login",
+      "Links": {
+        "NoAccount": "Don't have an account?",
+        "ForgotPassword": "Forgot your password?",
+        "Register": "Register"
       },
-      "ForgotPassword":{
-         "Title":"Forgot your password?",
-         "Email":"Email",
-         "EmailPlaceholder":"Email",
-         "Button":"Send",
-         "recovery_email_sent":"Email sent! Please check your inbox.",
-         "error":{
-            "missing_fields":"Please fill in all fields.",
-            "invalid_email_format":"The email format is not valid.",
-            "user_not_found":"The entered email was not found."
-         }
+      "error": {
+        "missing_fields": "Please complete all fields.",
+        "email_not_found": "Email not found.",
+        "invalid_email_format": "The email format is not valid.",
+        "password_must_be_at_least_6_characters": "The password must be at least 6 characters long.",
+        "account_not_activated": "The account is not activated. Please check your email to activate it.",
+        "invalid_credentials": "Incorrect credentials.",
+        "login_error": "Error logging in. Please try again.",
+        "incorrect_password": "Incorrect password."
       }
-   },
-   "Hero":{
-      "Title":"Organize your trip with us!",
-      "Subtitle":"Find the best travel options and activities with us.",
-      "Placeholder":"Search your destination..."
-   },
-   "Destination":{
-      "Title":"Popular Destinations",
-      "City1":"Barcelona",
-      "City2":"Madrid",
-      "City3":"Lisbon",
-      "City4":"Oporto",
-      "City5":"Seville",
-      "City6":"Valencia",
-      "Country1":"Spain",
-      "Country2":"Portugal"
-   },
-   "ModalLang":{
-      "Title":"Language",
-      "Option1":"English",
-      "Option2":"Spanish",
-      "Option3":"Portuguese"
-   },
-   "Profile":{
-      "Hello":"Hello",
-      "YourTrips":"Your trips",
-      "Trips":"Favorite destinations",
-      "Itinearies":"Favorite itineraries"
-   },
-   "Settings":{
-      "infoSection":{
-         "title":"Personal Information",
-         "subtitle":"Update your data and discover how they are used.",
-         "usuario":"User:",
-         "usuarioPlaceholder":"User",
-         "email":"Email:",
-         "emailPlaceholder":"Email",
-         "accountCreated":"Creation Date:",
-         "buttonEdit":"Edit",
-         "buttonSave":"Save",
-         "buttonCancel":"Cancel",
-         "missing_fields":"Please, fill in all the fields.",
-         "invalid_email_format":"The email format is not valid.",
-         "password_length":"The password must be at least 6 characters long.",
-         "email_taken":"The email is already in use.",
-         "error":{
-            "usernameLength":"The username must be at least 3 characters long.",
-            "usernameRegex":"The username can only contain letters, numbers, and hyphens.",
-            "usernameTaken":"The username is already in use.",
-            "invalid_name":"The user is not valid.",
-            "emailFormat":"The email format is not valid.",
-            "emailTaken":"The email is already in use."
-         }
+    },
+    "ResetPassword": {
+      "Title": "Reset password",
+      "Fields": {
+        "NewPassword": "New password",
+        "ConfirmPassword": "Confirm password"
       },
-      "securitySection":{
-         "title":"Security",
-         "subtitle":"Modify the security settings, set up secure authentication or delete your account.",
-         "passwordMsg":"Do you want to reset your password?",
-         "msgUser":"An email has been sent to reset the password to ",
-         "buttonPassword":"Reset",
-         "deleteMsg":"Do you want to delete your account?",
-         "deleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone.",
-         "buttonDeleteAccount":"Delete Account"
+      "Placeholders": {
+        "NewPassword": "Password",
+        "ConfirmPassword": "Password"
       },
-      "mateSection":{
-         "title":"Travel Companion",
-         "subtitle":"Manage or edit your travel companions.",
-         "buttonAddMate":"Add Companion"
-      },
-      "notificationsSection":{
-         "title":"Notifications",
-         "subtitle":"Configure the notifications you want to receive.",
-         "notifications":"Notifications"
+      "Button": "Reset",
+      "error": {
+        "missing_fields": "Please complete all fields.",
+        "password_length": "The password must be at least 6 characters long.",
+        "passwords_do_not_match": "The passwords do not match.",
+        "missing_token": "An error has occurred. Please try again later.",
+        "password_format": "The password must have at least one uppercase letter."
       }
-   }
+    },
+    "ForgotPassword": {
+      "Title": "Forgot your password?",
+      "Fields": {
+        "Email": "Email"
+      },
+      "Placeholders": {
+        "Email": "Email"
+      },
+      "Button": "Send",
+      "Success": "Email sent! Please check your inbox.",
+      "error": {
+        "missing_fields": "Please complete all fields.",
+        "invalid_email_format": "The email format is not valid.",
+        "user_not_found": "The entered email was not found."
+      }
+    }
+  },
+  "Hero": {
+    "Title": "Organize your trip with us!",
+    "Subtitle": "Find the best travel options and activities with us.",
+    "Placeholder": "Search your destination..."
+  },
+  "Destination": {
+    "Titles": {
+      "PopularDestinations": "Popular destinations",
+      "CurrentDestinations": "Our current",
+      "ImportantDestinations": "Important destinations",
+      "Destination": "Destination"
+    },
+    "Cities": {
+      "Barcelona": "Barcelona",
+      "Madrid": "Madrid",
+      "Lisbon": "Lisbon",
+      "Porto": "Porto",
+      "Seville": "Seville",
+      "Valencia": "Valencia"
+    },
+    "Countries": {
+      "Spain": "Spain",
+      "Portugal": "Portugal"
+    }
+  },
+  "ModalLang": {
+    "Title": "Language",
+    "Options": {
+      "Option1": "English",
+      "Option2": "Spanish",
+      "Option3": "Portuguese"
+    }
+  },
+  "Profile": {
+    "Greeting": "Hello",
+    "YourTrips": "Your trips",
+    "FavoriteDestinations": "Favorite destinations",
+    "FavoriteItineraries": "Favorite itineraries"
+  },
+  "Settings": {
+    "InfoSection": {
+      "Title": "Personal data",
+      "Subtitle": "Update your data and discover how they are used.",
+      "Fields": {
+        "Username": "Username",
+        "Email": "Email"
+      },
+      "Placeholders": {
+        "Username": "Username",
+        "Email": "Email"
+      },
+      "Dates": {
+        "AccountCreated": "Creation date"
+      },
+      "Buttons": {
+        "Edit": "Edit",
+        "Save": "Save",
+        "Cancel": "Cancel"
+      },
+      "error": {
+        "missing_fields": "Please complete all fields.",
+        "email_format": "The email format is not valid.",
+        "username_length":"The username must be at least 3 characters long.",
+        "username_taken": "The username is already in use.",
+        "invalid_name": "The username is not valid.",
+        "username_regex":"The username is not valid.",
+        "invalid_email_format": "The email format is not valid.",
+        "password_length": "The password must be at least 6 characters long.",
+        "email_taken": "The email is already in use."
+      }
+    },
+    "SecuritySection": {
+      "Title": "Security",
+      "Subtitle": "Modify security settings, configure secure authentication, or delete your account.",
+      "Messages": {
+        "PasswordReset": "Do you want to reset your password?",
+        "PasswordResetEmailSent": "An email has been sent to reset the password to ",
+        "DeleteAccount": "Do you want to delete your account?",
+        "DeleteAccountConfirmation": "Are you sure you want to delete your account? This action cannot be undone."
+      },
+      "Buttons": {
+        "ResetPassword": "Reset",
+        "DeleteAccount": "Delete account"
+      }
+    },
+    "MateSection": {
+      "Title": "Travel mate",
+      "Subtitle": "Manage or edit the companions of your trips.",
+      "Buttons": {
+        "AddMate": "Add companion"
+      }
+    },
+    "NotificationsSection": {
+      "Title": "Notifications",
+      "Subtitle": "Configure the notifications you want to receive.",
+      "Notifications": "Notifications"
+    }
+  },
+  "Country": {
+    "Description": {
+      "Spain": "Spain, a country on the Iberian Peninsula, has 17 autonomous communities, each with its own geography and culture. Madrid, the capital, is home to the Royal Palace and the Prado Museum, with works by European masters. Segovia has a medieval castle.",
+      "Portugal": "Portugal, a country located in southwestern Europe, is known for its cuisine, fado music, architecture, and beaches. Lisbon, the capital, has iconic sites such as the Belém Tower and the Alfama neighborhood. The city of Porto is famous for its port wine cellars and the Luis I bridge. The Algarve region in the south is known for its beaches and golf courses."
+    },
+    "Information": {
+      "Capital": "Capital",
+      "Continent": "Continent",
+      "Europe": "Europe"
+    },
+    "Cities": {
+      "Madrid": "Madrid",
+      "Lisbon": "Lisbon"
+    },
+    "Countries": {
+      "Spain": "Spain",
+      "Portugal": "Portugal"
+    }
+  }
 }
