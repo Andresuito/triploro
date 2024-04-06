@@ -1,14 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import SessionAuthProvider from "../context/SessionAuthProvider";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import SessionAuthProvider from "@/app/context/SessionAuthProvider";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: {
-    default: "Triploro - Organizas tus viajes de una manera sencilla y rápida",
+    default: "Triploro",
     template: "%s - Triploro",
   },
   description:

@@ -1,0 +1,8 @@
+export interface Country {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  capital: string;
+  continent: string;
+}
