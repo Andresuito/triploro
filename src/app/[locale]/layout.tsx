@@ -5,10 +5,9 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 
 export async function generateMetadata() {
-  const t = await getTranslations({ locale: "en", namespace: "Metadata" });
+  const t = await getTranslations("Metadata");
 
   return {
     title: {
@@ -16,6 +15,22 @@ export async function generateMetadata() {
       template: "%s - Triploro",
     },
     description: t("Description"),
+    metadataBase: new URL("https://triploro.com/"),
+    openGraph: {
+      type: "website",
+      url: "https://triploro.com",
+      title: t("Title"),
+      description: t("Description"),
+      site_name: "Triploro",
+      images: [
+        {
+          url: "../opengraph-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Triploro",
+        },
+      ],
+    },
   };
 }
 
