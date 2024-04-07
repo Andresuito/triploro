@@ -1,28 +1,28 @@
 {
   "Metadata": {
     "Title": "Triploro",
-    "Description": "Triploro is a travel platform that helps you organize your trips in the best possible way. Find the best destinations, itineraries, and experiences to enjoy your holidays.",
-    "Keywords": "trips, destinations, itineraries, experiences, holidays, tourism, travel, organize trip",
+    "Description": "Triploro is your ultimate travel companion, offering personalized itineraries and unique experiences for an unforgettable holiday. Explore top destinations, plan your trips, and share your experiences with our global community.",
+    "Keywords": "travel planning, personalized itineraries, unique experiences, top destinations, trip organization, tourism, travel, Triploro",
     "Country": {
-      "description": "As CEO of Triploro Spain, I dedicate myself to providing the best itineraries and travel experiences in Spain. With Triploro, you can plan your trips for free, discovering the most fascinating destinations and the most authentic experiences that Spain has to offer.",
+      "description": "As CEO of Triploro Spain, I am committed to offering the best travel experiences in Spain. Plan your trips with Triploro for free and discover Spain's hidden gems and authentic experiences.",
       "spain": "Spain",
       "portugal": "Portugal"
     },
     "Destinations":{
-     "Title": "Destinations",
-     "Description": "Discover the most popular destinations and the most important cities in Spain and Portugal. Find information about the capital, the continent, and the most outstanding cities of each country."
+     "Title": "Explore Destinations",
+     "Description": "Uncover the most popular destinations and significant cities in Spain and Portugal with Triploro. Get detailed information about the capitals, continents, and standout cities of each country."
    },
   "ResetPassword":{
-     "Title": "Reset password",
-     "Description": "Reset your password to access your Triploro account. Enter your new password and confirm it to complete the process."
+     "Title": "Reset Your Account Password",
+     "Description": "Reset your Triploro account password securely. Enter your new password and confirm it to regain access to your personalized travel plans and experiences."
   },
   "Help":{
    "Title": "Help",
-   "Description": "Find guides and articles on how to organize your first trip, the itineraries available on Triploro, how to share your experiences, and how to travel in a group."
+   "Description": "Get comprehensive guides and articles on planning your first trip, exploring itineraries on Triploro, sharing your experiences, and group travel tips."
   }, 
   "Register":{
-   "Title": "Register",
-   "Description": "Register on Triploro to organize your trips in the best possible way. Fill in the fields with your email and password to create your account."
+   "Title": "Register ",
+   "Description": "Register with Triploro to start planning your trips in the most efficient way. Simply enter your email and password to create your account and embark on your travel journey."
   }
   },
   "Navbar": {

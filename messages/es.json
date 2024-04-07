@@ -1,29 +1,29 @@
 {
-   "Metadata": {
-     "Title": "Triploro",
-     "Description": "Triploro es una plataforma de viajes que te ayuda a organizar tus viajes de la mejor manera posible. Encuentra los mejores destinos, itinerarios y experiencias para disfrutar de tus vacaciones.",
-     "Keywords": "viajes, destinos, itinerarios, experiencias, vacaciones, turismo, viajar, organizar viaje",
-     "Country": {
-       "description": "Como CEO de Triploro España, me dedico a proporcionar los mejores itinerarios y experiencias de viaje en España. Con Triploro, puedes planificar tus viajes de manera gratuita, descubriendo los destinos más fascinantes y las experiencias más auténticas que España tiene para ofrecer.",
-       "spain": "España",
-       "portugal": "Portugal"
-     },
-     "Destinations":{
-      "Title": "Destinos",
-      "Description": "Descubre los destinos más populares y las ciudades más importantes de España y Portugal. Encuentra información sobre la capital, el continente y las ciudades más destacadas de cada país."
+  "Metadata": {
+    "Title": "Triploro",
+    "Description": "Triploro es tu compañero de viaje definitivo, ofreciendo itinerarios personalizados y experiencias únicas para unas vacaciones inolvidables. Explora los destinos más populares, planifica tus viajes y comparte tus experiencias con nuestra comunidad global.",
+    "Keywords": "planificación de viajes, itinerarios personalizados, experiencias únicas, destinos populares, organización de viajes, turismo, viajar, Triploro",
+    "Country": {
+      "description": "Como CEO de Triploro España, estoy comprometido a ofrecer las mejores experiencias de viaje en España. Planifica tus viajes con Triploro de forma gratuita y descubre las joyas ocultas y las experiencias auténticas de España.",
+      "spain": "España",
+      "portugal": "Portugal"
     },
-   "ResetPassword":{
-      "Title": "Restablecer contraseña",
-      "Description": "Restablece tu contraseña para acceder a tu cuenta de Triploro. Introduce tu nueva contraseña y confírmala para completar el proceso."
+    "Destinations":{
+     "Title": "Explorar Destinos",
+     "Description": "Descubre los destinos más populares y las ciudades más importantes de España y Portugal con Triploro. Obtén información detallada sobre las capitales, continentes y ciudades destacadas de cada país."
    },
-   "Help":{
-    "Title": "Ayuda",
-    "Description": "Encuentra guías y artículos sobre cómo organizar tu primer viaje, los itinerarios disponibles en Triploro, cómo compartir tus experiencias y cómo viajar en grupo."
-   }, 
-   "Register":{
-    "Title": "Registrarse",
-    "Description": "Regístrate en Triploro para organizar tus viajes de la mejor manera posible. Completa los campos con tu correo electrónico y contraseña para crear tu cuenta."
-   }
+  "ResetPassword":{
+     "Title": "Restablece Tu Contraseña",
+     "Description": "Restablece tu contraseña de Triploro de forma segura. Ingresa tu nueva contraseña y confírmala para recuperar el acceso a tus planes de viaje personalizados y experiencias."
+  },
+  "Help":{
+   "Title": "Ayuda",
+   "Description": "Obtén guías y artículos completos sobre cómo planificar tu primer viaje, explorar itinerarios en Triploro, compartir tus experiencias y consejos para viajar en grupo."
+  }, 
+  "Register":{
+   "Title": "Registrarse",
+   "Description": "Regístrate en Triploro para comenzar a planificar tus viajes de la manera más eficiente. Simplemente ingresa tu correo electrónico y contraseña para crear tu cuenta y embarcarte en tu viaje."
+  }
    },
    "Navbar": {
      "Options": {

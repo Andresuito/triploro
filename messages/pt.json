@@ -1,28 +1,28 @@
 {
   "Metadata": {
     "Title": "Triploro",
-    "Description": "Triploro é uma plataforma de viagens que ajuda você a organizar suas viagens da melhor maneira possível. Encontre os melhores destinos, itinerários e experiências para aproveitar suas férias.",
-    "Keywords": "viagens, destinos, itinerários, experiências, férias, turismo, viajar, organizar viagem",
+    "Description": "Triploro é o seu companheiro de viagem definitivo, oferecendo itinerários personalizados e experiências únicas para umas férias inesquecíveis. Explore os principais destinos, planeje suas viagens e compartilhe suas experiências com nossa comunidade global.",
+    "Keywords": "planejamento de viagens, itinerários personalizados, experiências únicas, principais destinos, organização de viagens, turismo, viagem, Triploro",
     "Country": {
-      "description": "Como CEO da Triploro Espanha, dedico-me a fornecer os melhores itinerários e experiências de viagem na Espanha. Com a Triploro, você pode planejar suas viagens gratuitamente, descobrindo os destinos mais fascinantes e as experiências mais autênticas que a Espanha tem para oferecer.",
+      "description": "Como CEO da Triploro Espanha, estou comprometido em oferecer as melhores experiências de viagem na Espanha. Planeje suas viagens com a Triploro gratuitamente e descubra os tesouros escondidos e experiências autênticas da Espanha.",
       "spain": "Espanha",
       "portugal": "Portugal"
     },
     "Destinations":{
-     "Title": "Destinos",
-     "Description": "Descubra os destinos mais populares e as cidades mais importantes da Espanha e Portugal. Encontre informações sobre a capital, o continente e as cidades mais destacadas de cada país."
+     "Title": "Explore Destinos",
+     "Description": "Descubra os destinos mais populares e as cidades mais importantes da Espanha e Portugal com a Triploro. Obtenha informações detalhadas sobre as capitais, continentes e cidades de destaque de cada país."
    },
   "ResetPassword":{
-     "Title": "Redefinir senha",
-     "Description": "Redefina sua senha para acessar sua conta Triploro. Insira sua nova senha e confirme para completar o processo."
+     "Title": "Redefina a Senha da Sua Conta",
+     "Description": "Redefina a senha da sua conta Triploro de forma segura. Insira sua nova senha e confirme-a para recuperar o acesso aos seus planos de viagem personalizados e experiências."
   },
   "Help":{
    "Title": "Ajuda",
-   "Description": "Encontre guias e artigos sobre como organizar sua primeira viagem, os itinerários disponíveis na Triploro, como compartilhar suas experiências e como viajar em grupo."
+   "Description": "Obtenha guias abrangentes e artigos sobre como planejar sua primeira viagem, explorar itinerários no Triploro, compartilhar suas experiências e dicas de viagem em grupo."
   }, 
   "Register":{
    "Title": "Registrar",
-   "Description": "Registre-se na Triploro para organizar suas viagens da melhor maneira possível. Preencha os campos com seu e-mail e senha para criar sua conta."
+   "Description": "Registre-se no Triploro para começar a planejar suas viagens da maneira mais eficiente. Basta inserir seu e-mail e senha para criar sua conta e embarcar em sua jornada de viagem."
   }
   },
   "Navbar": {
