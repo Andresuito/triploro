@@ -1,19 +1,23 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import SessionAuthProvider from "@/app/context/SessionAuthProvider";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import SessionAuthProvider from "@/app/context/SessionAuthProvider";
 import { Toaster } from "react-hot-toast";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Triploro",
-    template: "%s - Triploro",
-  },
-  description:
-    "Triploro es una plataforma que te permite organizar tus viajes de una manera sencilla y rápida.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations({ locale: "en", namespace: "Metadata" });
+
+  return {
+    title: {
+      default: t("Title"),
+      template: "%s - Triploro",
+    },
+    description: t("Description"),
+  };
+}
 
 export default function RootLayout({
   children,
