@@ -19,15 +19,13 @@ export async function generateMetadata() {
     openGraph: {
       type: "website",
       url: "https://triploro.com",
-      title: t("Title"),
-      description: t("Description"),
-      site_name: "Triploro",
+      site_name: t("Title"),
       images: [
         {
           url: "../opengraph-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Triploro",
+          alt: t("Title"),
         },
       ],
     },
