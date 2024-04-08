@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Input from "@/app/components/Global/Input";
 import Button from "@/app/components/Global/Button";
 import axiosInstance from "@/app/utils/axiosInstance";
+import { Axios, AxiosError } from "axios";
 
 const Register = () => {
   const t = useTranslations("Auth.Register");
@@ -44,6 +45,11 @@ const Register = () => {
         setSucces(t("Success"));
       }
     } catch (error) {
+      if ((error as any)?.code === "ERR_NETWORK") {
+        setError(t("error.network_error"));
+        return;
+      }
+
       if (setSucces) setSucces("");
 
       setError(t((error as any)?.response?.data.error));

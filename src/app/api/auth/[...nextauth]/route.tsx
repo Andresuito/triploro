@@ -22,6 +22,7 @@ const handler = NextAuth({
 
           return {
             ...user,
+            name: user?.username,
             token,
             expiresIn,
             iat,

@@ -62,7 +62,7 @@ const Dropdown = ({
             <>
               {session ? (
                 <>
-                  <Link href={`/profile?id=${session.user.id}`} legacyBehavior>
+                  <Link href={`/profile`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
                       className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"
@@ -71,7 +71,7 @@ const Dropdown = ({
                       {t("Profile")}
                     </a>
                   </Link>
-                  <Link href={`/settings?id=${session.user.id}`} legacyBehavior>
+                  <Link href={`/settings`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
                       className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"

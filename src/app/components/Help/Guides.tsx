@@ -63,6 +63,7 @@ const Guides = () => {
             <Image
               src={item.image}
               alt={item.alt}
+              placeholder="blur"
               className="rounded-md w-full h-60 object-cover object-top shadow-xl"
             />
             <h1 className="font-semibold text-lg mt-2 cursor-pointer hover:text-sky-900 duration-200 transition">

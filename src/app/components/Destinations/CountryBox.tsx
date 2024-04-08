@@ -30,6 +30,7 @@ export const CountryBox = ({ country }: { country: any }) => {
           alt={country.name}
           width={imageWidth}
           height={imageHeight}
+          placeholder="blur"
           className="rounded-md w-full h-60 object-cover object-bottom"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-4 text-sky-900 text-center opacity-100">

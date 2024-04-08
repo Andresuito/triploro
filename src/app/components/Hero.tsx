@@ -13,6 +13,7 @@ export default function Hero() {
           src={bg_hero}
           alt="Background"
           className="object-cover"
+          placeholder="blur"
           fill
           priority
         />

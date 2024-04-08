@@ -61,6 +61,7 @@ export default function DestinosPopulares() {
             <Image
               src={destino.imagen}
               alt={`${destino.nombre}, ${destino.pais}`}
+              placeholder="blur"
               className={destino.className}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-sky-900 text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">

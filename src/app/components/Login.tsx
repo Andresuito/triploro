@@ -76,7 +76,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
       router.push("/");
       onClose();
     } catch (error) {
-      console.error("Login error:", error);
+      console.log("Login error:", error);
       setError("error.login_error");
     }
   };
