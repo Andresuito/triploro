@@ -68,6 +68,7 @@
       },
       "Success": "Registro bem-sucedido! Por favor, verifique seu e-mail para ativar sua conta.",
       "error": {
+        "network_error": "Erro de rede. Por favor, tente novamente.",
         "missing_fields": "Por favor, preencha todos os campos.",
         "invalid_email_format": "O formato do e-mail não é válido.",
         "email_already_exists": "O e-mail já está em uso.",
@@ -91,6 +92,7 @@
         "Register": "Registrar"
       },
       "error": {
+        "network_error": "Erro de rede. Por favor, tente novamente.",
         "missing_fields": "Por favor, preencha todos os campos.",
         "email_not_found": "E-mail não encontrado.",
         "invalid_email_format": "O formato do e-mail não é válido.",

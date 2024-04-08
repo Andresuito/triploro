@@ -68,6 +68,7 @@
       },
       "Success": "Successful registration! Please check your email to activate your account.",
       "error": {
+        "network_error": "Network error. Please try again later.",
         "missing_fields": "Please complete all fields.",
         "invalid_email_format": "The email format is not valid.",
         "email_already_exists": "The email is already in use.",
@@ -91,6 +92,7 @@
         "Register": "Register"
       },
       "error": {
+        "network_error": "Network error. Please try again later.",
         "missing_fields": "Please complete all fields.",
         "email_not_found": "Email not found.",
         "invalid_email_format": "The email format is not valid.",
