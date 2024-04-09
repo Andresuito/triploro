@@ -1,7 +1,8 @@
 import React from "react";
 import { getTranslations } from "next-intl/server";
-import Map from "@/app/components/Map";
-import Country from "@/app/components/Destinations/Country";
+// import Map from "@/app/components/Map";
+import { CountryBox } from "@/app/components/Destinations/CountryBox";
+import { Country } from "@/types/country";
 
 export async function generateMetadata() {
   const t = await getTranslations({ namespace: "Metadata" });
@@ -12,7 +13,22 @@ export async function generateMetadata() {
   };
 }
 
-export default function DestinationsPage() {
+async function getDestinations() {
+  const response = await fetch("https://triploro.es/api/v1/country/all", {
+    headers: {
+      revalidate: "3600",
+      cache: "force-cache",
+    },
+  });
+  const destinations = await response.json();
+  return destinations;
+}
+
+export default async function DestinationsPage() {
+  const t = await getTranslations("Destination");
+
+  const countries = await getDestinations();
+
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-gray-800 mb-10">
@@ -30,9 +46,18 @@ export default function DestinationsPage() {
         <div className="relative">
           <Map />
         </div> */}
-
         <div className="mt-8 md:mt-16">
-          <Country />
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-8">
+            {t("Titles.CurrentDestinations")}{" "}
+            <span className="bg-sky-900 px-2 py-1 text-white rounded-md">
+              {t("Titles.Destination")}
+            </span>
+          </h2>
+          <div className="grid justify-center md:justify-center lg:justify-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {countries.map((country: Country) => (
+              <CountryBox key={country.id} country={country} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
