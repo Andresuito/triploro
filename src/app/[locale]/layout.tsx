@@ -22,7 +22,7 @@ export async function generateMetadata() {
       site_name: t("Title"),
       images: [
         {
-          url: "../opengraph-image.jpg",
+          url: "/opengraph-image.jpg",
           width: 1200,
           height: 630,
           alt: t("Title"),

@@ -108,19 +108,19 @@ export default async function CountryPage({ params }: Props) {
               className="rounded-lg shadow-md"
             />
           </div>
-          <div className="prose prose-sky prose-lg text-gray-800 mt-5">
+          <div className="prose prose-sky prose-lg text-gray-800 mt-5 md:mt-0">
             {countryDescription}
           </div>
         </div>
         <h2 className="text-lg lg:text-2xl w-fit font-semibold bg-sky-800 px-2 py-1 mt-10 text-white rounded-md shadow-md">
           {t("Information.Destine")}
         </h2>
-        <div className="mt-5 flex gap-4">
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:flex">
           {destinationsNameCapitalized.map(
             (destinationName: string, index: number) => (
               <div
                 key={index}
-                className="text-gray-700 font-medium bg-white w-fit p-3 rounded shadow-md hover:shadow-md cursor-pointer transition duration-300 ease-in-out hover:bg-sky-800 hover:text-white"
+                className="text-gray-700 font-medium bg-white w-full h-fit sm:w-auto p-3 rounded shadow-md hover:shadow-md cursor-pointer transition duration-300 ease-in-out hover:bg-sky-800 hover:text-white text-center md:text-start"
               >
                 {t(`Cities.${destinationName}`)}
               </div>
