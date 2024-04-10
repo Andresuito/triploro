@@ -88,9 +88,9 @@ function Navbar() {
 
             <div className="hidden md:flex flex-grow justify-center items-center">
               <div className="flex items-baseline space-x-4">
-                <Link legacyBehavior href="/destinations">
+                <Link legacyBehavior href="/itineraries">
                   <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
-                    {t("Options.Option1")}
+                    {t("Options.Option3")}
                   </a>
                 </Link>
                 <a
@@ -99,9 +99,9 @@ function Navbar() {
                 >
                   {t("Options.Option2")}
                 </a>
-                <Link legacyBehavior href="/itineraries">
+                <Link legacyBehavior href="/destinations">
                   <a className="px-3 py-2 hover:bg-slate-100 rounded-full text- font-medium transition duration-200">
-                    {t("Options.Option3")}
+                    {t("Options.Option1")}
                   </a>
                 </Link>
               </div>
@@ -141,11 +141,11 @@ function Navbar() {
           <div className="flex flex-col divide-y divide-slate-150">
             <Link
               legacyBehavior
-              href="/destinations"
+              href="/itineraries"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <a className="px-3 py-2 font-medium">{t("Options.Option1")}</a>
-            </Link>
+              <a className="px-3 py-2 font-medium">{t("Options.Option3")}</a>
+            </Link>{" "}
             <hr />
             <Link
               legacyBehavior
@@ -157,11 +157,11 @@ function Navbar() {
             <hr />
             <Link
               legacyBehavior
-              href="/itineraries"
+              href="/destinations"
               onClick={() => setIsSidebarOpen(false)}
             >
-              <a className="px-3 py-2 font-medium">{t("Options.Option3")}</a>
-            </Link>{" "}
+              <a className="px-3 py-2 font-medium">{t("Options.Option1")}</a>
+            </Link>
             <hr />
           </div>
         </animated.div>
