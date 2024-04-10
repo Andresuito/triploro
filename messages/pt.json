@@ -244,12 +244,28 @@
     },
     "Information": {
       "Capital": "Capital",
+      "Destine": "Destinos",
       "Continent": "Continente",
       "Europe": "Europa"
     },
     "Cities": {
       "Madrid": "Madri",
-      "Lisbon": "Lisboa"
+      "Barcelona": "Barcelona",
+      "Seville": "Sevilha",
+      "Malaga": "Málaga",
+      "Valencia": "Valência",
+      "Bilbao": "Bilbau",
+      "Granada": "Granada",
+      "Zaragoza": "Saragoça",
+      "Palma de mallorca": "Palma de Maiorca",
+      "Lisbon": "Lisboa",
+      "Oporto": "Porto",
+      "Faro": "Faro",
+      "Coimbra": "Coimbra",
+      "Braga": "Braga",
+      "Aveiro": "Aveiro",
+      "Evora": "Évora",
+      "guimarães": "Guimarães"
     },
     "Countries": {
       "Spain": "Espanha",
