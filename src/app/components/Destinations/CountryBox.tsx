@@ -23,7 +23,7 @@ export const CountryBox = ({ country }: { country: any }) => {
     countryImages[country.image as keyof typeof countryImages];
 
   return (
-    <Link href={`/country/${country.name}`} legacyBehavior>
+    <Link href={`/destinations/country/${country.name}`} legacyBehavior>
       <a className="relative cursor-pointer hover:shadow-lg transition duration-500">
         <Image
           src={countryImage}
