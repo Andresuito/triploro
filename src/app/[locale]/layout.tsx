@@ -12,6 +12,27 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL("https://triploro.com/"),
+    robots: {
+      index: false,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    alternantes: {
+      canonical: "/",
+      languages: {
+        en: "/en",
+        es: "/es",
+        pt: "/pt",
+      },
+    },
     title: {
       default: t("Title"),
       template: "%s - Triploro",
@@ -19,7 +40,7 @@ export async function generateMetadata() {
     description: t("Description"),
     openGraph: {
       type: "website",
-      url: "https://triploro.com",
+      url: "https://triploro.com/",
       site_name: t("Title"),
       images: [
         {
@@ -35,7 +56,7 @@ export async function generateMetadata() {
       site: "@triploro",
       title: t("Title"),
       description: t("Description"),
-      image: "/opengraph-image.jpg",
+      image: "https://triploro.com/opengraph-image.jpg",
     },
   };
 }
