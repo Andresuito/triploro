@@ -5,17 +5,18 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { getTranslations } from "next-intl/server";
+import { TW } from "country-flag-icons/react/3x2";
 
 export async function generateMetadata() {
   const t = await getTranslations("Metadata");
 
   return {
+    metadataBase: new URL("https://triploro.com/"),
     title: {
       default: t("Title"),
       template: "%s - Triploro",
     },
     description: t("Description"),
-    metadataBase: new URL("https://triploro.com/"),
     openGraph: {
       type: "website",
       url: "https://triploro.com",
@@ -28,6 +29,13 @@ export async function generateMetadata() {
           alt: t("Title"),
         },
       ],
+    },
+    twitter: {
+      cardType: "summary_large_image",
+      site: "@triploro",
+      title: t("Title"),
+      description: t("Description"),
+      image: "/opengraph-image.jpg",
     },
   };
 }

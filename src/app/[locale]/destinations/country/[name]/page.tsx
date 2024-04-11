@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import CountryInfoSkeleton from "@/app/components/Country/CountryInfoSkeleton";
+import Loading from "@/app/components/Country/Loading";
 import { getTranslations } from "next-intl/server";
 import { capitalizeFirstLetter } from "@/app/utils/capitalizeFirstLetter";
 import spain from "@/app/assets/countries/Spain.jpg";
@@ -72,7 +72,7 @@ export default async function CountryPage({ params }: Props) {
   const destinations = country?.destinations;
 
   if (!country) {
-    return <CountryInfoSkeleton />;
+    return <Loading />;
   }
   const destinationsNameCapitalized = destinations.map(
     (destination: any) =>
