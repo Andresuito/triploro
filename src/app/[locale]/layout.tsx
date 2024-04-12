@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import SessionAuthProvider from "@/app/context/SessionAuthProvider";
 import Navbar from "@/app/components/Navbar";
@@ -12,6 +13,9 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL("https://triploro.com/"),
+    icons: {
+      icon: "/favicon.svg",
+    },
     robots: {
       index: false,
       follow: true,
@@ -25,7 +29,7 @@ export async function generateMetadata() {
         "max-snippet": -1,
       },
     },
-    alternantes: {
+    alternates: {
       canonical: "/",
       languages: {
         en: "/en",
@@ -52,11 +56,18 @@ export async function generateMetadata() {
       ],
     },
     twitter: {
-      cardType: "summary_large_image",
+      card: "summary_large_image",
       site: "@triploro",
       title: t("Title"),
       description: t("Description"),
-      image: "https://triploro.com/opengraph-image.jpg",
+      images: [
+        {
+          url: "https://triploro.com/opengraph-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("Title"),
+        },
+      ],
     },
   };
 }
@@ -77,6 +88,7 @@ export default function RootLayout({
             <Navbar />
             <Toaster position="bottom-right" />
             {children}
+            <Analytics />
             <Footer />
           </SessionAuthProvider>
         </NextIntlClientProvider>

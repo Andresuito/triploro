@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { FiAlignJustify } from "react-icons/fi";
 import { TfiWorld } from "react-icons/tfi";
 import { FaUserCircle } from "react-icons/fa";
@@ -11,6 +12,7 @@ import { useSpring, animated } from "react-spring";
 import Link from "next/link";
 import Modal from "./Modal";
 import Dropdown from "./Dropdown";
+import Logo from "../assets/Logo.svg";
 
 function Navbar() {
   const { data: session } = useSession();
@@ -82,10 +84,14 @@ function Navbar() {
             </div>
             <div className="flex-shrink-0">
               <Link href="/" legacyBehavior>
-                <a className=" font-bold text-3xl text-sky-900">Triploro</a>
+                <Image
+                  className="cursor-pointer"
+                  src={Logo}
+                  alt="Logo"
+                  width={120}
+                />
               </Link>
             </div>
-
             <div className="hidden md:flex flex-grow justify-center items-center">
               <div className="flex items-baseline space-x-4">
                 <Link legacyBehavior href="/itineraries">
