@@ -121,7 +121,7 @@
        "error": {
          "missing_fields": "Por favor, completa todos los campos.",
          "password_length": "La contraseña debe tener al menos 6 caracteres.",
-         "passwords_do_not_match": "Las contraseñas no coinciden.",
+         "passwords_not_match": "Las contraseñas no coinciden.",
          "missing_token": "Se ha producido un error. Por favor, inténtalo mas tarde.",
          "password_format": "La contraseña debe tener al menos una letra mayúscula."
        }
@@ -275,5 +275,10 @@
        "Spain": "España",
        "Portugal": "Portugal"
      }
+   },
+   "NotFound":{
+      "Title": "Página no encontrada",
+      "Description": "La página que estás buscando no existe o ha sido eliminada. Por favor, vuelve a la página de inicio.",
+      "Link": "Volver a la página de inicio"
    }
  }
