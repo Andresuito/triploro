@@ -11,7 +11,7 @@ import Button from "@/app/components/Global/Button";
 import axiosInstance from "@/app/utils/axiosInstance";
 
 export default function ResetPasswordPage() {
-  const t = useTranslations("Auth.Reset-Password");
+  const t = useTranslations("Auth.ResetPassword");
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
@@ -77,26 +77,26 @@ export default function ResetPasswordPage() {
 
         <div className="space-y-4">
           <Input
-            label={t("labelNewPassword")}
+            label={t("Fields.NewPassword")}
             type="password"
             value={newPassword}
             onChange={setPassword}
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
-            placeholder={t("placeholderNewPassword")}
+            placeholder={t("Placeholders.NewPassword")}
           />
           <Input
-            label={t("labelConfirmPassword")}
+            label={t("Fields.ConfirmPassword")}
             type="password"
             value={confirmNewPassword}
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
             onChange={setConfirmPassword}
-            placeholder={t("placeholderConfirmPassword")}
+            placeholder={t("Placeholders.ConfirmPassword")}
           />
         </div>
         {error && <p className="text-red-500 mt-4">{error}</p>}
-        <Button label={t("button")} onClick={handleResetPassword} />
+        <Button label={t("Button")} onClick={handleResetPassword} />
       </div>
     </div>
   );

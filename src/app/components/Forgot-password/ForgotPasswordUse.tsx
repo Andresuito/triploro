@@ -50,13 +50,13 @@ const ForgotPassword = () => {
         <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
         <div className="space-y-4">
           <Input
-            label={t("Email")}
+            label={t("Fields.Email")}
             type="email"
             value={email}
             onChange={setEmail}
             highlightEmpty={highlightEmptyField}
             hasError={!!error}
-            placeholder={t("EmailPlaceholder")}
+            placeholder={t("Placeholders.Email")}
           />
         </div>
         {error && (
