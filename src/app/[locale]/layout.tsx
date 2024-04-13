@@ -6,7 +6,6 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { getTranslations } from "next-intl/server";
-import { TW } from "country-flag-icons/react/3x2";
 
 export async function generateMetadata() {
   const t = await getTranslations("Metadata");
