@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import SessionAuthProvider from "@/app/context/SessionAuthProvider";
 import Navbar from "@/app/components/Navbar";
@@ -88,6 +89,7 @@ export default function RootLayout({
             <Toaster position="bottom-right" />
             {children}
             <Analytics />
+            <SpeedInsights />
             <Footer />
           </SessionAuthProvider>
         </NextIntlClientProvider>
