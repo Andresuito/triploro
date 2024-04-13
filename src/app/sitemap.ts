@@ -28,7 +28,22 @@ export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily",
     },
     {
-      url: "https://triploro.com/pt/itineraries",
+      url: "https://triploro.com/pt/destinations",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://triploro.com/en/register",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://triploro.com/es/register",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://triploro.com/pt/register",
       lastModified: new Date(),
       changeFrequency: "daily",
     },
