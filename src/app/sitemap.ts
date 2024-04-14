@@ -48,6 +48,36 @@ export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily",
     },
     {
+      url: "https://www.triploro.com/es/destinations/country/spain",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://www.triploro.com/en/destinations/country/spain",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://www.triploro.com/pt/destinations/country/spain",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://www.triploro.com/es/destinations/country/portugal",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://www.triploro.com/en/destinations/country/portugal",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://www.triploro.com/pt/destinations/country/portugal",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
       url: "https://triploro.com/en/help",
       lastModified: new Date(),
       changeFrequency: "daily",
