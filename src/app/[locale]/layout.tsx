@@ -13,6 +13,10 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL("https://triploro.com/"),
+    title: {
+      default: t("Title"),
+      template: "%s - Triploro",
+    },
     icons: {
       icon: "/favicon.ico",
     },
