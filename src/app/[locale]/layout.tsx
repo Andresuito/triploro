@@ -14,7 +14,7 @@ export async function generateMetadata() {
   return {
     metadataBase: new URL("https://triploro.com/"),
     icons: {
-      icon: "../favicon.ico",
+      icon: "/favicon.ico",
     },
     robots: {
       index: false,
