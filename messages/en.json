@@ -19,7 +19,10 @@
   "Help":{
    "Title": "Help",
    "Description": "Get comprehensive guides and articles on planning your first trip, exploring itineraries on Triploro, sharing your experiences, and group travel tips."
-  }, 
+  },
+  "VerifyEmail":{
+    "Title": "Verify account"
+   },
   "Register":{
    "Title": "Register ",
    "Description": "Register with Triploro to start planning your trips in the most efficient way. Simply enter your email and password to create your account and embark on your travel journey."

@@ -23,7 +23,10 @@
   "Help":{
    "Title": "Ayuda",
    "Description": "Obtén guías y artículos completos sobre cómo planificar tu primer viaje, explorar itinerarios en Triploro, compartir tus experiencias y consejos para viajar en grupo."
-  }, 
+  },
+  "VerifyEmail":{
+   "Title": "Verificar cuenta"
+  },
   "Register":{
    "Title": "Registrarse",
    "Description": "Regístrate en Triploro para comenzar a planificar tus viajes de la manera más eficiente. Simplemente ingresa tu correo electrónico y contraseña para crear tu cuenta y embarcarte en tu viaje."

@@ -20,7 +20,7 @@ export default function Page() {
             <div className="mb-10">
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">
                 {t("Greeting")},{" "}
-                <span className="bg-sky-800 text-white px-2 py-1 rounded-lg">
+                <span className="bg-blue text-white px-2 py-1 rounded-lg">
                   {session?.user.username}
                 </span>
               </h2>

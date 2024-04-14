@@ -1,2 +1,5 @@
-User-Agent: *
-Allow: *
+User-agent: *
+Disallow: /profile
+Disallow: /settings
+
+Sitemap: https://www.triploro.com/sitemap.xml

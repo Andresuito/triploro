@@ -17,7 +17,7 @@ export async function generateMetadata() {
       icon: "/favicon.ico",
     },
     robots: {
-      index: false,
+      index: true,
       follow: true,
       nocache: true,
       googleBot: {
@@ -36,10 +36,6 @@ export async function generateMetadata() {
         es: "/es",
         pt: "/pt",
       },
-    },
-    title: {
-      default: t("Title"),
-      template: "%s - Triploro",
     },
     description: t("Description"),
     openGraph: {
