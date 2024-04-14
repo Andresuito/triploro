@@ -15,7 +15,6 @@ export default function Hero() {
           className="object-cover"
           placeholder="blur"
           fill
-          priority
         />
       </div>
       <div className="absolute inset-0 bg-sky-900 opacity-70"></div>
