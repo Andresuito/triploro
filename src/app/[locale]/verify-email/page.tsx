@@ -1,62 +1,16 @@
-"use client";
+import { getServerSession } from "next-auth";
+import { notFound } from "next/navigation";
+import VerifyEmail from "@/app/components/Auth/VerifyEmail";
 
-import React, { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { getSession } from "next-auth/react";
-import axiosInstance from "@/app/utils/axiosInstance";
-import Error from "next/error";
+async function fetchUser() {
+  const user = await getServerSession();
+  return user;
+}
 
-const VerifyEmailPage = () => {
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
-  const router = useRouter();
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const checkSession = async () => {
-      const session = await getSession();
-      if (session) {
-        router.push("/");
-      } else if (token) {
-        sendVerificationEmail(token);
-      } else {
-        router.push("/");
-      }
-    };
-
-    checkSession();
-  }, [token]);
-
-  const sendVerificationEmail = async (token: string) => {
-    try {
-      const response = await axiosInstance.post(
-        "/auth/verify-email",
-        {
-          token: token,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        router.push("/");
-      }
-    } catch (error) {
-      console.log("Error:", error);
-      if (error === "token_expired") {
-        router.push("/");
-      } else if (error === "invalid_token") {
-        router.push("/");
-      }
-    }
-  };
-
-  if (error) {
-    return <Error statusCode={400} title={error} />;
+export default async function Register() {
+  const user = await fetchUser();
+  if (user) {
+    notFound();
   }
-};
-
-export default VerifyEmailPage;
+  return <VerifyEmail />;
+}

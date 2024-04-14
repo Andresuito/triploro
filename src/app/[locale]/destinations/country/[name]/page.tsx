@@ -90,10 +90,10 @@ export default async function CountryPage({ params }: Props) {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mt-8 md:mt-16">
-          <h2 className="text-lg lg:text-3xl font-semibold bg-sky-800 px-2 py-1 text-white rounded-md shadow-md">
+          <h2 className="text-lg lg:text-3xl font-semibold bg-blue px-2 py-1 text-white rounded-md shadow-md">
             {countryName}
           </h2>
-          <h2 className="text-sm lg:text-1xl font-semibold bg-sky-800 px-2 py-1 text-white rounded-md shadow-md">
+          <h2 className="text-sm lg:text-1xl font-semibold bg-blue px-2 py-1 text-white rounded-md shadow-md">
             {continentName}
           </h2>
         </div>
@@ -112,7 +112,7 @@ export default async function CountryPage({ params }: Props) {
             {countryDescription}
           </div>
         </div>
-        <h2 className="text-lg lg:text-2xl w-fit font-semibold bg-sky-800 px-2 py-1 mt-10 text-white rounded-md shadow-md">
+        <h2 className="text-lg lg:text-2xl w-fit font-semibold bg-blue px-2 py-1 mt-10 text-white rounded-md shadow-md">
           {t("Information.Destine")}
         </h2>
         <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:flex">
@@ -120,7 +120,7 @@ export default async function CountryPage({ params }: Props) {
             (destinationName: string, index: number) => (
               <div
                 key={index}
-                className="text-gray-700 font-medium bg-white w-full h-fit sm:w-auto p-3 rounded shadow-md hover:shadow-md cursor-pointer transition duration-300 ease-in-out hover:bg-sky-800 hover:text-white text-center md:text-start"
+                className="text-gray-700 font-medium bg-white w-full h-fit sm:w-auto p-3 rounded shadow-md hover:shadow-md cursor-pointer transition duration-300 ease-in-out hover:bg-blue hover:text-white text-center md:text-start"
               >
                 {t(`Cities.${destinationName}`)}
               </div>

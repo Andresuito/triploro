@@ -50,7 +50,7 @@ export default async function DestinationsPage() {
         <div className="mt-8 md:mt-16">
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-8">
             {t("Titles.CurrentDestinations")}{" "}
-            <span className="bg-sky-900 px-2 py-1 text-white rounded-md">
+            <span className="bg-blue px-2 py-1 text-white rounded-md">
               {t("Titles.Destination")}
             </span>
           </h2>

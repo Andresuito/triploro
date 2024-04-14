@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'blue': '#033156',
+      },
       animation: {
         enter: 'enter 200ms ease-out',
         'slide-in': 'slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)',

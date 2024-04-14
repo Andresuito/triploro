@@ -64,7 +64,7 @@ export default function DestinosPopulares() {
               placeholder="blur"
               className={destino.className}
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-sky-900 text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+            <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
               <h3 className="text-lg font-semibold mx-2">{destino.nombre}</h3>
               <p className="text-xs">{destino.pais}</p>
             </div>

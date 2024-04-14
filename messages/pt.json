@@ -72,7 +72,8 @@
         "missing_fields": "Por favor, preencha todos os campos.",
         "invalid_email_format": "O formato do e-mail não é válido.",
         "email_already_exists": "O e-mail já está em uso.",
-        "password_length": "A senha deve ter pelo menos 6 caracteres."
+        "password_length": "A senha deve ter pelo menos 6 caracteres.",
+        "invalid_email": "O e-mail inserido não é válido."
       }
     },
     "Login": {

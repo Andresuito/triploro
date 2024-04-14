@@ -40,14 +40,12 @@ const Guides = () => {
         <div>
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-900">
             {t("Title")}{" "}
-            <span className="bg-sky-900 px-1 text-white rounded-md">
-              Triploro
-            </span>
+            <span className="bg-blue px-1 text-white rounded-md">Triploro</span>
           </h2>
         </div>
         <div className="hidden md:flex items-center">
           <Link legacyBehavior href="/all-articles">
-            <a className="hover:text-sky-900 font-semibold duration-200 transition">
+            <a className="hover:text-blue  duration-200 transition">
               {t("Articles")}
               <MdOutlineKeyboardArrowRight
                 className="inline-block ml-1"
@@ -66,7 +64,7 @@ const Guides = () => {
               placeholder="blur"
               className="rounded-md w-full h-60 object-cover object-top shadow-xl"
             />
-            <h1 className="font-semibold text-lg mt-2 cursor-pointer hover:text-sky-900 duration-200 transition">
+            <h1 className="text-lg mt-2 cursor-pointer hover:text-blue duration-200 transition">
               {item.title}
             </h1>
           </div>

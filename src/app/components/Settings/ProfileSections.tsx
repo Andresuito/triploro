@@ -96,7 +96,7 @@ export const InfoSection = ({
             <div className="flex border-l border-gray-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-sky-900 hover:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-800"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-blue hover:text-blue focus:outline-none focus:ring-2 focus:ring-sky-800"
               >
                 Close
               </button>
@@ -202,13 +202,13 @@ export const InfoSection = ({
           {isEditingUsername ? (
             <div>
               <button
-                className="bg-sky-800 p-1 px-3 text-white rounded-md mr-2"
+                className="bg-blue p-1 px-3 text-white rounded-md mr-2"
                 onClick={handleSaveUsername}
               >
                 {t("InfoSection.Buttons.Save")}
               </button>
               <button
-                className="p-1 px-3 text-sky-800 rounded-md hover:bg-gray-100"
+                className="p-1 px-3 text-blue rounded-md hover:bg-gray-100"
                 onClick={handleCancelUsername}
               >
                 {t("InfoSection.Buttons.Cancel")}
@@ -217,7 +217,7 @@ export const InfoSection = ({
           ) : (
             <a
               onClick={handleEditUsername}
-              className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
+              className="p-1 px-2 cursor-pointer text-blue rounded-md hover:bg-blue hover:text-white transition duration-200"
             >
               {t("InfoSection.Buttons.Edit")}
             </a>
@@ -247,13 +247,13 @@ export const InfoSection = ({
             <div>
               <button
                 onClick={handleSaveEmail}
-                className="bg-sky-800 p-1 px-3 text-white rounded-md mr-2"
+                className="bg-blue p-1 px-3 text-white rounded-md mr-2"
               >
                 {t("InfoSection.Buttons.Save")}
               </button>
               <button
                 onClick={handleCancelEmail}
-                className="p-1 px-3 text-sky-800 rounded-md hover:bg-gray-100"
+                className="p-1 px-3 text-blue rounded-md hover:bg-gray-100"
               >
                 {t("InfoSection.Buttons.Cancel")}
               </button>
@@ -261,7 +261,7 @@ export const InfoSection = ({
           ) : (
             <a
               onClick={handleEditEmail}
-              className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
+              className="p-1 px-2 cursor-pointer text-blue rounded-md hover:bg-blue hover:text-white transition duration-200"
             >
               {t("InfoSection.Buttons.Edit")}
             </a>
@@ -353,7 +353,7 @@ export const SeguridadSection = ({
                 <p>{t("SecuritySection.Messages.PasswordReset")}</p>
                 <button
                   onClick={handleChangePassword}
-                  className="p-1 px-2 text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
+                  className="p-1 px-2 text-blue rounded-md hover:bg-blue hover:text-white transition duration-200"
                 >
                   {t("SecuritySection.Buttons.ResetPassword")}
                 </button>
@@ -364,7 +364,7 @@ export const SeguridadSection = ({
             <p>{t("SecuritySection.Messages.DeleteAccount")}</p>
             <button
               onClick={handleDeleteAccount}
-              className="p-1 px-2 text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200"
+              className="p-1 px-2 text-blue rounded-md hover:bg-blue hover:text-white transition duration-200"
             >
               {t("SecuritySection.Buttons.DeleteAccount")}
             </button>
@@ -393,7 +393,7 @@ export const MateSection = ({
       <div className="pb-4 mb-4">
         <div className="flex flex-col space-y-2 mt-4">
           <div className="flex items-center">
-            <button className="p-1 px-2 cursor-pointer text-sky-800 rounded-md hover:bg-sky-800 hover:text-white transition duration-200">
+            <button className="p-1 px-2 cursor-pointer text-blue rounded-md hover:bg-blue hover:text-white transition duration-200">
               {t("MateSection.Buttons.AddMate")}
             </button>
           </div>

@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import Input from "@/app/components/Global/Input";
 import Button from "@/app/components/Global/Button";
 import axiosInstance from "@/app/utils/axiosInstance";
-import { Axios, AxiosError } from "axios";
 
 const Register = () => {
   const t = useTranslations("Auth.Register");
@@ -52,7 +51,7 @@ const Register = () => {
 
       if (setSucces) setSucces("");
 
-      setError(t((error as any)?.response?.data.error));
+      setError(t("error." + (error as any)?.response?.data.error));
 
       if ((error as any)?.response?.data.error === "email_already_exists") {
         setError(t("error.email_already_exists"));

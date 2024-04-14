@@ -71,14 +71,14 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-semibold"> {t("Title")}</h2>
               <IoMdClose
-                className="w-6 h-6 ml-6 cursor-pointer text-gray-400 hover:text-sky-900 transition duration-200"
+                className="w-6 h-6 ml-6 cursor-pointer text-gray-400 hover:text-blue transition duration-200"
                 onClick={onClose}
               />
             </div>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 text-base">
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
-                  locale === "en" ? "border border-sky-900" : ""
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-blue hover:bg-opacity-10 transition duration-200 ${
+                  locale === "en" ? "border border-blue" : ""
                 }`}
                 onClick={() => handleLanguageChange("en")}
               >
@@ -86,8 +86,8 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 {t("Options.Option1")}
               </button>
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
-                  locale === "es" ? "border border-sky-900" : ""
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-blue hover:bg-opacity-10 transition duration-200 ${
+                  locale === "es" ? "border border-blue" : ""
                 }`}
                 onClick={() => handleLanguageChange("es")}
               >
@@ -95,8 +95,8 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
                 {t("Options.Option2")}
               </button>
               <button
-                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-sky-800 hover:bg-opacity-10 transition duration-200 ${
-                  locale === "pt" ? "border border-sky-900" : ""
+                className={`rounded-md flex items-center p-3 cursor-pointer hover:bg-blue hover:bg-opacity-10 transition duration-200 ${
+                  locale === "pt" ? "border border-blue" : ""
                 }`}
                 onClick={() => handleLanguageChange("pt")}
               >

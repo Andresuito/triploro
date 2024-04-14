@@ -72,7 +72,8 @@
         "missing_fields": "Please complete all fields.",
         "invalid_email_format": "The email format is not valid.",
         "email_already_exists": "The email is already in use.",
-        "password_length": "The password must be at least 6 characters long."
+        "password_length": "The password must be at least 6 characters long.",
+        "invalid_email": "The email is not valid."
       }
     },
     "Login": {

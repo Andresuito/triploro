@@ -3,18 +3,7 @@ import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { locales } from "./navigation";
 
-const publicPages = [
-  "/",
-  "/register",
-  "/help",
-  "/itineraries",
-  "/destinations",
-  "/verify-email",
-  "/reset-password",
-  "/forgot-password",
-  "/destinations/country",
-  "/destinations/country/\\w+",
-];
+const privatePages = ["/profile", "/settings", "/logout"];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -32,18 +21,18 @@ const authMiddleware = withAuth((req) => intlMiddleware(req), {
 });
 
 export default function middleware(req: NextRequest) {
-  const publicPathnameRegex = RegExp(
-    `^(/(${locales.join("|")}))?(${publicPages
+  const privatePathnameRegex = RegExp(
+    `^(/(${locales.join("|")}))?(${privatePages
       .flatMap((p) => (p === "/" ? ["", "/"] : p))
       .join("|")})/?$`,
     "i"
   );
-  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+  const isPrivatePage = privatePathnameRegex.test(req.nextUrl.pathname);
 
-  if (isPublicPage) {
-    return intlMiddleware(req);
-  } else {
+  if (isPrivatePage) {
     return (authMiddleware as any)(req);
+  } else {
+    return intlMiddleware(req);
   }
 }
 

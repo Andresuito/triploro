@@ -91,7 +91,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
             style={modalSpringProps}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xl shadow-md overflow-hidden max-w-md w-full"
           >
-            <div className="bg-sky-900 text-white px-6 py-4 flex justify-between items-center">
+            <div className="bg-blue text-white px-6 py-4 flex justify-between items-center">
               <h2 className="text-lg font-semibold">{t("Title")}</h2>
               <IoMdClose className="w-6 h-6 cursor-pointer" onClick={onClose} />
             </div>
@@ -135,7 +135,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 </Link>
               </div>
             </div>
-            <div className="flex justify-center items-center bg-sky-900 py-4">
+            <div className="flex justify-center items-center bg-blue py-4">
               <p className="text-sm text-white">
                 {t("Links.NoAccount")}{" "}
                 <Link href={`/${locale}/register`} passHref legacyBehavior>

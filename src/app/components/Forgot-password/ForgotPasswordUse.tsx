@@ -65,7 +65,7 @@ const ForgotPassword = () => {
           </p>
         )}
         {success && (
-          <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+          <p className="bg-blue text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
             {success}
           </p>
         )}
