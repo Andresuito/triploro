@@ -8,7 +8,7 @@ interface InputProps {
   onChange: (value: string) => void;
   highlightEmpty: boolean;
   hasError: boolean;
-  className: string;
+  className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -19,7 +19,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   highlightEmpty,
   hasError,
-  className,
+  className = "",
 }) => {
   return (
     <div className="mb-4">
