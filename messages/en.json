@@ -23,6 +23,10 @@
   "VerifyEmail":{
     "Title": "Verify account"
    },
+   "New":{
+    "Title": "New Itinerary",
+    "Description": "Triploro is your ultimate travel companion, offering personalized itineraries and unique experiences for an unforgettable holiday. Explore top destinations, plan your trips, and share your experiences with our global community."
+   },
   "Register":{
    "Title": "Register ",
    "Description": "Register with Triploro to start planning your trips in the most efficient way. Simply enter your email and password to create your account and embark on your travel journey."
@@ -55,12 +59,17 @@
   },
   "Auth": {
     "Register": {
-      "Title": "Register",
+      "Title": "Welcome to Triploro!",
+      "Subtitle": "Register to get started",
       "Fields": {
+        "Name": "Name",
+        "Surname": "Surname",
         "Email": "Email",
         "Password": "Password"
       },
       "Placeholders": {
+        "Name": "Name",
+        "Surname": "Surname",
         "Email": "Email",
         "Password": "Password"
       },
@@ -81,6 +90,7 @@
     },
     "Login": {
       "Title": "Login",
+      "Subtitle": "Welcome back!",
       "Fields": {
         "Email": "Email",
         "Password": "Password"

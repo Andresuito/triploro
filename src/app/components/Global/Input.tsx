@@ -8,6 +8,7 @@ interface InputProps {
   onChange: (value: string) => void;
   highlightEmpty: boolean;
   hasError: boolean;
+  className: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,12 +19,13 @@ const Input: React.FC<InputProps> = ({
   onChange,
   highlightEmpty,
   hasError,
+  className,
 }) => {
   return (
     <div className="mb-4">
       <label
         htmlFor={label.toLowerCase()}
-        className="block font-medium text-gray-700"
+        className="block text-sm text-gray-700"
       >
         {label}
       </label>
@@ -34,11 +36,11 @@ const Input: React.FC<InputProps> = ({
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className={`mt-1 p-2.5 w-full border rounded-md focus:ring-0 ${
+        className={`mt-4 p-2.5  w-full border  rounded-1xl  ${
           (highlightEmpty && !value) || hasError
             ? "border-red-500"
-            : "border-gray-300"
-        } text-sm`}
+            : "border-[#333333]/50"
+        } text-sm ${className}`}
       />
     </div>
   );

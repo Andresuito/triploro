@@ -2,15 +2,16 @@ import React from "react";
 
 interface ButtonProps {
   label: string;
-  onClick: () => void;
+  onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
   return (
     <button
-      type="button"
+      type="submit"
       onClick={onClick}
-      className="bg-gray-500 text-white w-full py-2 rounded-md hover:bg-blue focus:outline-none transition duration-300 mt-6"
+      className={`bg-blue text-white w-full py-2 rounded-1xl focus:outline-none transition duration-300 ${className}`}
     >
       {label}
     </button>

@@ -3,6 +3,11 @@ import { MetadataRoute } from "next";
 export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
   return[
     {
+      url: "https://triploro.com/",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+    },
+    {
       url: "https://triploro.com/en/",
       lastModified: new Date(),
       changeFrequency: "daily",

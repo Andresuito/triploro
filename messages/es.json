@@ -27,6 +27,10 @@
   "VerifyEmail":{
    "Title": "Verificar cuenta"
   },
+  "New":{
+    "Title": "Crear Itinerario",
+    "Description": "Crea un itinerario personalizado en Triploro para planificar tus vacaciones de ensueño. Agrega destinos, actividades y fechas para organizar tu viaje de la manera más eficiente."
+   },
   "Register":{
    "Title": "Registrarse",
    "Description": "Regístrate en Triploro para comenzar a planificar tus viajes de la manera más eficiente. Simplemente ingresa tu correo electrónico y contraseña para crear tu cuenta y embarcarte en tu viaje."
@@ -59,13 +63,18 @@
    },
    "Auth": {
      "Register": {
-       "Title": "Regístrate",
+       "Title": "Bienvenido a Triploro!",
+       "Subtitle": "Regístrese para empezar",
        "Fields": {
+        "Name": "Nombre",
+        "Surname": "Apellido",
          "Email": "Correo Electrónico",
          "Password": "Contraseña"
        },
        "Placeholders": {
-         "Email": "Email",
+         "Name": "Nombre",
+         "Surname": "Apellido",
+         "Email": "Correo Electrónico",
          "Password": "Contraseña"
        },
        "Button": "Registrarse",
@@ -85,6 +94,7 @@
      },
      "Login": {
        "Title": "Inicia sesión",
+       "Subtitle": "¡Bienvenido de nuevo!",
        "Fields": {
          "Email": "Correo Electrónico",
          "Password": "Contraseña"

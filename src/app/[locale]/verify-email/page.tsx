@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import VerifyEmail from "@/app/components/Auth/VerifyEmail";
 
@@ -18,7 +18,7 @@ async function fetchUser() {
 export default async function Register() {
   const user = await fetchUser();
   if (user) {
-    notFound();
+    redirect("/");
   }
   return <VerifyEmail />;
 }

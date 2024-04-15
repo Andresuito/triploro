@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import RegisterAuth from "@/app/components/Auth/RegisterAuth";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 
 async function fetchUser() {
   const user = await getServerSession();
@@ -20,7 +20,7 @@ export async function generateMetadata() {
 export default async function Register() {
   const user = await fetchUser();
   if (user) {
-    notFound();
+    redirect("/");
   }
   return <RegisterAuth />;
 }

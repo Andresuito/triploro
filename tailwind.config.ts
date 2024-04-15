@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         'blue': '#033156',
       },
+      borderRadius: {
+        '1xl': '12px',
+      },
       animation: {
         enter: 'enter 200ms ease-out',
         'slide-in': 'slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)',

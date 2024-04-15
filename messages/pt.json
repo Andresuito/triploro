@@ -22,7 +22,11 @@
   },
   "VerifyEmail":{
     "Title": "Verifica conta"
-   }, 
+   },
+   "New": {
+    "Title": "Novo itinerário",
+    "Description": "Descubra as últimas atualizações e recursos do Triploro para planejar suas viagens de forma eficiente. Explore novos destinos, itinerários e experiências para tornar suas férias inesquecíveis."
+   },
   "Register":{
    "Title": "Registrar",
    "Description": "Registre-se no Triploro para começar a planejar suas viagens da maneira mais eficiente. Basta inserir seu e-mail e senha para criar sua conta e embarcar em sua jornada de viagem."
@@ -55,12 +59,17 @@
   },
   "Auth": {
     "Register": {
-      "Title": "Registre-se",
+      "Title": "Bem-vindo ao Triploro!",
+      "Subtitle": "Registre-se para começar",
       "Fields": {
+        "Name": "Nome",
+        "Surname": "Sobrenome",
         "Email": "E-mail",
         "Password": "Senha"
       },
       "Placeholders": {
+        "Name": "Nome",
+        "Surname": "Sobrenome",
         "Email": "E-mail",
         "Password": "Senha"
       },
@@ -81,6 +90,7 @@
     },
     "Login": {
       "Title": "Entrar",
+      "Subtitle": "Bem-vindo de volta!",
       "Fields": {
         "Email": "E-mail",
         "Password": "Senha"
