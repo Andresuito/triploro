@@ -90,7 +90,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
           <animated.div
             ref={modalRef}
             style={modalSpringProps}
-            className="bg-white absolute px-6 py-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-1xl shadow-md overflow-hidden max-w-md w-full flex flex-col items-center"
+            className="bg-white absolute px-6 py-5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-1xl shadow-md overflow-hidden max-w-md w-full flex flex-col items-center"
           >
             <div className="text-blue flex justify-end w-full">
               <IoMdClose className="w-6 h-6 cursor-pointer" onClick={onClose} />

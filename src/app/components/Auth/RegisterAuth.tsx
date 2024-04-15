@@ -156,7 +156,7 @@ const Register = () => {
           />
         </form>
         <div className="mx-auto flex flex-col justify-center items-center mt-4">
-          <hr className="border-[#000000]/20 sm:w-[420px]" />
+          <hr className="border-[#000000]/20 sm:w-[300px]" />
           <p className="my-4 text-sm">
             {t("Links.AlreadyHaveAccount")}{" "}
             <Link href="/" legacyBehavior>
@@ -165,9 +165,6 @@ const Register = () => {
               </span>
             </Link>{" "}
           </p>
-          <hr className="border-[#000000]/20 sm:w-[420px]" />
-          <p className="my-4 text-[#333333]/50">www.triploro.com</p>
-          <p className="text-[#333333]/50 text-xs">Copyright © 2024</p>
         </div>
       </div>
     </div>

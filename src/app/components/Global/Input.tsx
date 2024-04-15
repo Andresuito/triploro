@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className={`mt-4 p-2.5  w-full border  rounded-1xl  ${
+        className={`mt-4 p-2.5  border  rounded-1xl  ${
           (highlightEmpty && !value) || hasError
             ? "border-red-500"
             : "border-[#333333]/50"

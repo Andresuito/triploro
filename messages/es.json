@@ -63,7 +63,7 @@
    },
    "Auth": {
      "Register": {
-       "Title": "Bienvenido a Triploro!",
+       "Title": "¡Bienvenido a Triploro!",
        "Subtitle": "Regístrese para empezar",
        "Fields": {
         "Name": "Nombre",

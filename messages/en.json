@@ -101,7 +101,7 @@
       },
       "Button": "Login",
       "Links": {
-        "NoAccount": "Don't have an account?",
+        "NoAccount": "Don't have an account yet?",
         "ForgotPassword": "Forgot your password?",
         "Register": "Register"
       },
