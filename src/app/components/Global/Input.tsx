@@ -25,7 +25,7 @@ const Input: React.FC<InputProps> = ({
     <div className="mb-4">
       <label
         htmlFor={label.toLowerCase()}
-        className="block text-sm text-gray-700"
+        className="block text-sm text-gray-700 text-start"
       >
         {label}
       </label>

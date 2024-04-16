@@ -82,6 +82,10 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
     }
   };
 
+  const handleRegisterClick = () => {
+    onClose();
+  };
+
   return (
     <>
       {open && (
@@ -126,7 +130,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 className="w-[300px]"
               />
               {error && (
-                <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+                <p className="text-center rounded-md text-red-500 mb-2 p-2 text-sm">
                   {t(error)}
                 </p>
               )}
@@ -154,8 +158,11 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
               <hr className="border-[#000000]/20 w-[300px]" />
               <p className="my-4 text-sm">
                 {t("Links.NoAccount")}{" "}
-                <Link href="/" legacyBehavior>
-                  <span className="underline hover:text-blue text-center cursor-pointer text-[#333333]/50">
+                <Link href="/register" legacyBehavior>
+                  <span
+                    className="underline hover:text-blue text-center cursor-pointer text-[#333333]/50"
+                    onClick={handleRegisterClick}
+                  >
                     {t("Links.Register")}
                   </span>
                 </Link>{" "}

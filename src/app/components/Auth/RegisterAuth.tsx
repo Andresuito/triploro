@@ -7,6 +7,7 @@ import Button from "@/app/components/Global/Button";
 import axiosInstance from "@/app/utils/axiosInstance";
 import Image from "next/image";
 import img_regsiter from "@/app/assets/img_register.png";
+import mask from "@/app/assets/mask.svg";
 import Link from "next/link";
 
 const Register = () => {
@@ -84,10 +85,8 @@ const Register = () => {
         <Image
           src={img_regsiter}
           alt="Register"
-          objectFit="cover"
-          width={800}
-          height={500}
-          className="mb-60"
+          className="mb-60 test"
+          placeholder="blur"
         />
       </div>
       <div className="w-full md:w-1/2 max-w-md mx-auto mt-8 md:mt-16">
@@ -140,7 +139,7 @@ const Register = () => {
             className="w-[300px]"
           />
           {error && (
-            <p className="bg-red-500 w-[300px] text-center p-2 rounded-md  text-white text-sm mb-2">
+            <p className="w-[300px] text-center p-2 rounded-md  text-red-500 text-sm mb-2">
               {error}
             </p>
           )}

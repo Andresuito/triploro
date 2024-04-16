@@ -54,7 +54,7 @@ const Dropdown = ({
   return (
     <>
       <animated.div
-        className="w-32 absolute top-16 right-5 2xl:left-1 z-10 shadow-lg ring-1 ring-black ring-opacity-5 rounded-md  bg-white  "
+        className="w-fit absolute top-16 right-5 2xl:right-0 z-40 shadow-lg ring-1 ring-black ring-opacity-5 rounded-md  bg-white  "
         style={dropdownAnimation}
       >
         <div className="py-1" role="menu" aria-orientation="vertical">
@@ -62,10 +62,18 @@ const Dropdown = ({
             <>
               {session ? (
                 <>
+                  <p className="block px-4 pt-2 text-sm">
+                    <span className="font-semibold  text-gray-700">
+                      {session.user.name}
+                    </span>
+                  </p>
+                  <p className="block px-4 pb-2 text-sm text-gray-500">
+                    {session.user.email}
+                  </p>
                   <Link href={`/profile`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"
+                      className="block px-4 py-2 cursor-pointer text-sm text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Profile")}
@@ -74,7 +82,7 @@ const Dropdown = ({
                   <Link href={`/settings`} legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 cursor-pointer text-sm text-slate-700 hover:bg-slate-100"
+                      className="block px-4 py-2 cursor-pointer text-sm text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Configuration")}
@@ -83,19 +91,27 @@ const Dropdown = ({
                   <Link href="/help" legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                      className="block px-4 py-2 text-sm text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("FAQ")}
                     </a>
                   </Link>
                   <hr />
+                  <div className="flex px-4 py-2 text-sm text-gray-500 hover:text-blue transition duration-100 justify-between">
+                    {t("Theme")}
+                    <select className="ml-2 px-1 bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-md cursor-pointer outline-blue outline-opacity-50">
+                      <option value="tema1">Triploro</option>
+                      <option value="tema2">Summer</option>
+                    </select>
+                  </div>
+                  <hr />
                   <a
                     onClick={() => {
                       signOut();
                       handleMenuClick();
                     }}
-                    className="block px-4 py-2 text-sm cursor-pointer text-slate-700 hover:bg-slate-100"
+                    className="block px-4 py-2 text-sm cursor-pointer text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                     role="menuitem"
                   >
                     {t("Logout")}
@@ -108,7 +124,7 @@ const Dropdown = ({
                       openLogin();
                       handleMenuClick();
                     }}
-                    className="block px-4 py-2 text-sm cursor-pointer text-slate-700 hover:bg-slate-100"
+                    className="block px-4 py-2 text-sm cursor-pointer text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100 text-nowrap"
                     role="menuitem"
                   >
                     {t("Login")}
@@ -116,7 +132,7 @@ const Dropdown = ({
                   <Link href="/register" legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                      className="block px-4 py-2 text-sm text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("Register")}
@@ -125,7 +141,7 @@ const Dropdown = ({
                   <Link href="/help" legacyBehavior>
                     <a
                       onClick={handleMenuClick}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                      className="block px-4 py-2 text-sm text-gray-500 hover:text-blue transition duration-100 hover:bg-slate-100"
                       role="menuitem"
                     >
                       {t("FAQ")}

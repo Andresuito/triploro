@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-
-* {
-  font-family: "Plus Jakarta Sans", sans-serif;
-}
-
 /* Switch Botton */
 input:checked ~ .dot {
   transform: translateX(100%);
@@ -19,4 +13,10 @@ input:checked ~ .block {
 
 .dot {
   transition: all 0.2s ease-in-out;
+}
+
+.test {
+  -webkit-mask-image: url(../assets/mask.svg);
+  mask-image: url(../assets/mask.svg);
+  width: 100%;
 }

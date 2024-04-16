@@ -44,7 +44,8 @@
       "Profile": "Perfil",
       "Configuration": "Configurações",
       "Logout": "Sair",
-      "FAQ": "Ajuda"
+      "FAQ": "Ajuda",
+      "Theme": "Tema"
     }
   },
   "Help": {
@@ -145,7 +146,9 @@
         "Email": "E-mail"
       },
       "Button": "Enviar",
-      "Success": "E-mail enviado! Por favor, verifique sua caixa de entrada.",
+      "Success": {
+        "recovery_email_sent": "E-mail enviado! Por favor, verifique sua caixa de entrada."
+      },
       "error": {
         "missing_fields": "Por favor, preencha todos os campos.",
         "invalid_email_format": "O formato do e-mail não é válido.",

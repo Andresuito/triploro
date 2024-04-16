@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import Input from "@/app/components/Global/Input";
 import Button from "@/app/components/Global/Button";
@@ -13,7 +13,9 @@ const ForgotPassword = () => {
   const [success, setSuccess] = useState("");
   const [highlightEmptyField, setHighlightEmptyField] = useState(false);
 
-  const handleResetPassword = async () => {
+  const handleResetPassword = async (event: FormEvent) => {
+    event.preventDefault();
+
     if (!email) {
       setHighlightEmptyField(true);
       setSuccess("");
@@ -34,7 +36,7 @@ const ForgotPassword = () => {
 
       if (response.status === 200) {
         setError("");
-        setSuccess(t("recovery_email_sent"));
+        setSuccess(t("success.recovery_email_sent"));
       }
     } catch (error) {
       if ((error as any)?.response?.data.error === "user_not_found") {
@@ -45,32 +47,38 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-md mx-auto mt-10 p-6 border-2 shadow-md rounded-md">
-        <h2 className="text-2xl font-bold mb-6">{t("Title")}</h2>
-        <div className="space-y-4">
-          <Input
-            label={t("Fields.Email")}
-            type="email"
-            value={email}
-            onChange={setEmail}
-            highlightEmpty={highlightEmptyField}
-            hasError={!!error}
-            placeholder={t("Placeholders.Email")}
-          />
-        </div>
-        {error && (
-          <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
-            {error}
-          </p>
-        )}
-        {success && (
-          <p className="bg-blue text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
-            {success}
-          </p>
-        )}
-
-        <Button label={t("Button")} onClick={handleResetPassword} />
+    <div className="h-[100vh] flex justify-center">
+      <div className="max-w-md mt-10 p-6">
+        <h1 className="text-3xl font-semibold mb-4 text-blue text-center">
+          {t("Title")}
+        </h1>
+        <form className="flex flex-col">
+          <div className="flex justify-center">
+            <Input
+              label={t("Fields.Email")}
+              type="email"
+              value={email}
+              onChange={setEmail}
+              highlightEmpty={highlightEmptyField}
+              hasError={!!error}
+              placeholder={t("Placeholders.Email")}
+              className="w-[300px]"
+            />
+          </div>
+          {error && (
+            <p className="text-red-500 pb-4 text-sm text-center">{error}</p>
+          )}
+          {success && (
+            <p className="text-blue pb-4 text-sm text-center">{success}</p>
+          )}
+          <div className="flex justify-center">
+            <Button
+              label={t("Button")}
+              onClick={(e) => handleResetPassword(e)}
+              className="w-[230px]"
+            />
+          </div>
+        </form>
       </div>
     </div>
   );

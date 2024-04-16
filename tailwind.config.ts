@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'blue': '#033156',
+        blue: '#033156',
+        orange: '#D66900',
       },
       borderRadius: {
         '1xl': '12px',

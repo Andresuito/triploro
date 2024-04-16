@@ -7,6 +7,12 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { getTranslations } from "next-intl/server";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export async function generateMetadata() {
   const t = await getTranslations("Metadata");
@@ -81,7 +87,7 @@ export default function RootLayout({
 }) {
   const messages = useMessages();
   return (
-    <html lang={locale}>
+    <html lang={locale} className={jakarta.className}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionAuthProvider>
