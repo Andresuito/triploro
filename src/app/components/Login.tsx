@@ -23,6 +23,8 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
+  const [showResendEmail, setShowResendEmail] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -72,6 +74,12 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
       if (responseNextAuth?.error) {
         setError("error." + responseNextAuth.error);
+
+        if (responseNextAuth.error === "account_not_activated") {
+          setShowLogin(false);
+          setShowResendEmail(true);
+        }
+
         return;
       }
 
@@ -134,11 +142,20 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   {t(error)}
                 </p>
               )}
-              <Button
-                label={t("Button")}
-                onClick={(e) => handleLogin(e)}
-                className="max-w-[120px]"
-              />
+              {showLogin && (
+                <Button
+                  label={t("Button.Login")}
+                  onClick={(e) => handleLogin(e)}
+                  className="max-w-[120px]"
+                />
+              )}
+              {showResendEmail && (
+                <Button
+                  label={t("Button.ResendEmail")}
+                  onClick={(e) => handleLogin(e)}
+                  className="max-w-[120px]"
+                />
+              )}
               <div className="flex justify-center items-center bg-white py-4 w-full">
                 <Link
                   href={`/${locale}/forgot-password`}

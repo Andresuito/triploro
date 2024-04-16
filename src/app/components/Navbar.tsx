@@ -66,6 +66,12 @@ function Navbar() {
     }
   };
 
+  const handleNavLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      setIsSidebarOpen(false);
+    }
+  };
+
   const slideIn = useSpring({
     transform: isSidebarOpen ? "translateX(0%)" : "translateX(-100%)",
     config: { tension: 500, friction: 50 },
@@ -95,18 +101,25 @@ function Navbar() {
             <div className="hidden md:flex flex-grow justify-center items-center">
               <div className="flex items-baseline space-x-4">
                 <Link legacyBehavior href="/itineraries">
-                  <a className="px-3 py-2 hover:bg-slate-100 rounded-full font-medium transition duration-200">
+                  <a
+                    className="px-3 py-2 hover:bg-slate-100 rounded-full font-medium transition duration-200"
+                    onClick={handleNavLinkClick}
+                  >
                     {t("Options.Option3")}
                   </a>
                 </Link>
                 <a
                   href="#"
                   className="px-3 py-2 hover:bg-slate-100 rounded-full font-medium transition duration-200"
+                  onClick={handleNavLinkClick}
                 >
                   {t("Options.Option2")}
                 </a>
                 <Link legacyBehavior href="/destinations">
-                  <a className="px-3 py-2 hover:bg-slate-100 rounded-full font-medium transition duration-200">
+                  <a
+                    className="px-3 py-2 hover:bg-slate-100 rounded-full font-medium transition duration-200"
+                    onClick={handleNavLinkClick}
+                  >
                     {t("Options.Option1")}
                   </a>
                 </Link>
@@ -145,30 +158,21 @@ function Navbar() {
           className="md:hidden bg-slate-50 h-fit w-full absolute top-20 left-0 z-50"
         >
           <div className="flex flex-col divide-y divide-slate-150">
-            <Link
-              legacyBehavior
-              href="/itineraries"
-              onClick={() => setIsSidebarOpen(false)}
-            >
-              <a className="px-3 py-2 font-medium">{t("Options.Option3")}</a>
-            </Link>{" "}
-            <hr />
-            <Link
-              legacyBehavior
-              href="#"
-              onClick={() => setIsSidebarOpen(false)}
-            >
-              <a className="px-3 py-2 font-medium">{t("Options.Option2")}</a>
+            <Link legacyBehavior href="/itineraries">
+              <a className="px-3 py-4 font-medium" onClick={handleNavLinkClick}>
+                {t("Options.Option3")}
+              </a>
             </Link>
-            <hr />
-            <Link
-              legacyBehavior
-              href="/destinations"
-              onClick={() => setIsSidebarOpen(false)}
-            >
-              <a className="px-3 py-2 font-medium">{t("Options.Option1")}</a>
+            <Link legacyBehavior href="#">
+              <a className="px-3 py-4 font-medium" onClick={handleNavLinkClick}>
+                {t("Options.Option2")}
+              </a>
             </Link>
-            <hr />
+            <Link legacyBehavior href="/destinations">
+              <a className="px-3 py-4 font-medium" onClick={handleNavLinkClick}>
+                {t("Options.Option1")}
+              </a>
+            </Link>
           </div>
         </animated.div>
       )}

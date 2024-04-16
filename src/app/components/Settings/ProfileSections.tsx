@@ -96,7 +96,7 @@ export const InfoSection = ({
             <div className="flex border-l border-gray-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-blue hover:text-blue focus:outline-none focus:ring-2 focus:ring-sky-800"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-blue hover:text-blue focus:outline-none focus:ring-2 focus:ring-blue"
               >
                 Close
               </button>

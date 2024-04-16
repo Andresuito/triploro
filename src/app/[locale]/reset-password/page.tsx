@@ -106,7 +106,7 @@ export default function ResetPasswordPage() {
             <Button
               label={t("Button")}
               onClick={(e) => handleResetPassword(e)}
-              className="w-[230px]"
+              className="w-[231px]"
             />
           </div>
         </form>

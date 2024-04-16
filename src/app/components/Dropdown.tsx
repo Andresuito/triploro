@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { useSession, signOut } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
-import toast from "react-hot-toast";
 
 import Link from "next/link";
 import Login from "./Login";
@@ -45,9 +44,6 @@ const Dropdown = ({
   useEffect(() => {
     if (searchParams.get("modaLogin") === "open") {
       setLoginOpen(true);
-      toast.success(
-        "Tu cuenta ha sido creada exitosamente, verifica tu correo para activarla."
-      );
     }
   }, [searchParams]);
 

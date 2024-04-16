@@ -12,6 +12,7 @@ const ForgotPassword = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [highlightEmptyField, setHighlightEmptyField] = useState(false);
+  const [showSendButton, setShowSendBotton] = useState(true);
 
   const handleResetPassword = async (event: FormEvent) => {
     event.preventDefault();
@@ -37,6 +38,7 @@ const ForgotPassword = () => {
       if (response.status === 200) {
         setError("");
         setSuccess(t("success.recovery_email_sent"));
+        setShowSendBotton(false);
       }
     } catch (error) {
       if ((error as any)?.response?.data.error === "user_not_found") {
@@ -49,7 +51,7 @@ const ForgotPassword = () => {
   return (
     <div className="h-[100vh] flex justify-center">
       <div className="max-w-md mt-10 p-6">
-        <h1 className="text-3xl font-semibold mb-4 text-blue text-center">
+        <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-blue text-center">
           {t("Title")}
         </h1>
         <form className="flex flex-col">
@@ -71,13 +73,15 @@ const ForgotPassword = () => {
           {success && (
             <p className="text-blue pb-4 text-sm text-center">{success}</p>
           )}
-          <div className="flex justify-center">
-            <Button
-              label={t("Button")}
-              onClick={(e) => handleResetPassword(e)}
-              className="w-[230px]"
-            />
-          </div>
+          {showSendButton && (
+            <div className="flex justify-center">
+              <Button
+                label={t("Button")}
+                onClick={(e) => handleResetPassword(e)}
+                className="w-[231px]"
+              />
+            </div>
+          )}
         </form>
       </div>
     </div>
