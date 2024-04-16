@@ -104,7 +104,10 @@
          "Email": "Email",
          "Password": "Contraseña"
        },
-       "Button": "Iniciar Sesión",
+       "Button": {
+          "Login": "Iniciar Sesión",
+          "ResendEmail": "Reenviar email"
+       },
        "Links": {
          "NoAccount": "¿No tienes una cuenta?",
          "ForgotPassword": "¿Olvidaste tu contraseña?",

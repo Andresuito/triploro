@@ -100,7 +100,10 @@
         "Email": "Email",
         "Password": "Password"
       },
-      "Button": "Login",
+      "Button": {
+        "Login": "Sign In",
+        "ResendEmail": "Resend Email"
+      },
       "Links": {
         "NoAccount": "Don't have an account yet?",
         "ForgotPassword": "Forgot your password?",

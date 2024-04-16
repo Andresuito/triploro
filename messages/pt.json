@@ -40,7 +40,7 @@
     },
     "Dropdown": {
       "Register": "Registrar",
-      "Login": "Entrar",
+      "Login": "Iniciar sessão",
       "Profile": "Perfil",
       "Configuration": "Configurações",
       "Logout": "Sair",
@@ -77,7 +77,7 @@
       "Button": "Registrar",
       "Links": {
         "AlreadyHaveAccount": "Já tem uma conta?",
-        "Login": "Entrar"
+        "Login": "Iniciar sessão"
       },
       "Success": "Registro bem-sucedido! Por favor, verifique seu e-mail para ativar sua conta.",
       "error": {
@@ -90,7 +90,7 @@
       }
     },
     "Login": {
-      "Title": "Entrar",
+      "Title": "Iniciar sessão",
       "Subtitle": "Bem-vindo de volta!",
       "Fields": {
         "Email": "E-mail",
@@ -100,7 +100,10 @@
         "Email": "E-mail",
         "Password": "Senha"
       },
-      "Button": "Entrar",
+      "Button": {
+        "Login": "Iniciar sessão",
+        "ResendEmail": "Reenviar email"
+      },
       "Links": {
         "NoAccount": "Não tem uma conta?",
         "ForgotPassword": "Esqueceu sua senha?",
@@ -114,7 +117,7 @@
         "password_must_be_at_least_6_characters": "A senha deve ter pelo menos 6 caracteres.",
         "account_not_activated": "A conta não está ativada. Por favor, verifique seu e-mail para ativá-la.",
         "invalid_credentials": "Credenciais inválidas.",
-        "login_error": "Erro ao entrar. Por favor, tente novamente.",
+        "login_error": "Erro ao iniciar sessão. Por favor, tente novamente.",
         "incorrect_password": "Senha incorreta."
       }
     },
