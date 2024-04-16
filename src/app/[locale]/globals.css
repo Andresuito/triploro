@@ -15,8 +15,9 @@ input:checked ~ .block {
   transition: all 0.2s ease-in-out;
 }
 
-.test {
+.mask {
   -webkit-mask-image: url(../assets/mask.svg);
   mask-image: url(../assets/mask.svg);
-  width: 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }

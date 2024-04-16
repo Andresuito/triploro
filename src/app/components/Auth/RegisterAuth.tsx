@@ -7,7 +7,6 @@ import Button from "@/app/components/Global/Button";
 import axiosInstance from "@/app/utils/axiosInstance";
 import Image from "next/image";
 import img_regsiter from "@/app/assets/img_register.png";
-import mask from "@/app/assets/mask.svg";
 import Link from "next/link";
 
 const Register = () => {
@@ -20,6 +19,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
+  const [showRegisterButton, setShowRegisterButton] = useState(true);
 
   const handleRegister = async (event: FormEvent) => {
     event.preventDefault();
@@ -58,6 +58,7 @@ const Register = () => {
         setEmail("");
         setPassword("");
         setHighlightEmptyFields(false);
+        setShowRegisterButton(false);
       }
     } catch (error) {
       if ((error as any)?.code === "ERR_NETWORK") {
@@ -85,7 +86,7 @@ const Register = () => {
         <Image
           src={img_regsiter}
           alt="Register"
-          className="mb-60 test"
+          className="mb-60 mask"
           placeholder="blur"
         />
       </div>
@@ -144,21 +145,23 @@ const Register = () => {
             </p>
           )}
           {success && (
-            <p className="bg-blue w-[300px] text-center p-2 rounded-md text-white text-sm mb-2">
+            <p className="w-[300px] text-center p-2 rounded-md text-blue text-sm mb-2">
               {t("Success")}
             </p>
           )}
-          <Button
-            label={t("Button")}
-            onClick={(e) => handleRegister(e)}
-            className="max-w-[145px] rounded-1xl py-3"
-          />
+          {showRegisterButton && (
+            <Button
+              label={t("Button")}
+              onClick={(e) => handleRegister(e)}
+              className="max-w-[145px] rounded-1xl py-3"
+            />
+          )}
         </form>
         <div className="mx-auto flex flex-col justify-center items-center mt-4">
           <hr className="border-[#000000]/20 sm:w-[300px]" />
           <p className="my-4 text-sm">
             {t("Links.AlreadyHaveAccount")}{" "}
-            <Link href="/" legacyBehavior>
+            <Link href="/?modaLogin=open" legacyBehavior>
               <span className="underline hover:text-blue text-center cursor-pointer text-[#333333]/50">
                 {t("Links.Login")}
               </span>
