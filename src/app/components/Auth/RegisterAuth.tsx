@@ -60,8 +60,8 @@ const Register = () => {
         setHighlightEmptyFields(false);
         setShowRegisterButton(false);
       }
-    } catch (error) {
-      if ((error as any)?.code === "ERR_NETWORK") {
+    } catch (error: any) {
+      if (error.code === "ERR_NETWORK") {
         setError(t("error.network_error"));
         return;
       }
@@ -73,7 +73,7 @@ const Register = () => {
 
       setError(t("error." + (error as any)?.response?.data.error));
 
-      if ((error as any)?.response?.data.error === "email_already_exists") {
+      if (error.response.data.error === "email_already_exists") {
         setError(t("error.email_already_exists"));
         return;
       }

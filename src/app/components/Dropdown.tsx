@@ -93,14 +93,14 @@ const Dropdown = ({
                       {t("FAQ")}
                     </a>
                   </Link>
-                  <hr />
+                  {/* <hr />
                   <div className="flex px-4 py-2 text-sm text-gray-500 hover:text-blue transition duration-100 justify-between">
                     {t("Theme")}
                     <select className="ml-2 px-1 bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-md cursor-pointer outline-blue outline-opacity-50">
                       <option value="tema1">Triploro</option>
                       <option value="tema2">Summer</option>
                     </select>
-                  </div>
+                  </div> */}
                   <hr />
                   <a
                     onClick={() => {

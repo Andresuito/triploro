@@ -40,8 +40,8 @@ const ForgotPassword = () => {
         setSuccess(t("success.recovery_email_sent"));
         setShowSendBotton(false);
       }
-    } catch (error) {
-      if ((error as any)?.response?.data.error === "user_not_found") {
+    } catch (error: any) {
+      if (error.response.data.error === "user_not_found") {
         setError(t("error.user_not_found"));
         return;
       }

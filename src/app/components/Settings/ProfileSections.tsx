@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { FaUserMinus, FaUserPlus } from "react-icons/fa";
 import { useSession, signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import axiosInstance from "../../utils/axiosInstance";
 import { formatDate } from "../../utils/formatDate";
+import triploro from "../../assets/Logo.svg";
 import toast from "react-hot-toast";
 
 export const InfoSection = ({
@@ -165,8 +168,8 @@ export const InfoSection = ({
           },
         });
       }
-    } catch (error) {
-      if ((error as any)?.response?.status === 400) {
+    } catch (error: any) {
+      if (error.response.status === 400) {
         setEmailError(t("InfoSection.error.email_taken"));
       }
     }
@@ -375,16 +378,114 @@ export const SeguridadSection = ({
   );
 };
 
-export const MateSection = ({
-  title,
-  description,
-  info,
-}: {
+interface User {
+  id: string;
+  username: string;
+}
+
+interface MateSectionProps {
   title: string;
   description: string;
   info: any;
-}) => {
+}
+
+interface User {
+  username: string;
+  createdAt: string;
+}
+
+export const MateSection = ({ title, description, info }: MateSectionProps) => {
+  const { data: session } = useSession();
   const t = useTranslations("Settings");
+
+  const [showInput, setShowInput] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<null | {
+    id: number;
+    username: string;
+  }>(null);
+  const [friends, setFriends] = useState<User[]>([]);
+  const [friendStatus, setFriendStatus] = useState<Record<string, boolean>>({});
+  const [searchError, setSearchError] = useState<string | null>(null);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === "@") {
+      return;
+    }
+    setSearchTerm(event.target.value.substring(1));
+  };
+
+  const handleSearchClick = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `/friendship/users?username=${searchTerm}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+
+      setSearchResults(response.data.user);
+      setSearchError(null);
+    } catch (error: any) {
+      if (error.response.data.error === "user_not_found") {
+        setSearchError("Usuario no encontrado");
+        setSearchResults(null);
+      }
+      console.error("Error searching users:", error);
+    }
+  };
+
+  const handleAddMateClick = () => {
+    setShowInput(true);
+  };
+
+  const fetchFriends = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `/friendship/friends/${session?.user?.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+      setFriends(response.data.friends);
+    } catch (error) {
+      console.error("Error fetching friends:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFriends();
+  }, []);
+
+  const fetchFriendStatus = async () => {
+    if (!searchResults) return;
+
+    try {
+      const response = await axiosInstance.get(
+        `/friendship/is-friend/${searchResults.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+      setFriendStatus({ [searchResults.id]: response.data.isFriend });
+    } catch (error) {
+      console.error("Error checking friend status:", error);
+      setFriendStatus({ [searchResults.id]: false });
+    }
+  };
+
+  useEffect(() => {
+    if (searchResults) {
+      fetchFriendStatus();
+    }
+  }, [searchResults]);
 
   return (
     <div>
@@ -392,10 +493,85 @@ export const MateSection = ({
       <span>{description}</span>
       <div className="pb-4 mb-4">
         <div className="flex flex-col space-y-2 mt-4">
-          <div className="flex items-center">
-            <button className="p-1 px-2 cursor-pointer text-blue rounded-md hover:bg-blue hover:text-white transition duration-200">
-              {t("MateSection.Buttons.AddMate")}
-            </button>
+          <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
+            <div>
+              <p className="text-gray-700 font-semibold mb-1">Amigos</p>
+              <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+                Aqui se muestran todos tus amigos en Triploro. Podras invitarlos
+                a todos los viajes que desees.
+              </span>
+              <div className="flex flex-wrap mt-2">
+                {friends.length > 0 && (
+                  <div
+                    key={friends[0].id}
+                    className="bg-blue/80 text-white w-fit rounded-1xl shadow-lg overflow-hidden mb-4 mr-4"
+                  >
+                    <div className="p-4">
+                      <div className="flex justify-between items-center mb-3">
+                        <h1 className="text-base">@{friends[0].username}</h1>
+                        <FaUserMinus className="float-right cursor-pointer" />
+                      </div>
+                      <p className="text-sm">
+                        Sois amigos desde el {formatDate(friends[0].createdAt)}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row items-start justify-between py-2">
+            <div>
+              <p className="text-gray-700 font-semibold mb-1">
+                Añadir un nuevo amigo
+              </p>
+              <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+                Para agregar un nuevo amigo, busca su nombre de usuario y haz
+                clic en el botón de añadir. Tus amigo recibirá una notificación
+                para aceptar tu solicitud.
+              </span>
+              <div className="flex items-center mt-4">
+                <input
+                  type="text"
+                  value={`@${searchTerm}`}
+                  onChange={handleInputChange}
+                  placeholder="Buscar usuario"
+                  className="p-2 border rounded-1xl mr-2"
+                />
+                <button
+                  className="flex p-2 px-4 cursor-pointer text-blue rounded-1xl hover:bg-blue hover:text-white transition duration-200"
+                  onClick={() => {
+                    handleSearchClick();
+                    handleAddMateClick();
+                  }}
+                >
+                  {t("MateSection.Buttons.AddMate")}
+                </button>
+              </div>
+              {searchError && (
+                <div className="text-red-500 mt-2">{searchError}</div>
+              )}
+              {showInput && searchResults && (
+                <div className="flex flex-col items-center mt-2 space-y-4">
+                  <div className="bg-white border border-blue/30 w-64 rounded-1xl ">
+                    <div className="p-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <Image src={triploro} alt="Triploro" width={120} />
+                        <FaUserPlus className="w-5 cursor-pointer text-blue/80 hover:text-blue transition duration-200" />
+                      </div>
+                      <h2 className="text-base text-gray-800 mb-2">
+                        @{searchResults.username}
+                      </h2>
+                      <p className="text-sm">
+                        {friendStatus[searchResults.id]
+                          ? "Este usuario ya es tu amigo"
+                          : "No es tu amigo"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

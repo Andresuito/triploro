@@ -43,10 +43,10 @@ const VerifyEmail = () => {
         if (response.status === 200) {
           router.push("/");
         }
-      } catch (error) {
-        if ((error as any).response.data.error === "token_expired") {
+      } catch (error: any) {
+        if (error.response.data.error === "token_expired") {
           setError("Token expired");
-        } else if ((error as any).response.data.error === "invalid_token") {
+        } else if (error.response.data.error === "invalid_token") {
           setError("Invalid token");
         }
       }

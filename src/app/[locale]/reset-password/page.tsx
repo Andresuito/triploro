@@ -63,10 +63,10 @@ export default function ResetPasswordPage() {
       if (response.status === 200) {
         signOut();
       }
-    } catch (error) {
-      setError(t((error as any)?.response?.data.error));
+    } catch (error: any) {
+      setError(t(error.response.data.error));
 
-      if ((error as any)?.response?.data.error === "missing_token") {
+      if (error.response.data.error === "missing_token") {
         setError(t("error.missing_token"));
       }
     }
