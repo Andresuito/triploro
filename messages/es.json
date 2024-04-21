@@ -17,8 +17,7 @@
      "Description": "Restablece tu contraseña de Triploro de forma segura. Ingresa tu nueva contraseña y confírmala para recuperar el acceso a tus planes de viaje personalizados y experiencias."
   },
   "Profile":{
-     "Title": "Perfil de Usuario",
-     "Description": "Administra tu perfil de usuario en Triploro para personalizar tu experiencia de viaje. Descubre tus viajes, destinos e itinerarios favoritos, y configura tus notificaciones y ajustes de seguridad."
+     "Title": "Perfil"
   },
   "Help":{
    "Title": "Ayuda",

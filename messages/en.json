@@ -16,6 +16,9 @@
      "Title": "Reset Your Account Password",
      "Description": "Reset your Triploro account password securely. Enter your new password and confirm it to regain access to your personalized travel plans and experiences."
   },
+  "Profile": {
+    "Title": "Profile"
+  },
   "Help":{
    "Title": "Help",
    "Description": "Get comprehensive guides and articles on planning your first trip, exploring itineraries on Triploro, sharing your experiences, and group travel tips."

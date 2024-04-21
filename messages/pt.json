@@ -16,6 +16,9 @@
      "Title": "Redefina a Senha da Sua Conta",
      "Description": "Redefina a senha da sua conta Triploro de forma segura. Insira sua nova senha e confirme-a para recuperar o acesso aos seus planos de viagem personalizados e experiências."
   },
+  "Profile": {
+    "Title": "Perfil"
+  },
   "Help":{
    "Title": "Ajuda",
    "Description": "Obtenha guias abrangentes e artigos sobre como planejar sua primeira viagem, explorar itinerários no Triploro, compartilhar suas experiências e dicas de viagem em grupo."
