@@ -60,7 +60,7 @@ const Dropdown = ({
                 <>
                   <p className="block px-4 pt-2 text-sm">
                     <span className="font-semibold  text-gray-700">
-                      {session.user.name}
+                      {session.user.username}
                     </span>
                   </p>
                   <p className="block px-4 pb-2 text-sm text-gray-500">

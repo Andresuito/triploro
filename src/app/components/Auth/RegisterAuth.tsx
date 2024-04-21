@@ -86,7 +86,7 @@ const Register = () => {
         <Image
           src={img_regsiter}
           alt="Register"
-          className="mb-60 mask"
+          className="mb-32 mask"
           placeholder="blur"
         />
       </div>

@@ -6,12 +6,10 @@ import { FaLock, FaUserFriends, FaUserEdit } from "react-icons/fa";
 import { PiBellSimpleFill } from "react-icons/pi";
 import { useTranslations } from "next-intl";
 import axiosInstance from "@/app/utils/axiosInstance";
-import {
-  InfoSection,
-  SeguridadSection,
-  MateSection,
-  NotificationsSection,
-} from "@/app/components/Settings/ProfileSections";
+import { NotificationsSection } from "@/app/components/Settings/NotificationsSection";
+import { SeguridadSection } from "@/app/components/Settings/SecuritySection";
+import { MateSection } from "@/app/components/Settings/MateSection";
+import { InfoSection } from "@/app/components/Settings/InfoSection";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();

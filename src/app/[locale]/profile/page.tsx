@@ -1,10 +1,11 @@
 import ProfilePage from "@/app/components/Profile/Profile";
-import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
-  const data = await getServerSession();
+  const t = await getTranslations({ namespace: "Metadata" });
+
   return {
-    title: `${data?.user.name}`,
+    title: t("Profile.Title"),
   };
 }
 
