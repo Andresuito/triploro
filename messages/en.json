@@ -248,10 +248,29 @@
       }
     },
     "MateSection": {
-      "Title": "Travel mate",
+      "Title": "Travel Companion",
       "Subtitle": "Manage or edit the companions of your trips.",
+      "Subtitle2": "Add a new friend",
+      "InfoAddMate": "To add a new friend, search for their username and click on the add button. Your friend will receive a notification to accept your request.",
+      "TitleRequestsPending": "Pending requests",
+      "InfoRequestsPending": "Here all the pending requests you have received are shown.",
+      "InfoNoRequestsPending": "You have no pending requests.",
+      "TitleFriends": "Friends",
+      "InfoFriends": "Here all your friends on Triploro are shown. You can invite them to all the trips you want.",
+      "FriendSince": "Friend since",
+      "Status": {
+       "isFriend": "Is already your friend",
+       "isNotFriend": "Is not your friend",
+       "pending": "Pending request",
+       "beFriend": "Wants to be your friend"
+      },
+      "Fields": {
+        "Username": "Username"
+      },
       "Buttons": {
-        "AddMate": "Add companion"
+        "AddMate": "Add companion",
+        "Accept": "Accept",
+        "Reject": "Decline"
       }
     },
     "NotificationsSection": {

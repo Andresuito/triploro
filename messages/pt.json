@@ -249,9 +249,28 @@
     },
     "MateSection": {
       "Title": "Companheiro de viagem",
-      "Subtitle": "Gerencie ou edite os acompanhantes de suas viagens.",
+      "Subtitle": "Gerencie ou edite os companheiros de suas viagens.",
+      "Subtitle2": "Adicionar um novo amigo",
+      "InfoAddMate": "Para adicionar um novo amigo, procure seu nome de usuário e clique no botão adicionar. Seu amigo receberá uma notificação para aceitar seu pedido.",
+      "TitleRequestsPending": "Pedidos pendentes",
+      "InfoRequestsPending": "Aqui são mostrados todos os pedidos pendentes que você recebeu.",
+      "InfoNoRequestsPending": "Você não tem pedidos pendentes.",
+      "TitleFriends": "Amigos",
+      "InfoFriends": "Aqui são mostrados todos os seus amigos no Triploro. Você pode convidá-los para todas as viagens que desejar.",
+      "FriendSince": "Amigo desde",
+      "Status": {
+       "isFriend": "Já é seu amigo",
+       "isNotFriend": "Não é seu amigo",
+       "pending": "Pedido pendente",
+       "beFriend": "Quer ser seu amigo"
+      },
+      "Fields": {
+        "Username": "Nome de usuário"
+      },
       "Buttons": {
-        "AddMate": "Adicionar acompanhante"
+        "AddMate": "Adicionar companheiro",
+        "Accept": "Aceitar",
+        "Reject": "Rejeitar"
       }
     },
     "NotificationsSection": {
