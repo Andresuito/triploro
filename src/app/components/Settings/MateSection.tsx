@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { FaUser, FaUserMinus, FaUserPlus } from "react-icons/fa";
-import { formatDate } from "../../utils/formatDate";
 import { useTranslations } from "next-intl";
+import { FaUserMinus, FaUserPlus } from "react-icons/fa";
+import { formatDate } from "@/app/utils/formatDate";
 import axiosInstance from "@/app/utils/axiosInstance";
-import triploro from "../../assets/Logo.svg";
+import ModalWindow from "@/app/components/ModalWindow";
+import Button from "@/app/components/Global/Button";
 
 interface User {
   id: string;
@@ -35,12 +35,13 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
   const [friendStatus, setFriendStatus] = useState<Record<string, boolean>>({});
   const [searchError, setSearchError] = useState<string | null>(null);
   const [pendingRequest, setPendingRequest] = useState<boolean>(false);
+  const [pendingRequests, setPendingRequests] = useState<Friend[]>([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<Friend | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === "@") {
-      return;
-    }
-    setSearchTerm(event.target.value.substring(1));
+    setSearchTerm(event.target.value);
   };
 
   const handleSearchClick = async () => {
@@ -87,8 +88,25 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
     }
   };
 
+  const fetchPendingRequests = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `/friendship/pending-requests/${session?.user?.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+      setPendingRequests(response.data.requests);
+    } catch (error) {
+      console.error("Error fetching pending requests:", error);
+    }
+  };
+
   useEffect(() => {
     fetchFriends();
+    fetchPendingRequests();
   }, []);
 
   const fetchFriendStatus = async () => {
@@ -142,110 +160,254 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
     }
   };
 
+  const acceptFriendRequest = async (id: string) => {
+    try {
+      await axiosInstance.post(
+        `/friendship/accept-request/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+      fetchFriends();
+      fetchPendingRequests();
+    } catch (error) {
+      console.error("Error accepting friend request:", error);
+    }
+  };
+
+  const rejectFriendRequest = async (id: string) => {
+    try {
+      await axiosInstance.post(
+        `/friendship/reject-request/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+      fetchFriends();
+      fetchPendingRequests();
+    } catch (error) {
+      console.error("Error rejecting friend request:", error);
+    }
+  };
+
+  const deleteFriend = async (event: FormEvent, id: string) => {
+    event.preventDefault();
+    try {
+      await axiosInstance.delete(`/friendship/delete-friend/${id}`, {
+        headers: {
+          Authorization: `Bearer ${session?.user?.token}`,
+        },
+      });
+      setIsModalOpen(false);
+      fetchFriends();
+    } catch (error) {
+      console.error("Error deleting friend:", error);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       <span>{description}</span>
       <div className="pb-4 mb-4">
+        <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
+          <div>
+            <p className="text-gray-700 font-semibold mb-1">
+              {t("MateSection.Subtitle2")}
+            </p>
+            <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+              {t("MateSection.InfoAddMate")}
+            </span>
+            <div className="flex items-center mt-4">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={handleInputChange}
+                placeholder={t("MateSection.Fields.Username")}
+                className="p-2 border rounded-1xl mr-2"
+              />
+              <Button
+                label={t("MateSection.Buttons.AddMate")}
+                className="w-fit text-white rounded-1xl"
+                onClick={() => {
+                  handleSearchClick();
+                  handleAddMateClick();
+                }}
+              />
+            </div>
+            {searchError && (
+              <div className="text-red-500 mt-2">{searchError}</div>
+            )}
+            {showInput && searchResults && (
+              <div className="flex flex-col items-center mt-2 space-y-4">
+                <div className="bg-white shadow-lg rounded-1xl w-80 p-2 flex items-center">
+                  <div className="h-10 w-10 bg-blue text-white rounded-full flex items-center justify-center mr-4">
+                    {searchResults.username[0].toUpperCase()}
+                  </div>
+                  <div className="justify-between flex-grow">
+                    <div className="flex justify-between items-center">
+                      <h1 className="text-base text-gray-800">
+                        @{searchResults.username}
+                      </h1>
+                      {!friendStatus[searchResults.id] && !pendingRequest && (
+                        <FaUserPlus
+                          className="w-5 cursor-pointer text-blue hover:text-blue transition duration-200"
+                          onClick={sendFriendRequest}
+                        />
+                      )}
+                    </div>
+                    <p className="text-sm text-333333 opacity-50">
+                      {friendStatus[searchResults.id]
+                        ? t("MateSection.Status.isFriend")
+                        : pendingRequest
+                        ? t("MateSection.Status.pending")
+                        : t("MateSection.Status.isNotFriend")}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
         <div className="flex flex-col space-y-2 mt-4">
           <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
             <div>
-              <p className="text-gray-700 font-semibold mb-1">Amigos</p>
+              <p className="text-gray-700 font-semibold mb-1">
+                {t("MateSection.TitleRequestsPending")}
+              </p>
               <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
-                Aquí se muestran todos tus amigos en Triploro. Puedes invitarlos
-                a todos los viajes que desees.
+                {t("MateSection.InfoRequestsPending")}
               </span>
               <div className="flex flex-wrap mt-2">
+                {pendingRequests.length > 0 ? (
+                  pendingRequests.map((request) => (
+                    <div key={request.id}>
+                      <div
+                        key={request.username}
+                        className="bg-white text-blue w-fit rounded-1xl shadow-lg overflow-hidden mb-4 mr-4"
+                      >
+                        <div className="p-2">
+                          <div className="flex items-center">
+                            <div className="h-10 w-10 bg-blue text-white rounded-full flex items-center justify-center mr-4">
+                              {request.username[0].toUpperCase()}
+                            </div>
+                            <div>
+                              <h1 className="text-base">{request.username}</h1>
+                              <p className="text-sm text-333333 opacity-50">
+                                {t("MateSection.Status.beFriend")}
+                              </p>
+                            </div>
+                            <div className="flex flex-col space-y-1 ml-2">
+                              <Button
+                                label={t("MateSection.Buttons.Reject")}
+                                onClick={() => rejectFriendRequest(request.id)}
+                                className="bg-gray-500 rounded-1xl text-[12px] py-[2px] px-2"
+                              />
+                              <Button
+                                label={t("MateSection.Buttons.Accept")}
+                                onClick={() => acceptFriendRequest(request.id)}
+                                className="bg-blue rounded-1xl text-[12px] py-[2px] px-2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-gray-700 text-opacity-50">
+                    {t("MateSection.InfoNoRequestsPending")}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col space-y-2 mt-4">
+          <div className="flex flex-col sm:flex-row items-start py-2">
+            <div>
+              <p className="text-gray-700 font-semibold mb-1">
+                {t("MateSection.TitleFriends")}
+              </p>
+              <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
+                {t("MateSection.InfoFriends")}
+              </span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2">
                 {friends.length > 0 &&
                   friends.map((friend) => (
                     <div
                       key={friend.id}
-                      className="bg-blue/80 text-white w-fit rounded-1xl shadow-lg overflow-hidden mb-4 mr-4"
+                      className="bg-white shadow-lg rounded-1xl w-fit p-2 flex items-center"
                     >
-                      <div className="p-4">
-                        <div className="flex justify-between items-center mb-3">
-                          <h1 className="text-base">@{friend.username}</h1>
-                          <FaUserMinus className="float-right cursor-pointer" />
+                      <div className="h-10 w-10 bg-blue text-white rounded-full flex items-center justify-center mr-4">
+                        {friend.username[0].toUpperCase()}
+                      </div>
+                      <div>
+                        <FaUserMinus
+                          onClick={() => {
+                            setSelectedUser(friend);
+                            setIsModalOpen(true);
+                          }}
+                          className="float-right cursor-pointer text-blue opacity-60 hover:opacity-100 transition duration-200"
+                        />
+
+                        <div className="justify-between flex-grow">
+                          <div className="flex justify-between items-center">
+                            {" "}
+                            <h1 className="text-base">{friend.username}</h1>
+                          </div>
+                          <p className="text-sm text-333333 opacity-50">
+                            {t("MateSection.FriendSince")}{" "}
+                            {formatDate(friend.createdAt)}
+                          </p>
                         </div>
-                        <p className="text-sm">
-                          Sois amigos desde el {formatDate(friend.createdAt)}
-                        </p>
                       </div>
                     </div>
                   ))}
               </div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-start justify-between py-2">
-            <div>
-              <p className="text-gray-700 font-semibold mb-1">
-                Añadir un nuevo amigo
-              </p>
-              <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
-                Para agregar un nuevo amigo, busca su nombre de usuario y haz
-                clic en el botón de añadir. Tu amigo recibirá una notificación
-                para aceptar tu solicitud.
-              </span>
-              <div className="flex items-center mt-4">
-                <input
-                  type="text"
-                  value={`@${searchTerm}`}
-                  onChange={handleInputChange}
-                  placeholder="Buscar usuario"
-                  className="p-2 border rounded-1xl mr-2"
-                />
-                <button
-                  className="flex p-2 px-4 cursor-pointer text-blue rounded-1xl hover:bg-blue hover:text-white transition duration-200"
-                  onClick={() => {
-                    handleSearchClick();
-                    handleAddMateClick();
-                  }}
-                >
-                  {t("MateSection.Buttons.AddMate")}
-                </button>
-              </div>
-              {searchError && (
-                <div className="text-red-500 mt-2">{searchError}</div>
-              )}
-              {showInput && searchResults && (
-                <div className="flex flex-col items-center mt-2 space-y-4">
-                  <div className="bg-white border rounded-1xl w-64 ">
-                    <div className="p-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <Image src={triploro} alt="Triploro" width={120} />
-                        {friendStatus[searchResults.id] ? (
-                          <FaUser className="w-5 text-green-700/90" />
-                        ) : pendingRequest ? (
-                          <FaUser className="w-5 text-orange/90" />
-                        ) : (
-                          <FaUserPlus
-                            className={`w-5 cursor-pointer text-blue hover:text-blue transition duration-200 ${
-                              friendStatus[searchResults.id] || pendingRequest
-                                ? "pointer-events-none"
-                                : ""
-                            }`}
-                            onClick={sendFriendRequest}
-                          />
-                        )}
-                      </div>
-                      <h2 className="text-base text-gray-800 mb-2">
-                        @{searchResults.username}
-                      </h2>
-                      <p className="text-sm">
-                        {friendStatus[searchResults.id]
-                          ? "Este usuario ya es tu amigo"
-                          : pendingRequest
-                          ? "Solicitud de amistad pendiente"
-                          : "No es tu amigo"}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
       </div>
+      <ModalWindow
+        open={isModalOpen}
+        title="Borrar amigo"
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedUser(null);
+        }}
+        content={
+          <div>
+            <h1>
+              Si pulsas <strong>Borrar</strong>, eliminaras de tus amigos a{" "}
+              <strong>{selectedUser?.username}</strong>
+            </h1>
+            <div className="flex mt-2 space-x-3">
+              <Button
+                label="Borrar"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (selectedUser) {
+                    deleteFriend(e, selectedUser.id);
+                  }
+                }}
+                className="bg-red-500 hover:bg-red-600 text-white"
+              >
+                Borrar
+              </Button>
+              <Button label="Cancelar" onClick={() => setIsModalOpen(false)}>
+                Cancelar
+              </Button>
+            </div>
+          </div>
+        }
+      />
     </div>
   );
 };

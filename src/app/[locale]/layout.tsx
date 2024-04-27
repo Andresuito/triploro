@@ -40,7 +40,7 @@ export async function generateMetadata() {
       },
     },
     alternates: {
-      canonical: "/",
+      canonical: "/es",
       languages: {
         en: "/en",
         es: "/es",

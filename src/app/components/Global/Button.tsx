@@ -4,6 +4,7 @@ interface ButtonProps {
   label: string;
   onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
