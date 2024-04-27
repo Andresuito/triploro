@@ -5,22 +5,22 @@ export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
     {
       url: "https://triploro.com/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/en/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/es/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/pt/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/en/destinations",
@@ -34,21 +34,6 @@ export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
     },
     {
       url: "https://triploro.com/pt/destinations",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-    },
-    {
-      url: "https://triploro.com/en/register",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-    },
-    {
-      url: "https://triploro.com/es/register",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-    },
-    {
-      url: "https://triploro.com/pt/register",
       lastModified: new Date(),
       changeFrequency: "daily",
     },

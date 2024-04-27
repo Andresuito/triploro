@@ -1,5 +1,8 @@
 User-agent: *
 Disallow: /profile
 Disallow: /settings
+Disallow: /verify-email
+Disallow: /login
+Disallow: /register
 
 Sitemap: https://www.triploro.com/sitemap.xml
