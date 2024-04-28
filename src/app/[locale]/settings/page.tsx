@@ -100,7 +100,6 @@ export default function ProfilePage() {
           <MateSection
             title={t("MateSection.Title")}
             description={t("MateSection.Subtitle")}
-            info={info}
           />
         );
       default:
