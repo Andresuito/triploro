@@ -114,9 +114,9 @@ export const InfoSection = ({
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
+      <h1 className="text-4xl font-bold mb-2">{title}</h1>
       <span>{description}</span>
-      <div className="flex flex-col space-y-2 mt-4 border-t border-gray-200">
+      <div className="flex flex-col space-y-2 mt-4">
         <div className="flex justify-between items-center border-b border-gray-200 p-2">
           <div className="flex flex-col">
             <div className="flex items-center">

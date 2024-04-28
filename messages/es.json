@@ -242,6 +242,20 @@
          "DeleteAccount": "¿Desea borrar su cuenta?",
          "DeleteAccountConfirmation": "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
        },
+       "Modal": {
+          "TitleModal": "Eliminar cuenta",
+          "Subtitle": "Al borrar tu cuenta, se eliminará toda tu información.",
+          "List": {
+            "List1": "Se borrarán todos tus amigos.",
+            "List2": "Se eliminarán todos los itinerarios que has creado.",
+            "List3": "Los itinerarios que son públicos pasarán a ser propiedad de Triploro.",
+            "List4": "Esta acción es irreversible."
+          },
+          "Buttons": {
+            "Delete": "Borrar Cuenta",
+            "Cancel": "Cancelar"
+          }
+       },
        "Buttons": {
          "ResetPassword": "Restablecer",
          "DeleteAccount": "Eliminar cuenta"
@@ -258,6 +272,13 @@
        "TitleFriends": "Amigos",
        "InfoFriends": "Aquí se muestran todos tus amigos en Triploro. Puedes invitarlos a todos los viajes que desees.",
        "FriendSince": "Amigo desde",
+       "Modal": {
+        "Title": "Si pulsas 'Eliminar', eliminarás de tus amigos a",
+        "Buttons": {
+          "Delete": "Eliminar",
+          "Cancel": "Cancelar"
+        }
+       },
        "Status": {
         "isFriend": "Ya es tu amigo",
         "isNotFriend": "No es tu amigo",

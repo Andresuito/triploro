@@ -15,7 +15,6 @@ interface User {
 interface MateSectionProps {
   title: string;
   description: string;
-  info: any;
 }
 
 interface Friend {
@@ -24,7 +23,7 @@ interface Friend {
   createdAt: string;
 }
 
-export const MateSection = ({ title, description, info }: MateSectionProps) => {
+export const MateSection = ({ title, description }: MateSectionProps) => {
   const { data: session } = useSession();
   const t = useTranslations("Settings");
 
@@ -213,7 +212,7 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
+      <h1 className="text-4xl font-bold mb-2">{title}</h1>
       <span>{description}</span>
       <div className="pb-4 mb-4">
         <div className="flex flex-col sm:flex-row items-start justify-between border-b border-gray-200 py-2">
@@ -224,7 +223,7 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
             <span className="text-sm text-gray-700 text-opacity-50 hover:text-black transition duration-150">
               {t("MateSection.InfoAddMate")}
             </span>
-            <div className="flex items-center mt-4">
+            <div className="flex items-center mt-4 w-fit">
               <input
                 type="text"
                 value={searchTerm}
@@ -234,7 +233,7 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
               />
               <Button
                 label={t("MateSection.Buttons.AddMate")}
-                className="w-fit text-white rounded-1xl"
+                className="w-fit text-white rounded-1xl px-2"
                 onClick={() => {
                   handleSearchClick();
                   handleAddMateClick();
@@ -385,25 +384,25 @@ export const MateSection = ({ title, description, info }: MateSectionProps) => {
         content={
           <div>
             <h1>
-              Si pulsas <strong>Borrar</strong>, eliminaras de tus amigos a{" "}
+              {t("MateSection.Modal.Title")}{" "}
               <strong>{selectedUser?.username}</strong>
             </h1>
             <div className="flex mt-2 space-x-3">
               <Button
-                label="Borrar"
+                label={t("MateSection.Modal.Buttons.Cancel")}
+                className="opacity-50 hover:opacity-100"
+                onClick={() => setIsModalOpen(false)}
+              />
+              <Button
+                label={t("MateSection.Modal.Buttons.Delete")}
                 onClick={(e) => {
                   e.preventDefault();
                   if (selectedUser) {
                     deleteFriend(e, selectedUser.id);
                   }
                 }}
-                className="bg-red-500 hover:bg-red-600 text-white"
-              >
-                Borrar
-              </Button>
-              <Button label="Cancelar" onClick={() => setIsModalOpen(false)}>
-                Cancelar
-              </Button>
+                className="bg-red-500 opacity-50 hover:opacity-100 text-white"
+              />
             </div>
           </div>
         }

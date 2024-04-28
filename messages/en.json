@@ -242,6 +242,20 @@
         "DeleteAccount": "Do you want to delete your account?",
         "DeleteAccountConfirmation": "Are you sure you want to delete your account? This action cannot be undone."
       },
+      "Modal": {
+        "TitleModal": "Delete account",
+        "Subtitle": "By deleting your account, all your information will be removed.",
+        "List": {
+          "List1": "All your friends will be deleted.",
+          "List2": "All the itineraries you created will be deleted.",
+          "List3": "Public itineraries will become the property of Triploro.",
+          "List4": "This action is irreversible."
+        },
+        "Buttons": {
+          "Delete": "Delete Account",
+          "Cancel": "Cancel"
+        }
+      },
       "Buttons": {
         "ResetPassword": "Reset",
         "DeleteAccount": "Delete account"
@@ -258,6 +272,13 @@
       "TitleFriends": "Friends",
       "InfoFriends": "Here all your friends on Triploro are shown. You can invite them to all the trips you want.",
       "FriendSince": "Friend since",
+      "Modal": {
+        "Title": "If you press 'Delete', you will remove from your friends",
+        "Buttons": {
+          "Delete": "Delete",
+          "Cancel": "Cancel"
+        }
+       },
       "Status": {
        "isFriend": "Is already your friend",
        "isNotFriend": "Is not your friend",

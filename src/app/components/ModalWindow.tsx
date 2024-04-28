@@ -7,6 +7,7 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   content: React.ReactNode;
+  className?: string;
 }
 
 const ModalWindow: React.FC<ModalProps> = ({
@@ -14,6 +15,7 @@ const ModalWindow: React.FC<ModalProps> = ({
   onClose,
   title,
   content,
+  className,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -29,10 +31,8 @@ const ModalWindow: React.FC<ModalProps> = ({
 
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.classList.add("overflow-hidden");
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.classList.remove("overflow-hidden");
     }
 
     return () => {
@@ -56,7 +56,7 @@ const ModalWindow: React.FC<ModalProps> = ({
           <animated.div
             ref={modalRef}
             style={modalSpringProps}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4  md:max-w-md rounded-lg shadow-md pointer-events-auto"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 md:max-w-md lg:max-w-xl rounded-lg shadow-md pointer-events-auto"
           >
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-semibold">{title}</h2>

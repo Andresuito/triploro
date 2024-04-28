@@ -242,6 +242,20 @@
         "DeleteAccount": "Deseja excluir sua conta?",
         "DeleteAccountConfirmation": "Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita."
       },
+      "Modal": {
+        "TitleModal": "Excluir conta",
+        "Subtitle": "Ao excluir sua conta, todas as suas informações serão removidas.",
+        "List": {
+          "List1": "Todos os seus amigos serão excluídos.",
+          "List2": "Todos os itinerários que você criou serão excluídos.",
+          "List3": "Os itinerários que são públicos passarão a ser propriedade da Triploro.",
+          "List4": "Esta ação é irreversível."
+        },
+        "Buttons": {
+          "Delete": "Excluir Conta",
+          "Cancel": "Cancelar"
+        }
+      },
       "Buttons": {
         "ResetPassword": "Redefinir",
         "DeleteAccount": "Excluir conta"
@@ -258,6 +272,13 @@
       "TitleFriends": "Amigos",
       "InfoFriends": "Aqui são mostrados todos os seus amigos no Triploro. Você pode convidá-los para todas as viagens que desejar.",
       "FriendSince": "Amigo desde",
+      "Modal": {
+        "Title": "Se você pressionar 'Excluir', você removerá de seus amigos",
+        "Buttons": {
+          "Delete": "Excluir",
+          "Cancel": "Cancelar"
+        }
+       },
       "Status": {
        "isFriend": "Já é seu amigo",
        "isNotFriend": "Não é seu amigo",
