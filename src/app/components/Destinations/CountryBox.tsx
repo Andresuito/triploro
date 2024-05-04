@@ -24,14 +24,14 @@ export const CountryBox = ({ country }: { country: any }) => {
 
   return (
     <Link href={`/destinations/country/${country.name}`} legacyBehavior>
-      <a className="relative cursor-pointer hover:shadow-lg transition duration-500">
+      <a className="relative cursor-pointer hover:shadow-lg transition duration-300 country">
         <Image
           src={countryImage}
           alt={country.name}
           width={imageWidth}
           height={imageHeight}
           placeholder="blur"
-          className="rounded-md w-full h-60 object-cover object-bottom"
+          className="rounded-md w-full h-60 object-cover object-bottom opacity-75 hover:opacity-100 transition-opacity duration-300"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-4 text-blue text-center opacity-100">
           <h3 className="text-lg font-semibold mx-2">
