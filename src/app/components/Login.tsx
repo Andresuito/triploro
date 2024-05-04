@@ -146,14 +146,14 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 <Button
                   label={t("Button.Login")}
                   onClick={(e) => handleLogin(e)}
-                  className="max-w-[120px]"
+                  className="w-[145px]"
                 />
               )}
               {showResendEmail && (
                 <Button
                   label={t("Button.ResendEmail")}
                   onClick={(e) => handleLogin(e)}
-                  className="max-w-[120px]"
+                  className="w-[145px]"
                 />
               )}
               <div className="flex justify-center items-center bg-white py-4 w-full">
