@@ -110,7 +110,7 @@ export const SeguridadSection = ({
             <ul className="list-disc list-inside mt-4">
               <li>{t("SecuritySection.Modal.List.List1")}</li>
               <li>{t("SecuritySection.Modal.List.List2")}</li>
-              <li>{t("SecuritySection.Modal.List.List3")}.</li>
+              <li>{t("SecuritySection.Modal.List.List3")}</li>
               <li>{t("SecuritySection.Modal.List.List4")}</li>
             </ul>
             <div className="flex justify-end space-x-2 mt-4">
