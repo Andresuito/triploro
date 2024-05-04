@@ -153,7 +153,7 @@ const Register = () => {
             <Button
               label={t("Button")}
               onClick={(e) => handleRegister(e)}
-              className="max-w-[145px] rounded-1xl py-3"
+              className="w-[145px] rounded-1xl py-3"
             />
           )}
         </form>
