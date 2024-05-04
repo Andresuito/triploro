@@ -25,7 +25,7 @@ const HelpPage = () => {
               alt="background itinerary"
               placeholder="blur"
             />
-            <h1 className="absolute top-0 left-0">Hola</h1>
+            <h1 className="absolute mt-6">Hola</h1>
           </div>
           <NewItinerary />
         </div>
