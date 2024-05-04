@@ -1,41 +1,83 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Masonry from "react-masonry-css";
+import Image from "next/image";
+import Link from "next/link";
+import Button from "@/app/components/Global/Button";
 
-export default function ItinerariesPage() {
-  const [isFavorited, setIsFavorited] = useState(false);
+import Lisboa from "@/app/assets/lisboa.jpg";
+import Barcelona from "@/app/assets/barcelona.jpg";
+import Madrid from "@/app/assets/madrid.jpg";
+import Sevilla from "@/app/assets/sevilla.jpg";
+import Valencia from "@/app/assets/valencia.jpg";
+import Oporto from "@/app/assets/oporto.jpg";
 
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
+export default function BetterExample() {
+  const items = Array.from({ length: 30 }, (_, index) => ({
+    id: index,
+    name: `Itinerario ${index + 1}`,
+    height: `${Math.floor(Math.random() * 200) + 100}px`,
+    image: [Lisboa, Barcelona, Madrid, Sevilla, Oporto, Valencia][
+      Math.floor(Math.random() * 6)
+    ],
+  }));
+
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
   };
 
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* <div className="w-80 h-60 shadow-lg bg-white rounded-lg relative">
-          <svg
-            onClick={handleFavoriteClick}
-            className="absolute top-2 right-2 transition-all duration-200 cursor-pointer hover:scale-110"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            width={25}
-            height={25}
-            stroke={isFavorited ? "black" : "black"}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.2}
-          >
-            <path
-              fill={isFavorited ? "#F87171" : "none"}
-              d="M2 9.137C2 14 6.02 16.591 8.962 18.911 10 19.729 11 20.5 12 20.5s2-.77 3.038-1.59C17.981 16.592 22 14 22 9.138c0-4.863-5.5-8.312-10-3.636C7.5.825 2 4.274 2 9.137Z"
+        <div className="mt-8 md:mt-16 flex justify-between items-start">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-8">
+            Todos nuestros{" "}
+            <span className="bg-blue px-2 py-1 text-white rounded-md">
+              Itinerarios
+            </span>
+          </h2>
+
+          <Link href="/new">
+            {" "}
+            <Button
+              className="w-fit text-sm px-5 opacity-70 hover:opacity-100 duration-300 transition"
+              label="Crear Itinerario"
             />
-            <path
-              fill={isFavorited ? "#F87171" : "none"}
-              d="M2 9.137C2 14 6.02 16.591 8.962 18.911 10 19.729 11 20.5 12 20.5s2-.77 3.038-1.59C17.981 16.592 22 14 22 9.138c0-4.863-5.5-8.312-10-3.636C7.5.825 2 4.274 2 9.137Z"
-            />
-          </svg>
-        </div> */}
+          </Link>
+        </div>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {items.map((item) => (
+            <div
+              key={item.id}
+              className="rounded-1xl text-white p-4 text-center mb-4"
+              style={{
+                position: "relative",
+                height: item.height,
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src={item.image}
+                alt={item.name}
+                layout="fill"
+                placeholder="blur"
+                quality={70}
+                className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
+              />
+              <div className="absolute bg-blue p-1 rounded-1xl">
+                {item.name}
+              </div>
+            </div>
+          ))}
+        </Masonry>
       </div>
     </div>
   );
