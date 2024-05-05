@@ -25,6 +25,7 @@ export async function generateMetadata() {
     },
     icons: {
       icon: "/favicon.ico",
+      appleTouchIcon: "/apple-touch-icon.png",
     },
     robots: {
       index: true,
@@ -40,7 +41,7 @@ export async function generateMetadata() {
       },
     },
     alternates: {
-      canonical: "/es",
+      canonical: "/",
       languages: {
         en: "/en",
         es: "/es",
