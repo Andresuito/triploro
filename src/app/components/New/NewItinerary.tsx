@@ -3,6 +3,7 @@
 import React, { useState, FormEvent } from "react";
 import Input from "@/app/components/Global/Input";
 import Button from "@/app/components/Global/Button";
+// import Calendar from "@/app/components/Global/Calendar";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { useSession } from "next-auth/react";
 
@@ -46,27 +47,38 @@ const NewItinerary = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-sm bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      >
+    <div className="mt-8 ml-12">
+      <h1 className="text-blue text-3xl font-semibold">1. Plan a new trip</h1>
+      <p className="mt-8 mb-7">
+        Choose the destination and dates for your itinerary.
+        <br />
+        Invite your companions, and decide whether to keep it private or share
+        it with the world.
+      </p>
+      <form onSubmit={handleSubmit} className="w-full ">
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="name"
-          >
-            Ponga un nombre a su itinerario
-          </label>
           <Input
-            label="Nombre"
+            label="Where do you want to go?"
             type="text"
             value={name}
-            placeholder="Nombre"
+            placeholder="Location (e.g. Madrid, Lisbon, Kilig)"
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
             onChange={(value) => setName(value)}
+            className="w-full"
           />
+          <div className="flex">
+            <Input
+              label="No. of days"
+              type="number"
+              value={name}
+              placeholder="# of days"
+              highlightEmpty={highlightEmptyFields}
+              hasError={!!error}
+              onChange={(value) => setName(value)}
+              className="w-full"
+            />
+          </div>
         </div>
         {succes && (
           <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
@@ -78,9 +90,9 @@ const NewItinerary = () => {
             {error}
           </p>
         )}{" "}
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <Button label="Añadir Itinerario" onClick={(e) => handleSubmit(e)} />
-        </div>
+        </div> */}
       </form>
     </div>
   );
