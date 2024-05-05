@@ -21,6 +21,16 @@ input:checked ~ .block {
   transition: all 0.2s ease-in-out;
 }
 
+/* Input Number */
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* Mask Register */
 .mask {
   -webkit-mask-image: url(../assets/mask.svg);
   mask-image: url(../assets/mask.svg);
