@@ -14,7 +14,9 @@ export async function generateMetadata() {
   };
 }
 
-const HelpPage = () => {
+export default async function HelpPage() {
+  const t = await getTranslations("New");
+
   return (
     <>
       <div className="min-h-screen">
@@ -27,55 +29,35 @@ const HelpPage = () => {
               placeholder="blur"
             />
             <h1 className="absolute top-0 mt-14 pl-12 text-2xl">
-              Creating your own itinerary
+              {t("Title")}
             </h1>
             <div className="absolute top-0 left-0 flex flex-col items-start justify-center h-full w-full p-12">
               <h2 className="text-4xl font-semibold w-[399px]">
-                Ready to embark on your next trip?
+                {t("Subtitle")}
               </h2>
-              <p className="text-2xl mt-3">
-                With Triploro, you&apos;re in control of every detail.
-              </p>
+              <p className="text-2xl mt-3">{t("Subtitle2")}</p>
             </div>
             <Link href="/help" legacyBehavior>
               <a className="absolute bottom-0 underline underline-offset-4 mb-12 ml-12 hover:bg-blue align-top px-3 hover:no-underline rounded-1xl duration-300 transition">
-                Read More
+                {t("ReadMore")}{" "}
               </a>
             </Link>
             <div className="absolute top-0 right-0 mt-14">
               <div className="w-[500px] bg-white bg-opacity-25 hover:bg-blue/80 text-white duration-300 transition rounded-1xl p-6 mr-12">
-                <h1 className="text-2xl">Step 1. Specify Your Trip Details</h1>
-                <p className="text-sm mt-[10px]">
-                  Begin by specifying your destination, travel dates, number of
-                  days, tripmates, and audience setting.
-                </p>
+                <h1 className="text-2xl"> {t("Setps.TitleStep1")}</h1>
+                <p className="text-sm mt-[10px]">{t("Setps.InfoStep1")}</p>
               </div>
               <div className="w-[500px] bg-white bg-opacity-25 hover:bg-blue/80 text-white duration-300 transition rounded-1xl p-6 mt-3 mr-12">
-                <h1 className="text-2xl">Step 2. Customize Your Experience</h1>
-                <p className="text-sm mt-[10px]">
-                  Once your trip details are set, dive into customizing your
-                  itinerary to perfection. Select activities, attractions,
-                  accommodations, transportation, and more to create a
-                  personalized travel plan that suits your style and
-                  preferences.
-                </p>
+                <h1 className="text-2xl"> {t("Setps.TitleStep2")}</h1>
+                <p className="text-sm mt-[10px]">{t("Setps.InfoStep2")}</p>
               </div>
               <div className="w-[500px] bg-white bg-opacity-25 hover:bg-blue/80 text-white duration-300 transition rounded-1xl p-6 mt-3 mr-12">
-                <h1 className="text-2xl">Step 3. Add Personal Touches</h1>
-                <p className="text-sm mt-[10px]">
-                  Make your itinerary truly yours by adding personal notes,
-                  photos, and recommendations. Highlight your favorite spots,
-                  insider tips, and must-see attractions to ensure an
-                  unforgettable adventure.
-                </p>
+                <h1 className="text-2xl"> {t("Setps.TitleStep3")}</h1>
+                <p className="text-sm mt-[10px]">{t("Setps.InfoStep3")}</p>
               </div>
               <div className="w-[500px] bg-white bg-opacity-25 hover:bg-blue/80 text-white duration-300 transition rounded-1xl p-6 mt-3 mr-12">
-                <h1 className="text-2xl">Step 4. Share Your Adventure</h1>
-                <p className="text-sm mt-[10px]">
-                  Whether you&apos;re seeking recommendations from fellow
-                  travelers or inspiring others with your travel tales, Triploro
-                  makes it easy to connect and share experiences.
-                </p>
+                <h1 className="text-2xl"> {t("Setps.TitleStep4")}</h1>
+                <p className="text-sm mt-[10px]">{t("Setps.InfoStep4")}</p>
               </div>
             </div>
           </div>
@@ -84,6 +66,4 @@ const HelpPage = () => {
       </div>
     </>
   );
-};
-
-export default HelpPage;
+}
