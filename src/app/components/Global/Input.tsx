@@ -1,5 +1,3 @@
-import React from "react";
-
 interface InputProps {
   label: string;
   type: string;
@@ -9,6 +7,8 @@ interface InputProps {
   highlightEmpty: boolean;
   hasError: boolean;
   className?: string;
+  readOnly?: boolean;
+  onClick?: () => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -20,6 +20,8 @@ const Input: React.FC<InputProps> = ({
   highlightEmpty,
   hasError,
   className = "",
+  readOnly = false,
+  onClick,
 }) => {
   return (
     <div className="mb-4">
@@ -41,6 +43,8 @@ const Input: React.FC<InputProps> = ({
             ? "border-red-500"
             : "border-[#333333]/50"
         } text-sm ${className}`}
+        readOnly={readOnly}
+        onClick={onClick}
       />
     </div>
   );
