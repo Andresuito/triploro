@@ -67,10 +67,10 @@ export default function BetterExample() {
               <Image
                 src={item.image}
                 alt={item.name}
-                layout="fill"
+                fill
                 placeholder="blur"
                 quality={70}
-                className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
+                className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-fill"
               />
               <div className="absolute bg-blue p-1 rounded-1xl">
                 {item.name}
