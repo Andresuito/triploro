@@ -335,9 +335,72 @@
        "Portugal": "Portugal"
      }
    },
+  "New": {
+      "Title": "Creando tu propio itinerario",
+      "Subtitle": "¿Listo para iniciar tu próximo viaje?",
+      "Subtitle2": "Con Triploro, tú controlas cada detalle.",
+      "ReadMore": "Leer más",
+      "Setps": {
+        "TitleStep1": "Paso 1. Especifica los detalles de tu viaje",
+        "InfoStep1": "Comienza especificando tu destino, fechas de viaje, número de días, compañeros de viaje y configuración de audiencia.",
+        "TitleStep2": "Paso 2. Personaliza tu experiencia",
+        "InfoStep2": "Una vez que los detalles de tu viaje están establecidos, sumérgete en la personalización de tu itinerario a la perfección. Selecciona actividades, atracciones, alojamientos, transporte y más para crear un plan de viaje personalizado que se adapte a tu estilo y preferencias.",
+        "TitleStep3": "Paso 3. Añade toques personales",
+        "InfoStep3": "Haz que tu itinerario sea verdaderamente tuyo añadiendo notas personales, fotos y recomendaciones. Destaca tus lugares favoritos, consejos internos y atracciones que no te puedes perder para asegurar una aventura inolvidable.",
+        "TitleStep4": "Paso 1. Especifica los detalles de tu viaje",
+        "InfoStep4": "Ya sea que estés buscando recomendaciones de otros viajeros o inspirando a otros con tus historias de viaje, Triploro facilita la conexión y el intercambio de experiencias."
+      },
+      "Form": {
+              "Title": "1. Planea un nuevo viaje",
+              "Info": "Elige el destino y las fechas para tu itinerario.",
+              "Info2": "Invita a tus compañeros y decide si mantenerlo privado o compartirlo con el mundo.",
+              "Fields": {
+                "Destination": "¿A dónde quieres ir?",
+                "Days": "Número de días",
+                "TravelDates": "Fechas (opcional)",
+                "InviteMates": "+ Invita a compañeros de viaje"
+              },
+              "Placeholder": {
+                "Destination": "Ubicación (por ejemplo, Madrid, Lisboa, Kilig)",
+                "Days": "# de días",
+                "TravelDates": "Fechas",
+                "InviteMates": "Escribe @nombredeusuario o dirección de correo electrónico"
+              },
+              "Buttons": {
+                "Create": "Comienza a planificar"
+              }
+            }
+    },
    "NotFound":{
       "Title": "Página no encontrada",
       "Description": "La página que estás buscando no existe o ha sido eliminada. Por favor, vuelve a la página de inicio.",
       "Link": "Volver a la página de inicio"
-   }
+   },
+   "Components": {
+    "Calendar": {
+      "Months": {
+        "Jan": "Ene",
+        "Feb": "Feb",
+        "Mar": "Mar",
+        "Apr": "Abr",
+        "May": "May",
+        "Jun": "Jun",
+        "Jul": "Jul",
+        "Aug": "Ago",
+        "Sep": "Sep",
+        "Oct": "Oct",
+        "Nov": "Nov",
+        "Dec": "Dic"
+      },
+      "Days": {
+        "Sun": "Dom",
+        "Mon": "Lun",
+        "Tue": "Mar",
+        "Wed": "Mié",
+        "Thu": "Jue",
+        "Fri": "Vie",
+        "Sat": "Sáb"
+      }
+    }
+  }
  }
