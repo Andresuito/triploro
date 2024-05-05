@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue: "var(--primary-color)",
+        blue: "hsl(var(--primary-color) / <alpha-value>)"
       },
       borderRadius: {
         '1xl': '12px',

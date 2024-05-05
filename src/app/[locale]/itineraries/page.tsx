@@ -70,7 +70,7 @@ export default function BetterExample() {
                 fill
                 placeholder="blur"
                 quality={70}
-                className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-fill"
+                className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
               />
               <div className="absolute bg-blue p-1 rounded-1xl">
                 {item.name}

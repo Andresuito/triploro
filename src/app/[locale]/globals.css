@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary-color: #033156;
+@layer base {
+  :root {
+    --primary-color: 207 93% 17%;
+  }
 }
 
 /* Switch Botton */
