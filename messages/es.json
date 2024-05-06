@@ -344,10 +344,10 @@
         "TitleStep1": "Paso 1. Especifica los detalles de tu viaje",
         "InfoStep1": "Comienza especificando tu destino, fechas de viaje, número de días, compañeros de viaje y configuración de audiencia.",
         "TitleStep2": "Paso 2. Personaliza tu experiencia",
-        "InfoStep2": "Una vez que los detalles de tu viaje están establecidos, sumérgete en la personalización de tu itinerario a la perfección. Selecciona actividades, atracciones, alojamientos, transporte y más para crear un plan de viaje personalizado que se adapte a tu estilo y preferencias.",
+        "InfoStep2": "Una vez que los detalles de tu viaje están establecidos, sumérgete en la personalización de tu itinerario a la perfección. Selecciona actividades, atracciones, alojamientos, transporte. Crea un plan de viaje personalizado que se adapte a tu estilo y preferencias.",
         "TitleStep3": "Paso 3. Añade toques personales",
-        "InfoStep3": "Haz que tu itinerario sea verdaderamente tuyo añadiendo notas personales, fotos y recomendaciones. Destaca tus lugares favoritos, consejos internos y atracciones que no te puedes perder para asegurar una aventura inolvidable.",
-        "TitleStep4": "Paso 1. Especifica los detalles de tu viaje",
+        "InfoStep3": "Personaliza tu itinerario con notas, fotos y recomendaciones. Destaca tus lugares favoritos y consejos para una aventura inolvidable.",
+        "TitleStep4": "Paso 4. Comparte Tu Aventura",
         "InfoStep4": "Ya sea que estés buscando recomendaciones de otros viajeros o inspirando a otros con tus historias de viaje, Triploro facilita la conexión y el intercambio de experiencias."
       },
       "Form": {
@@ -364,10 +364,10 @@
                 "Destination": "Ubicación (por ejemplo, Madrid, Lisboa, Kilig)",
                 "Days": "# de días",
                 "TravelDates": "Fechas",
-                "InviteMates": "Escribe @nombredeusuario o dirección de correo electrónico"
+                "InviteMates": "usuario"
               },
               "Buttons": {
-                "Create": "Comienza a planificar"
+                "Create": "Comenzar"
               }
             }
     },

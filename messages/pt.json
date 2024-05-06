@@ -341,13 +341,13 @@
       "Subtitle2": "Com o Triploro, você controla todos os detalhes.",
       "ReadMore": "Leia mais",
       "Setps": {
-        "TitleStep1": "Passo 1. Especifique os detalhes da sua viagem",
+        "TitleStep1": "Passo 1. Detalhe sua viagem",
         "InfoStep1": "Comece especificando seu destino, datas de viagem, número de dias, companheiros de viagem e configuração de público.",
         "TitleStep2": "Passo 2. Personalize sua experiência",
-        "InfoStep2": "Depois de definir os detalhes da sua viagem, mergulhe na personalização do seu itinerário até a perfeição. Selecione atividades, atrações, acomodações, transporte e mais para criar um plano de viagem personalizado que se adapte ao seu estilo e preferências.",
+        "InfoStep2": "Defina os detalhes da sua viagem e personalize seu itinerário. Selecione atividades, atrações, acomodações e transporte para criar um plano que se adapte ao seu estilo e preferências.",
         "TitleStep3": "Passo 3. Adicione toques pessoais",
         "InfoStep3": "Torne seu itinerário verdadeiramente seu, adicionando notas pessoais, fotos e recomendações. Destaque seus lugares favoritos, dicas internas e atrações imperdíveis para garantir uma aventura inesquecível.",
-        "TitleStep4": "Passo 1. Especifique os detalhes da sua viagem",
+        "TitleStep4": "Passo 4. Compartilhe Sua Aventura",
         "InfoStep4": "Se você está procurando recomendações de outros viajantes ou inspirando outros com suas histórias de viagem, o Triploro facilita a conexão e o compartilhamento de experiências."
       },
       "Form": {
@@ -364,7 +364,7 @@
                 "Destination": "Localização (por exemplo, Madrid, Lisboa, Kilig)",
                 "Days": "# de dias",
                 "TravelDates": "Datas",
-                "InviteMates": "Digite @nome de usuário ou endereço de email"
+                "InviteMates": "usuário"
               },
               "Buttons": {
                 "Create": "Comece a planejar"

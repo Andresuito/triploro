@@ -347,7 +347,7 @@
       "InfoStep2": "Once your trip details are set, dive into customizing your itinerary to perfection. Select activities, attractions, accommodations, transportation, and more to create a personalized travel plan that suits your style and preferences.",
       "TitleStep3": "Step 3. Add Personal Touches",
       "InfoStep3": "Make your itinerary truly yours by adding personal notes, photos, and recommendations. Highlight your favorite spots, insider tips, and must-see attractions to ensure an unforgettable adventure.",
-      "TitleStep4": "Step 1. Specify Your Trip Details",
+      "TitleStep4": "Step 4. Share Your Adventure",
       "InfoStep4": "Whether you're seeking recommendations from fellow travelers or inspiring others with your travel tales, Triploro makes it easy to connect and share experiences."
     },
     "Form": {
@@ -364,7 +364,7 @@
         "Destination": "Location (e.g. Madrid, Lisbon, Kilig)",
         "Days": "# of days",
         "TravelDates": "Dates",
-        "InviteMates": "Type @username or  email address"
+        "InviteMates": "username"
       },
       "Buttons": {
         "Create": "Start planning"
