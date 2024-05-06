@@ -44,7 +44,7 @@ export default function BetterExample() {
           <Link href="/new">
             {" "}
             <Button
-              className="w-fit text-sm px-5 opacity-70 hover:opacity-100 duration-300 transition"
+              className="w-fit text-sm px-1 py-[2px] md:px-5 opacity-70 hover:opacity-100 duration-300 transition"
               label="Crear Itinerario"
             />
           </Link>
