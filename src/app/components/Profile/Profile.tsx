@@ -4,8 +4,9 @@ import React, { Suspense } from "react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Skeleton from "@/app/components/Profile/Skeleton";
+import TripsUser from "@/app/components/Profile/TripsUser";
 
-export default function Page() {
+export default function Profile() {
   const { data: session, status } = useSession();
   const t = useTranslations("Profile");
   const loading = status === "loading";
@@ -29,6 +30,7 @@ export default function Page() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">
                 {t("YourTrips")}
               </h2>
+              {loading ? <Skeleton /> : <TripsUser />}
             </div>
             <div className="mb-10">
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">
