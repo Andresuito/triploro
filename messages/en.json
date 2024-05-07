@@ -364,7 +364,7 @@
         "Destination": "Location (e.g. Madrid, Lisbon, Kilig)",
         "Days": "# of days",
         "TravelDates": "Dates",
-        "InviteMates": "username"
+        "InviteMates": "Username"
       },
       "Buttons": {
         "Create": "Start planning"
