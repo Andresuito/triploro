@@ -24,7 +24,7 @@ export default async function HelpPage() {
           <div className="relative text-white flex flex-col items-start justify-center h-full select-none">
             <Image
               src={background_itinerary}
-              className="w-full rounded-1xl"
+              className="w-full"
               alt="background itinerary"
               placeholder="blur"
             />

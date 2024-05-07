@@ -44,7 +44,7 @@ export default function BetterExample() {
           <Link href="/new">
             {" "}
             <Button
-              className="w-fit text-sm px-1 py-[2px] md:px-5 opacity-70 hover:opacity-100 duration-300 transition"
+              className="w-fit text-sm px-1 py-[2px] md:px-5 md:py-2 opacity-70 hover:opacity-100 duration-300 transition"
               label="Crear Itinerario"
             />
           </Link>
@@ -57,7 +57,7 @@ export default function BetterExample() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="rounded-1xl text-white p-4 text-center mb-4"
+              className="group rounded-1xl text-white p-4 text-center mb-4"
               style={{
                 position: "relative",
                 height: item.height,
@@ -72,8 +72,8 @@ export default function BetterExample() {
                 quality={70}
                 className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
               />
-              <div className="absolute bg-blue p-1 rounded-1xl">
-                {item.name}
+              <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                <h3 className="text-base font-semibold mx-2">{item.name}</h3>
               </div>
             </div>
           ))}
