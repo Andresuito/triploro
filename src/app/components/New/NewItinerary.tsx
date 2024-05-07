@@ -293,7 +293,7 @@ const NewItinerary = () => {
           <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
             {error}
           </p>
-        )}{" "}
+        )}
       </form>
     </div>
   );
