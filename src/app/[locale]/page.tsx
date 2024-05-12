@@ -14,8 +14,10 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Grid />
+      <div className="max-w-7xl mx-auto px-4 text-gray-800 mb-10">
+        <Hero />
+        <Grid />
+      </div>
     </>
   );
 }
