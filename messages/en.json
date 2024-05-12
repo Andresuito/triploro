@@ -163,9 +163,8 @@
     }
   },
   "Hero": {
-    "Title": "Organize your trip with us!",
-    "Subtitle": "Find the best travel options and activities with us.",
-    "Placeholder": "Search your destination..."
+    "Title": "Organize your travels with Triploro!",
+    "Subtitle": "Find the best travel plans or create your own."
   },
   "Destination": {
     "Titles": {

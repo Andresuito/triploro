@@ -163,9 +163,8 @@
      }
    },
    "Hero": {
-     "Title": "¡Organiza tu viaje con nosotros!",
-     "Subtitle": "Encuentra las mejores opciones de viaje y actividades con nosotros.",
-     "Placeholder": "Buscar tu destino..."
+     "Title": "Organize as suas viagens com Triploro!",
+     "Subtitle": "Encuentre los mejores planes de viaje o cree los suyos propios."
    },
    "Destination": {
      "Titles": {
