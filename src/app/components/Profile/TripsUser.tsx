@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "@/app/utils/axiosInstance";
-import { FaTrash } from "react-icons/fa";
+import { formatRangeDate } from "@/app/utils/formatDate";
+import { FaEllipsisH } from "react-icons/fa";
+import Link from "next/link";
 import { useSession } from "next-auth/react";
+import Madrid from "@/app/assets/madrid.jpg";
+import Image from "next/image";
 
 type Trip = {
   id: number;
@@ -51,25 +55,37 @@ export default function TripsUser() {
         trips.map((trip: Trip) => (
           <div
             key={trip.id}
-            className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden relative"
+            className="flex flex-row h-[137px] bg-white drop-shadow-lg rounded-1xl overflow-hidden relative transition duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-xl"
           >
-            <div className="absolute top-2 right-2 w-7 h-7 bg-white rounded-full  flex items-center justify-center">
-              <FaTrash className="text-base text-blue/50 hover:text-blue/100 cursor-pointer duration-200 transition" />
+            <div className="p-4 text-gray-500 text-base *:mt-2 flex-grow">
+              <div className="flex items-center">
+                <Link
+                  href={`/itinerary/${trip.code}`}
+                  className="text-2xl font-bold leading-7 text-blue  cursor-pointer"
+                >
+                  {trip.city}
+                </Link>
+              </div>
+              <div className="flex space-x-5">
+                <p className="text-blue">
+                  {formatRangeDate(trip.startDate, trip.endDate)}
+                </p>
+                <p>{trip.days} days</p>
+              </div>
             </div>
-            <div className="flex-shrink-0">
-              {/* <img
-            className="h-48 w-full object-cover"
-            src="/images/trip.jpg"
-            alt={trip.city}
-          /> */}
+            <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
+              <FaEllipsisH className="text-base text-blue" />
             </div>
-            <div className="p-6 text-gray-500 text-base *:mt-2">
-              <h2 className="text-2xl font-bold leading-7 text-blue sm:text-3xl sm:truncate">
-                {trip.city}
-              </h2>
-              <p>Days: {trip.days}</p>
-              <p>Start Date: {new Date(trip.startDate).toLocaleDateString()}</p>
-              <p>End Date: {new Date(trip.endDate).toLocaleDateString()}</p>
+            <div className="flex-shrink-0 drop-shadow-lg bg-gray-600">
+              <Image
+                className="h-full w-24 object-cover"
+                src={Madrid}
+                alt={trip.city}
+                onError={(e) => {
+                  (e.target as any).onerror = null;
+                  (e.target as any).style.backgroundColor = "gray";
+                }}
+              />
             </div>
           </div>
         ))
