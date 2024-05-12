@@ -3,6 +3,7 @@
 import React, { useState, FormEvent, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { IoClose } from "react-icons/io5";
 
@@ -13,6 +14,7 @@ import Calendar from "@/app/components/Global/Calendar";
 const NewItinerary = () => {
   const t = useTranslations("New");
   const c = useTranslations("Country");
+  const router = useRouter();
   const { data: session } = useSession();
   const [error, setError] = useState("");
   const [succes, setSuccess] = useState("");
@@ -178,6 +180,9 @@ const NewItinerary = () => {
       if (response.status === 201) {
         setError("");
         setSuccess("¡Itinerario creado exitosamente!");
+        setTimeout(() => {
+          router.push(`/itinerary/${itineraryCode}`);
+        }, 3500);
       }
     } catch (error: any) {
       console.error("Error al crear el itinerario:", error);
