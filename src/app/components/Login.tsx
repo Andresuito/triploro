@@ -83,7 +83,6 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
         return;
       }
 
-      router.push("/");
       onClose();
     } catch (error) {
       setError("error.login_error");
