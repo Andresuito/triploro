@@ -57,13 +57,13 @@ export default function Hero() {
           <Link href="/itineraries">
             <Button
               className="w-[180px] hover:scale-105 transition duration-150"
-              label="Browse itineraries"
+              label={t("Buttons.ExploreItinerary")}
             />
           </Link>
           <Link href="/new">
             <Button
               className="w-[180px] hover:scale-105 transition duration-150"
-              label="Start planning"
+              label={t("Buttons.CreateItinerary")}
             />
           </Link>
         </div>

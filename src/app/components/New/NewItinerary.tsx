@@ -112,19 +112,19 @@ const NewItinerary = () => {
 
   const handleDateSelect = (date: Date, isStartDate: boolean) => {
     if (date < new Date()) {
-      setError("invalid_date");
+      setError(t("Form.Errors.InvalidDate"));
       return;
     }
 
     if (isStartDate) {
       if (selectedDate[1] && date >= selectedDate[1]) {
-        setError("start_date_after_end_date");
+        setError(t("Form.Errors.StartDateBeforeEndDate"));
         return;
       }
       setSelectedDate([date, null]);
     } else {
       if (selectedDate[0] && date <= selectedDate[0]) {
-        setError("end_date_before_start_date");
+        setError(t("Form.Errors.EndDateAfterStartDate"));
         return;
       }
       setSelectedDate([selectedDate[0], date]);
@@ -143,13 +143,13 @@ const NewItinerary = () => {
 
     if (!city) {
       setHighlightEmptyFields(true);
-      setError("missing_fields");
+      setError(t("Form.Errors.MissingFields"));
       return;
     }
 
     if (!days) {
       setHighlightEmptyFields(true);
-      setError("missing_fields");
+      setError(t("Form.Errors.MissingFields"));
       return;
     }
 
@@ -179,7 +179,7 @@ const NewItinerary = () => {
 
       if (response.status === 201) {
         setError("");
-        setSuccess("¡Itinerario creado exitosamente!");
+        setSuccess(t("Form.Success"));
         setTimeout(() => {
           router.push(`/itinerary/${itineraryCode}`);
         }, 3500);
