@@ -42,7 +42,7 @@ export default function TripsUser() {
 
   const tripImages = trips.map((trip) => {
     if (trip.imageUrl) {
-      return `http://localhost:8000${trip.imageUrl}`;
+      return `https://triploro.es${trip.imageUrl}`;
     } else {
       return null;
     }
