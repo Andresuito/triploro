@@ -33,20 +33,19 @@ export default function BetterExample() {
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mt-8 md:mt-16 flex justify-between items-start">
-          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-8">
+        <div className="mt-8 md:mt-16 flex justify-between items-start mb-8">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 ">
             Todos nuestros{" "}
-            <span className="bg-blue px-2 py-1 text-white rounded-md">
+            <span className="bg-blue px-2 py-2 text-white rounded-1xl">
               Itinerarios
             </span>
           </h2>
 
-          <Link href="/new">
-            {" "}
-            <Button
-              className="w-fit text-sm px-1 py-[2px] md:px-5 md:py-2 opacity-70 hover:opacity-100 duration-300 transition"
-              label="Crear Itinerario"
-            />
+          <Link
+            href="/new"
+            className="underline underline-offset-4 hover:bg-blue align-top px-2 py-1 hover:no-underline rounded-1xl duration-300 transition hover:text-white"
+          >
+            Crear Itinerario
           </Link>
         </div>
         <Masonry
