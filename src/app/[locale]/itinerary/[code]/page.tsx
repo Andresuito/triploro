@@ -6,6 +6,7 @@ import axiosInstance from "@/app/utils/axiosInstance";
 import { useSession } from "next-auth/react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import CustomToast from "@/app/components/CustomToast";
+import { ItineraryType } from "@/types/itineraryType";
 
 type Props = {
   params: { code: string; locale: string };
