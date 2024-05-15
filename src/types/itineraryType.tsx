@@ -5,6 +5,7 @@ export interface ItineraryType {
   days: number;
   startDate: string;
   endDate: string;
+  imageUrl: string;
   createdAt: string;
   updatedAt: string;
 }

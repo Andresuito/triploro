@@ -3,8 +3,8 @@ import { Trip } from "@/types/Trip";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { formatRangeDate } from "@/app/utils/formatDate";
 import { FaEllipsisH } from "react-icons/fa";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function TripsUser() {

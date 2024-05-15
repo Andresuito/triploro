@@ -7,6 +7,8 @@ import { useSession } from "next-auth/react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import CustomToast from "@/app/components/CustomToast";
 import { ItineraryType } from "@/types/itineraryType";
+import { formatRangeDate } from "@/app/utils/formatDate";
+import Image from "next/image";
 
 type Props = {
   params: { code: string; locale: string };
@@ -15,9 +17,10 @@ type Props = {
 export default function Itinerary({ params }: Props) {
   const { data: session } = useSession();
   const [itinerary, setItinerary] = useState<ItineraryType | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [showUpload, setShowUpload] = useState(false);
 
   useEffect(() => {
     const getItinerary = async () => {
@@ -97,7 +100,6 @@ export default function Itinerary({ params }: Props) {
           type: file.type,
         });
         setImage(file);
-        setPreviewUrl(URL.createObjectURL(file));
       } else {
         CustomToast({
           message: "Please upload a PNG or JPEG image of size less than 1MB",
@@ -138,87 +140,101 @@ export default function Itinerary({ params }: Props) {
       {itinerary && (
         <div className="min-h-screen py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 md:mt-16">
-            <div className="lg:text-center">
-              <h2 className="text-2xl text-blue font-semibold tracking-wide uppercase">
-                {itinerary.city}
-              </h2>
-            </div>
-
-            <div className="mt-10">
-              <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                <div className="relative">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Días
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {itinerary.days}
-                  </dd>
-                </div>
-
-                <div className="relative">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Inicio
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {itinerary.startDate}
-                  </dd>
-                </div>
-
-                <div className="relative">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Fin
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {itinerary.endDate}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="mt-10">
-              <div className="flex items-center justify-center w-full">
-                <label
-                  className={`flex flex-col items-center justify-center w-full h-40 border-2 ${
-                    image
-                      ? "border-blue hover:border-blue/80 border-solid text-blue hover:text-blue/80"
-                      : "border-blue hover:border-0 border-dashed"
-                  } rounded-lg cursor-pointer ${
-                    image ? "bg-white border-0" : "bg-gray-50 hover:bg-blue/80"
-                  } text-blue hover:text-white transition duration-75`}
-                  onDragOver={handleDragOver}
-                  onDrop={handleDrop}
-                >
-                  {previewUrl ? (
-                    <img
-                      src={previewUrl}
-                      alt="Preview"
-                      className="h-full w-25 object-cover"
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                      <IoCloudUploadOutline className="text-3xl mb-3" />
-                      <p className="mb-2 text-sm">
-                        <span className="font-semibold">Click to upload</span>{" "}
-                        or drag and drop
-                      </p>
-                      <p className="text-xs">PNG, JPG (MAX. 800x400px)</p>
+            <div className="mt-10 w-96">
+              {itinerary.imageUrl && (
+                <div className="flex justify-center relative">
+                  <Image
+                    src={
+                      previewUrl
+                        ? previewUrl
+                        : `https://triploro.es${itinerary.imageUrl}`
+                    }
+                    alt={itinerary.city}
+                    width={400}
+                    height={300}
+                    className="w-96 h-[300px] object-fill rounded-t-1xl opacity-90"
+                  />
+                  <p
+                    className="absolute bottom-1 right-1 text-sm text-white cursor-pointer rounded-md hover:bg-blue px-1 duration-150 transition"
+                    onClick={() => setShowUpload(true)}
+                  >
+                    Edit Cover Photo
+                  </p>
+                  {showUpload && (
+                    <div className="absolute flex items-center justify-center w-full h-full">
+                      <label
+                        className={`flex flex-col items-center justify-center w-full h-full border-2 ${
+                          image
+                            ? "border-blue hover:border-blue/80 border-solid text-blue hover:text-blue/80"
+                            : "border-blue hover:border-0 border-dashed"
+                        } rounded cursor-pointer ${
+                          image
+                            ? "bg-white/20 border-0"
+                            : "bg-white/70 hover:bg-blue/80"
+                        } text-blue hover:text-white transition duration-75`}
+                        onDragOver={handleDragOver}
+                        onDrop={handleDrop}
+                      >
+                        <IoCloudUploadOutline className="text-2xl mb-1" />
+                        <p className="mb-1 text-xs">
+                          <span className="font-semibold">Click or Drop</span>
+                        </p>
+                        <p className="text-xs">PNG, JPG (MAX. 800x400px)</p>
+                        <input
+                          id="dropzone-file"
+                          type="file"
+                          className="hidden"
+                          onChange={handleFileChange}
+                        />
+                      </label>
+                      {/* <button
+                        className="mt-2 bg-blue text-white rounded px-2 py-1 text-sm"
+                        onClick={async () => {
+                          await handleUpload();
+                          setShowUpload(false);
+                        }}
+                        disabled={uploading}
+                      >
+                        {uploading ? "Uploading..." : "Upload"}
+                      </button> */}
                     </div>
                   )}
-                  <input
-                    id="dropzone-file"
-                    type="file"
-                    className="hidden"
-                    onChange={handleFileChange}
-                  />
-                </label>
+                </div>
+              )}
+              <div className="p-5 border-t-0 border-2 border-blue/50 rounded-b-1xl shadow-lg">
+                <div className="flex justify-between items-center">
+                  <p className="text-3xl text-blue font-semibold">
+                    {itinerary.city}
+                  </p>
+                  <p className="p-1 px-1 text-xs bg-blue text-white w-fit rounded-md">
+                    {itinerary.code}
+                  </p>
+                </div>
+                <div className="flex mt-6 space-x-20 text-1xl text-center text-blue">
+                  <div className="flex flex-col">
+                    <p>
+                      {
+                        formatRangeDate(
+                          itinerary.startDate,
+                          itinerary.endDate
+                        ).split(" ")[0]
+                      }
+                    </p>
+                    <p className="-mt-2">
+                      {
+                        formatRangeDate(
+                          itinerary.startDate,
+                          itinerary.endDate
+                        ).split(" ")[1]
+                      }
+                    </p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p>{itinerary.days}</p>
+                    <p className="-mt-2">Dias</p>
+                  </div>
+                </div>
               </div>
-              <button
-                className="mt-4 bg-blue text-white rounded px-4 py-2"
-                onClick={handleUpload}
-                disabled={uploading}
-              >
-                {uploading ? "Uploading..." : "Upload Image"}
-              </button>
             </div>
           </div>
         </div>
