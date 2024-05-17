@@ -12,49 +12,55 @@ import oporto from "@/app/assets/oporto.jpg";
 import sevilla from "@/app/assets/sevilla.jpg";
 import valencia from "@/app/assets/valencia.jpg";
 
+const destinos = [
+  {
+    nombre: "Cities.Seville",
+    pais: "Countries.Spain",
+    imagen: sevilla,
+    className: "rounded-md w-full h-80 object-cover object-top",
+  },
+  {
+    nombre: "Cities.Barcelona",
+    pais: "Countries.Spain",
+    imagen: barcelona,
+    className: "rounded-md w-full h-80 object-cover",
+  },
+  {
+    nombre: "Cities.Lisbon",
+    pais: "Countries.Portugal",
+    imagen: lisboa,
+    className: "rounded-md w-full h-80 object-cover",
+  },
+  {
+    nombre: "Cities.Madrid",
+    pais: "Countries.Spain",
+    imagen: madrid,
+    className: "rounded-md w-full h-80 object-cover",
+  },
+  {
+    nombre: "Cities.Porto",
+    pais: "Countries.Portugal",
+    imagen: oporto,
+    className: "rounded-md w-full h-80 object-cover",
+  },
+  {
+    nombre: "Cities.Valencia",
+    pais: "Countries.Spain",
+    imagen: valencia,
+    className: "rounded-md w-full h-80 object-cover",
+  },
+];
+
 export default function DestinosPopulares() {
   const t = useTranslations("Destination");
 
-  const destinos = [
-    {
-      nombre: t("Cities.Seville"),
-      pais: t("Countries.Spain"),
-      imagen: sevilla,
-      className: "rounded-md w-full h-80 object-cover object-top",
-    },
-    {
-      nombre: t("Cities.Barcelona"),
-      pais: t("Countries.Spain"),
-      imagen: barcelona,
-      className: "rounded-md w-full h-80 object-cover",
-    },
-    {
-      nombre: t("Cities.Lisbon"),
-      pais: t("Countries.Portugal"),
-      imagen: lisboa,
-      className: "rounded-md w-full h-80 object-cover",
-    },
-    {
-      nombre: t("Cities.Madrid"),
-      pais: t("Countries.Spain"),
-      imagen: madrid,
-      className: "rounded-md w-full h-80 object-cover",
-    },
-    {
-      nombre: t("Cities.Porto"),
-      pais: t("Countries.Portugal"),
-      imagen: oporto,
-      className: "rounded-md w-full h-80 object-cover",
-    },
-    {
-      nombre: t("Cities.Valencia"),
-      pais: t("Countries.Spain"),
-      imagen: valencia,
-      className: "rounded-md w-full h-80 object-cover",
-    },
-  ];
+  const destinosTranslatable = destinos.map((destino) => ({
+    ...destino,
+    nombre: t(destino.nombre),
+    pais: t(destino.pais),
+  }));
 
-  const transitions = useTransition(destinos, {
+  const transitions = useTransition(destinosTranslatable, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
