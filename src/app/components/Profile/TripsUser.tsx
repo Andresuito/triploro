@@ -91,6 +91,7 @@ export default function TripsUser() {
                   className="h-full w-24 object-cover"
                   width="500"
                   height="500"
+                  placeholder="blur"
                 />
               </div>
             </a>

@@ -169,6 +169,7 @@ export default function Itinerary({ params }: Props) {
                   alt={itinerary.city ? itinerary.city : ""}
                   width={400}
                   height={300}
+                  placeholder="blur"
                   className="w-96 h-[300px] object-cover rounded-t-1xl opacity-90"
                 />
                 <p
