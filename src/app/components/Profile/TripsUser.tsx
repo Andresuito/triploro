@@ -7,6 +7,8 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 
+import NotImage from "@/app/assets/pattern.png";
+
 export default function TripsUser() {
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -60,39 +62,39 @@ export default function TripsUser() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
       {trips.length > 0 ? (
         trips.map((trip: Trip, index: number) => (
-          <div
-            key={trip.id}
-            className="flex flex-row h-[137px] bg-white drop-shadow-lg rounded-1xl overflow-hidden relative transition duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-xl"
-          >
-            <div className="p-4 text-gray-500 text-base flex-grow">
-              <div className="flex items-center">
-                <Link
-                  href={`/itinerary/${trip.code}`}
-                  className="text-2xl font-bold leading-7 text-blue  cursor-pointer"
-                >
-                  {trip.city}
-                </Link>
+          <Link href={`/itinerary/${trip.code}`} key={trip.id} legacyBehavior>
+            <a className="flex flex-row h-[137px] bg-white drop-shadow-lg rounded-1xl overflow-hidden relative transition duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-xl">
+              <div className="p-4 text-gray-500 text-base flex-grow">
+                <div className="flex items-center">
+                  <p className="text-2xl font-bold leading-7 text-blue  cursor-pointer">
+                    {trip.city}
+                  </p>
+                </div>
+                <div className="flex space-x-5">
+                  <p className="text-blue">
+                    {formatRangeDate(trip.startDate, trip.endDate)}
+                  </p>
+                  <p>{trip.days} days</p>
+                </div>
               </div>
-              <div className="flex space-x-5">
-                <p className="text-blue">
-                  {formatRangeDate(trip.startDate, trip.endDate)}
-                </p>
-                <p>{trip.days} days</p>
+              <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
+                <FaEllipsisH className="text-base text-blue" />
               </div>
-            </div>
-            <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
-              <FaEllipsisH className="text-base text-blue" />
-            </div>
-            <div className="flex-shrink-0 drop-shadow-lg bg-gray-600">
-              <Image
-                src={tripImages[index] ?? ""}
-                alt={trip.city}
-                className="h-full w-24 object-cover"
-                width="500"
-                height="500"
-              />
-            </div>
-          </div>
+              <div className="flex-shrink-0 drop-shadow-lg bg-gray-600">
+                <Image
+                  src={
+                    tripImages[index]
+                      ? `${tripImages[index]}?${new Date().getTime()}`
+                      : NotImage
+                  }
+                  alt={tripImages[index] ? trip.city : ""}
+                  className="h-full w-24 object-cover"
+                  width="500"
+                  height="500"
+                />
+              </div>
+            </a>
+          </Link>
         ))
       ) : (
         <p className="text-base">No hay itinerarios disponibles.</p>
