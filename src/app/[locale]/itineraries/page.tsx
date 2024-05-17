@@ -33,8 +33,8 @@ export default function BetterExample() {
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mt-8 md:mt-16 flex justify-between items-start mb-8">
-          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 ">
+        <div className="mt-8 md:mt-16 flex justify-between items-center mb-8">
+          <h2 className="text-base lg:text-2xl font-semibold text-gray-900 ">
             Todos nuestros{" "}
             <span className="bg-blue px-2 py-2 text-white rounded-1xl">
               Itinerarios
@@ -43,7 +43,7 @@ export default function BetterExample() {
 
           <Link
             href="/new"
-            className="underline underline-offset-4 hover:bg-blue align-top px-2 py-1 hover:no-underline rounded-1xl duration-300 transition hover:text-white"
+            className="text-sm lg:text-2xl underline underline-offset-4 hover:bg-blue align-top px-2 py-2 hover:no-underline rounded-1xl duration-300 transition hover:text-white"
           >
             Crear Itinerario
           </Link>
