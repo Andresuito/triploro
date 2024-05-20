@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import SessionAuthProvider from "@/app/context/SessionAuthProvider";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/Navbar/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import { getTranslations } from "next-intl/server";
