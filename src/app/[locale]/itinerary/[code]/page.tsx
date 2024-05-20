@@ -6,24 +6,28 @@ import axiosInstance from "@/app/utils/axiosInstance";
 import { useSession } from "next-auth/react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
-import CustomToast from "@/app/components/CustomToast";
-import { ItineraryType } from "@/types/itineraryType";
+import Toast from "@/app/components/Global/Toast";
+import type { Itinerary } from "@/types/itineraryType";
 import { formatRangeDate } from "@/app/utils/formatDate";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-import NotImage from "@/app/assets/pattern.png";
+import Spinner from "@/app/components/Global/Spinner";
+import SafeImage from "@/app/components/SafeImage";
+import NotImage from "@/app/assets/pattern.svg";
 
 type Props = {
   params: { code: string; locale: string };
 };
 
 export default function Itinerary({ params }: Props) {
+  const router = useRouter();
   const { data: session } = useSession();
-  const [itinerary, setItinerary] = useState<ItineraryType | null>(null);
+  const [itinerary, setItinerary] = useState<Itinerary | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (image) {
@@ -33,31 +37,50 @@ export default function Itinerary({ params }: Props) {
 
   useEffect(() => {
     const getItinerary = async () => {
+      setIsLoading(true);
       try {
-        if (session?.user?.id) {
-          const response = await axiosInstance.get(
-            `/itinerary/${params.code}`,
-            {
-              headers: {
-                Authorization: `Bearer ${session?.user?.token}`,
-              },
-            }
-          );
+        let response;
 
-          if (response.status === 200 && response.data) {
-            setItinerary(response.data);
+        if (session?.user?.token) {
+          try {
+            response = await axiosInstance.get(`/itinerary/${params.code}`, {
+              headers: {
+                Authorization: `Bearer ${session.user.token}`,
+              },
+            });
+          } catch (privateError: any) {
+            if (privateError.response && privateError.response.status === 403) {
+              response = await axiosInstance.get(
+                `/itinerary/public/${params.code}`
+              );
+            } else {
+              throw privateError;
+            }
           }
+        } else {
+          response = await axiosInstance.get(
+            `/itinerary/public/${params.code}`
+          );
         }
-      } catch (error) {
+
+        if (response.status === 200 && response.data) {
+          setItinerary(response.data);
+        }
+      } catch (error: any) {
         console.error(error);
+        if (error.response && error.response.status === 404) {
+          router.push("/");
+        }
+      } finally {
+        setIsLoading(false);
       }
     };
 
     getItinerary();
-  }, [session, params.code]);
+  }, [params.code, router, session?.user?.token]);
 
   const handleUpload = async () => {
-    if (image && session?.user?.id) {
+    if (image) {
       const formData = new FormData();
       formData.append("image", image);
 
@@ -75,16 +98,16 @@ export default function Itinerary({ params }: Props) {
         );
 
         if (response.status === 200) {
-          CustomToast({ message: "Image uploaded correctly.", isError: false });
+          Toast({ message: "Image uploaded correctly.", isError: false });
           setPreviewUrl(URL.createObjectURL(image));
           setImage(null);
           setShowUpload(false);
         } else {
-          CustomToast({ message: "Failed to upload image", isError: true });
+          Toast({ message: "Failed to upload image", isError: true });
         }
       } catch (error) {
         console.error(error);
-        CustomToast({ message: "Failed to upload image", isError: true });
+        Toast({ message: "Failed to upload image", isError: true });
       } finally {
         setUploading(false);
       }
@@ -114,7 +137,7 @@ export default function Itinerary({ params }: Props) {
         setImage(file);
         await handleUpload();
       } else {
-        CustomToast({
+        Toast({
           message: "Please upload a PNG or JPEG image of size less than 1MB",
           isError: true,
         });
@@ -141,7 +164,7 @@ export default function Itinerary({ params }: Props) {
         setPreviewUrl(URL.createObjectURL(file));
         await handleUpload();
       } else {
-        CustomToast({
+        Toast({
           message: "Please upload a PNG or JPEG image of size less than 1MB",
           isError: true,
         });
@@ -151,104 +174,107 @@ export default function Itinerary({ params }: Props) {
 
   return (
     <>
-      {itinerary && (
-        <div className="min-h-screen">
-          <div className="max-w-7xl mx-auto mt-8 md:mt-16">
-            <div className="mt-10 w-96">
-              <div className="flex justify-center relative">
-                <Image
-                  src={
-                    previewUrl
-                      ? previewUrl
-                      : itinerary.imageUrl
-                      ? `https://triploro.es${
-                          itinerary.imageUrl
-                        }?${new Date().getTime()}`
-                      : NotImage
-                  }
-                  alt={itinerary.city ? itinerary.city : ""}
-                  width={400}
-                  height={300}
-                  placeholder="blur"
-                  className="w-96 h-[300px] object-cover rounded-t-1xl opacity-90"
-                />
-                <p
-                  className="absolute bottom-1 right-1 text-xs text-white hover:bg-blue p-1 cursor-pointer rounded-md"
-                  onClick={() => setShowUpload(true)}
-                >
-                  Edit Cover Photo
-                </p>
-                {showUpload && (
-                  <div className="absolute flex items-center justify-center w-full h-full">
-                    <label
-                      className={`flex flex-col items-center justify-center w-full h-full border-2 ${
-                        image
-                          ? "border-blue hover:border-blue/80 border-solid text-blue"
-                          : "border-blue border-dashed"
-                      } rounded cursor-pointer ${
-                        image ? "bg-white/20 border-0" : "bg-white/70"
-                      } text-blue`}
-                      onDragOver={handleDragOver}
-                      onDrop={handleDrop}
-                    >
-                      <IoCloudUploadOutline className="text-2xl mb-1" />
-                      <p className="mb-1 text-xs">
-                        <span className="font-semibold">Click or Drop</span>
-                      </p>
-                      <p className="text-xs">PNG, JPG (MAX. 380x300px)</p>
-                      <input
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileChange}
-                      />
-                    </label>
-                    <button
-                      className="absolute top-2 right-2 text-white bg-blue/50 hover:bg-blue/100 rounded-full px-1 py-1 text-sm"
-                      onClick={() => setShowUpload(false)}
-                    >
-                      <IoMdClose />
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="p-5 rounded-b-1xl shadow-2xl">
-                <div className="flex justify-between items-center">
-                  <p className="text-3xl text-blue font-semibold">
-                    {itinerary.city}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        itinerary && (
+          <div className="min-h-screen">
+            <div className="max-w-7xl mx-auto mt-8 md:mt-16">
+              <div className="mt-10 w-96">
+                <div className="flex justify-center relative">
+                  <SafeImage
+                    src={
+                      previewUrl
+                        ? previewUrl
+                        : itinerary.imageUrl
+                        ? `https://triploro.es${
+                            itinerary.imageUrl
+                          }?${new Date().getTime()}`
+                        : NotImage
+                    }
+                    alt={itinerary.city ? itinerary.city : ""}
+                    width={400}
+                    height={300}
+                    className="w-96 h-[300px] object-cover rounded-t-1xl opacity-90"
+                  />
+                  <p
+                    className="absolute bottom-1 right-1 text-xs text-white hover:bg-blue p-1 cursor-pointer rounded-md"
+                    onClick={() => setShowUpload(true)}
+                  >
+                    Edit Cover Photo
                   </p>
-                  <p className="p-1 px-1 text-xs bg-blue text-white w-fit rounded-md">
-                    {itinerary.code}
-                  </p>
+                  {showUpload && (
+                    <div className="absolute flex items-center justify-center w-full h-full">
+                      <label
+                        className={`flex flex-col items-center justify-center w-full h-full border-2 ${
+                          image
+                            ? "border-blue hover:border-blue/80 border-solid text-blue"
+                            : "border-blue border-dashed"
+                        } rounded cursor-pointer ${
+                          image ? "bg-white/20 border-0" : "bg-white/70"
+                        } text-blue`}
+                        onDragOver={handleDragOver}
+                        onDrop={handleDrop}
+                      >
+                        <IoCloudUploadOutline className="text-2xl mb-1" />
+                        <p className="mb-1 text-xs">
+                          <span className="font-semibold">Click or Drop</span>
+                        </p>
+                        <p className="text-xs">PNG, JPG (MAX. 380x300px)</p>
+                        <input
+                          id="dropzone-file"
+                          type="file"
+                          className="hidden"
+                          onChange={handleFileChange}
+                        />
+                      </label>
+                      <button
+                        className="absolute top-2 right-2 text-white bg-blue/50 hover:bg-blue/100 rounded-full px-1 py-1 text-sm"
+                        onClick={() => setShowUpload(false)}
+                      >
+                        <IoMdClose />
+                      </button>
+                    </div>
+                  )}
                 </div>
-                <div className="flex mt-6 space-x-20 text-1xl text-center text-blue">
-                  <div className="flex flex-col">
-                    <p>
-                      {
-                        formatRangeDate(
-                          itinerary.startDate,
-                          itinerary.endDate
-                        ).split(" ")[0]
-                      }
+                <div className="p-5 rounded-b-1xl shadow-2xl">
+                  <div className="flex justify-between items-center">
+                    <p className="text-3xl text-blue font-semibold">
+                      {itinerary.city}
                     </p>
-                    <p className="-mt-2">
-                      {
-                        formatRangeDate(
-                          itinerary.startDate,
-                          itinerary.endDate
-                        ).split(" ")[1]
-                      }
+                    <p className="p-1 px-1 text-xs bg-blue text-white w-fit rounded-md">
+                      {itinerary.code}
                     </p>
                   </div>
-                  <div className="flex flex-col">
-                    <p>{itinerary.days}</p>
-                    <p className="-mt-2">Dias</p>
+                  <div className="flex mt-6 space-x-20 text-1xl text-center text-blue">
+                    <div className="flex flex-col">
+                      <p>
+                        {
+                          formatRangeDate(
+                            itinerary.startDate,
+                            itinerary.endDate
+                          ).split(" ")[0]
+                        }
+                      </p>
+                      <p className="-mt-2">
+                        {
+                          formatRangeDate(
+                            itinerary.startDate,
+                            itinerary.endDate
+                          ).split(" ")[1]
+                        }
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <p>{itinerary.days}</p>
+                      <p className="-mt-2">Dias</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )
       )}
     </>
   );
