@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Skeleton from "@/app/components/Profile/Skeleton";
 import TripsUser from "@/app/components/Profile/TripsUser";
+import TripUserFavorites from "@/app/components/Profile/TripUserFavorites";
 
 export default function Profile() {
   const { data: session, status } = useSession();
@@ -41,6 +42,7 @@ export default function Profile() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">
                 {t("FavoriteItineraries")}
               </h2>
+              {loading ? <Skeleton /> : <TripUserFavorites />}
             </div>
           </div>
         </div>
