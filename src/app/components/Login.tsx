@@ -17,7 +17,6 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const t = useTranslations("Auth.Login");
   const locale = useLocale();
   const modalRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
