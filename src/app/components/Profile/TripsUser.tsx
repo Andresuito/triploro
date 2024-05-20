@@ -5,9 +5,10 @@ import { formatRangeDate } from "@/app/utils/formatDate";
 import { FaEllipsisH } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
+import Spinner from "@/app/components/Global/Spinner";
 
-import NotImage from "@/app/assets/pattern.png";
+import SafeImage from "@/app/components/SafeImage";
+import NotImage from "@/app/assets/pattern.svg";
 
 export default function TripsUser() {
   const { data: session } = useSession();
@@ -51,11 +52,7 @@ export default function TripsUser() {
   });
 
   if (isLoading) {
-    return (
-      <div className="mt-10 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-blue"></div>
-      </div>
-    );
+    return <Spinner />;
   }
 
   return (
@@ -80,8 +77,8 @@ export default function TripsUser() {
               <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
                 <FaEllipsisH className="text-base text-blue" />
               </div>
-              <div className="flex-shrink-0 drop-shadow-lg bg-gray-600">
-                <Image
+              <div className="flex-shrink-0 drop-shadow-lg">
+                <SafeImage
                   src={
                     tripImages[index]
                       ? `${tripImages[index]}?${new Date().getTime()}`
@@ -91,7 +88,6 @@ export default function TripsUser() {
                   className="h-full w-24 object-cover"
                   width="500"
                   height="500"
-                  placeholder="blur"
                 />
               </div>
             </a>
