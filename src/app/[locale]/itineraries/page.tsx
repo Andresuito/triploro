@@ -98,7 +98,7 @@ export default function ItinerariesPublics() {
                     <SafeImage
                       src={
                         itineraryImages[index]
-                          ? `${itineraryImages[index]}?${new Date().getTime()}`
+                          ? `${itineraryImages[index]}`
                           : NotImage.src
                       }
                       alt={itinerary.city}
