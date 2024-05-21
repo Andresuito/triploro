@@ -44,7 +44,7 @@ export default function TripsUser() {
 
   const tripImages = trips.map((trip) => {
     if (trip.imageUrl) {
-      return `https://triploro.es:8000${trip.imageUrl}`;
+      return `https://triploro.es${trip.imageUrl}`;
     } else {
       return null;
     }
@@ -78,11 +78,7 @@ export default function TripsUser() {
               </div>
               <div className="flex-shrink-0 drop-shadow-lg">
                 <SafeImage
-                  src={
-                    tripImages[index]
-                      ? `${tripImages[index]}?${new Date().getTime()}`
-                      : NotImage
-                  }
+                  src={tripImages[index] ? `${tripImages[index]}` : NotImage}
                   alt={tripImages[index] ? trip.city : ""}
                   className="h-full w-24 object-cover"
                   width="500"

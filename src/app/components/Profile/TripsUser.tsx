@@ -79,11 +79,7 @@ export default function TripsUser() {
               </div>
               <div className="flex-shrink-0 drop-shadow-lg">
                 <SafeImage
-                  src={
-                    tripImages[index]
-                      ? `${tripImages[index]}?${new Date().getTime()}`
-                      : NotImage
-                  }
+                  src={tripImages[index] ? `${tripImages[index]}` : NotImage}
                   alt={tripImages[index] ? trip.city : ""}
                   className="h-full w-24 object-cover"
                   width="500"
