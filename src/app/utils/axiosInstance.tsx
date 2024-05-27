@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://triploro.es/api/v1",
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api/v1`,
   withCredentials: true,
 });
 
