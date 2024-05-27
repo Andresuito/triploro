@@ -78,8 +78,6 @@ const FavoriteItinerary = ({ code }: Props) => {
     reset: true,
   });
 
-  if (loading) return <div className="text-2xl text-gray-500">Loading...</div>;
-
   return isFilled ? (
     <animated.div style={animation}>
       <IoMdHeart

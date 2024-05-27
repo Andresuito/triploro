@@ -10,7 +10,7 @@ import Toast from "@/app/components/Global/Toast";
 import type { Itinerary } from "@/types/itineraryType";
 import { formatRangeDate } from "@/app/utils/formatDate";
 import { useRouter } from "next/navigation";
-import SkeletonItinerary from "@/app/components/Itinerary/Code/Skeleton";
+import SkeletonItinerary from "@/app/components/ItineraryIndividual/Skeleton";
 
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";

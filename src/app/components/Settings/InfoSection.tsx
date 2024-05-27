@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import axiosInstance from "../../utils/axiosInstance";
 import toast from "react-hot-toast";
+import Toast from "@/app/components/Global/Toast";
 import { formatDate } from "../../utils/formatDate";
 
 export const InfoSection = ({
@@ -74,31 +75,10 @@ export const InfoSection = ({
           },
         });
 
-        toast.custom((t) => (
-          <div
-            className={`${
-              t.visible ? "animate-enter" : "animate-leave"
-            } max-w-md w-full  bg-blue/80 shadow-lg rounded-md pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-          >
-            <div className="flex-1 w-0 p-4">
-              <div className="flex items-start">
-                <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-white">
-                    Usuario cambiado con éxito
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex border-l border-gray-200">
-              <button
-                onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-blue"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        ));
+        Toast({
+          message: t("InfoSection.Success." + response.data.message),
+          isError: false,
+        });
       }
     } catch (error) {
       console.log(error);

@@ -1,5 +1,3 @@
-// ItinerariesPublics.tsx
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -28,11 +26,7 @@ export default function ItinerariesPublics() {
   const getItineraries = async () => {
     setIsLoading(true);
     try {
-      const response = await axiosInstance.get("/itinerary/allPublic", {
-        params: {
-          limit: loadedItineraries,
-        },
-      });
+      const response = await axiosInstance.get("/itinerary/allPublic");
       if (response.status === 200 && Array.isArray(response.data)) {
         const modifiedData = response.data.map((item) => ({
           ...item,
@@ -48,48 +42,7 @@ export default function ItinerariesPublics() {
 
   useEffect(() => {
     getItineraries();
-  }, [loadedItineraries]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop + clientHeight >= scrollHeight - 200) {
-        loadMoreItineraries();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [loadedItineraries]);
-
-  const loadMoreItineraries = async () => {
-    if (!isLoadingMore) {
-      setIsLoadingMore(true);
-      try {
-        const response = await axiosInstance.get("/itinerary/allPublic", {
-          params: {
-            limit: 20,
-            offset: loadedItineraries,
-          },
-        });
-        if (response.status === 200 && Array.isArray(response.data)) {
-          const newData = response.data.map((item) => ({
-            ...item,
-            height: `${Math.floor(Math.random() * 200) + 200}px`,
-          }));
-          setItineraries((prevData) => [...prevData, ...newData]);
-          setLoadedItineraries((prevCount) => prevCount + 20);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-      setIsLoadingMore(false);
-    }
-  };
+  }, []);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -124,54 +77,52 @@ export default function ItinerariesPublics() {
             {t("Button.Create")}
           </Link>
         </div>
-        {itineraries.length === 0 && <Spinner />}
-        {itineraries.length > 0 && (
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-          >
-            {itineraries.map((itinerary: Itinerary, index: number) => (
-              <Link
-                href={`/itinerary/${itinerary.code}`}
-                key={itinerary.code}
-                legacyBehavior
-                className="pointer-events-none"
+        {isLoading ? <Spinner /> : null}
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {itineraries.map((itinerary: Itinerary, index: number) => (
+            <Link
+              href={`/itinerary/${itinerary.code}`}
+              key={itinerary.code}
+              legacyBehavior
+              className="pointer-events-none"
+            >
+              <div
+                key={itinerary.id}
+                className="group rounded-1xl text-white p-4 text-center mb-4 overflow-hidden relative "
+                style={{
+                  height: itinerary.height,
+                }}
               >
-                <div
-                  key={itinerary.id}
-                  className="group rounded-1xl text-white p-4 text-center mb-4 overflow-hidden relative "
-                  style={{
-                    height: itinerary.height,
-                  }}
-                >
-                  <SafeImage
-                    src={
-                      itineraryImages[index]
-                        ? `${itineraryImages[index]}`
-                        : NotImage.src
-                    }
-                    alt={itinerary.city}
-                    fill
-                    quality={70}
-                    className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
-                  />
-                  <div className="absolute text-white top-2 right-5 md:right-5">
-                    <FavoriteItinerary code={itinerary.code} />
-                  </div>
-                  <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
-                    {itinerary.days} {t("TripInfo.Days")}
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
-                    <h3 className="text-base font-semibold mx-2">
-                      {c(itinerary.city) || itinerary.city}
-                    </h3>
-                  </div>
+                <SafeImage
+                  src={
+                    itineraryImages[index]
+                      ? `${itineraryImages[index]}`
+                      : NotImage.src
+                  }
+                  alt={itinerary.city}
+                  fill
+                  quality={70}
+                  className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
+                />
+                <div className="absolute text-white top-2 right-5 md:right-5">
+                  <FavoriteItinerary code={itinerary.code} />
                 </div>
-              </Link>
-            ))}
-          </Masonry>
-        )}
+                <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                  {itinerary.days} {t("TripInfo.Days")}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                  <h3 className="text-base font-semibold mx-2">
+                    {c(itinerary.city) || itinerary.city}
+                  </h3>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </Masonry>
       </div>
     </div>
   );
