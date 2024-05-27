@@ -4,12 +4,14 @@ import axiosInstance from "@/app/utils/axiosInstance";
 import { formatRangeDate } from "@/app/utils/formatDate";
 import { FaEllipsisH } from "react-icons/fa";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Spinner from "@/app/components/Global/Spinner";
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 
 export default function TripsUser() {
+  const t = useTranslations("Profile.TripInfo");
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +46,7 @@ export default function TripsUser() {
 
   const tripImages = trips.map((trip) => {
     if (trip.imageUrl) {
-      return `https://triploro.es${trip.imageUrl}`;
+      return `${process.env.NEXT_PUBLIC_API_URL}${trip.imageUrl}`;
     } else {
       return null;
     }
@@ -70,7 +72,9 @@ export default function TripsUser() {
                   <p className="text-blue">
                     {formatRangeDate(trip.startDate, trip.endDate)}
                   </p>
-                  <p>{trip.days} days</p>
+                  <p>
+                    {trip.days} {t("Days")}
+                  </p>
                 </div>
               </div>
               <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
