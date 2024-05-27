@@ -1,70 +1,84 @@
-import React, { useState, useEffect } from "react";
+// FavoriteItinerary.tsx
+
+import React, { useState, useEffect, useCallback } from "react";
 import { IoIosHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
 import { useSession } from "next-auth/react";
 import axiosInstance from "@/app/utils/axiosInstance";
 
-const FavoriteItinerary = (code: any) => {
+type Props = {
+  code: string;
+};
+
+const FavoriteItinerary = ({ code }: Props) => {
   const { data: session } = useSession();
   const [isFilled, setIsFilled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleHeartClick = (event: { stopPropagation: () => void }) => {
-    event.stopPropagation();
-    if (!session) {
-      window.location.href = "/?modaLogin=open";
-    } else {
-      setIsFilled(!isFilled);
-
-      if (isFilled) {
-        axiosInstance
-          .delete(`/itinerary/favorite/${code.code}`, {
+  const checkFavoriteStatus = useCallback(async () => {
+    if (session) {
+      try {
+        const response = await axiosInstance.get(
+          `/itinerary/favorite/${code}`,
+          {
             headers: {
               Authorization: `Bearer ${session?.user?.token}`,
             },
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      } else {
-        axiosInstance
-          .post(
-            `/itinerary/favorite/${code.code}`,
-            {},
-            {
-              headers: {
-                Authorization: `Bearer ${session?.user?.token}`,
-              },
-            }
-          )
-          .catch((error) => {
-            console.error(error);
-          });
+          }
+        );
+        setIsFilled(response.data.isFavorite);
+      } catch (error) {
+        console.error(error);
       }
+    }
+  }, [session, code]);
+
+  const handleHeartClick = async (event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (!session) {
+      window.location.href = "/?modaLogin=open";
+      return;
+    }
+
+    setLoading(true);
+    try {
+      if (isFilled) {
+        await axiosInstance.delete(`/itinerary/favorite/${code}`, {
+          headers: {
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        });
+        setIsFilled(false);
+      } else {
+        await axiosInstance.post(
+          `/itinerary/favorite/${code}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${session?.user?.token}`,
+            },
+          }
+        );
+        setIsFilled(true);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (session) {
-      axiosInstance
-        .get(`/itinerary/favorite/${code.code}`, {
-          headers: {
-            Authorization: `Bearer ${session?.user?.token}`,
-          },
-        })
-        .then((response) => {
-          setIsFilled(response.data.isFavorite);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }, [session, code.code]);
+    checkFavoriteStatus();
+  }, [checkFavoriteStatus]);
 
   const animation = useSpring({
     from: { opacity: 0, transform: "scale(0.8)" },
     to: { opacity: 1, transform: "scale(1.1)" },
     reset: true,
   });
+
+  if (loading) return <div className="text-2xl text-gray-500">Loading...</div>;
 
   return isFilled ? (
     <animated.div style={animation}>
