@@ -254,7 +254,10 @@
            "invalid_email_format":"O formato do e-mail não é válido.",
            "password_length":"A senha deve ter pelo menos 6 caracteres.",
            "email_taken":"O e-mail já está em uso."
-        }
+        },
+      "Success": {
+         "username_changed_successfully": "Nome de usuário alterado com sucesso."
+      }
      },
      "SecuritySection":{
         "Title":"Segurança",

@@ -254,7 +254,10 @@
            "invalid_email_format":"The email format is not valid.",
            "password_length":"The password must be at least 6 characters long.",
            "email_taken":"The email is already in use."
-        }
+        },
+      "Success": {
+         "username_changed_successfully": "Username changed successfully."
+      }
      },
      "SecuritySection":{
         "Title":"Security",
