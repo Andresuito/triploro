@@ -5,12 +5,14 @@ import { formatRangeDate } from "@/app/utils/formatDate";
 import { FaEllipsisH } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import Spinner from "@/app/components/Global/Spinner";
-
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 
 export default function TripsUser() {
+  const t = useTranslations("Profile.TripInfo");
+  const c = useTranslations("Country.Cities");
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +47,7 @@ export default function TripsUser() {
 
   const tripImages = trips.map((trip) => {
     if (trip.imageUrl) {
-      return `https://triploro.es${trip.imageUrl}`;
+      return `${process.env.NEXT_PUBLIC_API_URL}${trip.imageUrl}`;
     } else {
       return null;
     }
@@ -63,15 +65,17 @@ export default function TripsUser() {
             <a className="flex flex-row h-[137px] bg-white drop-shadow-lg rounded-1xl overflow-hidden relative transition duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-xl">
               <div className="p-4 text-gray-500 text-base flex-grow">
                 <div className="flex items-center">
-                  <p className="text-2xl font-bold leading-7 text-blue  cursor-pointer">
-                    {trip.city}
+                  <p className="text-2xl font-bold leading-7 text-blue cursor-pointer">
+                    {c(trip.city) || trip.city}
                   </p>
                 </div>
                 <div className="flex space-x-5">
                   <p className="text-blue">
                     {formatRangeDate(trip.startDate, trip.endDate)}
                   </p>
-                  <p>{trip.days} days</p>
+                  <p>
+                    {trip.days} {t("Days")}
+                  </p>
                 </div>
               </div>
               <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
@@ -90,7 +94,7 @@ export default function TripsUser() {
           </Link>
         ))
       ) : (
-        <p className="text-base">No hay itinerarios disponibles.</p>
+        <p className="text-base">{t("NoItinerary")}</p>
       )}
     </div>
   );
