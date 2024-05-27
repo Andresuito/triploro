@@ -15,12 +15,15 @@ export async function generateMetadata() {
 }
 
 async function getDestinations() {
-  const response = await fetch("https://triploro.es/api/v1/country/all", {
-    headers: {
-      revalidate: "3600",
-      cache: "force-cache",
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/country/all`,
+    {
+      headers: {
+        revalidate: "3600",
+        cache: "force-cache",
+      },
+    }
+  );
   const destinations = await response.json();
   return destinations;
 }
