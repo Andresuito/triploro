@@ -6,7 +6,9 @@ export interface Itinerary {
   height: number;
   startDate: string;
   endDate: string;
+  public: boolean;
   imageUrl: string;
   createdAt: string;
   updatedAt: string;
+  isOwner: string;
 }
