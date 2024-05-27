@@ -201,9 +201,29 @@
   "Profile":{
      "Greeting":"Olá",
      "YourTrips":"Suas viagens",
-     "FavoriteDestinations":"Destinos favoritos",
-     "FavoriteItineraries":"Itinerários favoritos"
+     "FavoriteItineraries":"Itinerários favoritos",
+      "TripInfo": {
+         "Days": "dias",
+         "NoItinerary": "Você não tem itinerários criados."
+      }
   },
+  "Itineraries":{ 
+   "Title": "Todos os nossos ", 
+   "TitleMore": "Itinerários",
+   "TripInfo": {
+      "Days": "Dias"
+   },
+   "Button": {
+      "Create": "Criar itinerário"
+   }
+},
+"Itinerary":{
+   "Days": "Dias",
+   "Buttons": {
+      "NewImage": "Alterar Imagem",
+      "NewImageDropOrClick": "Clique ou solte a imagem aqui"
+   }
+},
   "Settings":{
      "InfoSection":{
         "Title":"Dados pessoais",

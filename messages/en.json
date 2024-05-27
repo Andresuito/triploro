@@ -201,9 +201,29 @@
   "Profile":{
      "Greeting":"Hello",
      "YourTrips":"Your trips",
-     "FavoriteDestinations":"Favorite destinations",
-     "FavoriteItineraries":"Favorite itineraries"
-  },
+     "FavoriteItineraries":"Favorite itineraries",
+     "TripInfo": {
+      "Days": "days",
+      "NoItinerary": "You have no itineraries created."
+      }
+   },
+   "Itineraries":{ 
+      "Title": "All of our ", 
+      "TitleMore": "Itineraries",
+      "TripInfo": {
+         "Days": "days"
+      },
+      "Button": {
+         "Create": "Create itinerary"
+      }
+   },
+   "Itinerary":{
+      "Days": "Days",
+      "Buttons": {
+         "NewImage": "Edtir Cover Photo",
+         "NewImageDropOrClick": "Click or Drop"
+      }
+     },
   "Settings":{
      "InfoSection":{
         "Title":"Personal data",
