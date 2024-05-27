@@ -17,14 +17,17 @@ const countryImages = {
 
 async function fetchCountryInfo(name: number) {
   try {
-    const response = await fetch(`https://triploro.es/api/v1/country/${name}`, {
-      headers: {
-        revalidate: "3600",
-        cache: "force-cache",
-      },
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/country/${name}`,
+      {
+        headers: {
+          revalidate: "3600",
+          cache: "force-cache",
+        },
+      }
+    );
     const responseDestinations = await fetch(
-      `https://triploro.es/api/v1/destination/${name}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/destination/${name}`,
       {
         headers: {
           revalidate: "3600",
