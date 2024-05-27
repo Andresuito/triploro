@@ -10,7 +10,7 @@ export default function Skeleton() {
         <div className="mb-10">
           <h2 className="text-2xl font-semibold text-gray-900 mb-3">
             {t("Greeting")},{" "}
-            <span className="bg-gray-600 text-white px-16 py-1 rounded-lg animate-pulse">
+            <span className="bg-gray-300 text-white px-16 py-1 rounded-lg animate-pulse">
               &nbsp;
             </span>
           </h2>
@@ -19,15 +19,7 @@ export default function Skeleton() {
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">
             {t("YourTrips")}
           </h2>
-          <span className="bg-gray-600 text-white px-40 py-1 rounded-lg animate-pulse">
-            &nbsp;
-          </span>
-        </div>
-        <div className="mb-10">
-          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">
-            {t("FavoriteDestinations")}
-          </h2>
-          <span className="bg-gray-600 text-white px-40 py-1 rounded-lg animate-pulse">
+          <span className="bg-gray-300 text-white px-40 py-1 rounded-lg animate-pulse">
             &nbsp;
           </span>
         </div>
@@ -35,7 +27,7 @@ export default function Skeleton() {
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">
             {t("FavoriteItineraries")}
           </h2>
-          <span className="bg-gray-600 text-white px-40 py-1 rounded-lg animate-pulse">
+          <span className="bg-gray-300 text-white px-40 py-1 rounded-lg animate-pulse">
             &nbsp;
           </span>
         </div>
