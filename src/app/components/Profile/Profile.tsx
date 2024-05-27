@@ -35,11 +35,6 @@ export default function Profile() {
             </div>
             <div className="mb-10">
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-                {t("FavoriteDestinations")}
-              </h2>
-            </div>
-            <div className="mb-10">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-3">
                 {t("FavoriteItineraries")}
               </h2>
               {loading ? <Skeleton /> : <TripUserFavorites />}
