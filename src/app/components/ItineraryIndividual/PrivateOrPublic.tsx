@@ -43,10 +43,10 @@ export const PrivateOrPublic = ({
   };
 
   return (
-    <div>
+    <div className="relative">
       <label
         htmlFor="option0"
-        className="flex items-center cursor-pointer mt-2 sm:mt-0"
+        className="flex items-center cursor-pointer mt-2 sm:mt-0 relative"
       >
         <div className="relative">
           <input
@@ -63,6 +63,12 @@ export const PrivateOrPublic = ({
           ></div>
           <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
         </div>
+        <span className="group ml-3 text-sm relative">
+          {isPublic ? "Itinerario Público" : "Itinerario Privado"}
+          <div className="absolute -left-20 bottom-full mb-2 w-60 p-2 bg-blue pointer-events-none text-white text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition ease-in-out duration-200">
+            Una vez comparta su itinerario, sera publico para todo el mundo
+          </div>
+        </span>
       </label>
     </div>
   );
