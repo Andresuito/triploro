@@ -1,7 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-
-// app/[code]/Itinerary.jsx
 
 import React, { useEffect, useState } from "react";
 import axiosInstance from "@/app/utils/axiosInstance";
@@ -73,7 +70,7 @@ export default function Itinerary({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto mt-8 md:mt-16">
+    <div className="min-h-screen max-w-7xl mx-auto px-4 mt-8 md:mt-16">
       {isLoading ? (
         <SkeletonItinerary />
       ) : (
