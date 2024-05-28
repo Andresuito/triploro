@@ -62,7 +62,7 @@ const ItineraryDetails = ({
                     isPublic ? "bg-blue" : "bg-red-500"
                   }`}
                 >
-                  {isPublic ? "Es público" : "No es público"}
+                  {isPublic ? t("isPublic") : t("isPrivate")}
                 </p>
               </>
             )}
