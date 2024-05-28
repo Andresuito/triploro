@@ -222,6 +222,13 @@
    "Buttons": {
       "NewImage": "Cambiar Imagen",
       "NewImageDropOrClick": "Haz clic o suelta la imagen aquí"
+   },
+   "Succees": {
+      "ImageChanged": "Imagen cambiada con éxito."
+   },
+   "Errors": {
+      "ExtensionFile": "Por favor suba una imagen en formato PNG o JPEG de tamaño menor a 1MB",
+      "FileUpload": "Error al subir la imagen."   
    }
   },
   "Settings":{

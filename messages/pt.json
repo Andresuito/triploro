@@ -222,7 +222,14 @@
    "Buttons": {
       "NewImage": "Alterar Imagem",
       "NewImageDropOrClick": "Clique ou solte a imagem aqui"
-   }
+   },
+   "Succees": {
+      "ImageChanged": "Imagem alterada com sucesso."
+   },
+   "Errors": {
+      "ExtensionFile": "Por favor, carregue uma imagem no formato PNG ou JPEG de tamanho menor que 1MB",
+      "FileUpload": "Erro ao carregar a imagem."  
+  }
 },
   "Settings":{
      "InfoSection":{

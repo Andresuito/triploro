@@ -222,7 +222,14 @@
       "Buttons": {
          "NewImage": "Edtir Cover Photo",
          "NewImageDropOrClick": "Click or Drop"
-      }
+      },
+      "Success": {
+            "ImageChanged": "Image successfully changed."
+         },
+         "Errors": {
+            "ExtensionFile": "Please upload an image in PNG or JPEG format smaller than 1MB",
+            "FileUpload": "Error uploading the image."   
+         }
      },
   "Settings":{
      "InfoSection":{
