@@ -130,7 +130,7 @@ const ItineraryDetails = ({
           </div>
         </div>
       </div>
-      <ItineraryDetailsDays />
+      {/* <ItineraryDetailsDays /> */}
     </>
   );
 };
