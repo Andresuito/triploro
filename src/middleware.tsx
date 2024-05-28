@@ -16,7 +16,7 @@ const authMiddleware = withAuth((req) => intlMiddleware(req), {
     authorized: ({ token }) => token != null,
   },
   pages: {
-    signIn: "/",
+    signIn: "/?modaLogin=open",
   },
 });
 
