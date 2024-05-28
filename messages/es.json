@@ -233,6 +233,11 @@
    },
    "Itinerary":{
       "Days":"Dias",
+      "isPublic": "Es público",
+      "isPrivate": "Es privado",
+      "ItineraryVisibility": "Una vez que decida compartir su itinerario, este será accesible y visible para todos los usuarios. Por favor, asegúrese de que está cómodo con que la información de su itinerario sea pública antes de compartirlo.",
+      "isPublicInfo": "Itinerario Público",
+      "isPrivateInfo": "Itinerario Privado",
       "Buttons":{
          "NewImage":"Cambiar Imagen",
          "NewImageDropOrClick":"Haz clic o suelta la imagen aquí"
