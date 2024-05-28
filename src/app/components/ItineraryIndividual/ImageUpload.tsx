@@ -4,6 +4,7 @@ import { IoMdClose } from "react-icons/io";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { useSession } from "next-auth/react";
 import Toast from "@/app/components/Global/Toast";
+import { useTranslations } from "next-intl";
 
 export const ImageUpload = ({
   itineraryCode,
@@ -18,6 +19,7 @@ export const ImageUpload = ({
   setPreviewUrl: React.Dispatch<React.SetStateAction<string>>;
   setItinerary: React.Dispatch<React.SetStateAction<any>>;
 }) => {
+  const t = useTranslations("Itinerary");
   const { data: session } = useSession();
   const [image, setImage] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -42,7 +44,7 @@ export const ImageUpload = ({
           );
 
           if (response.status === 200) {
-            Toast({ message: "Image uploaded correctly.", isError: false });
+            Toast({ message: t("Succees.ImageChanged"), isError: false });
             const newImageUrl = URL.createObjectURL(image);
             setPreviewUrl(newImageUrl);
             setItinerary((prevState: any) =>
@@ -51,11 +53,11 @@ export const ImageUpload = ({
             setImage(null);
             setShowUpload(false);
           } else {
-            Toast({ message: "Failed to upload image", isError: true });
+            Toast({ message: t("Errors.FileUpload"), isError: true });
           }
         } catch (error) {
           console.error(error);
-          Toast({ message: "Failed to upload image", isError: true });
+          Toast({ message: t("Errors.FileUpload"), isError: true });
         } finally {
           setUploading(false);
         }
@@ -98,7 +100,7 @@ export const ImageUpload = ({
         setImage(file);
       } else {
         Toast({
-          message: "Please upload a PNG or JPEG image of size less than 1MB",
+          message: t("Errors.ExtensionFile"),
           isError: true,
         });
       }
@@ -123,7 +125,7 @@ export const ImageUpload = ({
         setImage(file);
       } else {
         Toast({
-          message: "Please upload a PNG or JPEG image of size less than 1MB",
+          message: t("Errors.ExtensionFile"),
           isError: true,
         });
       }
@@ -147,7 +149,7 @@ export const ImageUpload = ({
           <IoCloudUploadOutline className="text-2xl mb-1" />
           <p className="mb-1 text-xs">
             <span className="font-semibold">
-              Drop files here or click to upload
+              {t("Buttons.NewImageDropOrClick")}
             </span>
           </p>
           <p className="text-xs">PNG, JPG (MAX. 380x300px)</p>
