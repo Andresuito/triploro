@@ -1,85 +1,102 @@
 import { MetadataRoute } from "next";
 
 export default async function sitemap() : Promise<MetadataRoute.Sitemap> {
+  const currentDate = new Date();
+
   return[
     {
       url: "https://triploro.com/",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/en/",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/es/",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "hourly",
     },
     {
       url: "https://triploro.com/pt/",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "hourly",
     },
     {
+      url: "https://triploro.com/es/itineraries",
+      lastModified: currentDate,
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://triploro.com/en/itineraries",
+      lastModified: currentDate,
+      changeFrequency: "daily",
+    },
+    {
+      url: "https://triploro.com/es/itineraries",
+      lastModified: currentDate,
+      changeFrequency: "daily",
+    },
+    {
       url: "https://triploro.com/en/destinations",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
       url: "https://triploro.com/es/destinations",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
       url: "https://triploro.com/pt/destinations",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/es/destinations/country/spain",
-      lastModified: new Date(),
+      url: "https://triploro.com/es/destinations/country/spain",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/en/destinations/country/spain",
-      lastModified: new Date(),
+      url: "https://triploro.com/en/destinations/country/spain",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/pt/destinations/country/spain",
-      lastModified: new Date(),
+      url: "https://triploro.com/pt/destinations/country/spain",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/es/destinations/country/portugal",
-      lastModified: new Date(),
+      url: "https://triploro.com/es/destinations/country/portugal",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/en/destinations/country/portugal",
-      lastModified: new Date(),
+      url: "https://triploro.com/en/destinations/country/portugal",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
-      url: "https://www.triploro.com/pt/destinations/country/portugal",
-      lastModified: new Date(),
+      url: "https://triploro.com/pt/destinations/country/portugal",
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
       url: "https://triploro.com/en/help",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
       url: "https://triploro.com/es/help",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
     {
       url: "https://triploro.com/pt/help",
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "daily",
     },
   ]
