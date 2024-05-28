@@ -29,8 +29,8 @@ const ItineraryDetails = ({
   const c = useTranslations("Country.Cities");
 
   return (
-    <div className="flex">
-      <div className="w-96">
+    <div className="flex flex-col md:flex-row">
+      <div className="align-middle w-auto md:w-96">
         <div className="flex justify-center relative">
           <SafeImage
             src={
@@ -43,7 +43,7 @@ const ItineraryDetails = ({
             alt={itinerary.city ? itinerary.city : ""}
             width={400}
             height={300}
-            className="h-[300px] object-cover rounded-t-1xl opacity-90"
+            className="h-[300px] w-full md:w-fit object-cover rounded-t-1xl opacity-90"
           />
           {itinerary.isOwner && (
             <>
@@ -103,7 +103,7 @@ const ItineraryDetails = ({
           </div>
         </div>
       </div>
-      <div className="ml-12 h-fit justify-between flex flex-grow items-center">
+      <div className="mt-6 md:mt-0 md:ml-12 h-fit justify-between flex flex-grow items-center">
         <p className="text-3xl text-blue font-semibold">
           {c(itinerary.city) || itinerary.city}
         </p>
