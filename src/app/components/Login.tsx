@@ -14,6 +14,7 @@ interface ModalProps {
 }
 
 const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
+  const router = useRouter();
   const t = useTranslations("Auth.Login");
   const locale = useLocale();
   const modalRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,6 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
         email,
         password,
         redirect: false,
-        credentials: "include",
       });
 
       if (responseNextAuth?.error) {
@@ -78,11 +78,14 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
           setShowLogin(false);
           setShowResendEmail(true);
         }
-
         return;
       }
 
+      const params = new URLSearchParams(window.location.search);
+      const callbackUrl = params.get("callbackUrl") || "/";
+
       onClose();
+      router.push(callbackUrl);
     } catch (error) {
       setError("error.login_error");
     }
