@@ -1,446 +1,460 @@
 {
-  "Metadata":{
-     "Title":"Triploro",
-     "Description":"Triploro is your ultimate travel companion, offering personalized itineraries and unique experiences for an unforgettable holiday. Explore top destinations, plan your trips, and share your experiences with our global community.",
-     "Keywords":"travel planning, personalized itineraries, unique experiences, top destinations, trip organization, tourism, travel, Triploro",
-     "Country":{
-        "description":"As CEO of Triploro Spain, I am committed to offering the best travel experiences in Spain. Plan your trips with Triploro for free and discover Spain's hidden gems and authentic experiences.",
-        "spain":"Spain",
-        "portugal":"Portugal"
-     },
-     "Destinations":{
-        "Title":"Explore Destinations",
-        "Description":"Uncover the most popular destinations and significant cities in Spain and Portugal with Triploro. Get detailed information about the capitals, continents, and standout cities of each country."
-     },
-     "ResetPassword":{
-        "Title":"Reset Your Account Password",
-        "Description":"Reset your Triploro account password securely. Enter your new password and confirm it to regain access to your personalized travel plans and experiences."
-     },
-     "Profile":{
-        "Title":"Profile"
-     },
-     "Help":{
-        "Title":"Help",
-        "Description":"Get comprehensive guides and articles on planning your first trip, exploring itineraries on Triploro, sharing your experiences, and group travel tips."
-     },
-     "VerifyEmail":{
-        "Title":"Verify account"
-     },
-     "New":{
-        "Title":"New Itinerary",
-        "Description":"Triploro is your ultimate travel companion, offering personalized itineraries and unique experiences for an unforgettable holiday. Explore top destinations, plan your trips, and share your experiences with our global community."
-     },
-     "Register":{
-        "Title":"Register ",
-        "Description":"Register with Triploro to start planning your trips in the most efficient way. Simply enter your email and password to create your account and embark on your travel journey."
-     }
-  },
-  "Navbar":{
-     "Options":{
-        "Option1":"Destinations",
-        "Option2":"Experiences",
-        "Option3":"Itineraries"
-     },
-     "Dropdown":{
-        "Register":"Register",
-        "Login":"Login",
-        "Profile":"Profile",
-        "Configuration":"Configuration",
-        "Logout":"Logout",
-        "FAQ":"Help",
-        "Theme":"Theme"
-     }
-  },
-  "Help":{
-     "Title":"Guides on how to use",
-     "Articles":"See all articles",
-     "Topics":{
-        "Help1":"How to organize my first trip",
-        "Help2":"Itineraries available on Triploro",
-        "Help3":"Share your experiences",
-        "Help4":"How to travel in a group"
-     }
-  },
-  "Auth":{
-     "Register":{
-        "Title":"Welcome to Triploro!",
-        "Subtitle":"Register to get started",
-        "Fields":{
-           "Name":"Name",
-           "Surname":"Surname",
-           "Email":"Email",
-           "Password":"Password"
-        },
-        "Placeholders":{
-           "Name":"Name",
-           "Surname":"Surname",
-           "Email":"Email",
-           "Password":"Password"
-        },
-        "Button":"Register",
-        "Links":{
-           "AlreadyHaveAccount":"Have an account already?",
-           "Login":"Login"
-        },
-        "Success":"Successful registration! Please check your email to activate your account.",
-        "error":{
-           "network_error":"Network error. Please try again later.",
-           "missing_fields":"Please complete all fields.",
-           "invalid_email_format":"The email format is not valid.",
-           "email_already_exists":"The email is already in use.",
-           "password_length":"The password must be at least 6 characters long.",
-           "invalid_email":"The email is not valid."
-        }
-     },
-     "Login":{
-        "Title":"Login",
-        "Subtitle":"Welcome back!",
-        "Fields":{
-           "Email":"Email",
-           "Password":"Password"
-        },
-        "Placeholders":{
-           "Email":"Email",
-           "Password":"Password"
-        },
-        "Button":{
-           "Login":"Sign In",
-           "ResendEmail":"Resend Email"
-        },
-        "Links":{
-           "NoAccount":"Don't have an account yet?",
-           "ForgotPassword":"Forgot your password?",
-           "Register":"Register"
-        },
-        "error":{
-           "network_error":"Network error. Please try again later.",
-           "missing_fields":"Please complete all fields.",
-           "email_not_found":"Email not found.",
-           "invalid_email_format":"The email format is not valid.",
-           "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
-           "account_not_activated":"The account is not activated. Please check your email to activate it.",
-           "invalid_credentials":"Incorrect credentials.",
-           "login_error":"Error logging in. Please try again.",
-           "incorrect_password":"Incorrect password."
-        }
-     },
-     "ResetPassword":{
-        "Title":"Reset password",
-        "Fields":{
-           "NewPassword":"New password",
-           "ConfirmPassword":"Confirm password"
-        },
-        "Placeholders":{
-           "NewPassword":"Password",
-           "ConfirmPassword":"Password"
-        },
-        "Button":"Reset",
-        "error":{
-           "missing_fields":"Please complete all fields.",
-           "password_length":"The password must be at least 6 characters long.",
-           "passwords_not_match":"The passwords do not match.",
-           "missing_token":"An error has occurred. Please try again later.",
-           "password_format":"The password must have at least one uppercase letter."
-        }
-     },
-     "ForgotPassword":{
-        "Title":"Forgot your password?",
-        "Fields":{
-           "Email":"Email"
-        },
-        "Placeholders":{
-           "Email":"Email"
-        },
-        "Button":"Send",
-        "success":{
-           "recovery_email_sent":"Email sent! Please check your inbox."
-        },
-        "error":{
-           "missing_fields":"Please complete all fields.",
-           "invalid_email_format":"The email format is not valid.",
-           "user_not_found":"The entered email was not found."
-        }
-     }
-  },
-  "Hero":{
-     "Title":"Organize your travels with Triploro!",
-     "Subtitle":"Find the best travel plans or create your own.",
-     "Buttons":{
-        "CreateItinerary":"Start planning",
-        "ExploreItinerary":"Browse itineraries"
-     }
-  },
-  "Destination":{
-     "Titles":{
-        "PopularDestinations":"Popular destinations",
-        "CurrentDestinations":"Our current",
-        "ImportantDestinations":"Important destinations",
-        "Destination":"Destination"
-     },
-     "Cities":{
-        "Barcelona":"Barcelona",
-        "Madrid":"Madrid",
-        "Lisbon":"Lisbon",
-        "Porto":"Porto",
-        "Seville":"Seville",
-        "Valencia":"Valencia"
-     },
-     "Countries":{
-        "Spain":"Spain",
-        "Portugal":"Portugal"
-     }
-  },
-  "ModalLang":{
-     "Title":"Language",
-     "Options":{
-        "Option1":"English",
-        "Option2":"Spanish",
-        "Option3":"Portuguese"
-     }
-  },
-  "Profile":{
-     "Greeting":"Hello",
-     "YourTrips":"Your trips",
-     "FavoriteItineraries":"Favorite itineraries",
-     "TripInfo": {
-      "Days": "days",
-      "NoItinerary": "You have no itineraries created."
+   "Metadata":{
+      "Title":"Triploro",
+      "Description": "Explore with Triploro: personalized itineraries and unique travel experiences.",
+      "Keywords":"travel planning, personalized itineraries, unique experiences, top destinations, trip organization, tourism, travel, Triploro",
+      "Country":{
+         "description": "Discover hidden gems and authentic experiences with Triploro. Plan your trips for free.",
+         "spain":"Spain",
+         "portugal":"Portugal"
+      },
+      "Destinations":{
+         "Title":"Explore Destinations",
+         "Description":"Uncover the most popular destinations and significant cities in Spain and Portugal with Triploro. Get detailed information about the capitals, continents, and standout cities of each country."
+      },
+      "ResetPassword":{
+         "Title":"Reset Your Account Password",
+         "Description":"Reset your Triploro account password securely. Enter your new password and confirm it to regain access to your personalized travel plans and experiences."
+      },
+      "Profile":{
+         "Title":"Profile"
+      },
+      "Help":{
+         "Title":"Help",
+         "Description":"Get comprehensive guides and articles on planning your first trip, exploring itineraries on Triploro, sharing your experiences, and group travel tips."
+      },
+      "VerifyEmail":{
+         "Title":"Verify account"
+      },
+      "New":{
+         "Title":"New Itinerary",
+         "Description":"Triploro is your ultimate travel companion, offering personalized itineraries and unique experiences for an unforgettable holiday. Explore top destinations, plan your trips, and share your experiences with our global community."
+      },
+      "Register":{
+         "Title":"Register ",
+         "Description":"Register with Triploro to start planning your trips in the most efficient way. Simply enter your email and password to create your account and embark on your travel journey."
       }
    },
-   "Itineraries":{ 
-      "Title": "All of our ", 
-      "TitleMore": "Itineraries",
-      "TripInfo": {
-         "Days": "days"
+   "Navbar":{
+      "Options":{
+         "Option1":"Destinations",
+         "Option2":"Experiences",
+         "Option3":"Itineraries"
       },
-      "Button": {
-         "Create": "Create itinerary"
+      "Dropdown":{
+         "Register":"Register",
+         "Login":"Login",
+         "Profile":"Profile",
+         "Configuration":"Configuration",
+         "Logout":"Logout",
+         "FAQ":"Help",
+         "Theme":"Theme"
+      }
+   },
+   "Help":{
+      "Title":"Guides on how to use",
+      "Articles":"See all articles",
+      "Topics":{
+         "Help1":"How to organize my first trip",
+         "Help2":"Itineraries available on Triploro",
+         "Help3":"Share your experiences",
+         "Help4":"How to travel in a group"
+      }
+   },
+   "VerifyEmail":{
+      "Back":"Home",
+      "Success":{
+         "Welcome":"Welcome to Triploro!",
+         "Message":"Successful email verification! Your account has been verified."
+      },
+      "Errors":{
+         "Error":"Error",
+         "AlreadyVerifed":"You are logged in and your account has already been verified.",
+         "NoToken":"The token has not been provided.",
+         "InvalidToken":"Invalid token.",
+         "TokenExpired":"The token has expired."
+      }
+   },
+   "Auth":{
+      "Register":{
+         "Title":"Welcome to Triploro!",
+         "Subtitle":"Register to get started",
+         "Fields":{
+            "Name":"Name",
+            "Surname":"Surname",
+            "Email":"Email",
+            "Password":"Password"
+         },
+         "Placeholders":{
+            "Name":"Name",
+            "Surname":"Surname",
+            "Email":"Email",
+            "Password":"Password"
+         },
+         "Button":"Register",
+         "Links":{
+            "AlreadyHaveAccount":"Have an account already?",
+            "Login":"Login"
+         },
+         "Success":"Successful registration! Please check your email to activate your account.",
+         "error":{
+            "network_error":"Network error. Please try again later.",
+            "missing_fields":"Please complete all fields.",
+            "invalid_email_format":"The email format is not valid.",
+            "email_already_exists":"The email is already in use.",
+            "password_length":"The password must be at least 6 characters long.",
+            "invalid_email":"The email is not valid."
+         }
+      },
+      "Login":{
+         "Title":"Login",
+         "Subtitle":"Welcome back!",
+         "Fields":{
+            "Email":"Email",
+            "Password":"Password"
+         },
+         "Placeholders":{
+            "Email":"Email",
+            "Password":"Password"
+         },
+         "Button":{
+            "Login":"Sign In",
+            "ResendEmail":"Resend Email"
+         },
+         "Links":{
+            "NoAccount":"Don't have an account yet?",
+            "ForgotPassword":"Forgot your password?",
+            "Register":"Register"
+         },
+         "error":{
+            "network_error":"Network error. Please try again later.",
+            "missing_fields":"Please complete all fields.",
+            "email_not_found":"Email not found.",
+            "invalid_email_format":"The email format is not valid.",
+            "password_must_be_at_least_6_characters":"The password must be at least 6 characters long.",
+            "account_not_activated":"The account is not activated. Please check your email to activate it.",
+            "invalid_credentials":"Incorrect credentials.",
+            "login_error":"Error logging in. Please try again.",
+            "incorrect_password":"Incorrect password."
+         }
+      },
+      "ResetPassword":{
+         "Title":"Reset password",
+         "Fields":{
+            "NewPassword":"New password",
+            "ConfirmPassword":"Confirm password"
+         },
+         "Placeholders":{
+            "NewPassword":"Password",
+            "ConfirmPassword":"Password"
+         },
+         "Button":"Reset",
+         "error":{
+            "missing_fields":"Please complete all fields.",
+            "password_length":"The password must be at least 6 characters long.",
+            "passwords_not_match":"The passwords do not match.",
+            "missing_token":"An error has occurred. Please try again later.",
+            "password_format":"The password must have at least one uppercase letter."
+         }
+      },
+      "ForgotPassword":{
+         "Title":"Forgot your password?",
+         "Fields":{
+            "Email":"Email"
+         },
+         "Placeholders":{
+            "Email":"Email"
+         },
+         "Button":"Send",
+         "success":{
+            "recovery_email_sent":"Email sent! Please check your inbox."
+         },
+         "error":{
+            "missing_fields":"Please complete all fields.",
+            "invalid_email_format":"The email format is not valid.",
+            "user_not_found":"The entered email was not found."
+         }
+      }
+   },
+   "Hero":{
+      "Title":"Organize your travels with Triploro!",
+      "Subtitle":"Find the best travel plans or create your own.",
+      "Buttons":{
+         "CreateItinerary":"Start planning",
+         "ExploreItinerary":"Browse itineraries"
+      }
+   },
+   "Destination":{
+      "Titles":{
+         "PopularDestinations":"Popular destinations",
+         "CurrentDestinations":"Our current",
+         "ImportantDestinations":"Important destinations",
+         "Destination":"Destination"
+      },
+      "Cities":{
+         "Barcelona":"Barcelona",
+         "Madrid":"Madrid",
+         "Lisbon":"Lisbon",
+         "Porto":"Porto",
+         "Seville":"Seville",
+         "Valencia":"Valencia"
+      },
+      "Countries":{
+         "Spain":"Spain",
+         "Portugal":"Portugal"
+      }
+   },
+   "ModalLang":{
+      "Title":"Language",
+      "Options":{
+         "Option1":"English",
+         "Option2":"Spanish",
+         "Option3":"Portuguese"
+      }
+   },
+   "Profile":{
+      "Greeting":"Hello",
+      "YourTrips":"Your trips",
+      "FavoriteItineraries":"Favorite itineraries",
+      "TripInfo":{
+         "Days":"days",
+         "NoItinerary":"You have no itineraries created."
+      }
+   },
+   "Itineraries":{
+      "Title":"All of our ",
+      "TitleMore":"Itineraries",
+      "TripInfo":{
+         "Days":"days"
+      },
+      "Button":{
+         "Create":"Create itinerary"
       }
    },
    "Itinerary":{
-      "Days": "Days",
-      "Buttons": {
-         "NewImage": "Edtir Cover Photo",
-         "NewImageDropOrClick": "Click or Drop"
+      "Days":"Days",
+      "Buttons":{
+         "NewImage":"Edtir Cover Photo",
+         "NewImageDropOrClick":"Click or Drop"
       },
-      "Success": {
-            "ImageChanged": "Image successfully changed."
-         },
-         "Errors": {
-            "ExtensionFile": "Please upload an image in PNG or JPEG format smaller than 1MB",
-            "FileUpload": "Error uploading the image."   
-         }
-     },
-  "Settings":{
-     "InfoSection":{
-        "Title":"Personal data",
-        "Subtitle":"Update your data and discover how they are used.",
-        "Fields":{
-           "Username":"Username",
-           "Email":"Email"
-        },
-        "Placeholders":{
-           "Username":"Username",
-           "Email":"Email"
-        },
-        "Dates":{
-           "AccountCreated":"Creation date"
-        },
-        "Buttons":{
-           "Edit":"Edit",
-           "Save":"Save",
-           "Cancel":"Cancel"
-        },
-        "error":{
-           "missing_fields":"Please complete all fields.",
-           "email_format":"The email format is not valid.",
-           "username_length":"The username must be at least 3 characters long.",
-           "username_taken":"The username is already in use.",
-           "invalid_name":"The username is not valid.",
-           "username_regex":"The username is not valid.",
-           "invalid_email_format":"The email format is not valid.",
-           "password_length":"The password must be at least 6 characters long.",
-           "email_taken":"The email is already in use."
-        },
-      "Success": {
-         "username_changed_successfully": "Username changed successfully."
+      "Success":{
+         "ImageChanged":"Image successfully changed."
+      },
+      "Errors":{
+         "ExtensionFile":"Please upload an image in PNG or JPEG format smaller than 1MB",
+         "FileUpload":"Error uploading the image."
       }
-     },
-     "SecuritySection":{
-        "Title":"Security",
-        "Subtitle":"Modify security settings, configure secure authentication, or delete your account.",
-        "Messages":{
-           "PasswordReset":"Do you want to reset your password?",
-           "PasswordResetEmailSent":"An email has been sent to reset the password to ",
-           "DeleteAccount":"Do you want to delete your account?",
-           "DeleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone."
-        },
-        "Modal":{
-           "TitleModal":"Delete account",
-           "Subtitle":"By deleting your account, all your information will be removed.",
-           "List":{
-              "List1":"All your friends will be deleted.",
-              "List2":"All the itineraries you created will be deleted.",
-              "List3":"Public itineraries will become the property of Triploro.",
-              "List4":"This action is irreversible."
-           },
-           "Buttons":{
-              "Delete":"Delete Account",
-              "Cancel":"Cancel"
-           }
-        },
-        "Buttons":{
-           "ResetPassword":"Reset",
-           "DeleteAccount":"Delete account"
-        }
-     },
-     "MateSection":{
-        "Title":"Travel Companion",
-        "Subtitle":"Manage or edit the companions of your trips.",
-        "Subtitle2":"Add a new friend",
-        "InfoAddMate":"To add a new friend, search for their username and click on the add button. Your friend will receive a notification to accept your request.",
-        "TitleRequestsPending":"Pending requests",
-        "InfoRequestsPending":"Here all the pending requests you have received are shown.",
-        "InfoNoRequestsPending":"You have no pending requests.",
-        "TitleFriends":"Friends",
-        "InfoFriends":"Here all your friends on Triploro are shown. You can invite them to all the trips you want.",
-        "FriendSince":"Friend since",
-        "Modal":{
-           "Title":"If you press 'Delete', you will remove from your friends",
-           "Buttons":{
-              "Delete":"Delete",
-              "Cancel":"Cancel"
-           }
-        },
-        "Status":{
-           "isFriend":"Is already your friend",
-           "isNotFriend":"Is not your friend",
-           "pending":"Pending request",
-           "beFriend":"Wants to be your friend"
-        },
-        "Fields":{
-           "Username":"Username"
-        },
-        "Buttons":{
-           "AddMate":"Add companion",
-           "Accept":"Accept",
-           "Reject":"Decline"
-        }
-     },
-     "NotificationsSection":{
-        "Title":"Notifications",
-        "Subtitle":"Configure the notifications you want to receive.",
-        "Notifications":"Notifications"
-     }
-  },
-  "Country":{
-     "Description":{
-        "Spain":"Spain, a country on the Iberian Peninsula, has 17 autonomous communities, each with its own geography and culture. Madrid, the capital, is home to the Royal Palace and the Prado Museum, with works by European masters. Segovia has a medieval castle.",
-        "Portugal":"Portugal, a country located in southwestern Europe, is known for its cuisine, fado music, architecture, and beaches. Lisbon, the capital, has iconic sites such as the Belém Tower and the Alfama neighborhood. The city of Porto is famous for its port wine cellars and the Luis I bridge. The Algarve region in the south is known for its beaches and golf courses."
-     },
-     "Information":{
-        "Capital":"Capital",
-        "Destine":"Destinations",
-        "Continent":"Continent",
-        "Europe":"Europe"
-     },
-     "Cities":{
-        "Madrid":"Madrid",
-        "Barcelona":"Barcelona",
-        "Seville":"Seville",
-        "Malaga":"Malaga",
-        "Valencia":"Valencia",
-        "Bilbao":"Bilbao",
-        "Granada":"Granada",
-        "Zaragoza":"Zaragoza",
-        "Palma de mallorca":"Palma de Mallorca",
-        "Lisbon":"Lisbon",
-        "Oporto":"Oporto",
-        "Faro":"Faro",
-        "Coimbra":"Coimbra",
-        "Braga":"Braga",
-        "Aveiro":"Aveiro",
-        "Evora":"Evora",
-        "Guimarães":"Guimarães"
-     },
-     "Countries":{
-        "Spain":"Spain",
-        "Portugal":"Portugal"
-     }
-  },
-  "New":{
-     "Title":"Creating your own itinerary",
-     "Subtitle":"Ready to embark on your next trip?",
-     "Subtitle2":"With Triploro, you're in control of every detail.",
-     "ReadMore":"Read more",
-     "Setps":{
-        "TitleStep1":"Step 1. Specify Your Trip Details",
-        "InfoStep1":"Begin by specifying your destination, travel dates, number of days, tripmates, and audience setting.",
-        "TitleStep2":"Step 2. Customize Your Experience",
-        "InfoStep2":"Once your trip details are set, dive into customizing your itinerary to perfection. Select activities, attractions, accommodations, transportation, and more to create a personalized travel plan that suits your style and preferences.",
-        "TitleStep3":"Step 3. Add Personal Touches",
-        "InfoStep3":"Make your itinerary truly yours by adding personal notes, photos, and recommendations. Highlight your favorite spots, insider tips, and must-see attractions to ensure an unforgettable adventure.",
-        "TitleStep4":"Step 4. Share Your Adventure",
-        "InfoStep4":"Whether you're seeking recommendations from fellow travelers or inspiring others with your travel tales, Triploro makes it easy to connect and share experiences."
-     },
-     "Form":{
-        "Title":"1. Plan a new trip",
-        "Info":"Choose the destination and dates for your itinerary.",
-        "Info2":"Invite your companions, and decide whether to keep it private or share it with the world.",
-        "Fields":{
-           "Destination":"Where do you want to go?",
-           "Days":"Number of days",
-           "TravelDates":"Dates (optional)",
-           "InviteMates":"+ Invite tripmates"
-        },
-        "Placeholder":{
-           "Destination":"Location (e.g. Madrid, Lisbon, Kilig)",
-           "Days":"# of days",
-           "TravelDates":"Dates",
-           "InviteMates":"Username"
-        },
-        "Buttons":{
-           "Create":"Start planning"
-        },
-        "Success":"Itinerary successfully created! You can now customize your trip.",
-        "Errors":{
-           "InvalidDate":"The start date cannot be earlier than the current date.",
-           "StartDateBeforeEndDate":"The start date cannot be later than the end date.",
-           "EndDateAfterStartDate":"The end date cannot be earlier than the start date.",
-           "MissingFields":"Please, fill in all the fields."
-        }
-     }
-  },
-  "NotFound":{
-     "Title":"Page not found",
-     "Description":"The page you are looking for does not exist or has been removed. Please, go back to the home page.",
-     "Link":"Go back to the home page"
-  },
-  "Components":{
-     "Calendar":{
-        "Months":{
-           "Jan":"Jan",
-           "Feb":"Feb",
-           "Mar":"Mar",
-           "Apr":"Apr",
-           "May":"May",
-           "Jun":"Jun",
-           "Jul":"Jul",
-           "Aug":"Aug",
-           "Sep":"Sep",
-           "Oct":"Oct",
-           "Nov":"Nov",
-           "Dec":"Dec"
-        },
-        "Days":{
-           "Sun":"Sun",
-           "Mon":"Mon",
-           "Tue":"Tue",
-           "Wed":"Wed",
-           "Thu":"Thu",
-           "Fri":"Fri",
-           "Sat":"Sat"
-        }
-     }
-  }
+   },
+   "Settings":{
+      "InfoSection":{
+         "Title":"Personal data",
+         "Subtitle":"Update your data and discover how they are used.",
+         "Fields":{
+            "Username":"Username",
+            "Email":"Email"
+         },
+         "Placeholders":{
+            "Username":"Username",
+            "Email":"Email"
+         },
+         "Dates":{
+            "AccountCreated":"Creation date"
+         },
+         "Buttons":{
+            "Edit":"Edit",
+            "Save":"Save",
+            "Cancel":"Cancel"
+         },
+         "error":{
+            "missing_fields":"Please complete all fields.",
+            "email_format":"The email format is not valid.",
+            "username_length":"The username must be at least 3 characters long.",
+            "username_taken":"The username is already in use.",
+            "invalid_name":"The username is not valid.",
+            "username_regex":"The username is not valid.",
+            "invalid_email_format":"The email format is not valid.",
+            "password_length":"The password must be at least 6 characters long.",
+            "email_taken":"The email is already in use."
+         },
+         "Success":{
+            "username_changed_successfully":"Username changed successfully."
+         }
+      },
+      "SecuritySection":{
+         "Title":"Security",
+         "Subtitle":"Modify security settings, configure secure authentication, or delete your account.",
+         "Messages":{
+            "PasswordReset":"Do you want to reset your password?",
+            "PasswordResetEmailSent":"An email has been sent to reset the password to ",
+            "DeleteAccount":"Do you want to delete your account?",
+            "DeleteAccountConfirmation":"Are you sure you want to delete your account? This action cannot be undone."
+         },
+         "Modal":{
+            "TitleModal":"Delete account",
+            "Subtitle":"By deleting your account, all your information will be removed.",
+            "List":{
+               "List1":"All your friends will be deleted.",
+               "List2":"All the itineraries you created will be deleted.",
+               "List3":"Public itineraries will become the property of Triploro.",
+               "List4":"This action is irreversible."
+            },
+            "Buttons":{
+               "Delete":"Delete Account",
+               "Cancel":"Cancel"
+            }
+         },
+         "Buttons":{
+            "ResetPassword":"Reset",
+            "DeleteAccount":"Delete account"
+         }
+      },
+      "MateSection":{
+         "Title":"Travel Companion",
+         "Subtitle":"Manage or edit the companions of your trips.",
+         "Subtitle2":"Add a new friend",
+         "InfoAddMate":"To add a new friend, search for their username and click on the add button. Your friend will receive a notification to accept your request.",
+         "TitleRequestsPending":"Pending requests",
+         "InfoRequestsPending":"Here all the pending requests you have received are shown.",
+         "InfoNoRequestsPending":"You have no pending requests.",
+         "TitleFriends":"Friends",
+         "InfoFriends":"Here all your friends on Triploro are shown. You can invite them to all the trips you want.",
+         "FriendSince":"Friend since",
+         "Modal":{
+            "Title":"If you press 'Delete', you will remove from your friends",
+            "Buttons":{
+               "Delete":"Delete",
+               "Cancel":"Cancel"
+            }
+         },
+         "Status":{
+            "isFriend":"Is already your friend",
+            "isNotFriend":"Is not your friend",
+            "pending":"Pending request",
+            "beFriend":"Wants to be your friend"
+         },
+         "Fields":{
+            "Username":"Username"
+         },
+         "Buttons":{
+            "AddMate":"Add companion",
+            "Accept":"Accept",
+            "Reject":"Decline"
+         }
+      },
+      "NotificationsSection":{
+         "Title":"Notifications",
+         "Subtitle":"Configure the notifications you want to receive.",
+         "Notifications":"Notifications"
+      }
+   },
+   "Country":{
+      "Description":{
+         "Spain":"Spain, a country on the Iberian Peninsula, has 17 autonomous communities, each with its own geography and culture. Madrid, the capital, is home to the Royal Palace and the Prado Museum, with works by European masters. Segovia has a medieval castle.",
+         "Portugal":"Portugal, a country located in southwestern Europe, is known for its cuisine, fado music, architecture, and beaches. Lisbon, the capital, has iconic sites such as the Belém Tower and the Alfama neighborhood. The city of Porto is famous for its port wine cellars and the Luis I bridge. The Algarve region in the south is known for its beaches and golf courses."
+      },
+      "Information":{
+         "Capital":"Capital",
+         "Destine":"Destinations",
+         "Continent":"Continent",
+         "Europe":"Europe"
+      },
+      "Cities":{
+         "Madrid":"Madrid",
+         "Barcelona":"Barcelona",
+         "Seville":"Seville",
+         "Malaga":"Malaga",
+         "Valencia":"Valencia",
+         "Bilbao":"Bilbao",
+         "Granada":"Granada",
+         "Zaragoza":"Zaragoza",
+         "Palma de mallorca":"Palma de Mallorca",
+         "Lisbon":"Lisbon",
+         "Oporto":"Oporto",
+         "Faro":"Faro",
+         "Coimbra":"Coimbra",
+         "Braga":"Braga",
+         "Aveiro":"Aveiro",
+         "Evora":"Evora",
+         "Guimarães":"Guimarães"
+      },
+      "Countries":{
+         "Spain":"Spain",
+         "Portugal":"Portugal"
+      }
+   },
+   "New":{
+      "Title":"Creating your own itinerary",
+      "Subtitle":"Ready to embark on your next trip?",
+      "Subtitle2":"With Triploro, you're in control of every detail.",
+      "ReadMore":"Read more",
+      "Setps":{
+         "TitleStep1":"Step 1. Specify Your Trip Details",
+         "InfoStep1":"Begin by specifying your destination, travel dates, number of days, tripmates, and audience setting.",
+         "TitleStep2":"Step 2. Customize Your Experience",
+         "InfoStep2":"Once your trip details are set, dive into customizing your itinerary to perfection. Select activities, attractions, accommodations, transportation, and more to create a personalized travel plan that suits your style and preferences.",
+         "TitleStep3":"Step 3. Add Personal Touches",
+         "InfoStep3":"Make your itinerary truly yours by adding personal notes, photos, and recommendations. Highlight your favorite spots, insider tips, and must-see attractions to ensure an unforgettable adventure.",
+         "TitleStep4":"Step 4. Share Your Adventure",
+         "InfoStep4":"Whether you're seeking recommendations from fellow travelers or inspiring others with your travel tales, Triploro makes it easy to connect and share experiences."
+      },
+      "Form":{
+         "Title":"1. Plan a new trip",
+         "Info":"Choose the destination and dates for your itinerary.",
+         "Info2":"Invite your companions, and decide whether to keep it private or share it with the world.",
+         "Fields":{
+            "Destination":"Where do you want to go?",
+            "Days":"Number of days",
+            "TravelDates":"Dates (optional)",
+            "InviteMates":"+ Invite tripmates"
+         },
+         "Placeholder":{
+            "Destination":"Location (e.g. Madrid, Lisbon, Kilig)",
+            "Days":"# of days",
+            "TravelDates":"Dates",
+            "InviteMates":"Username"
+         },
+         "Buttons":{
+            "Create":"Start planning"
+         },
+         "Success":"Itinerary successfully created! You can now customize your trip.",
+         "Errors":{
+            "InvalidDate":"The start date cannot be earlier than the current date.",
+            "StartDateBeforeEndDate":"The start date cannot be later than the end date.",
+            "EndDateAfterStartDate":"The end date cannot be earlier than the start date.",
+            "MissingFields":"Please, fill in all the fields."
+         }
+      }
+   },
+   "NotFound":{
+      "Title":"Page not found",
+      "Description":"The page you are looking for does not exist or has been removed. Please, go back to the home page.",
+      "Link":"Go back to the home page"
+   },
+   "Components":{
+      "Calendar":{
+         "Months":{
+            "Jan":"Jan",
+            "Feb":"Feb",
+            "Mar":"Mar",
+            "Apr":"Apr",
+            "May":"May",
+            "Jun":"Jun",
+            "Jul":"Jul",
+            "Aug":"Aug",
+            "Sep":"Sep",
+            "Oct":"Oct",
+            "Nov":"Nov",
+            "Dec":"Dec"
+         },
+         "Days":{
+            "Sun":"Sun",
+            "Mon":"Mon",
+            "Tue":"Tue",
+            "Wed":"Wed",
+            "Thu":"Thu",
+            "Fri":"Fri",
+            "Sat":"Sat"
+         }
+      }
+   }
 }
