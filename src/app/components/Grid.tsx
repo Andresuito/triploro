@@ -63,7 +63,6 @@ export default function DestinosPopulares() {
   const transitions = useTransition(destinosTranslatable, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
   });
 
   return (
@@ -72,7 +71,7 @@ export default function DestinosPopulares() {
         {t("Titles.PopularDestinations")}
       </h2>
       <div className="grid justify-center md:justify-center lg:justify-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 popular-countries">
-        {transitions((style, item, key) => (
+        {transitions((style, item) => (
           <animated.div style={style} className="relative group">
             <Image
               src={item.imagen}
