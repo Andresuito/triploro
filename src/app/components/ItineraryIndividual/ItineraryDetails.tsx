@@ -45,9 +45,9 @@ const ItineraryDetails = ({
                   : NotImage
               }
               alt={itinerary.city ? itinerary.city : ""}
-              fill
+              width={400}
+              height={300}
               className="h-[300px] w-full object-cover rounded-t-1xl opacity-90"
-              loading="lazy"
             />
             {itinerary.isOwner && (
               <>
