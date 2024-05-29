@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   images: {
     domains: ["triploro.es", "localhost"],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 0,
   },
 };
 

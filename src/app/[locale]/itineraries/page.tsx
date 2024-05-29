@@ -11,15 +11,12 @@ import FavoriteItinerary from "@/app/components/Itinerary/FavoriteItinerary";
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 
-import Button from "@/app/components/Global/Button";
 import Spinner from "@/app/components/Global/Spinner";
 import { useTranslations } from "next-intl";
 
 export default function ItinerariesPublics() {
   const [itineraries, setItineraries] = React.useState<Itinerary[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadedItineraries, setLoadedItineraries] = useState(20);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const t = useTranslations("Itineraries");
   const c = useTranslations("Country.Cities");
 
