@@ -103,9 +103,8 @@ export default function ItinerariesPublics() {
                       ? `${itineraryImages[index]}`
                       : NotImage.src
                   }
-                  alt={itinerary.city}
+                  alt={itinerary.city ? itinerary.city : ""}
                   fill
-                  quality={70}
                   className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
                 />
                 <div className="absolute text-white top-2 right-5 md:right-5">
