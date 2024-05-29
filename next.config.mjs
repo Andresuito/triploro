@@ -5,16 +5,8 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["triploro.es"],
+    domains: ["triploro.es", "localhost"],
     minimumCacheTTL: 60,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "triploro.es",
-        port: "",
-        pathname: "/uploads/",
-      },
-    ],
   },
 };
 
