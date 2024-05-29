@@ -86,8 +86,7 @@ export default function TripsUser() {
                   src={tripImages[index] ? `${tripImages[index]}` : NotImage}
                   alt={tripImages[index] ? trip.city : ""}
                   className="h-full w-24 object-cover"
-                  width="500"
-                  height="500"
+                  fill
                 />
               </div>
             </a>
