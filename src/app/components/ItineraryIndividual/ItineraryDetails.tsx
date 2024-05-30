@@ -5,9 +5,8 @@ import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 import { ImageUpload } from "@/app/components/ItineraryIndividual/ImageUpload";
 import { PrivateOrPublic } from "@/app/components/ItineraryIndividual/PrivateOrPublic";
-import { OptionTransportation } from "@/app/components/ItineraryIndividual/OptionTransportation";
-import { FlightTicket } from "@/app/components/ItineraryIndividual/TicketFlight";
 import { ItineraryDetailsDays } from "@/app/components/ItineraryIndividual/ItineraryDestailsDays";
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
 const ItineraryDetails = ({
   itinerary,
@@ -34,7 +33,7 @@ const ItineraryDetails = ({
   return (
     <>
       <div className="flex flex-col md:flex-row">
-        <div className="align-middle w-auto md:w-96">
+        <div className="align-middle w-auto md:min-w-96">
           <div className="flex justify-center relative">
             <SafeImage
               src={
@@ -125,12 +124,20 @@ const ItineraryDetails = ({
             )}
           </div>
           <div className="flex mt-2">
-            {itinerary.isOwner && <OptionTransportation />}
             {/* <FlightTicket /> */}
+            <APIProvider apiKey="AIzaSyCEE3re4DPmczgHsFzZveMsdg2ATl54iZo">
+              <Map
+                style={{ width: "40vw", height: "43vh", borderRadius: "1rem" }}
+                defaultCenter={{ lat: 41.551, lng: -8.426 }}
+                defaultZoom={14}
+                gestureHandling={"greedy"}
+                disableDefaultUI={false}
+              ></Map>
+            </APIProvider>
           </div>
         </div>
       </div>
-      {/* <ItineraryDetailsDays /> */}
+      <ItineraryDetailsDays itinerary={itinerary} />
     </>
   );
 };
