@@ -14,7 +14,7 @@ import Button from "@/app/components/Global/Button";
 import Toast from "@/app/components/Global/Toast";
 
 export default function TripsUser() {
-  const t = useTranslations("Profile.TripInfo");
+  const t = useTranslations("Profile");
   const c = useTranslations("Country.Cities");
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -89,21 +89,18 @@ export default function TripsUser() {
         <ModalWindow
           open={showModal}
           onClose={() => setShowModal(false)}
-          title="Borrar Itinerario"
+          title={t("Modal.Title") + (tripToDelete ? tripToDelete.city : "")}
           content={
             <div>
-              <h1>
-                Estas seguro que deseas borrar el itinerio de{" "}
-                {c(tripToDelete?.city) || tripToDelete?.city}
-              </h1>
+              <h1>{t("Modal.Question")}</h1>
               <div className="flex mt-2 space-x-3">
                 <Button
-                  label="Borrar"
+                  label={t("Modal.Buttons.Delete")}
                   className="w-full bg-red-500 opacity-50 hover:opacity-100 text-white"
                   onClick={deleteTrip}
                 />
                 <Button
-                  label="Cancelar"
+                  label={t("Modal.Buttons.Cancel")}
                   className="w-full opacity-50 hover:opacity-100"
                   onClick={() => setShowModal(false)}
                 />
@@ -127,7 +124,7 @@ export default function TripsUser() {
                     {formatRangeDate(trip.startDate, trip.endDate)}
                   </p>
                   <p>
-                    {trip.days} {t("Days")}
+                    {trip.days} {t("TripInfo.Days")}
                   </p>
                 </div>
               </div>
@@ -154,7 +151,7 @@ export default function TripsUser() {
           </Link>
         ))
       ) : (
-        <p className="text-base">{t("NoItinerary")}</p>
+        <p className="text-base">{t("TripInfo.NoItinerary")}</p>
       )}
     </div>
   );
