@@ -13,7 +13,6 @@ import Calendar from "@/app/components/Global/Calendar";
 
 const NewItinerary = () => {
   const t = useTranslations("New");
-  const c = useTranslations("Country");
   const router = useRouter();
   const { data: session } = useSession();
   const [error, setError] = useState("");
@@ -23,10 +22,21 @@ const NewItinerary = () => {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(
     null
   );
-  const [destinations, setDestinations] = useState<string[]>([]);
-  const [originalDestinations, setOriginalDestinations] = useState<string[]>(
-    []
-  );
+
+  const [destinations, setDestinations] = useState<
+    {
+      name: string;
+      lat: number;
+      lng: number;
+    }[]
+  >([]);
+  const [originalDestinations, setOriginalDestinations] = useState<
+    {
+      name: string;
+      lat: number;
+      lng: number;
+    }[]
+  >([]);
 
   const [days, setDays] = useState(0);
 
@@ -83,18 +93,16 @@ const NewItinerary = () => {
         },
       });
       if (Array.isArray(response.data)) {
-        const destinationNames = response.data.map((destination: any) => {
-          const capitalized =
+        const destinationData = response.data.map((destination: any) => ({
+          name:
             destination.name.charAt(0).toUpperCase() +
-            destination.name.slice(1).toLowerCase();
-          return capitalized;
-        });
-        setLocation({
-          lat: response.data[0].latitude,
-          lng: response.data[0].longitude,
-        });
-        setDestinations(destinationNames.map((name) => c("Cities." + name)));
-        setOriginalDestinations(destinationNames);
+            destination.name.slice(1).toLowerCase(),
+          lat: destination.latitude,
+          lng: destination.longitude,
+        }));
+
+        setDestinations(destinationData);
+        setOriginalDestinations(destinationData);
       } else {
         console.error("API response is not an array:", response.data);
       }
@@ -109,6 +117,18 @@ const NewItinerary = () => {
       fetchDestinations();
     }
   }, [session]);
+
+  const handleCityChange = (value: string) => {
+    setCity(value);
+    const selectedCity = originalDestinations.find(
+      (destination) => destination.name.toLowerCase() === value.toLowerCase()
+    );
+    if (selectedCity) {
+      setLocation({ lat: selectedCity.lat, lng: selectedCity.lng });
+    } else {
+      setLocation(null);
+    }
+  };
 
   const handleUserSelect = (username: string) => {
     if (!invitedUsers.includes(username)) {
@@ -148,7 +168,7 @@ const NewItinerary = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    if (!city) {
+    if (!city || !location) {
       setHighlightEmptyFields(true);
       setError(t("Form.Errors.MissingFields"));
       return;
@@ -161,7 +181,7 @@ const NewItinerary = () => {
     }
 
     const originalCity = originalDestinations.find(
-      (destination, index) => destinations[index] === city
+      (destination) => destination.name === city
     );
 
     const itineraryCode = generateRandomCode();
@@ -171,12 +191,12 @@ const NewItinerary = () => {
         "/itinerary/create",
         {
           code: itineraryCode,
-          city: originalCity,
+          city: originalCity?.name,
           days,
           startDate: selectedDate[0]?.toISOString(),
           endDate: selectedDate[1]?.toISOString(),
-          latitude: location?.lat,
-          longitude: location?.lng,
+          latitude: location.lat,
+          longitude: location.lng,
         },
         {
           headers: {
@@ -189,9 +209,7 @@ const NewItinerary = () => {
       if (response.status === 201) {
         setError("");
         setSuccess(t("Form.Success"));
-        setTimeout(() => {
-          router.push(`/itinerary/${itineraryCode}`);
-        }, 3500);
+        router.push(`/itinerary/${itineraryCode}`);
       }
     } catch (error: any) {
       console.error("Error al crear el itinerario:", error);
@@ -221,10 +239,10 @@ const NewItinerary = () => {
             placeholder={t("Form.Placeholder.Destination")}
             highlightEmpty={highlightEmptyFields}
             hasError={!!error}
-            onChange={(value) => setCity(value)}
+            onChange={(value) => handleCityChange(value)}
             className="w-full"
             autocomplete="on"
-            options={destinations}
+            options={destinations.map((destination) => destination.name)}
           />
           <div className="grid grid-cols-2 gap-3 relative">
             <Input
