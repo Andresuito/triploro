@@ -1,5 +1,3 @@
-// FavoriteItinerary.tsx
-
 import React, { useState, useEffect, useCallback } from "react";
 import { IoIosHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
