@@ -11,7 +11,7 @@ import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 
 export default function TripsUser() {
-  const t = useTranslations("Profile.TripInfo");
+  const t = useTranslations("Profile");
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -73,7 +73,7 @@ export default function TripsUser() {
                     {formatRangeDate(trip.startDate, trip.endDate)}
                   </p>
                   <p>
-                    {trip.days} {t("Days")}
+                    {trip.days} {t("TripInfo.Days")}
                   </p>
                 </div>
               </div>
@@ -93,9 +93,7 @@ export default function TripsUser() {
           </Link>
         ))
       ) : (
-        <p className="text-base">
-          No tienes ningun itinerario guardado como favorito.
-        </p>
+        <p className="text-base">{t("NoFavoriteItineraries")} </p>
       )}
     </div>
   );
