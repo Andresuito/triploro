@@ -390,7 +390,7 @@ export const MateSection = ({ title, description }: MateSectionProps) => {
             <div className="flex mt-2 space-x-3">
               <Button
                 label={t("MateSection.Modal.Buttons.Cancel")}
-                className="opacity-50 hover:opacity-100"
+                className="w-full opacity-50 hover:opacity-100"
                 onClick={() => setIsModalOpen(false)}
               />
               <Button
@@ -401,7 +401,7 @@ export const MateSection = ({ title, description }: MateSectionProps) => {
                     deleteFriend(e, selectedUser.id);
                   }
                 }}
-                className="bg-red-500 opacity-50 hover:opacity-100 text-white"
+                className="w-full bg-red-500 opacity-50 hover:opacity-100 text-white"
               />
             </div>
           </div>
