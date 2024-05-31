@@ -187,12 +187,12 @@ const NewItinerary = () => {
     } catch (error: any) {
       console.error("Error al crear el itinerario:", error);
       setSuccess("");
-      setError(error.response.data.error);
+      setError(t("Form.Errors." + error.response.data.error));
     }
   };
 
   return (
-    <div className="mt-8 md:ml-12">
+    <div className="mt-8">
       <h1 className="text-blue text-2xl md:text-3xl font-semibold">
         {t("Form.Title")}
       </h1>
@@ -200,106 +200,105 @@ const NewItinerary = () => {
         {t("Form.Info")} <br />
         {t("Form.Info2")}
       </p>
-      <form onSubmit={handleSubmit} className="w-full ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 max-w-3xl">
-          <div>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12"
+      >
+        <div>
+          <Input
+            label={t("Form.Fields.Destination")}
+            type="text"
+            value={city}
+            placeholder={t("Form.Placeholder.Destination")}
+            highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
+            onChange={(value) => setCity(value)}
+            className="w-full"
+            autocomplete="on"
+            options={destinations}
+          />
+          <div className="grid grid-cols-2 gap-3 relative">
             <Input
-              label={t("Form.Fields.Destination")}
-              type="text"
-              value={city}
-              placeholder={t("Form.Placeholder.Destination")}
+              label={t("Form.Fields.Days")}
+              type="number"
+              value={days.toString()}
+              placeholder={t("Form.Placeholder.Days")}
               highlightEmpty={highlightEmptyFields}
               hasError={!!error}
-              onChange={(value) => setCity(value)}
-              className="w-full"
-              autocomplete="on"
-              options={destinations}
+              onChange={(value) => setDays(Number(value))}
+              className="w-full sm:w-20"
             />
-            <div className="grid grid-cols-2 gap-3 relative">
-              <Input
-                label={t("Form.Fields.Days")}
-                type="number"
-                value={days.toString()}
-                placeholder={t("Form.Placeholder.Days")}
-                highlightEmpty={highlightEmptyFields}
-                hasError={!!error}
-                onChange={(value) => setDays(Number(value))}
-                className="w-full sm:w-20"
-              />
-              <Input
-                label={t("Form.Fields.TravelDates")}
-                type="text"
-                placeholder={t("Form.Placeholder.TravelDates")}
-                readOnly
-                value={
-                  selectedDate[0] && selectedDate[1]
-                    ? `${selectedDate[0].toLocaleDateString()} - ${selectedDate[1].toLocaleDateString()}`
-                    : selectedDate[0]
-                    ? `${selectedDate[0].toLocaleDateString()} - `
-                    : ""
-                }
-                onClick={() => setIsCalendarOpen(true)}
-                onChange={() => {}}
-                highlightEmpty={false}
-                hasError={false}
-                className="w-full"
-              />
-              {isCalendarOpen && (
-                <Calendar
-                  selectedDate={selectedDate}
-                  onDateSelect={handleDateSelect}
-                  isCalendarOpen={isCalendarOpen}
-                  isRange={true}
-                />
-              )}
-            </div>
-          </div>
-          <div>
             <Input
-              label={t("Form.Fields.InviteMates")}
+              label={t("Form.Fields.TravelDates")}
               type="text"
-              value={inviteMate}
-              placeholder={t("Form.Placeholder.InviteMates")}
-              highlightEmpty={highlightEmptyFields}
-              hasError={!!error}
-              onChange={(value) => setInviteMate(value)}
-              onSelect={handleUserSelect}
+              placeholder={t("Form.Placeholder.TravelDates")}
+              readOnly
+              value={
+                selectedDate[0] && selectedDate[1]
+                  ? `${selectedDate[0].toLocaleDateString()} - ${selectedDate[1].toLocaleDateString()}`
+                  : selectedDate[0]
+                  ? `${selectedDate[0].toLocaleDateString()} - `
+                  : ""
+              }
+              onClick={() => setIsCalendarOpen(true)}
+              onChange={() => {}}
+              highlightEmpty={false}
+              hasError={false}
               className="w-full"
-              autocomplete="on"
-              options={friends}
             />
-            <div className="my-2 flex space-x-1">
-              {invitedUsers.map((user, index) => (
-                <div
-                  key={index}
-                  className="bg-blue w-10 h-10 rounded-full flex items-center justify-center font-semibold text-white relative"
-                >
-                  {user.charAt(0).toUpperCase()}
-                  <IoClose
-                    className="absolute top-0 right-0 cursor-pointer bg-red-600 text-white w-3 h-3 rounded-full"
-                    onClick={() => {
-                      setInvitedUsers(
-                        invitedUsers.filter((_, i) => i !== index)
-                      );
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            <Button label={t("Form.Buttons.Create")} className="w-full" />
+            {isCalendarOpen && (
+              <Calendar
+                selectedDate={selectedDate}
+                onDateSelect={handleDateSelect}
+                isCalendarOpen={isCalendarOpen}
+                isRange={true}
+              />
+            )}
           </div>
         </div>
-        {succes && (
-          <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
-            {succes}
-          </p>
-        )}
-        {error && (
-          <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
-            {error}
-          </p>
-        )}
+        <div>
+          <Input
+            label={t("Form.Fields.InviteMates")}
+            type="text"
+            value={inviteMate}
+            placeholder={t("Form.Placeholder.InviteMates")}
+            highlightEmpty={highlightEmptyFields}
+            hasError={!!error}
+            onChange={(value) => setInviteMate(value)}
+            onSelect={handleUserSelect}
+            className="w-full"
+            autocomplete="on"
+            options={friends}
+          />
+          <div className="my-2 flex space-x-1">
+            {invitedUsers.map((user, index) => (
+              <div
+                key={index}
+                className="bg-blue w-10 h-10 rounded-full flex items-center justify-center font-semibold text-white relative"
+              >
+                {user.charAt(0).toUpperCase()}
+                <IoClose
+                  className="absolute top-0 right-0 cursor-pointer bg-red-600 text-white w-3 h-3 rounded-full"
+                  onClick={() => {
+                    setInvitedUsers(invitedUsers.filter((_, i) => i !== index));
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+          <Button label={t("Form.Buttons.Create")} className="w-full" />
+        </div>
       </form>
+      {succes && (
+        <p className="bg-sky-700 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+          {succes}
+        </p>
+      )}
+      {error && (
+        <p className="bg-red-500 text-center p-2 rounded-md  text-white mt-4 text-sm mb-2">
+          {error}
+        </p>
+      )}
     </div>
   );
 };
