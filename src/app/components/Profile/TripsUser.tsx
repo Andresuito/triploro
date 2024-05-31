@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Trip } from "@/types/Trip";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { formatRangeDate } from "@/app/utils/formatDate";
-import { FaEllipsisH } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Spinner from "@/app/components/Global/Spinner";
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
+import ModalWindow from "@/app/components/ModalWindow";
+import Button from "@/app/components/Global/Button";
+import Toast from "@/app/components/Global/Toast";
 
 export default function TripsUser() {
   const t = useTranslations("Profile.TripInfo");
@@ -16,6 +19,8 @@ export default function TripsUser() {
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [tripToDelete, setTripToDelete] = useState<Trip | null>(null);
 
   const getTrips = async () => {
     setIsLoading(true);
@@ -41,6 +46,27 @@ export default function TripsUser() {
     setIsLoading(false);
   };
 
+  const deleteTrip = async () => {
+    if (tripToDelete) {
+      const response = await axiosInstance.delete(
+        "/itinerary/" + tripToDelete.code,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        Toast({ message: "Itinerario borrado correctamente", isError: false });
+        setTrips(trips.filter((trip) => trip.code !== tripToDelete.code));
+        setTripToDelete(null);
+        setShowModal(false);
+      }
+    }
+  };
+
   useEffect(() => {
     getTrips();
   }, [session]);
@@ -59,6 +85,33 @@ export default function TripsUser() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
+      {showModal && (
+        <ModalWindow
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          title="Borrar Itinerario"
+          content={
+            <div>
+              <h1>
+                Estas seguro que deseas borrar el itinerio de{" "}
+                {c(tripToDelete?.city) || tripToDelete?.city}
+              </h1>
+              <div className="flex mt-2 space-x-3">
+                <Button
+                  label="Borrar"
+                  className="w-full bg-red-500 opacity-50 hover:opacity-100 text-white"
+                  onClick={deleteTrip}
+                />
+                <Button
+                  label="Cancelar"
+                  className="w-full opacity-50 hover:opacity-100"
+                  onClick={() => setShowModal(false)}
+                />
+              </div>
+            </div>
+          }
+        />
+      )}
       {trips.length > 0 ? (
         trips.map((trip: Trip, index: number) => (
           <Link href={`/itinerary/${trip.code}`} key={trip.id} legacyBehavior>
@@ -78,8 +131,15 @@ export default function TripsUser() {
                   </p>
                 </div>
               </div>
-              <div className="flex-shrink-0 mr-4 cursor-pointer pt-4">
-                <FaEllipsisH className="text-base text-blue" />
+              <div
+                className="flex-shrink-0 mr-4 cursor-pointer pt-4"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setTripToDelete(trip);
+                  setShowModal(true);
+                }}
+              >
+                <FaTrash className="text-base text-red-400 hover:text-red-500" />
               </div>
               <div className="flex-shrink-0 drop-shadow-lg">
                 <SafeImage
