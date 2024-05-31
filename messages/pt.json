@@ -54,13 +54,37 @@
    "Help":{
       "Title":"Guias de como usar",
       "Articles":"Ver todos os artigos",
+      "Buttons": {
+         "Back": "Voltar"
+      },
       "Topics":{
          "Help1":"Como organizar minha primeira viagem",
          "Help2":"Itinerários disponíveis na Triploro",
          "Help3":"Compartilhe suas experiências",
          "Help4":"Como viajar em grupo"
-      }
-   },
+      },
+      "Article1": {
+         "Title": "Registre-se em ",
+         "TitleTriploro": "Triploro",
+         "Paragraph1": "Juntar-se ao Triploro é fácil. Você só precisa de um e-mail válido para criar um usuário.",
+         "Paragraph2": "Uma vez registrado, você terá acesso completo a todas as nossas ferramentas de planejamento de viagem. Você poderá descobrir destinos incríveis, planejar suas viagens e compartilhar experiências inesquecíveis.",
+         "Paragraph3": "Comece sua aventura hoje mesmo!"
+      },
+         "Article2": {
+            "Title": "Explore com ",
+            "TitleTriploro": "Triploro",
+            "Paragraph1": "Triploro leva você a descobrir os encantos da Espanha e Portugal. Cobrimos cidades vibrantes como Madrid, Barcelona, Valência, Sevilha, Málaga, Bilbau, Granada, Saragoça e Palma de Maiorca na Espanha.",
+            "Paragraph2": "Em Portugal, convidamos você a explorar Lisboa, Porto, Faro, Coimbra, Braga, Aveiro, Évora e Guimarães. Cada cidade tem seu próprio encanto e caráter único.",
+            "Paragraph3": "Com mais de 100 itinerários diferentes, Triploro permite que você explore esses destinos no seu próprio ritmo. Descubra a beleza e a cultura da Espanha e Portugal com Triploro hoje mesmo!"
+         },
+         "Article4": {
+            "Title": "Viaje em grupos com ",
+            "TitleTriploro": "Triploro",
+            "Paragraph1": "Triploro oferece a possibilidade de viajar em grupos. Você pode adicionar amigos à sua conta simplesmente enviando-lhes um pedido de amizade.",
+            "Paragraph2": "Depois de estabelecer uma amizade mútua, você pode convidar seus amigos para se juntarem aos seus itinerários. Desta forma, você pode compartilhar a experiência de descobrir os encantos da Espanha e Portugal com as pessoas que mais se importam.",
+            "Paragraph3": "Com Triploro, viajar em grupo é fácil e divertido. Comece a planejar sua próxima viagem em grupo com Triploro hoje mesmo!"
+         }
+      },
    "VerifyEmail":{
       "Back":"Início",
       "Success":{
@@ -426,7 +450,9 @@
             "InvalidDate":"A data de início não pode ser anterior à data atual.",
             "StartDateBeforeEndDate":"A data de início não pode ser posterior à data de término.",
             "EndDateAfterStartDate":"A data de término não pode ser anterior à data de início.",
-            "MissingFields":"Por favor, preencha todos os campos."
+            "MissingFields":"Por favor, preencha todos os campos.",
+            "user_has_max_itineraries": "Você atingiu o número máximo de itinerários. Por favor, exclua um antes de criar um novo.",
+            "server_error": "Você deve escolher um destino de nossa página."
          }
       }
    },
