@@ -240,6 +240,15 @@
       "Greeting":"Hello",
       "YourTrips":"Your trips",
       "FavoriteItineraries":"Favorite itineraries",
+      "NoFavoriteItineraries":"You don't have any itineraries saved as favorites.",
+      "Modal":{
+         "Title":"Delete the itinerary of ",
+         "Question":"Are you sure you want to delete this itinerary? This action cannot be undone.",
+         "Buttons":{
+            "Delete":"Delete",
+            "Cancel":"Cancel"
+         }
+      },
       "TripInfo":{
          "Days":"days",
          "NoItinerary":"You have no itineraries created."

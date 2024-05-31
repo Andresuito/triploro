@@ -240,6 +240,15 @@
       "Greeting":"Olá",
       "YourTrips":"Suas viagens",
       "FavoriteItineraries":"Itinerários favoritos",
+      "NoFavoriteItineraries":"Você não tem nenhum itinerário salvo como favorito.",
+      "Modal":{
+         "Title":"Excluir o itinerário de ",
+         "Question":"Tem certeza de que deseja excluir este itinerário? Esta ação não pode ser desfeita.",
+         "Buttons":{
+            "Delete":"Excluir",
+            "Cancel":"Cancelar"
+         }
+      },
       "TripInfo":{
          "Days":"dias",
          "NoItinerary":"Você não tem itinerários criados."

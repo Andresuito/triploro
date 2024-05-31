@@ -240,6 +240,15 @@
       "Greeting":"Hola",
       "YourTrips":"Tus viajes",
       "FavoriteItineraries":"Itinerarios favoritos",
+      "NoFavoriteItineraries":"No tienes ningun itinerario guardado como favorito.",
+      "Modal":{
+         "Title":"Eliminar el itinerario de ",
+         "Question":"¿Estás seguro de que deseas eliminar este itinerario? Esta acción no se puede deshacer.",
+         "Buttons":{
+            "Delete":"Borrar",
+            "Cancel":"Cancel"
+         }
+      },
       "TripInfo":{
          "Days":"días",
          "NoItinerary":"No tienes itinerarios creados."
