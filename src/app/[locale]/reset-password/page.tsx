@@ -4,7 +4,6 @@ import React, { FormEvent, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import toast from "react-hot-toast";
 
 import Input from "@/app/components/Global/Input";
 import Button from "@/app/components/Global/Button";
