@@ -20,6 +20,9 @@ const NewItinerary = () => {
   const [succes, setSuccess] = useState("");
 
   const [city, setCity] = useState("");
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(
+    null
+  );
   const [destinations, setDestinations] = useState<string[]>([]);
   const [originalDestinations, setOriginalDestinations] = useState<string[]>(
     []
@@ -85,6 +88,10 @@ const NewItinerary = () => {
             destination.name.charAt(0).toUpperCase() +
             destination.name.slice(1).toLowerCase();
           return capitalized;
+        });
+        setLocation({
+          lat: response.data[0].latitude,
+          lng: response.data[0].longitude,
         });
         setDestinations(destinationNames.map((name) => c("Cities." + name)));
         setOriginalDestinations(destinationNames);
@@ -168,6 +175,8 @@ const NewItinerary = () => {
           days,
           startDate: selectedDate[0]?.toISOString(),
           endDate: selectedDate[1]?.toISOString(),
+          latitude: location?.lat,
+          longitude: location?.lng,
         },
         {
           headers: {
