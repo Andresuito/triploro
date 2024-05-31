@@ -6,7 +6,7 @@ import NotImage from "@/app/assets/pattern.svg";
 import { ImageUpload } from "@/app/components/ItineraryIndividual/ImageUpload";
 import { PrivateOrPublic } from "@/app/components/ItineraryIndividual/PrivateOrPublic";
 import { ItineraryDetailsDays } from "@/app/components/ItineraryIndividual/ItineraryDestailsDays";
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
+import { APIProvider, Map } from "@vis.gl/react-google-maps";
 
 const ItineraryDetails = ({
   itinerary,
@@ -128,8 +128,11 @@ const ItineraryDetails = ({
             <APIProvider apiKey="AIzaSyCEE3re4DPmczgHsFzZveMsdg2ATl54iZo">
               <Map
                 style={{ width: "40vw", height: "43vh", borderRadius: "1rem" }}
-                defaultCenter={{ lat: 41.551, lng: -8.426 }}
-                defaultZoom={14}
+                defaultCenter={{
+                  lat: parseFloat(itinerary.latitude),
+                  lng: parseFloat(itinerary.longitude),
+                }}
+                defaultZoom={13}
                 gestureHandling={"greedy"}
                 disableDefaultUI={false}
               ></Map>
