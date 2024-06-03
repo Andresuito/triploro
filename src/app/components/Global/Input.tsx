@@ -76,7 +76,11 @@ const Input: React.FC<InputProps> = ({
         readOnly={readOnly}
         onClick={onClick}
         autoComplete={autocomplete}
-        onFocus={() => setShowOptions(true)}
+        onFocus={() => {
+          if (autocomplete === "on") {
+            setShowOptions(true);
+          }
+        }}
       />
       {showOptions && (
         <div className="absolute z-10 bg-white border border-gray-200 rounded mt-1 w-full">
