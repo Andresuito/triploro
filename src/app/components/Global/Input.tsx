@@ -76,11 +76,14 @@ const Input: React.FC<InputProps> = ({
         readOnly={readOnly}
         onClick={onClick}
         autoComplete={autocomplete}
+        onFocus={() => setShowOptions(true)}
       />
       {showOptions && (
         <div className="absolute z-10 bg-white border border-gray-200 rounded mt-1 w-full">
           {options
-            .filter((option) => option.includes(value))
+            .filter((option) =>
+              option.toLowerCase().includes(value.toLowerCase())
+            )
             .slice(0, 3)
             .map((option) => (
               <div
@@ -91,7 +94,9 @@ const Input: React.FC<InputProps> = ({
                 {option}
               </div>
             ))}
-          {options.filter((option) => option.includes(value)).length === 0 && (
+          {options.filter((option) =>
+            option.toLowerCase().includes(value.toLowerCase())
+          ).length === 0 && (
             <div className="p-2 text-gray-500">No se ha encontrado</div>
           )}
         </div>
