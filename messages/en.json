@@ -265,24 +265,34 @@
       }
    },
    "Itinerary":{
-      "Days":"Days",
-      "isPublic": "It's public",
-      "isPrivate": "It's private",
-      "ItineraryVisibility": "Once you decide to share your itinerary, it will be accessible and visible to all users. Please make sure you are comfortable with your itinerary information being public before sharing it.",
-      "isPublicInfo": "Public Itinerary",
-      "isPrivateInfo": "Private Itinerary",
-      "Buttons":{
-         "NewImage":"Edtir Cover Photo",
-         "NewImageDropOrClick":"Click or Drop"
+         "Days":"Days",
+         "isPublic": "Is public",
+         "isPrivate": "Is private",
+         "ItineraryVisibility": "Once you decide to share your itinerary, it will be accessible and visible to all users. Please make sure you are comfortable with your itinerary information being public before sharing it.",
+         "isPublicInfo": "Public Itinerary",
+         "isPrivateInfo": "Private Itinerary",
+         "Info": "Itinerary Information",
+         "Day": "Day",
+         "Activity": "What activity would you like to add?",
+         "Buttons":{
+            "NewImage":"Change Image",
+            "NewImageDropOrClick":"Click or drop the image here",
+            "SaveChanges":"Save Changes"
+         },
+         "Success":{
+            "ImageChanged":"Image successfully changed.",
+            "ActivityAdded":"Activity successfully added.",
+            "ActivityUpdated":"Activity successfully updated.",
+            "ActivityDeleted":"Activity successfully deleted."
+         },
+         "Errors":{
+            "ExtensionFile":"Please upload an image in PNG or JPEG format smaller than 1MB",
+            "FileUpload":"Error uploading the image.",
+            "Fetching_Activities": "Error fetching the itinerary activities.",
+            "Updating_Activity": "Error updating the activity.",
+            "Deleting_Activity": "Error deleting the activity."
+         }
       },
-      "Success":{
-         "ImageChanged":"Image successfully changed."
-      },
-      "Errors":{
-         "ExtensionFile":"Please upload an image in PNG or JPEG format smaller than 1MB",
-         "FileUpload":"Error uploading the image."
-      }
-   },
    "Settings":{
       "InfoSection":{
          "Title":"Personal data",

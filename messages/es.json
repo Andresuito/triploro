@@ -271,16 +271,26 @@
       "ItineraryVisibility": "Una vez que decida compartir su itinerario, este será accesible y visible para todos los usuarios. Por favor, asegúrese de que está cómodo con que la información de su itinerario sea pública antes de compartirlo.",
       "isPublicInfo": "Itinerario Público",
       "isPrivateInfo": "Itinerario Privado",
+      "Info": "Información del Itinerario",
+      "Day": "Dia",
+      "Activity": "¿Qué actividad desea añadir?",
       "Buttons":{
          "NewImage":"Cambiar Imagen",
-         "NewImageDropOrClick":"Haz clic o suelta la imagen aquí"
+         "NewImageDropOrClick":"Haz clic o suelta la imagen aquí",
+         "SaveChanges":"Guardar Cambios"
       },
-      "Succees":{
-         "ImageChanged":"Imagen cambiada con éxito."
+      "Success":{
+         "ImageChanged":"Imagen cambiada con éxito.",
+         "ActivityAdded":"Actividad añadida con éxito, recuerde modificarla.",
+         "ActivityUpdated":"Actividad actualizada con éxito.",
+         "ActivityDeleted":"Actividad eliminada con éxito."
       },
       "Errors":{
          "ExtensionFile":"Por favor suba una imagen en formato PNG o JPEG de tamaño menor a 1MB",
-         "FileUpload":"Error al subir la imagen."
+         "FileUpload":"Error al subir la imagen.",
+         "Fetching_Activities": "Error al obtener las actividades del itinerario.",
+         "Updating_Activity": "Error al actualizar la actividad.",
+         "Deleteing_Activity": "Error al eliminar la actividad."
       }
    },
    "Settings":{

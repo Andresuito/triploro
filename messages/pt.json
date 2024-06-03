@@ -265,24 +265,34 @@
       }
    },
    "Itinerary":{
-      "Days":"Dias",
-      "isPublic": "É público",
-      "isPrivate": "É privado",
-      "ItineraryVisibility": "Uma vez que você decidir compartilhar seu itinerário, ele será acessível e visível para todos os usuários. Por favor, certifique-se de que está confortável com as informações do seu itinerário sendo públicas antes de compartilhá-lo.",
-      "isPublicInfo": "Itinerário Público",
-      "isPrivateInfo": "Itinerário Privado",
-      "Buttons":{
-         "NewImage":"Alterar Imagem",
-         "NewImageDropOrClick":"Clique ou solte a imagem aqui"
+         "Days":"Dias",
+         "isPublic": "É público",
+         "isPrivate": "É privado",
+         "ItineraryVisibility": "Uma vez que decida compartilhar o seu itinerário, este será acessível e visível para todos os usuários. Por favor, certifique-se de que está confortável com a informação do seu itinerário sendo pública antes de compartilhá-lo.",
+         "isPublicInfo": "Itinerário Público",
+         "isPrivateInfo": "Itinerário Privado",
+         "Info": "Informação do Itinerário",
+         "Day": "Dia",
+         "Activity": "Que atividade deseja adicionar?",
+         "Buttons":{
+            "NewImage":"Mudar Imagem",
+            "NewImageDropOrClick":"Clique ou solte a imagem aqui",
+            "SaveChanges":"Salvar Alterações"
+         },
+         "Succees":{
+            "ImageChanged":"Imagem alterada com sucesso.",
+            "ActivityAdded":"Atividade adicionada com sucesso, lembre-se de modificá-la.",
+            "ActivityUpdated":"Atividade atualizada com sucesso.",
+            "ActivityDeleted":"Atividade eliminada com sucesso."
+         },
+         "Errors":{
+            "ExtensionFile":"Por favor, carregue uma imagem no formato PNG ou JPEG de tamanho menor que 1MB",
+            "FileUpload":"Erro ao carregar a imagem.",
+            "Fetching_Activities": "Erro ao obter as atividades do itinerário.",
+            "Updating_Activity": "Erro ao atualizar a atividade.",
+            "Deleteing_Activity": "Erro ao eliminar a atividade."
+         }
       },
-      "Succees":{
-         "ImageChanged":"Imagem alterada com sucesso."
-      },
-      "Errors":{
-         "ExtensionFile":"Por favor, carregue uma imagem no formato PNG ou JPEG de tamanho menor que 1MB",
-         "FileUpload":"Erro ao carregar a imagem."
-      }
-   },
    "Settings":{
       "InfoSection":{
          "Title":"Dados pessoais",
