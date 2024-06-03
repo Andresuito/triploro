@@ -9,6 +9,7 @@ import {
   DeleteActivityFunction,
 } from "./ItineraryDestailsDays";
 import Toast from "../Global/Toast";
+import { useTranslations } from "next-intl";
 
 interface Option {
   icon: any;
@@ -111,6 +112,7 @@ const OptionActivity: React.FC<OptionActivityProps> = ({
   const [activities, setActivities] = useState<
     { id: string; element: JSX.Element }[]
   >([]);
+  const t = useTranslations("Itinerary");
 
   const handleActivityAdd = async (option: Option) => {
     const newActivity = {
@@ -135,7 +137,7 @@ const OptionActivity: React.FC<OptionActivityProps> = ({
 
       if (response.status === 201) {
         Toast({
-          message: "Actividad añadida correctamente, recuerda modificarla",
+          message: t("Success.ActivityAdded"),
           isError: false,
         });
         fetchActivities();
@@ -156,9 +158,7 @@ const OptionActivity: React.FC<OptionActivityProps> = ({
       </div>
       {itinerary.isOwner && (
         <>
-          <h1 className="mt-8 mb-3 font-semibold">
-            ¿Qué actividad desea añadir?
-          </h1>
+          <h1 className="mt-8 mb-3 font-semibold">{t("Activity")}</h1>
           <div className="flex">
             {memoizedOptions.map((option, index) => (
               <div
