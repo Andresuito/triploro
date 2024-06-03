@@ -7,6 +7,7 @@ import { FaCar, FaLandmark, FaUtensils, FaQuestion } from "react-icons/fa";
 import { MdHotel, MdLocalActivity } from "react-icons/md";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import Toast from "../Global/Toast";
+import { useTranslations } from "next-intl";
 
 interface Activity {
   id: number;
@@ -43,6 +44,7 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
   itinerary,
 }) => {
   const { data: session } = useSession();
+  const t = useTranslations("Itinerary");
 
   const iconMap: { [key: string]: JSX.Element } = {
     FaCar: <FaCar />,
@@ -56,7 +58,7 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
 
   const generateInitialDays = (num: number): Day[] => {
     return Array.from({ length: num }, (_, i) => ({
-      day: `Día ${i + 1}`,
+      day: `${t("Day")} ${i + 1}`,
       date: "",
       description: "",
       activities: [],
@@ -103,10 +105,9 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
       );
     } catch (error) {
       Toast({
-        message: "Error fetching activities",
+        message: t("Errors.Fetching_Activities"),
         isError: true,
       });
-      console.error("Error fetching activities:", error);
     }
   };
 
@@ -145,14 +146,17 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
 
       if (response.status === 200) {
         Toast({
-          message: "Actividad actualizada correctamente",
+          message: t("Success.ActivityUpdated"),
           isError: false,
         });
         fetchActivities();
         setEditingActivity(null);
       }
     } catch (error) {
-      console.error("Error updating activity:", error);
+      Toast({
+        message: t("Errors.Updating_Activity"),
+        isError: true,
+      });
     }
   };
 
@@ -165,11 +169,14 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
       });
       fetchActivities();
       Toast({
-        message: "Actividad eliminada correctamente",
+        message: t("Success.ActivityDeleted"),
         isError: false,
       });
     } catch (error) {
-      console.error("Error deleting activity:", error);
+      Toast({
+        message: t("Errors.Deleteing_Activity"),
+        isError: true,
+      });
     }
   };
 
@@ -180,9 +187,7 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
   return (
     <div className="mt-10">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold text-blue mb-5">
-          Información del Itinerario
-        </h1>
+        <h1 className="text-2xl font-semibold text-blue mb-5">{t("Info")}</h1>
       </div>
       <ol className="relative border-l border-gray-200 text-blue">
         {days.map((item, index) => {
@@ -266,7 +271,7 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
                               className="bg-blue text-white px-2 py-1 rounded-md"
                               onClick={handleActivityUpdate}
                             >
-                              Guardar cambios
+                              {t("Buttons.SaveChanges")}
                             </button>
                           </>
                         ) : (
