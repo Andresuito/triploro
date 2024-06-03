@@ -124,7 +124,6 @@ const ItineraryDetails = ({
             )}
           </div>
           <div className="flex mt-2">
-            {/* <FlightTicket /> */}
             <APIProvider apiKey="AIzaSyCEE3re4DPmczgHsFzZveMsdg2ATl54iZo">
               <Map
                 style={{ width: "40vw", height: "43vh", borderRadius: "1rem" }}
