@@ -5,6 +5,7 @@ import Masonry from "react-masonry-css";
 import Link from "next/link";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { Itinerary } from "@/types/itineraryType";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import FavoriteItinerary from "@/app/components/Itinerary/FavoriteItinerary";
 
@@ -17,19 +18,31 @@ import { useTranslations } from "next-intl";
 export default function ItinerariesPublics() {
   const [itineraries, setItineraries] = React.useState<Itinerary[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
   const t = useTranslations("Itineraries");
   const c = useTranslations("Country.Cities");
 
   const getItineraries = async () => {
     setIsLoading(true);
     try {
-      const response = await axiosInstance.get("/itinerary/allPublic");
+      const response = await axiosInstance.get(
+        `/itinerary/allPublic?page=${page}`
+      );
       if (response.status === 200 && Array.isArray(response.data)) {
-        const modifiedData = response.data.map((item) => ({
-          ...item,
-          height: `${Math.floor(Math.random() * 200) + 200}px`,
-        }));
-        setItineraries(modifiedData);
+        if (response.data.length === 0) {
+          setHasMore(false);
+        } else {
+          const modifiedData = response.data.map((item) => ({
+            ...item,
+            height: `${Math.floor(Math.random() * 200) + 200}px`,
+          }));
+          setItineraries((prevItineraries) => [
+            ...prevItineraries,
+            ...modifiedData,
+          ]);
+          setPage((prevPage) => prevPage + 1);
+        }
       }
     } catch (error) {
       console.error(error);
@@ -75,51 +88,59 @@ export default function ItinerariesPublics() {
           </Link>
         </div>
         {isLoading ? <Spinner /> : null}
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
+        <InfiniteScroll
+          style={{ overflow: "visible" }}
+          dataLength={itineraries.length}
+          next={getItineraries}
+          hasMore={hasMore}
+          loader={<Spinner />}
         >
-          {itineraries.map((itinerary: Itinerary, index: number) => (
-            <Link
-              href={`/itinerary/${itinerary.code}`}
-              key={itinerary.code}
-              legacyBehavior
-              className="pointer-events-none"
-            >
-              <div
-                key={itinerary.id}
-                className="group rounded-1xl text-white p-4 text-center mb-4 overflow-hidden relative "
-                style={{
-                  height: itinerary.height,
-                }}
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {itineraries.map((itinerary: Itinerary, index: number) => (
+              <Link
+                href={`/itinerary/${itinerary.code}`}
+                key={itinerary.code}
+                legacyBehavior
+                className="pointer-events-none"
               >
-                <SafeImage
-                  src={
-                    itineraryImages[index]
-                      ? `${itineraryImages[index]}`
-                      : NotImage.src
-                  }
-                  alt={itinerary.city ? itinerary.city : ""}
-                  fill
-                  loading="lazy"
-                  className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
-                />
-                <div className="absolute text-white top-2 right-5 md:right-5">
-                  <FavoriteItinerary code={itinerary.code} />
+                <div
+                  key={itinerary.id}
+                  className="group rounded-1xl text-white p-4 text-center mb-4 overflow-hidden relative "
+                  style={{
+                    height: itinerary.height,
+                  }}
+                >
+                  <SafeImage
+                    src={
+                      itineraryImages[index]
+                        ? `${itineraryImages[index]}`
+                        : NotImage.src
+                    }
+                    alt={itinerary.city ? itinerary.city : ""}
+                    fill
+                    loading="lazy"
+                    className="cursor-pointer opacity-75 rounded-1xl hover:opacity-100 transition-opacity duration-300 object-cover"
+                  />
+                  <div className="absolute text-white top-2 right-5 md:right-5">
+                    <FavoriteItinerary code={itinerary.code} />
+                  </div>
+                  <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                    {itinerary.days} {t("TripInfo.Days")}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                    <h3 className="text-base font-semibold mx-2">
+                      {c(itinerary.city) || itinerary.city}
+                    </h3>
+                  </div>
                 </div>
-                <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
-                  {itinerary.days} {t("TripInfo.Days")}
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
-                  <h3 className="text-base font-semibold mx-2">
-                    {c(itinerary.city) || itinerary.city}
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </Masonry>
+              </Link>
+            ))}
+          </Masonry>
+        </InfiniteScroll>
       </div>
     </div>
   );
