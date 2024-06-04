@@ -127,7 +127,7 @@ export default function TripsUser() {
                 </div>
               </div>
               <div
-                className="flex-shrink-0 mr-4 cursor-pointer pt-4"
+                className="flex-shrink-0 mr-4 h-fit cursor-pointer pt-4"
                 onClick={(e) => {
                   e.preventDefault();
                   setTripToDelete(trip);

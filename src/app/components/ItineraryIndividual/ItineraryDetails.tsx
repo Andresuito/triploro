@@ -99,8 +99,16 @@ const ItineraryDetails = ({
                 {itinerary.code}
               </p>
             </div>
-            <div className="flex mt-6 space-x-20 text-1xl text-center text-blue">
-              <div className="flex flex-col">
+            <div
+              className={`flex mt-6 text-1xl text-center text-blue ${
+                !itinerary.startDate || !itinerary.endDate ? "" : "space-x-20"
+              }`}
+            >
+              <div
+                className={`flex flex-col ${
+                  !itinerary.startDate || !itinerary.endDate ? "hidden" : ""
+                }`}
+              >
                 <p>
                   {
                     formatRangeDate(
