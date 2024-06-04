@@ -30,6 +30,8 @@ interface Day {
 
 interface ItineraryDetailsDaysProps {
   itinerary: any;
+  titleText: string;
+  addressText: string;
 }
 
 export interface FetchActivitiesFunction {
@@ -42,6 +44,8 @@ export interface DeleteActivityFunction {
 
 export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
   itinerary,
+  titleText,
+  addressText,
 }) => {
   const { data: session } = useSession();
   const t = useTranslations("Itinerary");
@@ -119,8 +123,8 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
   const handleActivityEdit = (activity: Activity) => {
     setEditingActivity(activity);
     setEditedTime(activity.time);
-    setEditedTitle(activity.title);
-    setEditedLocation(activity.location);
+    setEditedTitle(titleText || activity.title);
+    setEditedLocation(addressText || activity.location);
   };
 
   const handleActivityUpdate = async () => {
@@ -184,6 +188,13 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
     fetchActivities();
   }, []);
 
+  useEffect(() => {
+    if (editingActivity) {
+      setEditedTitle(titleText);
+      setEditedLocation(addressText);
+    }
+  }, [titleText, addressText, editingActivity]);
+
   return (
     <div className="mt-10">
       <div className="flex justify-between">
@@ -194,13 +205,6 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
           const isOpen =
             openDays[index as keyof typeof openDays] ||
             closingDays[index as keyof typeof closingDays];
-
-          function addActivityToDay(
-            activityInfo: JSX.Element,
-            index: number
-          ): void {
-            throw new Error("Function not implemented.");
-          }
 
           return (
             <li key={index} className={`mb-10 ml-6`}>
@@ -247,44 +251,54 @@ export const ItineraryDetailsDays: React.FC<ItineraryDetailsDaysProps> = ({
                         {editingActivity &&
                         editingActivity.id === activity.id ? (
                           <>
-                            <input
-                              type="text"
-                              value={editedTime}
-                              onChange={(e) => setEditedTime(e.target.value)}
-                              className="border-2 border-blue rounded-md"
-                            />
-                            <input
-                              type="text"
-                              value={editedTitle}
-                              onChange={(e) => setEditedTitle(e.target.value)}
-                              className="ml-2 border-2 border-blue rounded-md"
-                            />
-                            <input
-                              type="text"
-                              value={editedLocation}
-                              onChange={(e) =>
-                                setEditedLocation(e.target.value)
-                              }
-                              className="mx-2 border-2 border-blue rounded-md"
-                            />
-                            <button
-                              className="bg-blue text-white px-2 py-1 rounded-md"
-                              onClick={handleActivityUpdate}
-                            >
-                              {t("Buttons.SaveChanges")}
-                            </button>
+                            <div className="flex flex-col space-y-2">
+                              <input
+                                type="text"
+                                value={editedTime}
+                                onChange={(e) => setEditedTime(e.target.value)}
+                                className="border-2 border-blue rounded-md w-fit"
+                              />
+                              <input
+                                type="text"
+                                value={editedTitle}
+                                onChange={(e) => setEditedTitle(e.target.value)}
+                                className="border-2 border-blue rounded-md w-2/3"
+                              />
+                              <input
+                                type="text"
+                                name="location"
+                                className="border-2 border-blue rounded-md w-2/3"
+                                value={editedLocation}
+                                onChange={(e) =>
+                                  setEditedLocation(e.target.value)
+                                }
+                              />
+
+                              <button
+                                className="bg-blue text-white px-2 py-1 rounded-md"
+                                onClick={handleActivityUpdate}
+                              >
+                                {t("Buttons.SaveChanges")}
+                              </button>
+                            </div>
                           </>
                         ) : (
                           <>
-                            <span className="text-sm text-[#333333]">
+                            <span className="text-sm text-zinc-400 font-normal">
                               {activity.time}
                             </span>
                             <h1 className="font-bold text-2xl">
-                              {activity.title}
+                              {activity.title || titleText}
                             </h1>
-                            <p className="underline underline-offset-2">
-                              {activity.location}
-                            </p>
+                            <a
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                activity.location || addressText
+                              )}`}
+                              target="_blank"
+                              className="underline underline-offset-2 cursor-pointer text-sm font-normal text-zinc-400 hover:text-blue"
+                            >
+                              {activity.location || addressText}
+                            </a>
                           </>
                         )}
                       </div>

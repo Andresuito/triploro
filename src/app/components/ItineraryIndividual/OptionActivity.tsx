@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import {
   FetchActivitiesFunction,
   DeleteActivityFunction,
-} from "./ItineraryDestailsDays";
+} from "./ItineraryDetailsDays";
 import Toast from "../Global/Toast";
 import { useTranslations } from "next-intl";
 

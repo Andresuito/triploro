@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatRangeDate } from "@/app/utils/formatDate";
 import { useTranslations } from "next-intl";
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 import { ImageUpload } from "@/app/components/ItineraryIndividual/ImageUpload";
 import { PrivateOrPublic } from "@/app/components/ItineraryIndividual/PrivateOrPublic";
-import { ItineraryDetailsDays } from "@/app/components/ItineraryIndividual/ItineraryDestailsDays";
+import { ItineraryDetailsDays } from "@/app/components/ItineraryIndividual/ItineraryDetailsDays";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 
 const ItineraryDetails = ({
@@ -29,6 +29,23 @@ const ItineraryDetails = ({
 }) => {
   const t = useTranslations("Itinerary");
   const c = useTranslations("Country.Cities");
+
+  const [titleText, setTitleText] = useState("");
+  const [addressText, setAddressText] = useState("");
+
+  const waitForElement = (selector: string): Promise<void> => {
+    return new Promise<void>((resolve, reject) => {
+      const observer = new MutationObserver((mutations: MutationRecord[]) => {
+        mutations.forEach((mutation: MutationRecord) => {
+          if (document.querySelector(selector)) {
+            resolve();
+            observer.disconnect();
+          }
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  };
 
   return (
     <>
@@ -134,12 +151,33 @@ const ItineraryDetails = ({
                 defaultZoom={13}
                 gestureHandling={"greedy"}
                 disableDefaultUI={false}
+                onClick={async (event) => {
+                  await waitForElement('div[role="dialog"] .address');
+                  const addressElement = document.querySelector(
+                    'div[role="dialog"] .address'
+                  );
+                  await waitForElement('div[role="dialog"] .gm-title');
+                  const titleElement = document.querySelector(
+                    'div[role="dialog"] .gm-title'
+                  );
+
+                  if (titleElement) {
+                    setTitleText(titleElement.textContent || "");
+                  }
+                  if (addressElement) {
+                    setAddressText(addressElement.textContent || "");
+                  }
+                }}
               ></Map>
             </APIProvider>
           </div>
         </div>
       </div>
-      <ItineraryDetailsDays itinerary={itinerary} />
+      <ItineraryDetailsDays
+        itinerary={itinerary}
+        addressText={addressText}
+        titleText={titleText}
+      />
     </>
   );
 };
