@@ -279,7 +279,7 @@
             "NewImageDropOrClick":"Clique ou solte a imagem aqui",
             "SaveChanges":"Salvar Alterações"
          },
-         "Succees":{
+         "Success":{
             "ImageChanged":"Imagem alterada com sucesso.",
             "ActivityAdded":"Atividade adicionada com sucesso, lembre-se de modificá-la.",
             "ActivityUpdated":"Atividade atualizada com sucesso.",
