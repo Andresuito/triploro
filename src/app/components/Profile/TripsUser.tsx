@@ -85,30 +85,28 @@ export default function TripsUser() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
-      {showModal && (
-        <ModalWindow
-          open={showModal}
-          onClose={() => setShowModal(false)}
-          title={t("Modal.Title") + (tripToDelete ? tripToDelete.city : "")}
-          content={
-            <div>
-              <h1>{t("Modal.Question")}</h1>
-              <div className="flex mt-2 space-x-3">
-                <Button
-                  label={t("Modal.Buttons.Delete")}
-                  className="w-full bg-red-500 opacity-50 hover:opacity-100 text-white"
-                  onClick={deleteTrip}
-                />
-                <Button
-                  label={t("Modal.Buttons.Cancel")}
-                  className="w-full opacity-50 hover:opacity-100"
-                  onClick={() => setShowModal(false)}
-                />
-              </div>
+      <ModalWindow
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title={t("Modal.Title") + (tripToDelete ? tripToDelete.city : "")}
+        content={
+          <div>
+            <h1>{t("Modal.Question")}</h1>
+            <div className="flex mt-2 space-x-3">
+              <Button
+                label={t("Modal.Buttons.Delete")}
+                className="w-full bg-red-500 opacity-50 hover:opacity-100 text-white"
+                onClick={deleteTrip}
+              />
+              <Button
+                label={t("Modal.Buttons.Cancel")}
+                className="w-full opacity-50 hover:opacity-100"
+                onClick={() => setShowModal(false)}
+              />
             </div>
-          }
-        />
-      )}
+          </div>
+        }
+      />
       {trips.length > 0 ? (
         trips.map((trip: Trip, index: number) => (
           <Link href={`/itinerary/${trip.code}`} key={trip.id} legacyBehavior>
