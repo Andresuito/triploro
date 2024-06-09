@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatRangeDate } from "@/app/utils/formatDate";
 import { useTranslations } from "next-intl";
+import axiosInstance from "@/app/utils/axiosInstance";
+import { useSession } from "next-auth/react";
 import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 import { ImageUpload } from "@/app/components/ItineraryIndividual/ImageUpload";
 import { PrivateOrPublic } from "@/app/components/ItineraryIndividual/PrivateOrPublic";
 import { ItineraryDetailsDays } from "@/app/components/ItineraryIndividual/ItineraryDetailsDays";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
+import { get } from "http";
 
 const ItineraryDetails = ({
   itinerary,
@@ -27,11 +30,15 @@ const ItineraryDetails = ({
   setItinerary: any;
   handleStatusChange: any;
 }) => {
+  const { data: session } = useSession();
   const t = useTranslations("Itinerary");
   const c = useTranslations("Country.Cities");
 
   const [titleText, setTitleText] = useState("");
   const [addressText, setAddressText] = useState("");
+  const [invitations, setInvitations] = useState<{ [key: number]: string[] }>(
+    {}
+  );
 
   const waitForElement = (selector: string): Promise<void> => {
     return new Promise<void>((resolve, reject) => {
@@ -46,6 +53,35 @@ const ItineraryDetails = ({
       observer.observe(document.body, { childList: true, subtree: true });
     });
   };
+
+  const getInvitations = async (itineraryId: any) => {
+    try {
+      if (session?.user?.id) {
+        const response = await axiosInstance.get(
+          `/invitation/invitations/${itineraryId}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${session?.user?.token}`,
+            },
+          }
+        );
+
+        if (response.status === 200 && Array.isArray(response.data)) {
+          const initials = response.data.map((invitation) =>
+            invitation.username[0].toUpperCase()
+          );
+          setInvitations((prev) => ({ ...prev, [itineraryId]: initials }));
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getInvitations(itinerary.id);
+  }, [itinerary.id]);
 
   return (
     <>
@@ -100,7 +136,7 @@ const ItineraryDetails = ({
               </p>
             </div>
             <div
-              className={`flex mt-6 text-1xl text-center text-blue ${
+              className={`flex mt-6 text-1xl text-center text-blue justify-between items-center ${
                 !itinerary.startDate || !itinerary.endDate ? "" : "space-x-20"
               }`}
             >
@@ -129,6 +165,17 @@ const ItineraryDetails = ({
               <div className="flex flex-col">
                 <p>{itinerary.days}</p>
                 <p className="-mt-2">{t("Days")}</p>
+              </div>
+              <div className="flex space-x-1">
+                {invitations[itinerary.id] &&
+                  invitations[itinerary.id].map((initial, idx) => (
+                    <div
+                      key={idx}
+                      className="w-8 h-8 bg-blue rounded-full flex items-center justify-center"
+                    >
+                      <span className="text-white">{initial}</span>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

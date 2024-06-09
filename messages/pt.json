@@ -241,6 +241,14 @@
       "YourTrips":"Suas viagens",
       "FavoriteItineraries":"Itinerários favoritos",
       "NoFavoriteItineraries":"Você não tem nenhum itinerário salvo como favorito.",
+      "Invitations":"Convites dos seus amigos",
+      "NoInvitations":"Você não tem nenhum convite pendente.",
+      "InvitedBy": "Convidado pelo seu amigo",
+      "CreatedBy": "Criado pelo seu amigo",
+      "Buttons":{
+         "Accept":"Aceitar",
+         "Reject":"Rejeitar"
+      },
       "Modal":{
          "Title":"Excluir o itinerário de ",
          "Question":"Tem certeza de que deseja excluir este itinerário? Esta ação não pode ser desfeita.",

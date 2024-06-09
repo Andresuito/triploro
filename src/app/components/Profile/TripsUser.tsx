@@ -21,6 +21,9 @@ export default function TripsUser() {
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [tripToDelete, setTripToDelete] = useState<Trip | null>(null);
+  const [invitations, setInvitations] = useState<{ [key: number]: string[] }>(
+    {}
+  );
 
   const getTrips = async () => {
     setIsLoading(true);
@@ -38,6 +41,10 @@ export default function TripsUser() {
 
         if (response.status === 200 && Array.isArray(response.data)) {
           setTrips(response.data);
+
+          response.data.forEach((trip) => {
+            getInvitations(trip.id);
+          });
         }
       }
     } catch (error) {
@@ -64,6 +71,31 @@ export default function TripsUser() {
         setTripToDelete(null);
         setShowModal(false);
       }
+    }
+  };
+
+  const getInvitations = async (itineraryId: any) => {
+    try {
+      if (session?.user?.id) {
+        const response = await axiosInstance.get(
+          `/invitation/invitations/${itineraryId}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${session?.user?.token}`,
+            },
+          }
+        );
+
+        if (response.status === 200 && Array.isArray(response.data)) {
+          const initials = response.data.map((invitation) =>
+            invitation.username[0].toUpperCase()
+          );
+          setInvitations((prev) => ({ ...prev, [itineraryId]: initials }));
+        }
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -124,6 +156,17 @@ export default function TripsUser() {
                   <p>
                     {trip.days} {t("TripInfo.Days")}
                   </p>
+                </div>
+                <div className="flex space-x-1 mt-4">
+                  {invitations[trip.id] &&
+                    invitations[trip.id].map((initial, idx) => (
+                      <div
+                        key={idx}
+                        className="w-8 h-8 bg-blue rounded-full flex items-center justify-center"
+                      >
+                        <span className="text-white">{initial}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
               <div

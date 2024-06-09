@@ -241,12 +241,21 @@
       "YourTrips":"Tus viajes",
       "FavoriteItineraries":"Itinerarios favoritos",
       "NoFavoriteItineraries":"No tienes ningun itinerario guardado como favorito.",
+      "Invitations":"Invitaciones de tus amigos",
+      "NoInvitations":"No tienes ninguna invitación pendiente.",
+      "InvitedBy": "Invitado por tu amigo",
+      "CreatedBy": "Creado por tu amigo",
+      "Buttons":{
+         "Accept":"Aceptar",
+         "Reject":"Rechazar"
+      }, 
       "Modal":{
          "Title":"Eliminar el itinerario de ",
          "Question":"¿Estás seguro de que deseas eliminar este itinerario? Esta acción no se puede deshacer.",
          "Buttons":{
             "Delete":"Borrar",
             "Cancel":"Cancel"
+            
          }
       },
       "TripInfo":{

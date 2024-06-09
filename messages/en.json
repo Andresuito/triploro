@@ -241,6 +241,14 @@
       "YourTrips":"Your trips",
       "FavoriteItineraries":"Favorite itineraries",
       "NoFavoriteItineraries":"You don't have any itineraries saved as favorites.",
+      "Invitations":"Invitations of your friends",
+      "NoInvitations":"You have no pending invitations.",
+      "InvitedBy": "Invited by your friend",
+      "CreatedBy": "Created by your friend",
+      "Buttons":{
+         "Accept":"Accept",
+         "Reject":"Reject"
+      },
       "Modal":{
          "Title":"Delete the itinerary of ",
          "Question":"Are you sure you want to delete this itinerary? This action cannot be undone.",

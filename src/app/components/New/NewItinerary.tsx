@@ -44,6 +44,8 @@ const NewItinerary = () => {
   const [inviteMate, setInviteMate] = useState("");
   const [invitedUsers, setInvitedUsers] = useState<string[]>([]);
 
+  console.log("invitedUsers", invitedUsers);
+
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
   const [selectedDate, setSelectedDate] = useState<[Date | null, Date | null]>([
     null,
@@ -180,6 +182,12 @@ const NewItinerary = () => {
       return;
     }
 
+    if (days > 30) {
+      setHighlightEmptyFields(true);
+      setError(t("Form.Errors.Days"));
+      return;
+    }
+
     const originalCity = originalDestinations.find(
       (destination) => destination.name === city
     );
@@ -209,10 +217,28 @@ const NewItinerary = () => {
       if (response.status === 201) {
         setError("");
         setSuccess(t("Form.Success"));
+
+        for (const username of invitedUsers) {
+          await axiosInstance.post(
+            "/invitation/create",
+            {
+              invitedBy: session?.user?.username,
+              itineraryId: response.data.id,
+              username,
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${session?.user?.token}`,
+              },
+            }
+          );
+        }
+
         router.push(`/itinerary/${itineraryCode}`);
       }
     } catch (error: any) {
-      console.error("Error al crear el itinerario:", error);
+      console.log("Error al crear el itinerario:", error);
       setSuccess("");
       setError(t("Form.Errors." + error.response.data.error));
     }

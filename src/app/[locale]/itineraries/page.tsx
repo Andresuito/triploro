@@ -37,6 +37,20 @@ export default function ItinerariesPublics() {
             ...item,
             height: `${Math.floor(Math.random() * 200) + 200}px`,
           }));
+
+          let currentIndex = modifiedData.length,
+            temporaryValue,
+            randomIndex;
+
+          while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = modifiedData[currentIndex];
+            modifiedData[currentIndex] = modifiedData[randomIndex];
+            modifiedData[randomIndex] = temporaryValue;
+          }
+
           setItineraries((prevItineraries) => [
             ...prevItineraries,
             ...modifiedData,
@@ -128,10 +142,10 @@ export default function ItinerariesPublics() {
                   <div className="absolute text-white top-2 right-5 md:right-5">
                     <FavoriteItinerary code={itinerary.code} />
                   </div>
-                  <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                  <div className="absolute top-2 left-2 bg-white rounded-full text-blue font-bold px-2 text-sm opacity-100 md:opacity-50 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
                     {itinerary.days} {t("TripInfo.Days")}
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
+                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 py-1 md:py-2 text-blue text-center opacity-100 md:opacity-50 transition-opacity duration-300 md:group-hover:opacity-100 select-none">
                     <h3 className="text-base font-semibold mx-2">
                       {c(itinerary.city) || itinerary.city}
                     </h3>

@@ -53,7 +53,7 @@ export default function Hero() {
           {t("Title")}
         </h1>
         <p className="text-base md:text-lg mb-8">{t("Subtitle")}</p>
-        <div className="xs:space-x-5 align-bottom">
+        <div className="space-x-0 sm:space-x-5 md:space-x-5 align-bottom">
           <Link href="/itineraries">
             <Button
               className="w-[180px] text-sm md:text-base hover:scale-105 transition duration-150"

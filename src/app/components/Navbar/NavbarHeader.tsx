@@ -12,7 +12,7 @@ export const NavbarHeader = ({ toggleSidebar }: { toggleSidebar: any }) => (
         onClick={toggleSidebar}
       />
     </div>
-    <div className="flex-shrink-0">
+    <div className="ml-12 sm:ml-0">
       <Link href="/" legacyBehavior>
         <Image className="cursor-pointer" src={Logo} alt="Logo" width={120} />
       </Link>

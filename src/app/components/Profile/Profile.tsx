@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import Skeleton from "@/app/components/Profile/Skeleton";
 import TripsUser from "@/app/components/Profile/TripsUser";
 import TripUserFavorites from "@/app/components/Profile/TripUserFavorites";
+import InviteItineraries from "@/app/components/Profile/InviteItineraries";
 
 export default function Profile() {
   const { data: session, status } = useSession();
@@ -38,6 +39,12 @@ export default function Profile() {
                 {t("FavoriteItineraries")}
               </h2>
               {loading ? <Skeleton /> : <TripUserFavorites />}
+            </div>
+            <div className="mb-10">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+                {t("Invitations")}
+              </h2>
+              {loading ? <Skeleton /> : <InviteItineraries />}
             </div>
           </div>
         </div>

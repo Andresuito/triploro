@@ -25,27 +25,16 @@ export default function Itinerary({ params }: Props) {
       setIsLoading(true);
       try {
         let response;
-
-        if (session?.user?.token) {
-          try {
-            response = await axiosInstance.get(`/itinerary/${params.code}`, {
-              headers: {
-                Authorization: `Bearer ${session.user.token}`,
-              },
-            });
-          } catch (privateError: any) {
-            if (privateError.response && privateError.response.status === 403) {
-              response = await axiosInstance.get(
-                `/itinerary/public/${params.code}`
-              );
-            } else {
-              throw privateError;
-            }
-          }
-        } else {
+        if (!session) {
           response = await axiosInstance.get(
             `/itinerary/public/${params.code}`
           );
+        } else {
+          response = await axiosInstance.get(`/itinerary/${params.code}`, {
+            headers: {
+              Authorization: `Bearer ${session.user.token}`,
+            },
+          });
         }
 
         if (response.status === 200 && response.data) {
@@ -54,9 +43,12 @@ export default function Itinerary({ params }: Props) {
         }
       } catch (error: any) {
         console.error(error);
-        if (error.response && error.response.status === 404) {
+        if (error.response && error.response.status === 401) {
           router.push("/");
         }
+        // if (!session || error.response.status === 404) {
+        //   router.push("/");
+        // }
       } finally {
         setIsLoading(false);
       }

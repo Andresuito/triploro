@@ -31,6 +31,14 @@ export default function Skeleton() {
             &nbsp;
           </span>
         </div>
+        <div className="mb-10">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">
+            {t("Invitations")}
+          </h2>
+          <span className="bg-gray-300 text-white px-40 py-1 rounded-lg animate-pulse">
+            &nbsp;
+          </span>
+        </div>
       </div>
     </div>
   );

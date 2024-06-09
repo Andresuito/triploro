@@ -18,13 +18,6 @@ export const NavbarLinks = ({
           {t("Options.Option3")}
         </a>
       </Link>
-      <a
-        href="#"
-        className="px-3 py-2 hover:bg-blue/80 hover:text-white rounded-1xl"
-        onClick={handleNavLinkClick}
-      >
-        {t("Options.Option2")}
-      </a>
       <Link legacyBehavior href="/destinations">
         <a
           className="px-3 py-2 hover:bg-blue/80 hover:text-white rounded-1xl"
