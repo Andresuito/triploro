@@ -23,12 +23,6 @@ const Guides = () => {
       title: t("Topics.Help2"),
     },
     {
-      slug: "share-your-experiences",
-      image: help3,
-      alt: t("Topics.Help3"),
-      title: t("Topics.Help3"),
-    },
-    {
       slug: "how-travel-with-friends",
       image: help4,
       alt: t("Topics.Help4"),
