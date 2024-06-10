@@ -198,7 +198,7 @@ const ItineraryDetails = ({
           <div className="flex mt-2">
             <APIProvider apiKey="AIzaSyCEE3re4DPmczgHsFzZveMsdg2ATl54iZo">
               <Map
-                style={{ width: "40vw", height: "43vh", borderRadius: "1rem" }}
+                className="w-full h-[50vh] rounded-1xl"
                 defaultCenter={{
                   lat: parseFloat(itinerary.latitude),
                   lng: parseFloat(itinerary.longitude),

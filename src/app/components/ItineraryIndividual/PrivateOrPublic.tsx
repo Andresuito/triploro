@@ -67,7 +67,7 @@ export const PrivateOrPublic = ({
         </div>
         <span className="group ml-3 text-sm relative">
           {isPublic ? t("isPublicInfo") : t("isPrivateInfo")}
-          <div className="absolute -left-20 top-full mt-2 w-60 p-2 bg-blue pointer-events-none text-white leading-6 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition ease-in-out duration-200 z-10">
+          <div className="absolute right-0 xl:-left-20 top-full mt-2 w-60 p-2 bg-blue pointer-events-none text-white leading-6 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition ease-in-out duration-200 z-10">
             {t("ItineraryVisibility")}
           </div>
         </span>
