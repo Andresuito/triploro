@@ -29,8 +29,12 @@ const handler = NextAuth({
             exp,
             jti,
           };
-        } catch (error) {
-          throw new Error((error as any)?.response?.data?.error);
+        } catch (error: any) {
+          if (error.code === "ECONNREFUSED") {
+            throw new Error(error.code);
+          } else {
+            throw new Error(error?.response?.data?.error);
+          }
         }
       },
     }),
