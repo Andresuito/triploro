@@ -99,7 +99,7 @@ const ItineraryDetails = ({
               alt={itinerary.city ? itinerary.city : ""}
               width={400}
               height={300}
-              className="h-[300px] w-full object-cover rounded-t-1xl opacity-90"
+              className="h-[300px] w-full md:max-w-[384px] object-cover rounded-t-1xl opacity-90"
             />
             {itinerary.isOwner && (
               <>
@@ -198,7 +198,7 @@ const ItineraryDetails = ({
           <div className="flex mt-2">
             <APIProvider apiKey="AIzaSyCEE3re4DPmczgHsFzZveMsdg2ATl54iZo">
               <Map
-                className="w-full h-[50vh] rounded-1xl"
+                className="w-full h-[395px] rounded-1xl"
                 defaultCenter={{
                   lat: parseFloat(itinerary.latitude),
                   lng: parseFloat(itinerary.longitude),
