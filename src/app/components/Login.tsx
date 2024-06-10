@@ -22,6 +22,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [errorCode, setErrorCode] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
   const [showResendEmail, setShowResendEmail] = useState(false);
@@ -86,8 +87,12 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
       onClose();
       router.push(callbackUrl);
-    } catch (error) {
-      setError("error.login_error");
+    } catch (error: any) {
+      console.log("error", error);
+      setError(`Error: ${error.message}`);
+      if (error.code) {
+        setErrorCode(`Code: ${error.code}`);
+      }
     }
   };
 
@@ -142,6 +147,9 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                 <p className="text-center rounded-md text-red-500 mb-2 p-2 text-sm">
                   {t(error)}
                 </p>
+              )}
+              {errorCode && (
+                <p className="text-2xl mb-4 text-center">{errorCode}</p>
               )}
               {showLogin && (
                 <Button

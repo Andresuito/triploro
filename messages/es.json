@@ -158,7 +158,8 @@
             "account_not_activated":"La cuenta no está activada. Por favor, revisa tu correo electrónico para activarla.",
             "invalid_credentials":"Credenciales incorrectas.",
             "login_error":"Error al iniciar sesión. Por favor, inténtalo de nuevo.",
-            "incorrect_password":"Contraseña incorrecta."
+            "incorrect_password":"Contraseña incorrecta.",
+            "ECONNREFUSED": "Error de red. Por favor, inténtalo de nuevo."
          }
       },
       "ResetPassword":{

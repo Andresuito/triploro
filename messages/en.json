@@ -158,7 +158,8 @@
             "account_not_activated":"The account is not activated. Please check your email to activate it.",
             "invalid_credentials":"Incorrect credentials.",
             "login_error":"Error logging in. Please try again.",
-            "incorrect_password":"Incorrect password."
+            "incorrect_password":"Incorrect password.",
+            "ECONNREFUSED":"Network error. Please try again later."
          }
       },
       "ResetPassword":{

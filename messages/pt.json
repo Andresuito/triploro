@@ -158,7 +158,8 @@
             "account_not_activated":"A conta não está ativada. Por favor, verifique seu e-mail para ativá-la.",
             "invalid_credentials":"Credenciais inválidas.",
             "login_error":"Erro ao iniciar sessão. Por favor, tente novamente.",
-            "incorrect_password":"Senha incorreta."
+            "incorrect_password":"Senha incorreta.",
+            "ECONNREFUSED":"Erro de conexão. Por favor, tente novamente mais tarde."
          }
       },
       "ResetPassword":{
