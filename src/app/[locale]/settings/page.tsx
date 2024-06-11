@@ -3,10 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { FaLock, FaUserFriends, FaUserEdit } from "react-icons/fa";
-import { PiBellSimpleFill } from "react-icons/pi";
 import { useTranslations } from "next-intl";
 import axiosInstance from "@/app/utils/axiosInstance";
-import { NotificationsSection } from "@/app/components/Settings/NotificationsSection";
 import { SeguridadSection } from "@/app/components/Settings/SecuritySection";
 import { MateSection } from "@/app/components/Settings/MateSection";
 import { InfoSection } from "@/app/components/Settings/InfoSection";
@@ -80,14 +78,6 @@ export default function ProfilePage() {
             info={info}
           />
         );
-      case "notifications":
-        return (
-          <NotificationsSection
-            title={t("NotificationsSection.Title")}
-            description={t("NotificationsSection.Subtitle")}
-            info={info}
-          />
-        );
       case "security":
         return (
           <SeguridadSection
@@ -112,18 +102,12 @@ export default function ProfilePage() {
       <div className="p-8 md:flex md:justify-between">
         {info && (
           <>
-            <div className="bg-white p-6 h-[290px] md:w-1/3 rounded-md border border-gray-200">
+            <div className="bg-white p-6 h-fit md:w-1/3 rounded-md border border-gray-200">
               <ProfileOptionButton
                 icon={<FaUserEdit className="mr-2" />}
                 text={t("InfoSection.Title")}
                 active={activeOption === "personalInfo"}
                 onClick={() => handleOptionClick("personalInfo")}
-              />
-              <ProfileOptionButton
-                icon={<PiBellSimpleFill className="mr-2" />}
-                text={t("NotificationsSection.Title")}
-                active={activeOption === "notifications"}
-                onClick={() => handleOptionClick("notifications")}
               />
               <ProfileOptionButton
                 icon={<FaLock className="mr-2" />}
