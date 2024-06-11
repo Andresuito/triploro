@@ -28,11 +28,6 @@ export const Sidebar = ({
               {t("Options.Option3")}
             </a>
           </Link>
-          <Link legacyBehavior href="#">
-            <a className="px-3 py-4 font-medium" onClick={handleNavLinkClick}>
-              {t("Options.Option2")}
-            </a>
-          </Link>
           <Link legacyBehavior href="/destinations">
             <a className="px-3 py-4 font-medium" onClick={handleNavLinkClick}>
               {t("Options.Option1")}
