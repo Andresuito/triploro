@@ -44,7 +44,7 @@ export const ImageUpload = ({
           );
 
           if (response.status === 200) {
-            Toast({ message: t("Succees.ImageChanged"), isError: false });
+            Toast({ message: t("Success.ImageChanged"), isError: false });
             const newImageUrl = URL.createObjectURL(image);
             setPreviewUrl(newImageUrl);
             setItinerary((prevState: any) =>
