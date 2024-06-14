@@ -11,6 +11,7 @@ import SafeImage from "@/app/components/SafeImage";
 import NotImage from "@/app/assets/pattern.svg";
 
 export default function TripsUser() {
+  const c = useTranslations("Country.Cities");
   const t = useTranslations("Profile");
   const { data: session } = useSession();
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -65,7 +66,7 @@ export default function TripsUser() {
               <div className="p-4 text-gray-500 text-base flex-grow">
                 <div className="flex items-center">
                   <p className="text-2xl font-bold leading-7 text-blue cursor-pointer">
-                    {trip.city}
+                    {trip.city ? c(trip.city) || trip.city : ""}
                   </p>
                 </div>
                 <div className="flex space-x-5">

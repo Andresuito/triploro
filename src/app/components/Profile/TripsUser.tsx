@@ -146,7 +146,7 @@ export default function TripsUser() {
               <div className="p-4 text-gray-500 text-base flex-grow">
                 <div className="flex items-center">
                   <p className="text-2xl font-bold leading-7 text-blue cursor-pointer">
-                    {c(trip.city) || trip.city}
+                    {trip.city ? c(trip.city) || trip.city : ""}
                   </p>
                 </div>
                 <div className="flex space-x-5">
