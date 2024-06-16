@@ -173,28 +173,31 @@ export default function InviteItineraries() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
         {acceptedTrips.length > 0 ? (
-          acceptedTrips.map((trip: Trip) => (
-            <Link
-              key={trip.itinerary.id}
-              href={`/itinerary/${trip.itinerary.code}`}
-              className="box bg-white shadow-md rounded-1xl px-8 pt-6 pb-8 mb-4 transition duration-300 ease-in-out transform  hover:scale-105 hover:drop-shadow-xl"
-            >
-              <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-bold leading-7 text-blue cursor-pointer">
-                  {c(trip.itinerary.city)}
-                </h1>
-                <h2 className="text-gray-500">
-                  {`${trip.itinerary.days}`} {t("TripInfo.Days")}
-                </h2>
-              </div>
-              <p className="mt-2 text-sm">
-                {t("CreatedBy")}{" "}
-                <span className="text-blue font-semibold">
-                  @{trip.invitedBy}
-                </span>
-              </p>
-            </Link>
-          ))
+          acceptedTrips.map(
+            (trip: Trip) =>
+              trip.itinerary && (
+                <Link
+                  key={trip.itinerary.id}
+                  href={`/itinerary/${trip.itinerary.code}`}
+                  className="box bg-white shadow-md rounded-1xl px-8 pt-6 pb-8 mb-4 transition duration-300 ease-in-out transform  hover:scale-105 hover:drop-shadow-xl"
+                >
+                  <div className="flex justify-between items-center">
+                    <h1 className="text-2xl font-bold leading-7 text-blue cursor-pointer">
+                      {c(trip.itinerary.city)}
+                    </h1>
+                    <h2 className="text-gray-500">
+                      {`${trip.itinerary.days}`} {t("TripInfo.Days")}
+                    </h2>
+                  </div>
+                  <p className="mt-2 text-sm">
+                    {t("CreatedBy")}{" "}
+                    <span className="text-blue font-semibold">
+                      @{trip.invitedBy}
+                    </span>
+                  </p>
+                </Link>
+              )
+          )
         ) : (
           <p></p>
         )}
