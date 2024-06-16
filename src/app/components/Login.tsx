@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, FormEvent } from "react";
+import axiosInstance from "../utils/axiosInstance";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import { useRouter } from "next/navigation";
@@ -23,6 +24,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [errorCode, setErrorCode] = useState("");
+  const [success, setSuccess] = useState("");
   const [highlightEmptyFields, setHighlightEmptyFields] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
   const [showResendEmail, setShowResendEmail] = useState(false);
@@ -76,6 +78,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
         setError("error." + responseNextAuth.error);
 
         if (responseNextAuth.error === "account_not_activated") {
+          setSuccess("");
           setShowLogin(false);
           setShowResendEmail(true);
         }
@@ -89,10 +92,34 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
       router.push(callbackUrl);
     } catch (error: any) {
       console.log("error", error);
+      setSuccess("");
       setError(`Error: ${error.message}`);
       if (error.code) {
         setErrorCode(`Code: ${error.code}`);
       }
+    }
+  };
+
+  const handleResendCodeVerification = async (event: FormEvent) => {
+    event.preventDefault();
+
+    try {
+      const response = await axiosInstance.post("/auth/resend-code", {
+        email,
+      });
+
+      if (response.status === 200) {
+        setSuccess("verification_email_sent");
+        setShowResendEmail(false);
+        setShowLogin(true);
+        setError("");
+      } else {
+        setError("error.resend_verification_email");
+      }
+    } catch (error: any) {
+      if (error.response && error.response.status === 404) {
+        setError("error.email_not_found");
+      } else console.error(error);
     }
   };
 
@@ -148,6 +175,11 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
                   {t(error)}
                 </p>
               )}
+              {success && (
+                <p className="text-center rounded-md text-blue mb-2 p-2 text-sm">
+                  {t(success)}
+                </p>
+              )}
               {errorCode && (
                 <p className="text-2xl mb-4 text-center">{errorCode}</p>
               )}
@@ -161,7 +193,7 @@ const LoginModal: React.FC<ModalProps> = ({ open, onClose }) => {
               {showResendEmail && (
                 <Button
                   label={t("Button.ResendEmail")}
-                  onClick={(e) => handleLogin(e)}
+                  onClick={(e) => handleResendCodeVerification(e)}
                   className="w-[145px]"
                 />
               )}

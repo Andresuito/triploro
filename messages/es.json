@@ -149,6 +149,7 @@
             "ForgotPassword":"¿Olvidaste tu contraseña?",
             "Register":"Regístrate"
          },
+         "verification_email_sent":"¡Correo electrónico de verificación enviado! Por favor, revisa tu bandeja de entrada.",
          "error":{
             "network_error":"Error de red. Por favor, inténtalo de nuevo.",
             "missing_fields":"Por favor, completa todos los campos.",
@@ -159,7 +160,8 @@
             "invalid_credentials":"Credenciales incorrectas.",
             "login_error":"Error al iniciar sesión. Por favor, inténtalo de nuevo.",
             "incorrect_password":"Contraseña incorrecta.",
-            "ECONNREFUSED": "Error de red. Por favor, inténtalo de nuevo."
+            "ECONNREFUSED": "Error de red. Por favor, inténtalo de nuevo.",
+            "resend_verification_email": "Error al enviar el correo de verificación. Por favor, inténtalo de nuevo."
          }
       },
       "ResetPassword":{

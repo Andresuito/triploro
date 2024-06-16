@@ -149,6 +149,7 @@
             "ForgotPassword":"Forgot your password?",
             "Register":"Register"
          },
+         "verification_email_sent": "Verification email sent! Please, check your inbox.",
          "error":{
             "network_error":"Network error. Please try again later.",
             "missing_fields":"Please complete all fields.",
@@ -159,7 +160,8 @@
             "invalid_credentials":"Incorrect credentials.",
             "login_error":"Error logging in. Please try again.",
             "incorrect_password":"Incorrect password.",
-            "ECONNREFUSED":"Network error. Please try again later."
+            "ECONNREFUSED":"Network error. Please try again later.",
+            "resend_verification_email": "Error sending verification email. Please, try again."
          }
       },
       "ResetPassword":{

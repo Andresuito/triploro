@@ -149,6 +149,7 @@
             "ForgotPassword":"Esqueceu sua senha?",
             "Register":"Registrar"
          },
+         "verification_email_sent": "E-mail de verificação enviado! Por favor, verifique sua caixa de entrada.",
          "error":{
             "network_error":"Erro de rede. Por favor, tente novamente.",
             "missing_fields":"Por favor, preencha todos os campos.",
@@ -159,7 +160,8 @@
             "invalid_credentials":"Credenciais inválidas.",
             "login_error":"Erro ao iniciar sessão. Por favor, tente novamente.",
             "incorrect_password":"Senha incorreta.",
-            "ECONNREFUSED":"Erro de conexão. Por favor, tente novamente mais tarde."
+            "ECONNREFUSED":"Erro de conexão. Por favor, tente novamente mais tarde.",
+            "resend_verification_email": "Erro ao enviar o email de verificação. Por favor, tente novamente."
          }
       },
       "ResetPassword":{
